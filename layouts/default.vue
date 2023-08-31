@@ -1,10 +1,10 @@
 <template>
     <div>
         <the-navbar />
+
         <slot />
-        <div class="bg-blue-200 text-white">
-            Footer
-        </div>
+
+        <the-footer />
     </div>
 </template>
 
