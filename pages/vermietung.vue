@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Vermietung</h1>
+        <Hero title="Vermietung" breadcrumb="home" />
     </div>
 </template>
 

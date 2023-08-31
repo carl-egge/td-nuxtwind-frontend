@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Schule</h1>
+        <Hero title="Schule" breadcrumb="home" />
     </div>
 </template>
 

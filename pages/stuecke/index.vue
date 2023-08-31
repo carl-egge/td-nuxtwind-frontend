@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Stücke</h1>
+        <Hero title="Programm" breadcrumb="home" />
     </div>
 </template>
 
