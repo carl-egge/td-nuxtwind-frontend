@@ -9,10 +9,10 @@ export default defineNuxtConfig({
     'nuxt-headlessui',
     '@pinia/nuxt',
     'nuxt-icon',
+    'nuxt-mapbox',
   ],
 
   // ENVIRONMENT VARIABLES
-  // Process Environment Variables
   runtimeConfig: {
     public: {
       pretixBaseUrl: process.env.PRETIX_BASE_URL,
@@ -49,5 +49,10 @@ export default defineNuxtConfig({
       tailwindcss: {},
       autoprefixer: {},
     },
+  },
+
+  // MAPBOX
+  mapbox: {
+    accessToken: 'pk.eyJ1IjoiYWxleGxhdm9pZSIsImEiOiJja3RhZmpqZmoxbGlzMndvOGtueDFxYTU3In0.nyGbO7RFkmwC_kYseOZ4Dw'
   },
 })
