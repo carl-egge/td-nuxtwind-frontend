@@ -7,4 +7,34 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
   ],
+
+  // HEAD
+  app: {
+    head: {
+      title: 'Theaterdeck',
+      meta: [
+        {name: 'description', content: 'Dies ist die Website des Theaterdeck Hamburgs.'},
+      ],
+      link: [
+        {rel: 'preconnect', href: 'https://fonts.googleapis.com'},
+        {rel: 'preconnect', href: 'https://fonts.gstatic.com' },
+        {rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons'},
+        {rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap'},
+      ],
+    }
+  },
+    
+  // STYLESHEETS
+  css: [
+    "~/assets/css/main.scss",
+    "~/assets/css/tailwind.css",
+  ],
+
+  // POSTCSS CONFIG
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
 })
