@@ -1,6 +1,8 @@
 <template>
     <div>
         <Hero title="Programm" breadcrumb="home" />
+        <EventCard />
+        <EventCard />
     </div>
 </template>
 

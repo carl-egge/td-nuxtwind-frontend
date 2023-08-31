@@ -24,7 +24,7 @@
  */
 
 import { storeToRefs } from 'pinia'
-import { useEventsStore } from '~/store/events';
+import { useEventsStore } from '~/stores/events';
 
 const { slug } = useRoute().params;
 const config = useRuntimeConfig()
