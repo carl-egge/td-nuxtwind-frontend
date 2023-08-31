@@ -1,5 +1,6 @@
 <template>
     <div id="pageHero" class="bg-black px-6 py-20 text-center text-white">
+        <Icon name="mingcute:lighthouse-line" class="text-xl mb-4" />
         <h2 class="mb-7 text-5xl font-bold">{{ title }}</h2>
         <div class="mb-9 text-xs uppercase">
             <NuxtLink to="/" class="hover:text-red-100">Home</NuxtLink>
