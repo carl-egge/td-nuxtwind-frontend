@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
+    'nuxt-icon',
   ],
 
   // ENVIRONMENT VARIABLES
@@ -37,7 +38,7 @@ export default defineNuxtConfig({
     
   // STYLESHEETS
   css: [
-    "~/assets/css/main.scss",
+    "~/assets/css/main.css",
     "~/assets/css/tailwind.css",
   ],
 
