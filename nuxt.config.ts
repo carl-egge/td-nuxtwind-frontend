@@ -6,7 +6,18 @@ export default defineNuxtConfig({
   // MODULES
   modules: [
     '@nuxtjs/tailwindcss',
+    '@pinia/nuxt',
   ],
+
+  // ENVIRONMENT VARIABLES
+  // Process Environment Variables
+  runtimeConfig: {
+    public: {
+      pretixBaseUrl: process.env.PRETIX_BASE_URL,
+      pretixEndpoint: process.env.PRETIX_API_ENDPOINT,
+      pretixApiKey: process.env.PRETIX_API_KEY,
+    }
+  },
 
   // HEAD
   app: {
