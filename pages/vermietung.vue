@@ -87,10 +87,12 @@
                                     </li>
                                 </ul>
                                 <p class="mt-8">
-                                    Sämtliche Möglichkeiten und Konditionen unter: <a class="hover:text-td-pink"
-                                        href="https://luettliv.de/" target="_blank">www.luettliv.de.</a>
+                                    Sämtliche Möglichkeiten und Konditionen unter: <a
+                                        class="hover:text-td-pink text-gray-900" href="https://luettliv.de/"
+                                        target="_blank">www.luettliv.de.</a>
                                     <hr class="my-2" />
-                                    * Es gelten die <NuxtLink class="hover:text-td-pink" to="/datenschutz">Allgemeinen
+                                    * Es gelten die <NuxtLink class="hover:text-td-pink text-gray-900" to="/datenschutz">
+                                        Allgemeinen
                                         Geschäftsbedingungen</NuxtLink>
                                 </p>
                                 <h2 class="mt-16 text-2xl font-bold tracking-tight text-gray-900">Noch Fragen? Kein Problem.
@@ -110,6 +112,7 @@
                 </div>
             </div>
         </main>
+        <Newsletter />
     </div>
 </template>
 
