@@ -21,9 +21,11 @@
                     </div>
                     <div class="hidden sm:ml-6 sm:block">
                         <div class="flex space-x-4">
-                            <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href"
+                            <!-- <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href"
                                 :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'rounded-md px-3 py-2 text-sm font-medium']"
-                                :aria-current="item.current ? 'page' : undefined">
+                                :aria-current="item.current ? 'page' : undefined"> -->
+                            <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href"
+                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
                                 {{ item.name }}
                             </NuxtLink>
                         </div>
@@ -79,10 +81,12 @@
         </div>
 
         <DisclosurePanel class="sm:hidden">
-            <div class="space-y-1 px-2 pb-3 pt-2">
+            <div class="space-y-1 px-2 pb-3 pt-2 flex justify-center flex-col">
                 <DisclosureButton v-for="item in navigation" :key="item.name"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">
+                    <!-- <DisclosureButton v-for="item in navigation" :key="item.name"
                     :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block rounded-md px-3 py-2 text-base font-medium']"
-                    :aria-current="item.current ? 'page' : undefined">
+                    :aria-current="item.current ? 'page' : undefined"> -->
                     <NuxtLink :to="item.href">
                         {{ item.name }}
                     </NuxtLink>
