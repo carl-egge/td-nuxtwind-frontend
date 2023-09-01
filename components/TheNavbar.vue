@@ -17,7 +17,9 @@
 
                 <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                     <div class="flex flex-shrink-0 items-center">
-                        <img class="h-8 w-auto" src="~/assets/images/td-nav-bar-logo-red.svg" alt="Theaterdeck" />
+                        <a href="/">
+                            <img class="h-8 w-auto" src="~/assets/images/td-nav-bar-logo-red.svg" alt="Theaterdeck" />
+                        </a>
                     </div>
                     <div class="hidden sm:ml-6 sm:block">
                         <div class="flex space-x-4">
@@ -33,8 +35,8 @@
                 </div>
 
                 <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                    <button type="button"
-                        class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    <button type="button" @click="openCart"
+                        class="relative rounded-full p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                         <span class="absolute -inset-1.5" />
                         <span class="sr-only">View cart</span>
                         <Icon name="material-symbols:shopping-cart-outline" class="h-6 w-6" aria-hidden="true" />
@@ -105,4 +107,8 @@ const navigation = [
     { name: 'Vermietung', href: '/vermietung', current: false },
     { name: 'Programm', href: '/stuecke', current: false },
 ]
+
+const openCart = () => {
+    alert('Cart not accessible yet.')
+}
 </script>

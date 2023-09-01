@@ -2,6 +2,14 @@
     <div>
         <home-hero />
 
+        <home-events />
+
+        <newsletter />
+
+        <contact-form />
+
+        <home-map />
+
         <the-footer />
     </div>
 </template>
