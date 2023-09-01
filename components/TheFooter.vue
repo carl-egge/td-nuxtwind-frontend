@@ -117,7 +117,7 @@
 
             <!-- Columns section -->
             <div class="grid md:grid-cols-3 mb-2">
-                <div id="footer-col-links" class="mb-6">
+                <div id="footer-col-links" class="my-6 md:mb-2 md:mt-0">
                     <h5 class="mb-2.5 font-bold uppercase">Seiten</h5>
                     <div class="flex">
                         <div class="flex-none md:w-8 lg:w-16 xl:w-32 2xl:w-36"></div>
@@ -130,18 +130,18 @@
                                     <NuxtLink to="/vermietung" class="hover:text-gray-400">Raummiete</NuxtLink>
                                 </li>
                                 <li>
-                                    <NuxtLink to="/impressum" class="hover:text-gray-400">Impressum</NuxtLink>
-                                </li>
-                                <li>
                                     <NuxtLink to="/datenschutz" class="hover:text-gray-400">Datenschutzerklärung
                                     </NuxtLink>
+                                </li>
+                                <li>
+                                    <NuxtLink to="/impressum" class="hover:text-gray-400">Impressum</NuxtLink>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <div id="footer-col-address" class="mb-6">
+                <div id="footer-col-address" class="my-6 md:mb-2 md:mt-0">
                     <h5 class="mb-2.5 font-bold uppercase">Kontakt</h5>
                     <div class="flex">
                         <div class="flex-none  md:w-6 lg:w-16 xl:w-18 2xl:w-28"></div>
@@ -166,7 +166,7 @@
                     </div>
                 </div>
 
-                <div id="footer-col-contact" class="mb-6">
+                <div id="footer-col-contact" class="my-6 md:mb-2 md:mt-0">
                     <h5 class="mb-2.5 font-bold uppercase">Bürozeiten</h5>
                     <div class="flex">
                         <div class="flex-none md:w-4 lg:w-10 xl:w-20 2xl:w-28"></div>
