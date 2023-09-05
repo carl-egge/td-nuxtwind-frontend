@@ -1,42 +1,61 @@
 <template>
-    <div class="p-5">
-        <div class="max-w-sm w-full lg:max-w-full lg:flex">
-            <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
-                :style="'background-image: url(' + background +
-                    ');'" title="Woman holding a mug">
-            </div>
+    <section>
+        <div @click="goToEvent(event.slug)"
+            class="group relative block h-64 sm:h-80 lg:h-96 my-8 hover:bg-td-pink hover:cursor-pointer">
+            <span class="absolute inset-0 border-2 border-dashed border-black"></span>
+
             <div
-                class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-                <div class="mb-8">
-                    <p class="text-sm text-gray-600 flex items-center">
-                        <svg class="fill-current text-gray-500 w-3 h-3 mr-2" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20">
-                            <path
-                                d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
-                        </svg>
-                        Members only
-                    </p>
-                    <div class="text-gray-900 font-bold text-xl mb-2">Can coffee make you a better developer?</div>
-                    <p class="text-gray-700 text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Voluptatibus
-                        quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.</p>
-                </div>
-                <div class="flex items-center">
-                    <img class="w-10 h-10 rounded-full mr-4" src="~/assets/images/footer-chairs-bw.jpg"
-                        alt="Avatar of Jonathan Reinink">
-                    <div class="text-sm">
-                        <p class="text-gray-900 leading-none">Jonathan Reinink</p>
-                        <p class="text-gray-600">Aug 18</p>
+                class="relative flex h-full transform items-end border-2 border-black bg-white transition-transform group-hover:-translate-x-2 group-hover:-translate-y-2">
+
+                <!-- Without Hover -->
+                <div class="p-4 !pt-0 transition-opacity group-hover:absolute group-hover:opacity-0 sm:p-6 lg:p-8">
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 sm:h-12 sm:w-12" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg> -->
+                    <Icon name="mingcute:lighthouse-line" class="h-8 w-8" />
+
+                    <h2 class="mt-4 text-xl font-medium sm:text-2xl">
+                        {{ event.name.de }}
+                    </h2>
+                    <div class="flex items-center my-4">
+                        <img class="w-10 h-10 rounded-full mr-4" :src="background" alt="Autor:in">
+                        <div class="text-sm">
+                            <p class="text-gray-900 leading-none">Astrid Lindgren</p>
+                            <p class="text-gray-600">{{ formatDate(event['date_from']) }}</p>
+                        </div>
                     </div>
+                </div>
+
+                <!-- Hovering -->
+                <div
+                    class="absolute p-4 opacity-0 transition-opacity group-hover:relative group-hover:opacity-100 sm:p-6 lg:p-8">
+                    <h3 class="mt-4 text-xl font-medium sm:text-2xl">
+                        {{ event.name.de }}
+                    </h3>
+
+                    <p class="mt-4 text-sm sm:text-base">
+                        {{ event.desc.de }}
+                    </p>
+
+                    <p class="mt-8 font-bold">Jetzt Buchen!</p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </template>
 
 <script setup lang="ts">
 //@ts-ignore
 import background from "~/assets/images/footer-chairs-bw.jpg";
+
+// Get props
+const { event } = defineProps(['event'])
+// Import composables
+const { formatDate } = useFormatDate()
+// @ts-ignore
+const goToEvent = (slug) => navigateTo('/stuecke/' + slug)
 </script>
 
 <style scoped></style>

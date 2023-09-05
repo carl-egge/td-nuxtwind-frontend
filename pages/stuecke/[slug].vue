@@ -1,18 +1,40 @@
 <template>
     <div>
-        <Hero :title="event.title" breadcrumb="show" />
-        <h1>Show: {{ slug }}</h1>
-        <div class="pretix-widget-compat" :event="eventURI"></div>
-        <ClientOnly>
-            <noscript>
-                <div class="pretix-widget">
-                    <div class="pretix-widget-info-message">
-                        JavaScript is disabled in your browser. To access our ticket shop without JavaScript,
-                        please <a target="_blank" :href="eventURI">click here</a>.
-                    </div>
-                </div>
-            </noscript>
-        </ClientOnly>
+        <Hero :title="event.name.de" breadcrumb="show" />
+        <div class="mx-auto max-w-5xl px-4 my-10 min-h-[30vh]">
+            <!-- Infos -->
+            <section class="my-8">
+                <h2 class="mt-6 mb-2 text-2xl font-bold tracking-tight text-gray-900">
+                    Beschreibung
+                </h2>
+                <p>
+                    {{ event.desc.de }}
+                </p>
+            </section>
+            <section class="my-8">
+                <h2 class="mt-6 mb-2 text-2xl font-bold tracking-tight text-gray-900">
+                    Termine
+                </h2>
+                <p>
+                    {{ formatDate(event['date_from']) }} - {{ formatDate(event['date_to']) }}
+                </p>
+            </section>
+
+            <!-- pretix widget -->
+            <section>
+                <div class="pretix-widget-compat" :event="eventURI"></div>
+                <ClientOnly>
+                    <noscript>
+                        <div class="pretix-widget">
+                            <div class="pretix-widget-info-message">
+                                JavaScript is disabled in your browser. To access our ticket shop without JavaScript,
+                                please <a target="_blank" :href="eventURI">click here</a>.
+                            </div>
+                        </div>
+                    </noscript>
+                </ClientOnly>
+            </section>
+        </div>
     </div>
 </template>
   
@@ -26,6 +48,7 @@
 import { storeToRefs } from 'pinia'
 import { useEventsStore } from '~/stores/events';
 
+const { formatDate } = useFormatDate()
 const { slug } = useRoute().params;
 const config = useRuntimeConfig()
 const eventURI = config.public.pretixBaseUrl + '/td/' + slug + '/';
@@ -42,9 +65,11 @@ if (event === undefined) {
 }
 
 // include pretix widget script in DOM
-let pretixScript = document.createElement('script')
-pretixScript.setAttribute('src', config.public.pretixBaseUrl + '/widget/v1.de.js')
-document.head.appendChild(pretixScript)
+if (process.client) {
+    let pretixScript = document.createElement('script')
+    pretixScript.setAttribute('src', config.public.pretixBaseUrl + '/widget/v1.de.js')
+    document.head.appendChild(pretixScript)
+}
 
 // include pretix widget css in head
 useHead({

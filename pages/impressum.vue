@@ -1,7 +1,7 @@
 <template>
     <div>
         <Hero title="Impressum" breadcrumb="home" />
-        <main class="mx-auto max-w-5xl my-10">
+        <main class="mx-auto max-w-5xl my-10 px-4">
             <section id="imprint-address" class="my-4">
                 <h2 class="mt-16 mb-2 text-2xl font-bold tracking-tight text-gray-900">Theaterdeck Hamburg</h2>
                 <p class="ml-4">

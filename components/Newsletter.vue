@@ -13,7 +13,7 @@
                         <input id="email-address" name="email" type="email" autocomplete="email" required=""
                             class="min-w-0 flex-auto rounded-md border-0 bg-white/80 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-td-pink sm:text-sm sm:leading-6"
                             placeholder="Deine Email-Adresse" />
-                        <button type="submit" class="flex-none td-btn-primary" @click="subscribe()">Anmelden</button>
+                        <button type="submit" class="flex-none td-btn-primary" @click="subscribe()">Ahoi und Enter!</button>
                     </div>
                 </div>
                 <dl class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
