@@ -47,6 +47,7 @@
 
 import { storeToRefs } from 'pinia'
 import { useEventsStore } from '~/stores/events';
+import { onUnmounted } from 'vue'
 
 const { formatDate } = useFormatDate()
 const { slug } = useRoute().params;
@@ -70,6 +71,20 @@ if (process.client) {
     pretixScript.setAttribute('src', config.public.pretixBaseUrl + '/widget/v1.de.js')
     document.head.appendChild(pretixScript)
 }
+
+// TODO: Fix Exclamation mark on bottom of page after leaving event page
+onUnmounted(() => {
+    // remove pretix widget script from DOM
+    if (process.client) {
+        // let pretixScript = document.querySelector('script[src="' + config.public.pretixBaseUrl + '/widget/v1.de.js"]')
+        // pretixScript.remove()
+        // TODO: get pretix overlay div and remove it
+        let pretixOverlay = document.querySelector('div.pretix-widget-alert-holder')
+        // Test: Add css class 'bg-red-500'
+        // pretixOverlay.classList.add('bg-red-500')
+        pretixOverlay.remove()
+    }
+})
 
 // include pretix widget css in head
 useHead({

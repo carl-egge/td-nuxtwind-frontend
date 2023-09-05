@@ -6,8 +6,15 @@
                 <EventCard :event="event" />
             </div>
             <div v-else class="text-center">
-                <p class="my-6">Keine Events gefunden</p>
-                <button class="my-4">
+                <Icon name="mdi:dots-horizontal" class="h-8 w-8 text-gray-500" aria-hidden="true" />
+                <h2 class="mt-6 mb-2 text-2xl font-bold tracking-tight text-gray-900">
+                    404
+                </h2>
+                <p class="my-6">
+                    Leider konnten wir keine Veranstaltungen finden. Dies kann an einem Serverfehler liegen oder daran, dass
+                    momentan keine Stücke anstehen.
+                </p>
+                <button class="td-btn-primary my-6">
                     <a href="/stuecke"> Erneut Versuchen </a>
                 </button>
             </div>
