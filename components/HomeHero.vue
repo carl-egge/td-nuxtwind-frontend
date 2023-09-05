@@ -1,8 +1,8 @@
 <template>
-    <div class="bg-white home-hero-height" :style="'background-image: url(' + background +
+    <div class="bg-white min-h-screen md:min-h-[80vh]" :style="'background-image: url(' + background +
         '); background-repeat: no-repeat; background-size: cover; background-position: left top;'">
 
-        <div class="bg-gradient-to-b from-black to-black/30 home-hero-height" aria-hidden="true">
+        <div class="bg-gradient-to-b from-black to-black/30 min-h-screen md:min-h-[80vh]" aria-hidden="true">
 
             <header class="absolute inset-x-0 top-0 z-50">
 
@@ -97,7 +97,7 @@
                 </div>
             </div> -->
                 <div class="text-center mt-60">
-                    <h1 class="text-3xl font-bold tracking-tight text-white sm:text-6xl">
+                    <h1 class=" text-3xl font-bold tracking-tight text-white sm:text-6xl">
                         Willkommen im Theaterdeck!
                     </h1>
                     <div class="">
@@ -146,8 +146,4 @@ const navigation = [
 const mobileMenuOpen = ref(false)
 </script>
 
-<style scoped>
-.home-hero-height {
-    min-height: 80vh;
-}
-</style>
+<style scoped></style>
