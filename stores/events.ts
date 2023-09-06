@@ -80,7 +80,7 @@ export const useEventsStore = defineStore({
      */
     async fetchEvents(): Promise<void> {
       const config = useRuntimeConfig();
-      const uri = config.public.pretixBaseUrl + config.public.pretixEndpoint + "/events"
+      const uri = config.public.pretixLocalBaseUrl + config.public.pretixEndpoint + "/events"
       console.log("Now fetching events from: ", uri);
       const { data, error }: any = await useFetch(uri, {
         headers: { Authorization: "Token " + config.public.pretixApiKey },
