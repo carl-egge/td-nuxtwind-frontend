@@ -3,22 +3,27 @@
         <Hero :title="event.name.de" breadcrumb="show" />
         <div class="mx-auto max-w-5xl px-4 my-10 min-h-[30vh]">
             <!-- Infos -->
-            <section class="my-8">
-                <h2 class="mt-6 mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                    Beschreibung
-                </h2>
-                <p>
-                    {{ event.desc.de }}
-                </p>
+            <section class="my-8 flex flex-row gap-x-8">
+                <div v-if="event.picture" class="basis-1/3">
+                    <img :src="event.picture" :alt="'Bild: ' + event.name.de" />
+                </div>
+                <div :class="{ 'basis-2/3': event.picture }">
+                    <h2 class="mt-6 mb-2 text-2xl font-bold tracking-tight text-gray-900">
+                        Beschreibung
+                    </h2>
+                    <p>
+                        {{ event.desc.de }}
+                    </p>
+                </div>
             </section>
-            <section class="my-8">
+            <!-- <section class="my-8">
                 <h2 class="mt-6 mb-2 text-2xl font-bold tracking-tight text-gray-900">
                     Termine
                 </h2>
                 <p>
                     {{ formatDate(event['date_from']) }} - {{ formatDate(event['date_to']) }}
                 </p>
-            </section>
+            </section> -->
 
             <!-- pretix widget -->
             <section>

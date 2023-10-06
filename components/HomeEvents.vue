@@ -1,16 +1,27 @@
 <template>
-    <div class="bg-white">
+    <section id="home-events">
+        <div class="mx-auto max-w-2xl px-4 py-12 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+            <h2 class="sr-only">Veranstaltungen</h2>
+            <div v-if="eventsStore.countEvents > 0" v-for="event in eventsStore.getAll">
+                <HorizontalEventCard :event="event" />
+            </div>
+            <div v-else>
+                <p> Hups, hier fehlen die events.</p>
+            </div>
+        </div>
+    </section>
+    <!-- <div class="bg-white">
         <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
             <h2 class="sr-only">Products</h2>
 
             <div class="grid grid-cols-1 gap-x-16 gap-y-10 sm:grid-cols-2">
-                <a v-for="product in  products " :key="product.id" :href="product.href" class="group">
-                    <!-- <div
+                <a v-for="product in  products " :key="product.id" :href="product.href" class="group"> -->
+    <!-- <div
                         class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
                         <img :src="product.imageSrc" :alt="product.imageAlt"
                             class="h-full w-full object-cover object-center group-hover:opacity-75" />
                     </div> -->
-                    <div
+    <!-- <div
                         class="relative flex flex-col min-w-0 break-words w-full mb-2 shadow-lg rounded-lg bg-td-pink overflow-hidden">
                         <img :alt="product.imageAlt" :src="product.imageSrc"
                             class="w-full align-middle rounded-t-lg object-cover object-center group-hover:opacity-75 max-h-96">
@@ -28,10 +39,14 @@
                 </a>
             </div>
         </div>
-    </div>
+    </div> -->
 </template>
   
 <script setup>
+
+import { useEventsStore } from '~/stores/events';
+const eventsStore = useEventsStore();
+
 const products = [
     {
         id: 1,
