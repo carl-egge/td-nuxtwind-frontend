@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [
     "./components/**/*.{js,vue,ts}",
@@ -17,6 +20,10 @@ module.exports = {
         'td-pink': '#D1B0C2',
         'td-gray': '#7D9395',
         'td-blue-light': '#A1D1D6',
+      },
+      fontFamily: {
+        'sans': ['Bahnschrift', 'dinalt', ...defaultTheme.fontFamily.sans],
+        'mono': ['"Courier New"', 'courierprime', ...defaultTheme.fontFamily.mono],
       },
     },
   },

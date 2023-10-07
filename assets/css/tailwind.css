@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 @layer base {
-    html {
+    /* html {
         font-family: 'Courier Prime', monospace;
-    }
+    } */
 }
 
 @layer utilities {
