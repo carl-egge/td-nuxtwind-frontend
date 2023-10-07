@@ -97,7 +97,7 @@
                 </div>
             </div> -->
                 <div class="text-center mt-60">
-                    <h1 class=" text-3xl font-bold tracking-tight text-white sm:text-6xl">
+                    <h1 class="text-3xl font-bold tracking-tight text-white sm:text-6xl">
                         Willkommen im Theaterdeck!
                     </h1>
                     <div class="">

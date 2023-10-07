@@ -1,6 +1,6 @@
 <template>
     <section id="home-events">
-        <div class="mx-auto max-w-2xl px-4 py-12 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+        <div class="mx-auto max-w-2xl p-4 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
             <h2 class="sr-only">Veranstaltungen</h2>
             <div v-if="eventsStore.countEvents > 0" v-for="event in eventsStore.getAll">
                 <HorizontalEventCard :event="event" />
