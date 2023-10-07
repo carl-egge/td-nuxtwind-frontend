@@ -4,7 +4,7 @@
             class="my-4 relative flex w-full max-h-80 flex-row rounded-xl bg-pink-50 bg-clip-border text-gray-700 shadow-md">
             <div
                 class="relative m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
-                <img v-if="event.picture" :src="event.picture" :alt="'Bild: ' + event.name.de"
+                <img v-if="event.picture" :src="switchBaseUrl(event.picture)" :alt="'Bild: ' + event.name.de"
                     class="h-full w-full object-cover object-top" />
                 <div v-else
                     class="h-full w-full object-cover bg-td-pink text-4xl p-2 text-white flex justify-center items-center">
@@ -39,7 +39,7 @@
 // Get props
 const { event } = defineProps(['event'])
 // Import composables
-const { formatDate } = useFormatDate()
+const { switchBaseUrl } = useAPIBaseUrl()
 // @ts-ignore
 const goToEvent = (slug) => navigateTo('/stuecke/' + slug)
 </script>
