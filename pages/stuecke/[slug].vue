@@ -5,7 +5,7 @@
             <!-- Infos -->
             <section class="my-8 flex flex-row gap-x-8">
                 <div v-if="event.picture" class="basis-1/3">
-                    <img :src="event.picture" :alt="'Bild: ' + event.name.de" />
+                    <img :src="switchBaseUrl(event.picture)" :alt="'Bild: ' + event.name.de" />
                 </div>
                 <div :class="{ 'basis-2/3': event.picture }">
                     <h2 class="mt-6 mb-2 text-2xl font-bold tracking-tight text-gray-900">
@@ -55,6 +55,7 @@ import { useEventsStore } from '~/stores/events';
 import { onUnmounted } from 'vue'
 
 const { formatDate } = useFormatDate()
+const { switchBaseUrl } = useAPIBaseUrl()
 const { slug } = useRoute().params;
 const config = useRuntimeConfig()
 const eventURI = config.public.pretixBaseUrl + '/td/' + slug + '/';
