@@ -2,8 +2,8 @@
     <div>
         <Hero title="Vermietung" breadcrumb="home" />
         <main>
-            <div class="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
-                <div class="absolute inset-0 -z-10 overflow-hidden">
+            <div class="relative isolate overflow-hidden px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
+                <!-- <div class="absolute inset-0 -z-10 overflow-hidden">
                     <svg class="absolute left-[max(50%,25rem)] top-0 h-[64rem] w-[128rem] -translate-x-1/2 stroke-gray-200 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)]"
                         aria-hidden="true">
                         <defs>
@@ -20,14 +20,14 @@
                         <rect width="100%" height="100%" stroke-width="0"
                             fill="url(#e813992c-7d03-4cc4-a2bd-151760b470a0)" />
                     </svg>
-                </div>
+                </div> -->
                 <div
                     class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
                     <div
                         class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
                         <div class="lg:pr-4">
                             <div class="lg:max-w-lg">
-                                <p class="text-base font-semibold leading-7 text-td-pink">
+                                <p class="text-base font-semibold leading-7 text-td-primary-500">
                                     Für alle die einen Raum brauchen
                                 </p>
                                 <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -60,27 +60,28 @@
                                 </p>
                                 <ul role="list" class="mt-8 space-y-8 text-gray-600">
                                     <li class="flex gap-x-3">
-                                        <Icon name="mdi:bank" class="mt-1 flex-none h-5 w-5 text-td-pink"
+                                        <Icon name="mdi:bank" class="mt-1 flex-none h-5 w-5 text-td-primary-500"
                                             aria-hidden="true" />
-                                        <span><strong class="font-semibold text-td-pink uppercase">Deck I</strong> (großer
+                                        <span><strong class="font-semibold text-td-primary-500 uppercase">Deck I</strong>
+                                            (großer
                                             Saal | 100m²)*<br>
                                             montags bis donnerstags<br>
                                             10 bis 14 Uhr ||
                                             inkl. Bühne (mind. 4m mal 4m) | kleine mobile Tonanlage | Arbeitslicht</span>
                                     </li>
                                     <li class="flex gap-x-3">
-                                        <Icon name="mdi:home" class="mt-1 flex-none h-5 w-5 text-td-pink"
+                                        <Icon name="mdi:home" class="mt-1 flex-none h-5 w-5 text-td-primary-500"
                                             aria-hidden="true" />
-                                        <span><strong class="font-semibold text-td-pink uppercase">Deck II</strong>
+                                        <span><strong class="font-semibold text-td-primary-500 uppercase">Deck II</strong>
                                             (Studiobühne | 40m²)*<br>
                                             montags bis donnerstags<br>
                                             10 bis 14 Uhr ||
                                             inkl. kleine mobile Tonanlage | Arbeitslicht</span>
                                     </li>
                                     <li class="flex gap-x-3">
-                                        <Icon name="mdi:dots-horizontal" class="mt-1 flex-none h-5 w-5 text-td-pink"
+                                        <Icon name="mdi:dots-horizontal" class="mt-1 flex-none h-5 w-5 text-td-primary-500"
                                             aria-hidden="true" />
-                                        <span><strong class="font-semibold text-td-pink uppercase">Was noch möglich
+                                        <span><strong class="font-semibold text-td-primary-500 uppercase">Was noch möglich
                                                 ist</strong>
                                             (Regelmäßig oder einmalig) Hochzeiten | Geburtstage | Konfirmationen | Trauungen
                                             | und und und</span>
@@ -88,10 +89,11 @@
                                 </ul>
                                 <p class="mt-8">
                                     Sämtliche Möglichkeiten und Konditionen unter: <a
-                                        class="hover:text-td-pink text-gray-900" href="https://luettliv.de/"
+                                        class="hover:text-td-primary-500 text-gray-900" href="https://luettliv.de/"
                                         target="_blank">www.luettliv.de.</a>
                                     <hr class="my-2" />
-                                    * Es gelten die <NuxtLink class="hover:text-td-pink text-gray-900" to="/datenschutz">
+                                    * Es gelten die <NuxtLink class="hover:text-td-primary-500 text-gray-900"
+                                        to="/datenschutz">
                                         Allgemeinen
                                         Geschäftsbedingungen</NuxtLink>
                                 </p>
@@ -102,7 +104,7 @@
                                     in Barmbek für Ihre Veranstaltung zu mieten. Unser Raum bietet die ideale Kulisse für
                                     unvergessliche Momente. Bei Fragen oder für Buchungsanfragen stehen wir Ihnen gerne
                                     telefonisch unter <span class="text-gray-900">040 6321322</span> oder per E-Mail unter
-                                    <a class="text-gray-900 hover:text-td-pink"
+                                    <a class="text-gray-900 hover:text-td-primary-500"
                                         href="mailto:info@theaterdeck.de">info@theaterdeck.de</a> zur
                                     Verfügung. Wir freuen uns darauf, Ihre Veranstaltungsträume wahr werden zu lassen!
                                 </p>
