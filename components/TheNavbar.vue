@@ -55,11 +55,11 @@
                         <DialogPanel
                             class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                             <div class="flex items-center justify-between">
-                                <a href="#" class="-m-1.5 p-1.5">
+                                <NuxtLink to="/" class="-m-1.5 p-1.5" @click="mobileMenuOpen = false">
                                     <span class="sr-only">Theaterdeck</span>
                                     <img class="h-10 w-auto" src="~/assets/images/td-nav-bar-logo-red.svg"
                                         alt="Theaterdeck" />
-                                </a>
+                                </NuxtLink>
                                 <button type="button" class="-m-2.5 rounded-md p-2.5 text-td-primary-600 hover:bg-gray-100"
                                     @click="mobileMenuOpen = false">
                                     <span class="sr-only">Close menu</span>
@@ -70,6 +70,10 @@
                             <div class="mt-6 flow-root">
                                 <div class="-my-6 divide-y divide-gray-500/10">
                                     <div class="space-y-2 py-6">
+                                        <NuxtLink to="/" @click="mobileMenuOpen = false"
+                                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                                            Home
+                                        </NuxtLink>
                                         <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href"
                                             @click="mobileMenuOpen = false"
                                             class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">

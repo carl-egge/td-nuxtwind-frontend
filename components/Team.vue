@@ -1,8 +1,8 @@
 <template>
-    <section class="bg-td-gray/30 py-24 sm:py-32">
+    <section class="bg-white py-24">
         <div class="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
             <div class="max-w-2xl">
-                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Unser Team</h2>
+                <h2 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-2xl">Unser Team</h2>
                 <p class="mt-6 text-lg leading-8 text-gray-600">Unser engagiertes Team besteht aus leidenschaftlichen
                     Theaterpädagogen, die mit Herzblut Theaterkurse leiten und die kreativen Talente Ihrer Kinder fördern.
                     Lernen Sie unser Team kennen und entdecken Sie die inspirierende Welt des Theaters mit uns!</p>
@@ -14,7 +14,7 @@
                         <div>
                             <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">{{ person.name }}
                             </h3>
-                            <p class="text-sm font-semibold leading-6 text-td-green">{{ person.role }}</p>
+                            <p class="text-sm font-semibold leading-6 text-td-primary-400">{{ person.role }}</p>
                         </div>
                     </div>
                 </li>
