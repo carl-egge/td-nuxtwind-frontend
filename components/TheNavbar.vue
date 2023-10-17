@@ -1,114 +1,141 @@
 <template>
-    <Disclosure as="nav" class="bg-black" v-slot="{ open }">
-        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-            <div class="relative flex h-16 items-center justify-between">
+    <header class="sticky inset-x-0 top-0 z-20 transition duration-1000 ease-in-out"
+        :class="{ 'bg-transparent border-b-4 border-transparent': !scrolled, 'bg-td-primary-400 border-b-4 border-td-accent-200': scrolled }">
 
-                <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                    <!-- Mobile menu button-->
-                    <DisclosureButton
-                        class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                        <span class="absolute -inset-0.5" />
-                        <span class="sr-only">Open main menu</span>
-                        <Icon name="material-symbols:menu-rounded" v-if="!open" class="block h-6 w-6" aria-hidden="true" />
-                        <Icon name="material-symbols:cancel-outline-rounded" v-else class="block h-6 w-6"
-                            aria-hidden="true" />
-                    </DisclosureButton>
-                </div>
+        <!-- Temporary notification for Test Deployment -->
+        <!-- <div class="z-20 flex items-center bg-red-400 text-white text-sm font-bold px-4 py-3" role="alert">
+            <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path
+                    d="M12.432 0c1.34 0 2.01.912 2.01 1.957 0 1.305-1.164 2.512-2.679 2.512-1.269 0-2.009-.75-1.974-1.99C9.789 1.436 10.67 0 12.432 0zM8.309 20c-1.058 0-1.833-.652-1.093-3.524l1.214-5.092c.211-.814.246-1.141 0-1.141-.317 0-1.689.562-2.502 1.117l-.528-.88c2.572-2.186 5.531-3.467 6.801-3.467 1.057 0 1.233 1.273.705 3.23l-1.391 5.352c-.246.945-.141 1.271.106 1.271.317 0 1.357-.392 2.379-1.207l.6.814C12.098 19.02 9.365 20 8.309 20z" />
+            </svg>
+            <p>Achtung! Es handelt sich um eine Testseite. Bitte kaufen sie keine Tickets!</p>
+        </div> -->
 
-                <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                    <div class="flex flex-shrink-0 items-center">
-                        <a href="/">
-                            <img class="h-8 w-auto" src="~/assets/images/td-nav-bar-logo-red.svg" alt="Theaterdeck" />
-                        </a>
-                    </div>
-                    <div class="hidden sm:ml-6 sm:block">
-                        <div class="flex space-x-4">
-                            <!-- <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href"
-                                :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'rounded-md px-3 py-2 text-sm font-medium']"
-                                :aria-current="item.current ? 'page' : undefined"> -->
-                            <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href"
-                                class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
-                                {{ item.name }}
-                            </NuxtLink>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                    <button type="button" @click="openCart"
-                        class="relative rounded-full p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                        <span class="absolute -inset-1.5" />
-                        <span class="sr-only">View cart</span>
-                        <Icon name="material-symbols:shopping-cart-outline" class="h-6 w-6" aria-hidden="true" />
+        <nav class="flex items-center justify-between py-4 px-6 lg:px-8" aria-label="Global">
+            <div class="flex lg:flex-1 lg:basis-8/12">
+                <a href="/" class="-m-1.5 p-1.5">
+                    <span class="sr-only">Theaterdeck</span>
+                    <img class="transition duration-1000 ease-in-out w-auto hover:drop-shadow-2xl hover:shadow-td-accent-300"
+                        :class="{ 'h-10': !scrolled, 'h-8': scrolled }" src="~/assets/images/td-nav-bar-logo-white.svg"
+                        alt="Theaterdeck" />
+                </a>
+            </div>
+            <div class="flex lg:hidden">
+                <button type="button"
+                    class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-td-accent-400 hover:text-td-accent-400"
+                    @click="mobileMenuOpen = true">
+                    <span class="sr-only">Open main menu</span>
+                    <Icon name="material-symbols:menu-rounded" class="h-6 w-6" aria-hidden="true" />
+                </button>
+            </div>
+            <div class="hidden lg:flex lg:flex-1 lg:basis-4/12 lg:gap-x-12 lg:items-center lg:justify-end">
+                <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href"
+                    class="text-sm font-semibold leading-6 text-white nav-link-ltr nav-link">
+                    {{ item.name.toUpperCase() }}
+                </NuxtLink>
+                <NuxtLink v-if="$route.path != '/'" to="/stuecke">
+                    <button class="td-btn-primary">
+                        Programm
                     </button>
+                </NuxtLink>
+                <NuxtLink v-else
+                    class="uppercase text-sm font-semibold leading-6 text-white nav-link nav-link-ltr hover:cursor-pointer">
+                    Programm
+                </NuxtLink>
+            </div>
+        </nav>
 
-                    <!-- Profile dropdown -->
-                    <!-- <Menu as="div" class="relative ml-3">
-                        <div>
-                            <MenuButton
-                                class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                                <span class="absolute -inset-1.5" />
-                                <span class="sr-only">Open user menu</span>
-                                <img class="h-8 w-8 rounded-full"
-                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                    alt="" />
-                            </MenuButton>
+        <ClientOnly>
+            <Dialog as="div" class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
+                <div class="fixed inset-0 z-50" />
+                <DialogPanel
+                    class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                    <div class="flex items-center justify-between">
+                        <a href="#" class="-m-1.5 p-1.5">
+                            <span class="sr-only">Theaterdeck</span>
+                            <img class="h-10 w-auto" src="~/assets/images/td-nav-bar-logo-red.svg" alt="Theaterdeck" />
+                        </a>
+                        <button type="button" class="-m-2.5 rounded-md p-2.5 text-td-primary-600 hover:bg-gray-100"
+                            @click="mobileMenuOpen = false">
+                            <span class="sr-only">Close menu</span>
+                            <Icon name="material-symbols:cancel-outline-rounded" class="h-6 w-6" aria-hidden="true" />
+                        </button>
+                    </div>
+                    <div class="mt-6 flow-root">
+                        <div class="-my-6 divide-y divide-gray-500/10">
+                            <div class="space-y-2 py-6">
+                                <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href"
+                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                                    {{ item.name }}
+                                </NuxtLink>
+                            </div>
+                            <div class="py-6">
+                                <NuxtLink to="/stuecke"
+                                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                                    Programm
+                                </NuxtLink>
+                            </div>
                         </div>
-                        <transition enter-active-class="transition ease-out duration-100"
-                            enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100"
-                            leave-active-class="transition ease-in duration-75"
-                            leave-from-class="transform opacity-100 scale-100"
-                            leave-to-class="transform opacity-0 scale-95">
-                            <MenuItems
-                                class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                                <MenuItem v-slot="{ active }">
-                                <a href="#"
-                                    :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Your
-                                    Profile</a>
-                                </MenuItem>
-                                <MenuItem v-slot="{ active }">
-                                <a href="#"
-                                    :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Settings</a>
-                                </MenuItem>
-                                <MenuItem v-slot="{ active }">
-                                <a href="#"
-                                    :class="[active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700']">Sign
-                                    out</a>
-                                </MenuItem>
-                            </MenuItems>
-                        </transition>
-                    </Menu> -->
-                </div>
-            </div>
-        </div>
+                    </div>
+                </DialogPanel>
+            </Dialog>
+        </ClientOnly>
 
-        <DisclosurePanel class="sm:hidden">
-            <div class="space-y-1 px-2 pb-3 pt-2 flex justify-center flex-col">
-                <DisclosureButton v-for="item in navigation" :key="item.name"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">
-                    <!-- <DisclosureButton v-for="item in navigation" :key="item.name"
-                    :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'block rounded-md px-3 py-2 text-base font-medium']"
-                    :aria-current="item.current ? 'page' : undefined"> -->
-                    <NuxtLink :to="item.href">
-                        {{ item.name }}
-                    </NuxtLink>
-                </DisclosureButton>
-            </div>
-        </DisclosurePanel>
-    </Disclosure>
+    </header>
 </template>
-  
-<script setup>
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
+
+<script setup lang="ts">
+import { ref } from 'vue'
+import { Dialog, DialogPanel } from '@headlessui/vue'
+import { onMounted, onUnmounted } from 'vue';
 
 const navigation = [
-    { name: 'Home', href: '/', current: true },
-    { name: 'Schule', href: '/schule', current: false },
-    { name: 'Vermietung', href: '/vermietung', current: false },
-    { name: 'Programm', href: '/stuecke', current: false },
+    { name: 'Schule', href: '/schule' },
+    { name: 'Vermietung', href: '/vermietung' },
 ]
 
-const openCart = () => {
-    alert('Cart not accessible yet.')
-}
+const onScroll = () => {
+    scrolled.value = window.scrollY > 75;
+};
+
+onMounted(() => {
+    window.addEventListener('scroll', onScroll);
+});
+
+onUnmounted(() => {
+    window.removeEventListener('scroll', onScroll);
+});
+
+const scrolled = ref(false);
+const mobileMenuOpen = ref(false)
 </script>
+
+<style scoped>
+.nav-link {
+    text-decoration: none;
+    position: relative;
+    opacity: 0.75;
+}
+
+.nav-link:hover {
+    opacity: 1;
+}
+
+.nav-link::before {
+    transition: 300ms;
+    height: 4px;
+    content: "";
+    position: absolute;
+    margin-bottom: -10px;
+    background-color: white;
+}
+
+.nav-link-ltr::before {
+    width: 0%;
+    bottom: 10px;
+}
+
+.nav-link-ltr:hover::before {
+    width: 100%;
+}
+</style>
