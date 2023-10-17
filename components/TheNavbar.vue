@@ -46,39 +46,48 @@
         </nav>
 
         <ClientOnly>
-            <Dialog as="div" class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
-                <div class="fixed inset-0 z-50" />
-                <DialogPanel
-                    class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-                    <div class="flex items-center justify-between">
-                        <a href="#" class="-m-1.5 p-1.5">
-                            <span class="sr-only">Theaterdeck</span>
-                            <img class="h-10 w-auto" src="~/assets/images/td-nav-bar-logo-red.svg" alt="Theaterdeck" />
-                        </a>
-                        <button type="button" class="-m-2.5 rounded-md p-2.5 text-td-primary-600 hover:bg-gray-100"
-                            @click="mobileMenuOpen = false">
-                            <span class="sr-only">Close menu</span>
-                            <Icon name="material-symbols:cancel-outline-rounded" class="h-6 w-6" aria-hidden="true" />
-                        </button>
-                    </div>
-                    <div class="mt-6 flow-root">
-                        <div class="-my-6 divide-y divide-gray-500/10">
-                            <div class="space-y-2 py-6">
-                                <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                                    {{ item.name }}
-                                </NuxtLink>
+            <TransitionRoot :show="mobileMenuOpen">
+                <Dialog as="div" class="lg:hidden" @close="mobileMenuOpen = false">
+                    <TransitionChild enter="transition ease-in-out duration-500 transform" enter-from="translate-x-full"
+                        enter-to="-translate-x-0" leave="transition ease-in-out duration-500 transform"
+                        leave-from="-translate-x-0" leave-to="translate-x-full">
+                        <!-- <div class="fixed inset-0 z-50" /> -->
+                        <DialogPanel
+                            class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                            <div class="flex items-center justify-between">
+                                <a href="#" class="-m-1.5 p-1.5">
+                                    <span class="sr-only">Theaterdeck</span>
+                                    <img class="h-10 w-auto" src="~/assets/images/td-nav-bar-logo-red.svg"
+                                        alt="Theaterdeck" />
+                                </a>
+                                <button type="button" class="-m-2.5 rounded-md p-2.5 text-td-primary-600 hover:bg-gray-100"
+                                    @click="mobileMenuOpen = false">
+                                    <span class="sr-only">Close menu</span>
+                                    <Icon name="material-symbols:cancel-outline-rounded" class="h-6 w-6"
+                                        aria-hidden="true" />
+                                </button>
                             </div>
-                            <div class="py-6">
-                                <NuxtLink to="/stuecke"
-                                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                                    Spielplan
-                                </NuxtLink>
+                            <div class="mt-6 flow-root">
+                                <div class="-my-6 divide-y divide-gray-500/10">
+                                    <div class="space-y-2 py-6">
+                                        <NuxtLink v-for="item in navigation" :key="item.name" :to="item.href"
+                                            @click="mobileMenuOpen = false"
+                                            class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                                            {{ item.name }}
+                                        </NuxtLink>
+                                    </div>
+                                    <div class="py-6">
+                                        <NuxtLink to="/stuecke" @click="mobileMenuOpen = false"
+                                            class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                                            Spielplan
+                                        </NuxtLink>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </DialogPanel>
-            </Dialog>
+                        </DialogPanel>
+                    </TransitionChild>
+                </Dialog>
+            </TransitionRoot>
         </ClientOnly>
 
     </header>
@@ -86,7 +95,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Dialog, DialogPanel } from '@headlessui/vue'
+import { Dialog, DialogPanel, TransitionRoot, TransitionChild } from '@headlessui/vue'
 import { onMounted, onUnmounted } from 'vue';
 
 const navigation = [
