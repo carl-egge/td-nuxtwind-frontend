@@ -1,61 +1,51 @@
 <template>
-    <section>
-        <div @click="goToEvent(event.slug)"
-            class="group relative block h-64 sm:h-80 lg:h-96 my-8 hover:bg-td-pink hover:cursor-pointer">
-            <span class="absolute inset-0 border-2 border-dashed border-black"></span>
+    <div>
+        <div
+            class="group relative block my-8 max-w-7xl mx-auto bg-white rounded-lg shadow-md md:max-w-5xl xl:max-w-7xl hover:bg-td-primary-100 hover:cursor-pointer">
+            <span class="absolute inset-0 border-2 border-dashed rounded-lg border-td-primary-400"></span>
 
             <div
-                class="relative flex h-full transform items-end border-2 border-black bg-white transition-transform group-hover:-translate-x-2 group-hover:-translate-y-2">
-
-                <!-- Without Hover -->
-                <div class="p-4 !pt-0 transition-opacity group-hover:absolute group-hover:opacity-0 sm:p-6 lg:p-8">
-                    <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 sm:h-12 sm:w-12" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg> -->
-                    <Icon name="mingcute:lighthouse-line" class="h-8 w-8" aria-hidden="true" />
-
-                    <h2 class="mt-4 text-xl font-medium sm:text-2xl">
-                        {{ event.name.de }}
-                    </h2>
-                    <div class="flex items-center my-4">
-                        <img class="w-10 h-10 rounded-full mr-4" :src="background" alt="Autor:in">
-                        <div class="text-sm">
-                            <p class="text-gray-900 leading-none">Astrid Lindgren</p>
-                            <p class="text-gray-600">{{ formatDate(event['date_from']) }}</p>
+                class="relative border h-full transform items-end transition-transform group-hover:-translate-x-2 group-hover:-translate-y-2">
+                <div class="md:flex bg-white overflow-hidden rounded-md md:max-h-64" @click="goToEvent(event.slug)">
+                    <div class="md:shrink-0">
+                        <img v-if="event.picture"
+                            class="h-56 sm:h-80 w-full object-cover object-top md:h-full md:w-48 lg:w-80"
+                            :src="switchBaseUrl(event.picture)" :alt="'Bild: ' + event.name.de">
+                        <div v-else
+                            class="h-48 w-full object-cover md:h-full md:w-48 lg:w-80 bg-td-primary-400 text-2xl p-2 text-white flex justify-center items-center">
+                            <h4 class="font-bold">{{ event.name.de }}</h4>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="uppercase tracking-wide text-sm text-td-primary-400 font-semibold">
+                            Autor Name
+                        </div>
+                        <h4 class="block mt-1 text-xl leading-tight font-medium text-black">
+                            {{ event.name.de }}
+                        </h4>
+                        <div class="line-clamp-3 mt-2 text-gray-500 mb-8">
+                            {{ event.desc.de }}
+                        </div>
+                        <div class="absolute bottom-4 right-4">
+                            <button
+                                class="mt-2 rounded-lg py-3 px-6 text-center text-xs font-bold uppercase text-td-primary-400 hover:bg-td-secondary-500/10 active:bg-td-secondary-500/30"
+                                type="button" @click="goToEvent(event.slug)">
+                                zum Stück
+                                <Icon name="material-symbols:arrow-right-alt-rounded" aria-hidden="true" class="h-4 w-4" />
+                            </button>
                         </div>
                     </div>
                 </div>
-
-                <!-- Hovering -->
-                <div
-                    class="absolute p-4 opacity-0 transition-opacity group-hover:relative group-hover:opacity-100 sm:p-6 lg:p-8">
-                    <h3 class="mt-4 text-xl font-medium sm:text-2xl">
-                        {{ event.name.de }}
-                    </h3>
-
-                    <p class="mt-4 text-sm sm:text-base">
-                        {{ event.desc.de }}
-                    </p>
-
-                    <p class="mt-8 font-bold">Jetzt Buchen!</p>
-                </div>
             </div>
         </div>
-    </section>
+    </div>
 </template>
 
-<script setup lang="ts">
-//@ts-ignore
-import background from "~/assets/images/footer-chairs-bw.jpg";
-
+<script setup>
 // Get props
 const { event } = defineProps(['event'])
 // Import composables
-const { formatDate } = useFormatDate()
+const { switchBaseUrl } = useAPIBaseUrl()
 // @ts-ignore
 const goToEvent = (slug) => navigateTo('/stuecke/' + slug)
 </script>
-
-<style scoped></style>

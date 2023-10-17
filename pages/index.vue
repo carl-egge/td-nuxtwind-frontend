@@ -3,7 +3,7 @@
 
         <home-hero />
 
-        <div class="mt-[75vh] sm:mt-[55vh]">
+        <div class="mt-[70vh] sm:mt-[50vh]">
             <home-events />
 
             <newsletter />

@@ -1,7 +1,7 @@
 <template>
     <div>
         <Hero title="Spielplan" breadcrumb="home" />
-        <div class="mx-auto max-w-5xl px-4 my-10">
+        <div class="mx-auto max-w-7xl p-4 sm:p-8 lg:max-w-7xl mt-[35vh]">
             <div v-if="eventsStore.countEvents > 0" v-for="event in eventsStore.getAll">
                 <EventCard :event="event" />
             </div>
