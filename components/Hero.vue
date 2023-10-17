@@ -12,7 +12,7 @@
                 <NuxtLink to="/" class="hover:text-td-accent-300">Home</NuxtLink>
                 <span v-if="breadcrumb == 'show'">&ensp;&ensp;/&ensp;&ensp;</span>
                 <NuxtLink v-if="breadcrumb == 'show'" to="/stuecke" class="hover:text-td-accent-300 uppercase">
-                    Programm
+                    Spielplan
                 </NuxtLink>
                 &ensp;&ensp;/&ensp;&ensp;
                 {{ title.toUpperCase() }}

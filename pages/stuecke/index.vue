@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Hero title="Programm" breadcrumb="home" />
+        <Hero title="Spielplan" breadcrumb="home" />
         <div class="mx-auto max-w-5xl px-4 my-10">
             <div v-if="eventsStore.countEvents > 0" v-for="event in eventsStore.getAll">
                 <EventCard :event="event" />
@@ -26,7 +26,7 @@
 /**
  * PAGE: stuecke/index.vue
  *
- * Landing Page for the Shows: Programm.
+ * Landing Page for the Shows: Spielplan.
  */
 
 import { useEventsStore } from '~/stores/events';

@@ -124,7 +124,7 @@
                         <div class="flex-auto">
                             <ul class="mb-0 list-none md:text-left">
                                 <li>
-                                    <NuxtLink to="/stuecke" class="hover:text-gray-400">Unser Programm</NuxtLink>
+                                    <NuxtLink to="/stuecke" class="hover:text-gray-400">Unser Spielplan</NuxtLink>
                                 </li>
                                 <li>
                                     <NuxtLink to="/vermietung" class="hover:text-gray-400">Raummiete</NuxtLink>

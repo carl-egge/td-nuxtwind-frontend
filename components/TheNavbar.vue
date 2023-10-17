@@ -35,12 +35,12 @@
                 </NuxtLink>
                 <NuxtLink v-if="$route.path != '/'" to="/stuecke">
                     <button class="td-btn-primary">
-                        Programm
+                        Spielplan
                     </button>
                 </NuxtLink>
                 <NuxtLink v-else
                     class="uppercase text-sm font-semibold leading-6 text-white nav-link nav-link-ltr hover:cursor-pointer">
-                    Programm
+                    Spielplan
                 </NuxtLink>
             </div>
         </nav>
@@ -72,7 +72,7 @@
                             <div class="py-6">
                                 <NuxtLink to="/stuecke"
                                     class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                                    Programm
+                                    Spielplan
                                 </NuxtLink>
                             </div>
                         </div>
@@ -90,7 +90,7 @@ import { Dialog, DialogPanel } from '@headlessui/vue'
 import { onMounted, onUnmounted } from 'vue';
 
 const navigation = [
-    { name: 'Schule', href: '/schule' },
+    { name: 'Theaterschule', href: '/schule' },
     { name: 'Vermietung', href: '/vermietung' },
 ]
 

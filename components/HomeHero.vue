@@ -47,7 +47,7 @@
                         started</a> -->
                         <NuxtLink to="/stuecke">
                             <button class="td-btn-primary">
-                                Programm
+                                Spielplan
                             </button>
                         </NuxtLink>
                         <a href="#newsletter"

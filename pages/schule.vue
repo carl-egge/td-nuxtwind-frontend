@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Hero title="Schule" breadcrumb="home" />
+        <Hero title="Theaterschule" breadcrumb="home" />
         <div>
 
             <!-- SECTION : THEATER JUGEND -->
