@@ -18,28 +18,28 @@
                     <label for="first-name" class="block text-sm font-semibold leading-6 text-gray-900">Vorname</label>
                     <div class="mt-2.5">
                         <input type="text" name="first-name" id="first-name" autocomplete="given-name"
-                            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-td-primary-400 sm:text-sm sm:leading-6" />
+                            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-td-accent sm:text-sm sm:leading-6" />
                     </div>
                 </div>
                 <div>
                     <label for="last-name" class="block text-sm font-semibold leading-6 text-gray-900">Nachname</label>
                     <div class="mt-2.5">
                         <input type="text" name="last-name" id="last-name" autocomplete="family-name"
-                            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-td-primary-400 sm:text-sm sm:leading-6" />
+                            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-td-accent sm:text-sm sm:leading-6" />
                     </div>
                 </div>
                 <!-- <div class="sm:col-span-2">
                     <label for="company" class="block text-sm font-semibold leading-6 text-gray-900">Company</label>
                     <div class="mt-2.5">
                         <input type="text" name="company" id="company" autocomplete="organization"
-                            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-td-primary-400 sm:text-sm sm:leading-6" />
+                            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-td-accent sm:text-sm sm:leading-6" />
                     </div>
                 </div> -->
                 <div class="sm:col-span-2">
                     <label for="email" class="block text-sm font-semibold leading-6 text-gray-900">Email</label>
                     <div class="mt-2.5">
                         <input type="email" name="email" id="email" autocomplete="email"
-                            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-td-primary-400 sm:text-sm sm:leading-6" />
+                            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-td-accent sm:text-sm sm:leading-6" />
                     </div>
                 </div>
                 <!-- <div class="sm:col-span-2">
@@ -49,7 +49,7 @@
                         <div class="absolute inset-y-0 left-0 flex items-center">
                             <label for="country" class="sr-only">Country</label>
                             <select id="country" name="country"
-                                class="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-4 pr-9 text-gray-400 focus:ring-2 focus:ring-inset focus:ring-td-primary-400 sm:text-sm">
+                                class="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-4 pr-9 text-gray-400 focus:ring-2 focus:ring-inset focus:ring-td-accent sm:text-sm">
                                 <option>US</option>
                                 <option>CA</option>
                                 <option>EU</option>
@@ -58,20 +58,20 @@
                             <Icon name="mingcute:lighthouse-line" class="text-xl mb-4" />
                         </div>
                         <input type="tel" name="phone-number" id="phone-number" autocomplete="tel"
-                            class="block w-full rounded-md border-0 px-3.5 py-2 pl-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-td-primary-400 sm:text-sm sm:leading-6" />
+                            class="block w-full rounded-md border-0 px-3.5 py-2 pl-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-td-accent sm:text-sm sm:leading-6" />
                     </div>
                 </div> -->
                 <div class="sm:col-span-2">
                     <label for="message" class="block text-sm font-semibold leading-6 text-gray-900">Nachricht</label>
                     <div class="mt-2.5">
                         <textarea name="message" id="message" rows="4"
-                            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-td-primary-400 sm:text-sm sm:leading-6" />
+                            class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-td-accent sm:text-sm sm:leading-6" />
                     </div>
                 </div>
                 <SwitchGroup as="div" class="flex gap-x-4 sm:col-span-2">
                     <div class="flex h-6 items-center">
                         <Switch v-model="agreed"
-                            :class="[agreed ? 'bg-td-primary-400' : 'bg-gray-200', 'flex w-8 flex-none cursor-pointer rounded-full p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-td-primary-400']">
+                            :class="[agreed ? 'bg-td-accent' : 'bg-gray-200', 'flex w-8 flex-none cursor-pointer rounded-full p-px ring-1 ring-inset ring-gray-900/5 transition-colors duration-200 ease-in-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-td-accent']">
                             <span class="sr-only">Agree to policies</span>
                             <span aria-hidden="true"
                                 :class="[agreed ? 'translate-x-3.5' : 'translate-x-0', 'h-4 w-4 transform rounded-full bg-white shadow-sm ring-1 ring-gray-900/5 transition duration-200 ease-in-out']" />
@@ -80,7 +80,7 @@
                     <SwitchLabel class="text-sm leading-6 text-gray-600">
                         Ich bestätige, dass ich mit der
                         {{ ' ' }}
-                        <NuxtLink to="/datenschutz" class="font-semibold text-td-primary-400">Datenschutzerklärung
+                        <NuxtLink to="/datenschutz" class="font-semibold text-td-accent">Datenschutzerklärung
                         </NuxtLink> des
                         Theaterdeck
                         einverstanden bin.
@@ -89,7 +89,7 @@
             </div>
             <div class="mt-10">
                 <button type="submit" @click="handleSubmit" :disabled="!agreed"
-                    class="block w-full rounded-md bg-td-primary-400 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-td-primary-400/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-td-primary-400">
+                    class="block w-full rounded-md bg-td-accent px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-td-accent/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-td-accent-400">
                     Abschicken
                 </button>
             </div>

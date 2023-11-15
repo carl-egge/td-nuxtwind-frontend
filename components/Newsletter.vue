@@ -1,5 +1,5 @@
 <template>
-    <section id="newsletter" class="relative isolate overflow-hidden bg-td-secondary-300 py-16 sm:py-24 lg:py-32">
+    <section id="newsletter" class="relative isolate overflow-hidden bg-td-secondary py-16 sm:py-24 lg:py-32">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
                 <div class="max-w-xl lg:max-w-lg">
@@ -11,7 +11,7 @@
                     <div class="mt-6 flex max-w-md gap-x-4">
                         <label for="email-address" class="sr-only">Email address</label>
                         <input id="email-address" name="email" type="email" autocomplete="email" required=""
-                            class="min-w-0 flex-auto rounded-md border-0 bg-white/80 px-3.5 py-2 text-text-900 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-td-accent-300 sm:text-sm sm:leading-6"
+                            class="min-w-0 flex-auto rounded-md border-0 bg-white/80 px-3.5 py-2 text-text shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-td-accent sm:text-sm sm:leading-6"
                             placeholder="Deine Email-Adresse" />
                         <button type="submit" class="flex-none td-btn-primary" @click="subscribe()">Ahoi und Enter!</button>
                     </div>

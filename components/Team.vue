@@ -14,7 +14,7 @@
                         <div>
                             <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">{{ person.name }}
                             </h3>
-                            <p class="text-sm font-semibold leading-6 text-td-primary-400">{{ person.role }}</p>
+                            <p class="text-sm font-semibold leading-6 text-td-accent">{{ person.role }}</p>
                         </div>
                     </div>
                 </li>

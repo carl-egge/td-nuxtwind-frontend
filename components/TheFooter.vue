@@ -1,6 +1,6 @@
 <template>
     <!-- Footer section with social media icons and newsletter sign-up -->
-    <footer class="flex flex-col items-center bg-neutral-900 text-center text-white">
+    <footer class="flex flex-col items-center bg-text text-center text-white"> <!-- bg-neutral-900 -->
         <div class="container px-6 pt-6">
 
             <!-- Divider -->
