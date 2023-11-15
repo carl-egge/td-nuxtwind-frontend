@@ -7,12 +7,12 @@
         font-family: 'Courier Prime', monospace;
     } */
     body {
-        @apply bg-background-100 text-text-900;
+        @apply bg-background text-text;
     }
 }
 
 @layer utilities {
     .td-btn-primary {
-        @apply bg-td-accent-500 hover:bg-td-accent-400 text-white font-bold py-2 px-4 border-b-4 border-td-accent-700 hover:border-td-accent-500 rounded;
+        @apply bg-td-accent hover:bg-td-secondary text-white font-bold py-2 px-4 border-b-4 border-td-accent hover:border-td-accent/50 rounded;
     }
 }
