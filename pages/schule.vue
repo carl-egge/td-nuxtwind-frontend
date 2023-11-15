@@ -1,7 +1,7 @@
 <template>
     <div>
-        <Hero title="Theaterschule" breadcrumb="home" />
-        <div>
+        <Hero title="TheaterSCHULE" breadcrumb="home" :backgroundimage="`url(${heroimage})`" />
+        <main>
 
             <!-- SECTION : THEATER JUGEND -->
             <section id="pageSchule" class="bg-white mb-8">
@@ -20,8 +20,7 @@
                             <div
                                 class="text-gray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
                                 <!-- <i class="fas fa-user-friends text-xl"></i> -->
-                                <Icon name="mdi:account-supervisor" class="h-10 w-10 text-td-primary-400"
-                                    aria-hidden="true" />
+                                <Icon name="mdi:account-supervisor" class="h-10 w-10 text-td-accent" aria-hidden="true" />
                             </div>
                             <h3 class="text-2xl mb-2 font-semibold leading-normal">
                                 Die Theater Jugend Hamburg e.V.
@@ -54,7 +53,7 @@
                         </div>
                         <div class="w-full md:w-4/12 px-4 mr-auto ml-auto">
                             <div
-                                class="relative flex flex-col min-w-0 break-words w-full mb-2 shadow-lg rounded-lg bg-td-primary-400">
+                                class="relative flex flex-col min-w-0 break-words w-full mb-2 shadow-lg rounded-lg bg-td-secondary">
                                 <img alt="Theaterschule" src="~/assets/images/cartoon-theater-mask-stockimage.jpg"
                                     class="w-full align-middle rounded-t-lg">
                                 <blockquote class="relative p-8 mb-4">
@@ -196,14 +195,14 @@
                     <div class="mx-auto lg:mx-0">
                         <p>
                             Bitte melden Sie sich über unser Kontaktformular an oder schreiben uns direkt an: <a
-                                class="hover:text-td-primary-400 text-gray-900"
+                                class="hover:text-td-accent text-gray-900"
                                 href="mailto:kurse@theaterdeck.de">kurse@theaterdeck.de</a><br /><br />
                             <strong>* Die Kurse werden gefördert vom Amt für Familie</strong>
                         </p>
                     </div>
                 </div>
             </section>
-        </div>
+        </main>
         <Newsletter />
     </div>
 </template>
@@ -214,6 +213,8 @@
  *
  * Information about the Theater Jugend and Kurse.
  */
+
+import heroimage from "../assets/images/hero-highkey-sr.jpg";
 
 const posts = [
     {

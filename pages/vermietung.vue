@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Hero title="Vermietung" breadcrumb="home" />
+        <Hero title="RaumMIETE" breadcrumb="home" :backgroundimage="`url(${heroimage})`" />
         <main>
             <div class="relative isolate overflow-hidden px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
                 <!-- <div class="absolute inset-0 -z-10 overflow-hidden">
@@ -27,7 +27,7 @@
                         class="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
                         <div class="lg:pr-4">
                             <div class="lg:max-w-lg">
-                                <p class="text-base font-semibold leading-7 text-td-primary-500">
+                                <p class="text-base font-semibold leading-7 text-td-accent">
                                     Für alle die einen Raum brauchen
                                 </p>
                                 <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -60,9 +60,9 @@
                                 </p>
                                 <ul role="list" class="mt-8 space-y-8 text-gray-600">
                                     <li class="flex gap-x-3">
-                                        <Icon name="mdi:bank" class="mt-1 flex-none h-5 w-5 text-td-primary-500"
+                                        <Icon name="mdi:bank" class="mt-1 flex-none h-5 w-5 text-td-accent"
                                             aria-hidden="true" />
-                                        <span><strong class="font-semibold text-td-primary-500 uppercase">Deck I</strong>
+                                        <span><strong class="font-semibold text-td-accent uppercase">Deck I</strong>
                                             (großer
                                             Saal | 100m²)*<br>
                                             montags bis donnerstags<br>
@@ -70,18 +70,18 @@
                                             inkl. Bühne (mind. 4m mal 4m) | kleine mobile Tonanlage | Arbeitslicht</span>
                                     </li>
                                     <li class="flex gap-x-3">
-                                        <Icon name="mdi:home" class="mt-1 flex-none h-5 w-5 text-td-primary-500"
+                                        <Icon name="mdi:home" class="mt-1 flex-none h-5 w-5 text-td-accent"
                                             aria-hidden="true" />
-                                        <span><strong class="font-semibold text-td-primary-500 uppercase">Deck II</strong>
+                                        <span><strong class="font-semibold text-td-accent uppercase">Deck II</strong>
                                             (Studiobühne | 40m²)*<br>
                                             montags bis donnerstags<br>
                                             10 bis 14 Uhr ||
                                             inkl. kleine mobile Tonanlage | Arbeitslicht</span>
                                     </li>
                                     <li class="flex gap-x-3">
-                                        <Icon name="mdi:dots-horizontal" class="mt-1 flex-none h-5 w-5 text-td-primary-500"
+                                        <Icon name="mdi:dots-horizontal" class="mt-1 flex-none h-5 w-5 text-td-accent"
                                             aria-hidden="true" />
-                                        <span><strong class="font-semibold text-td-primary-500 uppercase">Was noch möglich
+                                        <span><strong class="font-semibold text-td-accent uppercase">Was noch möglich
                                                 ist</strong>
                                             (Regelmäßig oder einmalig) Hochzeiten | Geburtstage | Konfirmationen | Trauungen
                                             | und und und</span>
@@ -89,11 +89,10 @@
                                 </ul>
                                 <p class="mt-8">
                                     Sämtliche Möglichkeiten und Konditionen unter: <a
-                                        class="hover:text-td-primary-500 text-gray-900" href="https://luettliv.de/"
+                                        class="hover:text-td-accent text-gray-900" href="https://luettliv.de/"
                                         target="_blank">www.luettliv.de.</a>
                                     <hr class="my-2" />
-                                    * Es gelten die <NuxtLink class="hover:text-td-primary-500 text-gray-900"
-                                        to="/datenschutz">
+                                    * Es gelten die <NuxtLink class="hover:text-td-accent text-gray-900" to="/datenschutz">
                                         Allgemeinen
                                         Geschäftsbedingungen</NuxtLink>
                                 </p>
@@ -104,7 +103,7 @@
                                     in Barmbek für Ihre Veranstaltung zu mieten. Unser Raum bietet die ideale Kulisse für
                                     unvergessliche Momente. Bei Fragen oder für Buchungsanfragen stehen wir Ihnen gerne
                                     telefonisch unter <span class="text-gray-900">040 6321322</span> oder per E-Mail unter
-                                    <a class="text-gray-900 hover:text-td-primary-500"
+                                    <a class="text-gray-900 hover:text-td-accent"
                                         href="mailto:info@theaterdeck.de">info@theaterdeck.de</a> zur
                                     Verfügung. Wir freuen uns darauf, Ihre Veranstaltungsträume wahr werden zu lassen!
                                 </p>
@@ -124,6 +123,8 @@
  *
  * Information about the booking of rooms
  */
+
+import heroimage from "../assets/images/hero-highkey-chairs.jpg";
 
 </script>
 

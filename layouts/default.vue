@@ -1,12 +1,8 @@
 <template>
     <div>
-
         <the-navbar />
 
-        <div class="mt-[65vh] sm:mt-[45vh] lg:mt-[30vh]">
-            <slot />
-
-        </div>
+        <slot />
 
         <the-footer />
     </div>

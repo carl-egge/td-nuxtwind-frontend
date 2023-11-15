@@ -1,6 +1,6 @@
 <template>
-    <header class="sticky inset-x-0 top-0 z-20 transition duration-1000 ease-in-out"
-        :class="{ 'bg-transparent border-b-4 border-transparent': !scrolled, 'bg-td-primary-400 border-b-4 border-td-accent-200': scrolled }">
+    <header class="fixed inset-x-0 top-0 z-20 transition duration-1000 ease-in-out"
+        :class="{ 'bg-gradient-to-b from-text/90 to-transparent': !scrolled, 'bg-text text-td-accent border-b-4 border-td-accent': scrolled }">
 
         <!-- Temporary notification for Test Deployment -->
         <!-- <div class="z-20 flex items-center bg-red-400 text-white text-sm font-bold px-4 py-3" role="alert">
@@ -15,14 +15,14 @@
             <div class="flex lg:flex-1 lg:basis-8/12">
                 <a href="/" class="-m-1.5 p-1.5">
                     <span class="sr-only">Theaterdeck</span>
-                    <img class="transition duration-1000 ease-in-out w-auto hover:drop-shadow-2xl hover:shadow-td-accent-300"
+                    <img class="transition duration-1000 ease-in-out w-auto hover:drop-shadow-2xl hover:shadow-td-accent"
                         :class="{ 'h-10': !scrolled, 'h-8': scrolled }" src="~/assets/images/td-nav-bar-logo-white.svg"
                         alt="Theaterdeck" />
                 </a>
             </div>
             <div class="flex lg:hidden">
                 <button type="button"
-                    class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-td-accent-400 hover:text-td-accent-400"
+                    class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-td-accent hover:text-td-accent"
                     @click="mobileMenuOpen = true">
                     <span class="sr-only">Open main menu</span>
                     <Icon name="material-symbols:menu-rounded" class="h-6 w-6" aria-hidden="true" />
@@ -38,7 +38,7 @@
                         Spielplan
                     </button>
                 </NuxtLink>
-                <NuxtLink v-else
+                <NuxtLink v-else to="/stuecke"
                     class="uppercase text-sm font-semibold leading-6 text-white nav-link nav-link-ltr hover:cursor-pointer">
                     Spielplan
                 </NuxtLink>
@@ -60,7 +60,7 @@
                                     <img class="h-10 w-auto" src="~/assets/images/td-nav-bar-logo-red.svg"
                                         alt="Theaterdeck" />
                                 </NuxtLink>
-                                <button type="button" class="-m-2.5 rounded-md p-2.5 text-td-primary-600 hover:bg-gray-100"
+                                <button type="button" class="-m-2.5 rounded-md p-2.5 text-td-primary hover:bg-gray-100"
                                     @click="mobileMenuOpen = false">
                                     <span class="sr-only">Close menu</span>
                                     <Icon name="material-symbols:cancel-outline-rounded" class="h-6 w-6"
@@ -108,7 +108,7 @@ const navigation = [
 ]
 
 const onScroll = () => {
-    scrolled.value = window.scrollY > 75;
+    scrolled.value = window.scrollY > 320;
 };
 
 onMounted(() => {
@@ -135,7 +135,7 @@ const mobileMenuOpen = ref(false)
 }
 
 .nav-link::before {
-    transition: 300ms;
+    /* transition: 300ms; */
     height: 4px;
     content: "";
     position: absolute;

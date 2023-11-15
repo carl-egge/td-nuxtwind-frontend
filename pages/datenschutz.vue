@@ -1,7 +1,7 @@
 <template>
     <div>
-        <Hero title="Datenschutz" breadcrumb="home" />
-        <div class="mx-auto max-w-5xl my-10">
+        <Hero title="DatenSCHUTZ" breadcrumb="home" :backgroundimage="`url(${heroimage})`" />
+        <main class="mx-auto max-w-5xl my-10">
             <div class="px-4">
                 <section id="rights-general" class="my-4">
                     <h2 class="mt-16 mb-2 text-2xl font-bold tracking-tight text-gray-900">
@@ -22,10 +22,10 @@
                     <p>
                         <Disclosure as="div" class="mt-2" v-for="q in datenerfassung" :key="q.id" v-slot="{ open }">
                             <DisclosureButton
-                                class="flex w-full justify-between rounded-lg bg-td-blue-dark px-4 py-2 text-left text-sm font-medium text-white hover:bg-td-blue-dark/80 focus:outline-none focus-visible:ring focus-visible:ring-td-blue-dark focus-visible:ring-opacity-75">
+                                class="flex w-full justify-between rounded-lg bg-td-secondary px-4 py-2 text-left text-sm font-medium text-white hover:bg-td-secondary/80 focus:outline-none focus-visible:ring focus-visible:ring-td-accent focus-visible:ring-opacity-75">
                                 <span>{{ q.title }}</span>
                                 <Icon name="material-symbols:keyboard-arrow-down"
-                                    :class="open ? 'rotate-180 transform' : ''" class="h-5 w-5 text-blue-600"
+                                    :class="open ? 'rotate-180 transform' : ''" class="h-5 w-5 text-td-primary"
                                     aria-hidden="true" />
                             </DisclosureButton>
                             <DisclosurePanel class="px-4 pt-4 pb-2 text-sm text-gray-500">
@@ -42,10 +42,10 @@
                     <p>
                         <Disclosure as="div" class="mt-2" v-for="q in generalRemarks" :key="q.id" v-slot="{ open }">
                             <DisclosureButton
-                                class="flex w-full justify-between rounded-lg bg-td-blue-dark px-4 py-2 text-left text-sm font-medium text-white hover:bg-td-blue-dark/80 focus:outline-none focus-visible:ring focus-visible:ring-td-blue-dark focus-visible:ring-opacity-75">
+                                class="flex w-full justify-between rounded-lg bg-td-secondary px-4 py-2 text-left text-sm font-medium text-white hover:bg-td-secondary/80 focus:outline-none focus-visible:ring focus-visible:ring-td-accent focus-visible:ring-opacity-75">
                                 <span>{{ q.title }}</span>
                                 <Icon name="material-symbols:keyboard-arrow-down"
-                                    :class="open ? 'rotate-180 transform' : ''" class="h-5 w-5 text-blue-600"
+                                    :class="open ? 'rotate-180 transform' : ''" class="h-5 w-5 text-td-primary"
                                     aria-hidden="true" />
                             </DisclosureButton>
                             <DisclosurePanel class="px-4 pt-4 pb-2 text-sm text-gray-500">
@@ -67,10 +67,10 @@
                     <p>
                         <Disclosure as="div" class="mt-2" v-for="q in agb" :key="q.id" v-slot="{ open }">
                             <DisclosureButton
-                                class="flex w-full justify-between rounded-lg bg-td-blue-dark px-4 py-2 text-left text-sm font-medium text-white hover:bg-td-blue-dark/80 focus:outline-none focus-visible:ring focus-visible:ring-td-blue-dark focus-visible:ring-opacity-75">
+                                class="flex w-full justify-between rounded-lg bg-td-secondary px-4 py-2 text-left text-sm font-medium text-white hover:bg-td-secondary/80 focus:outline-none focus-visible:ring focus-visible:ring-td-accent focus-visible:ring-opacity-75">
                                 <span>{{ q.title }}</span>
                                 <Icon name="material-symbols:keyboard-arrow-down"
-                                    :class="open ? 'rotate-180 transform' : ''" class="h-5 w-5 text-blue-600"
+                                    :class="open ? 'rotate-180 transform' : ''" class="h-5 w-5 text-td-primary"
                                     aria-hidden="true" />
                             </DisclosureButton>
                             <DisclosurePanel class="px-4 pt-4 pb-2 text-sm text-gray-500">
@@ -84,7 +84,7 @@
                 </section>
 
             </div>
-        </div>
+        </main>
     </div>
 </template>
 
@@ -94,6 +94,8 @@ import {
     DisclosureButton,
     DisclosurePanel,
 } from '@headlessui/vue'
+
+import heroimage from "../assets/images/hero-highkey-petterson.jpg";
 
 const datenerfassung = [
     {

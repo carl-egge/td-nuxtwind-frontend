@@ -1,20 +1,20 @@
 <template>
     <div>
-        <Hero :title="event.name.de" breadcrumb="show" />
-        <div class="mx-auto max-w-7xl p-4 sm:p-8 lg:max-w-7xl mt-[35vh]">
+        <Hero :title="event.name.de" breadcrumb="show" :backgroundimage="`url(${heroimage})`" />
+        <div class="mx-auto max-w-7xl p-4 sm:p-8 lg:max-w-7xl">
             <!-- Infos -->
             <section class="my-8 flex flex-row gap-x-8">
                 <div v-if="event.picture" class="basis-1/3">
                     <img :src="switchBaseUrl(event.picture)" :alt="'Bild: ' + event.name.de" class="rounded-lg" />
                 </div>
                 <div :class="{ 'basis-2/3': event.picture }">
-                    <h2 class="mt-6 mb-2 text-2xl font-bold tracking-tight text-td-primary-400">
+                    <h2 class="mt-6 mb-2 text-2xl font-bold tracking-tight text-td-accent">
                         AUTOR / TAG LINE
                     </h2>
                     <p class="my-4">
                         {{ event.desc.de }}
                     </p>
-                    <hr class="my-12 mx-32 h-0.5 border-t-0 bg-td-primary-400 opacity-100 dark:opacity-50" />
+                    <hr class="my-12 mx-32 h-0.5 border-t-0 bg-td-primary opacity-100 dark:opacity-50" />
                     <p class="my-8">
                         EMPFOHLEN AB 4 JAHREN | Eintritt: 16 € - 10 € ermässigt | Gruppen ab 12 Personen 1 Euro erm. pro
                         Platz | Eine THEATERDECK Produktion in Kooperation mit der Theater Jugend Hamburg e.V. und dem Amt
@@ -59,6 +59,8 @@
 import { storeToRefs } from 'pinia'
 import { useEventsStore } from '~/stores/events';
 import { onUnmounted } from 'vue'
+
+import heroimage from "../assets/images/hero-highkey-chairs.jpg";
 
 const { formatDate } = useFormatDate()
 const { switchBaseUrl } = useAPIBaseUrl()

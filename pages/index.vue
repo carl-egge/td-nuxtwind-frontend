@@ -1,17 +1,15 @@
 <template>
     <div>
 
-        <home-hero />
+        <new-home-hero />
 
-        <div class="mt-[70vh] sm:mt-[50vh]">
-            <home-events />
+        <home-events />
 
-            <newsletter />
+        <newsletter />
 
-            <contact-form />
+        <contact-form />
 
-            <home-map />
-        </div>
+        <home-map />
 
     </div>
 </template>
