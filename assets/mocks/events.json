@@ -1,0 +1,125 @@
+{
+	"count": 3,
+	"next": null,
+	"previous": null,
+	"results": [
+		{
+			"name": {
+				"de": "Jährliche Technologiekonferenz 2024",
+				"en": "Annual Tech Conference 2024"
+			},
+			"slug": "tech-conf-2024",
+			"desc": {
+				"de": "Seien Sie dabei beim größten Tech-Event des Jahres!",
+				"en": "Join us for the biggest tech event of the year!"
+			},
+			"live": true,
+			"testmode": false,
+			"currency": "EUR",
+			"date_from": "2024-09-15T09:00:00Z",
+			"date_to": "2024-09-17T18:00:00Z",
+			"date_admission": "2024-09-15T08:00:00Z",
+			"is_public": true,
+			"presale_start": "2024-03-01T00:00:00Z",
+			"presale_end": "2024-09-14T23:59:59Z",
+			"location": {
+				"de": "Berliner Messezentrum",
+				"en": "Berlin Exhibition Center"
+			},
+			"geo_lat": 52.5065133,
+			"geo_lon": 13.2846516,
+			"has_subevents": false,
+			"meta_data": {
+				"capacity": 5000,
+				"tracks": ["AI", "Blockchain", "Cloud Computing"]
+			},
+			"seating_plan": null,
+			"plugins": ["pretix-paypal", "pretix-mollie", "pretix-stripe"],
+			"seat_category_mapping": {},
+			"timezone": "Europe/Berlin",
+			"item_meta_properties": {},
+			"sales_channels": ["web", "app"],
+			"public_url": "https://pretix.eu/demo/tech-conf-2024/"
+		},
+		{
+			"name": {
+				"de": "Sommer Musikfestival"
+			},
+			"slug": "summer-music-fest",
+			"desc": {
+				"de": "Drei Tage non-stop Musik unter der Sonne!"
+			},
+			"live": true,
+			"testmode": false,
+			"currency": "EUR",
+			"date_from": "2024-07-20T12:00:00Z",
+			"date_to": "2024-07-22T23:59:59Z",
+			"date_admission": null,
+			"is_public": true,
+			"presale_start": "2024-01-15T00:00:00Z",
+			"presale_end": null,
+			"location": {
+				"de": "Sonnenuntergang Strandpark"
+			},
+			"geo_lat": 54.3233,
+			"geo_lon": 10.1228,
+			"has_subevents": true,
+			"meta_data": {
+				"genres": ["Rock", "Pop", "Electronic"],
+				"food_vendors": true
+			},
+			"seating_plan": null,
+			"plugins": ["pretix-stripe", "pretix-mollie"],
+			"seat_category_mapping": {},
+			"timezone": "Europe/Berlin",
+			"item_meta_properties": {
+				"vip_access": ["backstage", "lounge"]
+			},
+			"sales_channels": ["web", "app", "resellers"],
+			"public_url": "https://pretix.eu/demo/summer-music-fest/"
+		},
+		{
+			"name": {
+				"de": "Globaler Wirtschaftsgipfel"
+			},
+			"slug": "global-biz-summit",
+			"desc": {
+				"de": "Vernetzen Sie sich mit Branchenführern und Visionären"
+			},
+			"live": false,
+			"testmode": true,
+			"currency": "EUR",
+			"date_from": "2024-11-05T08:30:00Z",
+			"date_to": "2024-11-07T17:00:00Z",
+			"date_admission": "2024-11-05T07:30:00Z",
+			"is_public": false,
+			"presale_start": "2024-06-01T00:00:00Z",
+			"presale_end": "2024-11-04T23:59:59Z",
+			"location": {
+				"de": "Internationales Kongresszentrum Frankfurt"
+			},
+			"geo_lat": 50.1109,
+			"geo_lon": 8.6821,
+			"has_subevents": false,
+			"meta_data": {
+				"keynote_speakers": ["Jane Doe", "John Smith"],
+				"industries": ["Finance", "Tech", "Healthcare"]
+			},
+			"seating_plan": {
+				"id": "fkh-main-hall",
+				"name": "Hauptsaal Bestuhlung"
+			},
+			"plugins": ["pretix-paypal", "pretix-stripe", "pretix-ticketoutput-pdf"],
+			"seat_category_mapping": {
+				"VIP": ["A1", "A2", "A3"],
+				"Standard": ["B1", "B2", "B3"]
+			},
+			"timezone": "Europe/Berlin",
+			"item_meta_properties": {
+				"workshop_access": ["morning", "afternoon"]
+			},
+			"sales_channels": ["web", "phone"],
+			"public_url": "https://pretix.eu/demo/global-biz-summit/"
+		}
+	]
+}

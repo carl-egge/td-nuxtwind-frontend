@@ -2,7 +2,8 @@
     <div>
         <Hero title="SpielPLAN" breadcrumb="home" :backgroundimage="`url(${heroimage})`" />
         <div class="mx-auto max-w-7xl p-4 sm:p-8 lg:max-w-7xl">
-            <div v-if="eventsStore.countEvents > 0" v-for="event in eventsStore.getAll">
+            <!-- TODO: Change this to eventsStore.getAllLiveandUpcomingEvents -->
+            <div v-if="eventsStore.getEventCount > 0" v-for="event in eventsStore.getAllEvents">
                 <EventCard :event="event" />
             </div>
             <div v-else class="text-center">

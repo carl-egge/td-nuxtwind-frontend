@@ -9,6 +9,8 @@ export default defineNuxtPlugin((nuxtApp) => {
     // Make sure to only fetch events on the server
     if (process.server) {
         const eventsStore = useEventsStore()
-        eventsStore.fetchEvents()
+        // eventsStore.fetchEvents()
+        // Testing
+        eventsStore.fetchTestEvents()
     }
 });
