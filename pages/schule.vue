@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- Page Hero -->
-        <PageHero title="TheaterSCHULE" :breadcrumbs="[
+        <PageHero title="Theater Jugend" :breadcrumbs="[
             { label: 'HOME', to: '/' },
         ]" :backgroundImage="`url(${heroimage})`" />
 
