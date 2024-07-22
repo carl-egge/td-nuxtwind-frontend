@@ -1,38 +1,40 @@
 <template>
-    <section id="newsletter" class="relative isolate overflow-hidden bg-td-secondary py-16 sm:py-24 lg:py-32">
+    <section id="newsletter" class="relative isolate overflow-hidden bg-secondary text-text py-16 sm:py-24 lg:py-32">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
                 <div class="max-w-xl lg:max-w-lg">
-                    <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Unser Newsletter.</h2>
-                    <p class="mt-4 text-lg leading-8 text-white">
+                    <h2 class="text-3xl font-bold tracking-tight md:text-3xl">Unser Newsletter.</h2>
+                    <p class="mt-6 leading-8">
                         Verpassen Sie keine unserer kommenden Theaterstücke und bleiben Sie immer informiert! Melden Sie
                         sich für unseren Newsletter an.
                     </p>
-                    <div class="mt-6 flex max-w-md gap-x-4">
+                    <div class="mt-8 flex w-full gap-x-4">
                         <label for="email-address" class="sr-only">Email address</label>
                         <input id="email-address" name="email" type="email" autocomplete="email" required=""
-                            class="min-w-0 flex-auto rounded-md border-0 bg-white/80 px-3.5 py-2 text-text shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-td-accent sm:text-sm sm:leading-6"
+                            class="min-w-0 flex-auto rounded-md border-0 bg-white/80 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
                             placeholder="Deine Email-Adresse" />
-                        <button type="submit" class="flex-none td-btn-primary" @click="subscribe()">Ahoi und Enter!</button>
+                        <UButton type="submit" class="flex-none px-4" @click="subscribe()">
+                            Ahoi und Enter!
+                        </UButton>
                     </div>
                 </div>
                 <dl class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
                     <div class="flex flex-col items-start">
-                        <div class="rounded-md bg-white/5 p-2 ring-1 ring-white/40">
+                        <div class="rounded-md bg-background/5 p-2 ring-1 ring-background/40">
                             <!-- <CalendarDaysIcon class="h-6 w-6 text-white" aria-hidden="true" /> -->
-                            <Icon name="mdi:calendar-month" class="h-6 w-6 text-white" aria-hidden="true" />
+                            <Icon name="mdi:calendar-month" class="h-6 w-6 " aria-hidden="true" />
                         </div>
-                        <dt class="mt-4 font-semibold text-white uppercase">Regelmässige Updates</dt>
-                        <dd class="mt-2 leading-7 text-white">Immer wenn etwas spannendes ansteht informieren wir dich.
+                        <dt class="mt-4 font-semibold uppercase">Regelmässige Updates</dt>
+                        <dd class="mt-2 leading-7">Immer wenn etwas spannendes ansteht informieren wir dich.
                         </dd>
                     </div>
                     <div class="flex flex-col items-start">
                         <div class="rounded-md bg-white/5 p-2 ring-1 ring-white/40">
                             <!-- <HandRaisedIcon class="h-6 w-6 text-white" aria-hidden="true" /> -->
-                            <Icon name="mdi:hand-back-left" class="h-6 w-6 text-white" aria-hidden="true" />
+                            <Icon name="mdi:hand-back-left" class="h-6 w-6" aria-hidden="true" />
                         </div>
-                        <dt class="mt-4 font-semibold text-white uppercase">Kein spam</dt>
-                        <dd class="mt-2 leading-7 text-white">Wir schicken dir maximal einmal im Monat einen Newsletter.
+                        <dt class="mt-4 font-semibold uppercase">Kein spam</dt>
+                        <dd class="mt-2 leading-7">Wir schicken dir maximal einmal im Monat einen Newsletter.
                         </dd>
                     </div>
                 </dl>
@@ -44,7 +46,7 @@
         </div> -->
     </section>
 </template>
-  
+
 <script setup>
 const subscribe = () => {
     alert('Not Yet Implemented')

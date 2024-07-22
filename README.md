@@ -1,4 +1,4 @@
-# Theaterdeck Nuxt 3 Tailwind Frontend
+# Nuxt 3 Minimal Starter
 
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
@@ -7,7 +7,9 @@ Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introdu
 Make sure to install the dependencies:
 
 ```bash
+# yarn
 yarn install
+
 ```
 
 ## Development Server
@@ -15,6 +17,7 @@ yarn install
 Start the development server on `http://localhost:3000`:
 
 ```bash
+# yarn
 yarn dev
 ```
 
@@ -23,12 +26,14 @@ yarn dev
 Build the application for production:
 
 ```bash
+# yarn
 yarn build
 ```
 
 Locally preview production build:
 
 ```bash
+# yarn
 yarn preview
 ```
 

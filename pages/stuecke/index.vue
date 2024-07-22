@@ -1,23 +1,19 @@
 <template>
     <div>
-        <Hero title="SpielPLAN" breadcrumb="home" :backgroundimage="`url(${heroimage})`" />
+        <PageHero title="SpielPLAN" :breadcrumbs="[
+            { label: 'HOME', to: '/' },
+        ]" :backgroundImage="`url(${heroimage})`" />
         <div class="mx-auto max-w-7xl p-4 sm:p-8 lg:max-w-7xl">
             <!-- TODO: Change this to eventsStore.getAllLiveandUpcomingEvents -->
+            <h2 class="sr-only">Veranstaltungen</h2>
             <div v-if="eventsStore.getEventCount > 0" v-for="event in eventsStore.getAllEvents">
                 <EventCard :event="event" />
             </div>
-            <div v-else class="text-center">
-                <Icon name="mdi:dots-horizontal" class="h-8 w-8 text-gray-500" aria-hidden="true" />
-                <h2 class="mt-6 mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                    404
-                </h2>
-                <p class="my-6">
-                    Leider konnten wir keine Veranstaltungen finden. Dies kann an einem Serverfehler liegen oder daran, dass
-                    momentan keine Stücke anstehen.
-                </p>
-                <button class="td-btn-primary my-6">
+            <div v-else>
+                <p> Bitte entschuldige. Wir konnten keine Veranstaltungen finden. </p>
+                <UButton class="td-primary my-6">
                     <a href="/stuecke"> Erneut Versuchen </a>
-                </button>
+                </UButton>
             </div>
         </div>
     </div>

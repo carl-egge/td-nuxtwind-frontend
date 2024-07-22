@@ -1,6 +1,8 @@
 <template>
     <div>
-        <Hero title="DatenSCHUTZ" breadcrumb="home" :backgroundimage="`url(${heroimage})`" />
+        <PageHero title="Datenschutz" :breadcrumbs="[
+            { label: 'HOME', to: '/' },
+        ]" :backgroundImage="`url(${heroimage})`" />
         <main class="mx-auto max-w-5xl my-10">
             <div class="px-4">
                 <section id="rights-general" class="my-4">
@@ -9,92 +11,18 @@
                     </h2>
                     <p>
                         Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen
-                        Daten passiert, wenn Sie unsere Website besuchen. Personenbezogene Daten sind alle Daten, mit denen
+                        Daten passiert, wenn Sie unsere Website besuchen. Personenbezogene Daten sind alle Daten, mit
+                        denen
                         Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz
                         entnehmen Sie unserer unter diesem Text aufgeführten Datenschutzerklärung.
                     </p>
                 </section>
-
-                <section id="rights-data-acquisition" class="my-8">
-                    <h2 class="mt-6 mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                        Datenerfassung auf unserer Website
-                    </h2>
-                    <p>
-                        <Disclosure as="div" class="mt-2" v-for="q in datenerfassung" :key="q.id" v-slot="{ open }">
-                            <DisclosureButton
-                                class="flex w-full justify-between rounded-lg bg-td-secondary px-4 py-2 text-left text-sm font-medium text-white hover:bg-td-secondary/80 focus:outline-none focus-visible:ring focus-visible:ring-td-accent focus-visible:ring-opacity-75">
-                                <span>{{ q.title }}</span>
-                                <Icon name="material-symbols:keyboard-arrow-down"
-                                    :class="open ? 'rotate-180 transform' : ''" class="h-5 w-5 text-td-primary"
-                                    aria-hidden="true" />
-                            </DisclosureButton>
-                            <DisclosurePanel class="px-4 pt-4 pb-2 text-sm text-gray-500">
-                                {{ q.content }}
-                            </DisclosurePanel>
-                        </Disclosure>
-                    </p>
-                </section>
-
-                <section id="rights-remarks" class="my-8">
-                    <h2 class="mt-6 mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                        Allgemeine Hinweise und Pflichtinformationen
-                    </h2>
-                    <p>
-                        <Disclosure as="div" class="mt-2" v-for="q in generalRemarks" :key="q.id" v-slot="{ open }">
-                            <DisclosureButton
-                                class="flex w-full justify-between rounded-lg bg-td-secondary px-4 py-2 text-left text-sm font-medium text-white hover:bg-td-secondary/80 focus:outline-none focus-visible:ring focus-visible:ring-td-accent focus-visible:ring-opacity-75">
-                                <span>{{ q.title }}</span>
-                                <Icon name="material-symbols:keyboard-arrow-down"
-                                    :class="open ? 'rotate-180 transform' : ''" class="h-5 w-5 text-td-primary"
-                                    aria-hidden="true" />
-                            </DisclosureButton>
-                            <DisclosurePanel class="px-4 pt-4 pb-2 text-sm text-gray-500">
-                                {{ q.content }}
-                            </DisclosurePanel>
-                        </Disclosure>
-                    </p>
-                </section>
-
-                <section id="rights-agb" class="my-8">
-                    <h2 class="mt-6 mb-2 text-2xl font-bold tracking-tight text-gray-900">
-                        AGB : Allgemeine Geschäftsbedingungen TheaterDECK Hamburg
-                    </h2>
-                    <p>
-                        Geltungsbereich Die allgemeinen Geschäftsbedingungen (nachfolgend AGB) regeln die rechtlichen
-                        Beziehungen zwischen dem Theaterdeck Hamburg (nachfolgend Theater) und ihren Besuchern:innen
-                        (nachfolgend Kunde). Mit Erwerb einer Eintrittskarte gelten diese Bedingungen als vereinbart.
-                    </p>
-                    <p>
-                        <Disclosure as="div" class="mt-2" v-for="q in agb" :key="q.id" v-slot="{ open }">
-                            <DisclosureButton
-                                class="flex w-full justify-between rounded-lg bg-td-secondary px-4 py-2 text-left text-sm font-medium text-white hover:bg-td-secondary/80 focus:outline-none focus-visible:ring focus-visible:ring-td-accent focus-visible:ring-opacity-75">
-                                <span>{{ q.title }}</span>
-                                <Icon name="material-symbols:keyboard-arrow-down"
-                                    :class="open ? 'rotate-180 transform' : ''" class="h-5 w-5 text-td-primary"
-                                    aria-hidden="true" />
-                            </DisclosureButton>
-                            <DisclosurePanel class="px-4 pt-4 pb-2 text-sm text-gray-500">
-                                {{ q.content }}
-                            </DisclosurePanel>
-                        </Disclosure>
-                    </p>
-                    <p>
-                        . . .
-                    </p>
-                </section>
-
             </div>
         </main>
     </div>
 </template>
 
 <script setup>
-import {
-    Disclosure,
-    DisclosureButton,
-    DisclosurePanel,
-} from '@headlessui/vue'
-
 import heroimage from "../assets/images/hero-highkey-petterson.jpg";
 
 const datenerfassung = [

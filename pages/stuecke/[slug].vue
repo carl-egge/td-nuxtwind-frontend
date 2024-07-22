@@ -1,6 +1,10 @@
 <template>
     <div>
-        <Hero :title="event.name.de" breadcrumb="show" :backgroundimage="`url(${heroimage})`" />
+        <!-- <PageHero :title="event.name.de" breadcrumb="show" :backgroundimage="`url(${heroimage})`" /> -->
+        <PageHero :title="event.name.de" :breadcrumbs="[
+            { label: 'HOME', to: '/' },
+            { label: 'SPIELPLAN', to: '/stuecke' },
+        ]" :backgroundImage="`url(${heroimage})`" />
         <div class="mx-auto max-w-7xl p-4 sm:p-8 lg:max-w-7xl">
             <!-- Infos -->
             <section class="my-8 flex flex-row gap-x-8">
@@ -8,16 +12,17 @@
                     <img :src="switchBaseUrl(event.picture)" :alt="'Bild: ' + event.name.de" class="rounded-lg" />
                 </div>
                 <div :class="{ 'basis-2/3': event.picture }">
-                    <h2 class="mt-6 mb-2 text-2xl font-bold tracking-tight text-td-accent">
+                    <h2 class="mt-6 mb-2 text-2xl font-bold tracking-tight text-accent">
                         AUTOR / TAG LINE
                     </h2>
                     <p class="my-4">
                         {{ event.desc.de }}
                     </p>
-                    <hr class="my-12 mx-32 h-0.5 border-t-0 bg-td-primary opacity-100 dark:opacity-50" />
+                    <hr class="my-12 mx-32 h-0.5 border-t-0 bg-primary opacity-100 dark:opacity-50" />
                     <p class="my-8">
                         EMPFOHLEN AB 4 JAHREN | Eintritt: 16 € - 10 € ermässigt | Gruppen ab 12 Personen 1 Euro erm. pro
-                        Platz | Eine THEATERDECK Produktion in Kooperation mit der Theater Jugend Hamburg e.V. und dem Amt
+                        Platz | Eine THEATERDECK Produktion in Kooperation mit der Theater Jugend Hamburg e.V. und dem
+                        Amt
                         für Familie | Die Rechte liegen beim Verlag für Kindertheater Weitendorf GmbH
                     </p>
                 </div>
@@ -48,7 +53,7 @@
         </div>
     </div>
 </template>
-  
+
 <script setup>
 /**
  * PAGE: /stuecke/[slug]
@@ -108,5 +113,5 @@ useHead({
     ]
 })
 </script>
-  
+
 <style scoped></style>
