@@ -45,5 +45,9 @@ export default defineNuxtConfig({
     },
   },
   // ==============    STYLESHEETS    ==============
-  css: ['~/assets/css/main.css', '~/assets/css/tailwind.css'],
+  css: [
+    '~/assets/css/main.css',
+    '~/assets/css/tailwind.css',
+    '~/assets/css/fonts.css',
+  ],
 })
