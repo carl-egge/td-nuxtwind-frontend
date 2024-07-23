@@ -4,7 +4,7 @@
     <TheHeader class="shadow-none mb-2" />
 
     <!-- Main content area -->
-    <main class="flex-grow flex flex-col px-2 md:px-4 relative overflow-hidden md:pb-4 h-full">
+    <main class="mt-[80px] flex-grow flex flex-col px-2 md:px-4 relative overflow-hidden md:pb-4 h-full">
 
       <!-- Carousel container -->
       <div class="flex-grow relative overflow-hidden rounded-lg">
@@ -33,8 +33,8 @@
               <div class="flex flex-col h-full justify-around text-right">
                 <div></div>
                 <div>
-                  <h2 class="text-4xl xl:text-6xl font-bold mb-8">{{ item.title }}</h2>
-                  <pre class="mt-4 text-base lg:text-xl">{{ item.subtitle }}</pre>
+                  <h2 class="text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-8">{{ item.title }}</h2>
+                  <pre class="mt-4 text-base 2xl:text-xl">{{ item.subtitle }}</pre>
                 </div>
                 <UButton size="lg" class="py-4 text-base" to="/stuecke" block>
                   Hol dir Tickets!
@@ -74,6 +74,12 @@ definePageMeta({
 })
 
 const items = [
+  {
+    title: 'TheaterDECK\nHamburg',
+    subtitle: '',
+    to: '/stuecke',
+    src: '/images/hero-letters-shadow.jpg'
+  },
   {
     title: 'So, amüsieren Sie sich?!',
     subtitle: 'INGRID LAUSUND\n Hysterikon',

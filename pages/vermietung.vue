@@ -3,9 +3,9 @@
         <!-- Hero-Section -->
         <PageHero title="RaumMIETE" :breadcrumbs="breadcrumbs" :backgroundImage="heroBackgroundImage"
             aria-label="Seitenkopf" />
-        <main>
-            <section class="relative isolate overflow-hidden px-6 py-24 sm:py-32 lg:overflow-visible"
-                aria-label="Hauptinhalt">
+        <main class="p-0">
+            <section class="relative isolate overflow-hidden px-6 md:pl-6 md:pr-0 py-12 sm:py-32 lg:overflow-visible"
+                aria-label="Vermietung">
                 <div
                     class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
                     <div
@@ -15,10 +15,11 @@
                                 <p class="text-base font-semibold leading-7 text-accent">
                                     Für alle die einen Raum brauchen
                                 </p>
-                                <h1 class="mt-2 text-3xl font-bold tracking-tight text-text sm:text-4xl">
-                                    <span class="uppercase">Theaterdeck</span> Raummiete
-                                </h1>
-                                <p class="mt-6 text-xl leading-8 text-gray-700">
+                                <!-- <h2 class="mt-2 text-3xl font-bold tracking-tight text-text sm:text-4xl"> -->
+                                <h2 class="font-bold">
+                                    <span class="uppercase">Theaterdeck</span> Raum<span class="uppercase">miete</span>
+                                </h2>
+                                <p class="mt-6 text-lg leading-8">
                                     Hochzeiten || Geburtstage || Proben || Theaterproben || Navigationstraining ||
                                     Vorsprechvorbereitung || Monologarbeit || Camera Acting || Anlegemanöver ||
                                     Sprechübungen || Bühnenpatent
@@ -29,14 +30,14 @@
                     <div
                         class="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
                         <!-- Nuxt Image für optimierte Bilddarstellung -->
-                        <nuxt-img src="~/assets/images/deck-1-stockimage.jpg" alt="Unser Raum"
+                        <nuxt-img src="/images/hero-highkey-chairs.jpg" alt="Unser Raum"
                             class="w-[48rem] max-w-none rounded-lg bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
                             width="912" height="600" format="webp" quality="80" loading="lazy" />
                     </div>
                     <div
                         class="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8">
                         <div class="lg:pr-4">
-                            <div class="text-base leading-7 text-gray-700">
+                            <div class="text-base">
                                 <p>
                                     Entdecken Sie den perfekten Veranstaltungsort für Ihre Träume in Barmbek! Unser
                                     vielfältiger Theatersaal bietet eine charmante Atmosphäre, eine einladende Bühne und
@@ -45,8 +46,7 @@
                                     unvergesslich. Mieten Sie noch heute unseren einzigartigen Theatersaal und
                                     verwandeln Sie Ihre Ideen in unvergessliche Momente!
                                 </p>
-                                <!-- Verbesserte Semantik: Verwenden von <ul> für ungeordnete Listen -->
-                                <ul role="list" class="mt-8 space-y-8 text-gray-700" aria-label="Vermietungsoptionen">
+                                <ul role="list" class="mt-12 space-y-8 text-gray-700" aria-label="Vermietungsoptionen">
                                     <li class="flex gap-x-3">
                                         <Icon name="mdi:bank" class="mt-1 flex-none h-5 w-5 text-accent"
                                             aria-hidden="true" />
@@ -79,27 +79,26 @@
                                     </li>
                                 </ul>
                                 <p class="mt-8">
-                                    Sämtliche Möglichkeiten und Konditionen unter: <a
+                                    Sämtliche Möglichkeiten und Konditionen unter: <NuxtLink
                                         class="hover:text-accent text-text" href="https://luettliv.de/" target="_blank"
-                                        rel="noopener noreferrer">www.luettliv.de.</a>
+                                        rel="noopener noreferrer">www.luettliv.de.</NuxtLink>
                                     <hr class="my-2" />
                                     * Es gelten die <NuxtLink class="hover:text-accent text-text" to="/datenschutz">
                                         Allgemeinen
                                         Geschäftsbedingungen</NuxtLink>
                                 </p>
-                                <h2 class="mt-16 text-2xl font-bold tracking-tight text-text">Noch Fragen? Kein
-                                    Problem.
+                                <h2 class="mt-16 mb-6">
+                                    Noch Fragen? Kein Problem.
                                 </h2>
-                                <p class="mt-6">
-                                    Nutzen Sie diese einzigartige Gelegenheit, unseren vielseitigen Theatersaal
-                                    in Barmbek für Ihre Veranstaltung zu mieten. Unser Raum bietet die ideale Kulisse
-                                    für
+                                <p>
+                                    Nutzen Sie diese einzigartige Gelegenheit, unseren vielseitigen Theatersaal in
+                                    Barmbek für Ihre Veranstaltung zu mieten. Unser Raum bietet die ideale Kulisse für
                                     unvergessliche Momente. Bei Fragen oder für Buchungsanfragen stehen wir Ihnen gerne
-                                    telefonisch unter <span class="text-text">040 6321322</span> oder per E-Mail
-                                    unter
-                                    <a class="text-text hover:text-accent"
-                                        href="mailto:info@theaterdeck.de">info@theaterdeck.de</a> zur
-                                    Verfügung. Wir freuen uns darauf, Ihre Veranstaltungsträume wahr werden zu lassen!
+                                    telefonisch unter <NuxtLink href="tel:0406321322"
+                                        class="text-text hover:text-accent">040 6321322</NuxtLink> oder per E-Mail unter
+                                    <NuxtLink class="text-text hover:text-accent" href="mailto:info@theaterdeck.de">
+                                        info@theaterdeck.de</NuxtLink> zur Verfügung. Wir freuen uns darauf, Ihre
+                                    Veranstaltungsträume wahr werden zu lassen!
                                 </p>
                             </div>
                         </div>

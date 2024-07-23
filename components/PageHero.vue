@@ -1,6 +1,6 @@
 <template>
-    <div class="relative h-[65vh] w-full pt-20">
-        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat hero"></div>
+    <div class="relative h-[70vh] w-full pt-20">
+        <div class="mt-[60px] absolute inset-0 bg-cover bg-center bg-no-repeat hero"></div>
         <div class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-text bg-opacity-20"></div>
         <div class="relative flex h-full items-end pb-16">
             <div

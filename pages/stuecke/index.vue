@@ -3,9 +3,9 @@
         <PageHero title="SpielPLAN" :breadcrumbs="[
             { label: 'HOME', to: '/' },
         ]" :backgroundImage="`url(${heroimage})`" />
-        <div class="mx-auto max-w-7xl p-4 sm:p-8 lg:max-w-7xl">
+        <main>
             <!-- TODO: Change this to eventsStore.getAllLiveandUpcomingEvents -->
-            <h2 class="sr-only">Veranstaltungen</h2>
+            <h2 class="sr-only">Unsere Veranstaltungen</h2>
             <div v-if="eventsStore.getEventCount > 0" v-for="event in eventsStore.getAllEvents">
                 <EventCard :event="event" />
             </div>
@@ -15,7 +15,8 @@
                     <a href="/stuecke"> Erneut Versuchen </a>
                 </UButton>
             </div>
-        </div>
+        </main>
+        <Newsletter />
     </div>
 </template>
 

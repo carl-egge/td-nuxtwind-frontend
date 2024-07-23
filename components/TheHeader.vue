@@ -1,5 +1,5 @@
 <template>
-    <header class="bg-primary text-background shadow-lg rounded-b-lg z-20">
+    <header class="absolute w-full max-w-screen-2xl bg-primary text-background shadow-lg rounded-b-lg z-20">
         <div class="w-full px-4 py-2 flex items-center justify-between">
             <!-- Logo -->
             <div class="pl-14 md:px-4 flex-grow md:flex-grow-0">
@@ -32,7 +32,7 @@
                     <!-- Close Button -->
                     <UButton icon="i-heroicons-x-mark" color="gray" variant="ghost" size="xl"
                         class="absolute top-6 right-6" @click="isOpen = false" />
-                    <div class="p-4 pt-36 h-full align-text-middle">
+                    <div class="p-4 pt-24 h-full align-text-middle">
                         <NuxtLink to="/">
                             <div class="h-12 w-12 mx-auto">
                                 <Logo color="#C75216" />

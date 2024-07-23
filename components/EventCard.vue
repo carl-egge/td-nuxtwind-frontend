@@ -1,7 +1,7 @@
 <template>
     <div>
         <div
-            class="group relative min-h-48 block my-8 max-w-7xl mx-auto bg-white rounded shadow-md md:max-w-5xl xl:max-w-7xl hover:bg-background hover:cursor-pointer">
+            class="group relative min-h-48 block my-12 max-w-7xl mx-auto bg-white rounded shadow-md md:max-w-5xl xl:max-w-7xl hover:bg-background hover:cursor-pointer">
             <span class="absolute inset-0 border-2 border-dashed rounded border-primary"></span>
             <div
                 class="relative h-full transform items-end transition-transform group-hover:-translate-x-2 group-hover:-translate-y-2">
@@ -13,7 +13,7 @@
                             :src="switchBaseUrl(event.picture)" :alt="'Bild: ' + event.name.de">
                         <div v-else
                             class="h-48 w-full object-cover md:h-full md:w-48 lg:w-80 bg-primary text-2xl p-2 text-white flex justify-center items-center">
-                            <p class="font-bold">{{ event.name.de }}</p>
+                            <p class="font-bold text-background">{{ event.name.de }}</p>
                         </div>
                     </div>
                     <div class="p-8">

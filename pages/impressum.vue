@@ -3,20 +3,20 @@
         <PageHero title="Impressum" :breadcrumbs="[
             { label: 'HOME', to: '/' },
         ]" :backgroundImage="`url(${heroimage})`" />
-        <main class="p-4 xl:p-12">
+        <main>
             <section id="imprint-address" class="my-4">
-                <h2 class="my-2 text-2xl">
+                <h2>
                     Theaterdeck Hamburg
                 </h2>
-                <p class="text-gray-600">
+                <p>
                     Maurienstraße 19 <br />22305 Hamburg
                 </p>
             </section>
             <section id="imprint-directions" class="my-8">
-                <h2 class="my-2 text-2xl">
+                <h2>
                     Anreise
                 </h2>
-                <p class="text-gray-600 max-w-5xl">
+                <p>
                     Das Theaterdeck Hamburg (in der Zinnschmelze) liegt nur ein paar Gehminuten vom S- und U-Bahnhof
                     Barmbek entfernt. Ihren persönlichen Fahrplan können Sie gerne vom
                     <NuxtLink to="https://www.hvv.de/linking-service/show/f7d9ab7c02a14cd7acb1968838be1e45"
@@ -33,36 +33,31 @@
                 </p>
             </section>
             <section id="imprint-contact" class="my-8">
-                <h2 class="my-2 text-2xl">
+                <h2>
                     Kontakt
                 </h2>
-                <strong class="text-accent text-lg ml-4">
+                <strong class="text-accent text-lg m-4">
                     <Icon name="material-symbols:phone-enabled" aria-hidden="true" />
                     040 6321322
                 </strong>
-                <div class="text-gray-600 max-w-5xl mt-4">
-                    <p class="mb-2">
-                        Unser Anrufbeantworter wird täglich abgehört.
-                    </p>
-                    <p class="mb-2">
-                        Persönlicher Kontakt: mo und do 10:00 bis 12:00
-                    </p>
-                    <p class="mb-2">
-                        Oder nutzen sie unser Kontaktformular <NuxtLink to="/kontakt"
-                            class="text-accent hover:text-text">
-                            hier</NuxtLink>.
-                    </p>
-                </div>
+                <p class="mt-2">
+                    Unser Anrufbeantworter wird täglich abgehört.
+                </p>
+                <p>
+                    Persönlicher Kontakt: mo und do 10:00 bis 12:00
+                </p>
+                <p>
+                    Oder nutzen sie unser Kontaktformular <NuxtLink to="/kontakt" class="text-accent hover:text-text">
+                        hier</NuxtLink>.
+                </p>
             </section>
             <section id="imprint-info" class="my-4">
-                <h2 class="my-2 text-2xl">
+                <h2>
                     Impressum
                 </h2>
-                <div class="text-gray-600 max-w-5xl">
-                    <p><strong>Steuer Nr.</strong> 43/090/02984</p>
-                    <p><strong>Geschäftsführer:</strong> Niklas Heinecke</p>
-                    <p><strong>Design und Umsetzung:</strong> Philip Beck und Carl Egge</p>
-                </div>
+                <p><strong>Steuer Nr.</strong> 43/090/02984</p>
+                <p><strong>Geschäftsführer:</strong> Niklas Heinecke</p>
+                <p><strong>Design und Umsetzung:</strong> Philip Beck und Carl Egge</p>
             </section>
         </main>
         <section id="imprint-map" class="text-center p-8 w-full h-64 bg-accent">
@@ -72,6 +67,11 @@
 </template>
 
 <script setup>
+/**
+ * PAGE: impressum.vue
+ *
+ * Page for Imprint and Location Information.
+ */
 import heroimage from "../assets/images/hero-highkey-windschief.jpg";
 </script>
 
