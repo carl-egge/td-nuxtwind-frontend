@@ -1,7 +1,7 @@
 <template>
-    <div class="relative h-[70vh] w-full pt-20">
-        <div class="mt-[60px] absolute inset-0 bg-cover bg-center bg-no-repeat hero"></div>
-        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-text bg-opacity-20"></div>
+    <div class="relative h-[70vh] w-full pt-20 rounded">
+        <div class="mt-[60px] absolute inset-0 bg-cover bg-center bg-no-repeat hero rounded"></div>
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-text bg-opacity-20 rounded"></div>
         <div class="relative flex h-full items-end pb-16">
             <div
                 class="w-full break-words mx-2 rounded bg-primary text-background px-2 md:px-8 pb-8 pt-16 text-center uppercase font-semibold">
@@ -54,6 +54,7 @@ const fullBreadcrumbs = computed(() => [
     content: "";
     position: absolute;
     top: 0;
+    border-radius: 0.25rem;
     left: 0;
     background: v-bind("backgroundImage");
     background-repeat: no-repeat;

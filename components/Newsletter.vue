@@ -2,7 +2,7 @@
     <section id="newsletter"
         class="relative isolate overflow-hidden bg-primary text-background py-16 sm:py-24 lg:py-32">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
+            <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-16 gap-y-16 lg:max-w-none lg:grid-cols-2">
                 <div>
                     <h2 class="text-3xl font-bold">Unser Newsletter.</h2>
                     <p class="mt-6 leading-7 text-background">

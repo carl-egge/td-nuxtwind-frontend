@@ -30,22 +30,29 @@
             <!-- Slide Title for larger screens   bg-[#191c1def]   -->
             <div
               class="hidden md:block absolute top-2 left-2 bottom-2 w-2/5 rounded px-8 py-4 bg-secondary text-background">
-              <div class="flex flex-col h-full justify-around text-right">
-                <div></div>
-                <div>
-                  <h2 class="text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-8">{{ item.title }}</h2>
-                  <h4 class="mt-4 uppercase text-background text-base 2xl:text-xl">{{ item.subtitle }}</h4>
+              <div class="flex flex-col h-full">
+                <div class="flex-grow overflow-hidden">
+                  <div class="h-full flex flex-col justify-center">
+                    <h2 v-fluid-typography="{ min: 24, max: 64, compress: 10 }" class="font-bold text-right">
+                      {{ item.title }}
+                    </h2>
+                  </div>
                 </div>
-                <UButton size="lg" class="py-4 text-base bg-accent" to="/stuecke" block>
-                  {{ ctaText }}
-                </UButton>
+                <div class="flex-shrink-0 mt-4">
+                  <h4 class="text-right uppercase text-background text-base whitespace-pre leading-4 2xl:text-xl mb-4">
+                    {{ item.subtitle }}
+                  </h4>
+                  <UButton size="lg" class="py-4 text-base bg-accent" to="/stuecke" block>
+                    {{ ctaText }}
+                  </UButton>
+                </div>
               </div>
             </div>
             <!-- Slide Title for smaller screens -->
             <div class="block md:hidden absolute w-full p-2 bottom-0">
               <div class="w-full rounded px-2 py-8 text-background bg-secondary text-center">
                 <h2 class="text-4xl font-bold mb-2">{{ item.title }}</h2>
-                <h4 class="text-background uppercase">{{ item.subtitle }}</h4>
+                <h4 class="text-background whitespace-pre leading-4 uppercase">{{ item.subtitle }}</h4>
               </div>
             </div>
           </div>
