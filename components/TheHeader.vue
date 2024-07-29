@@ -5,7 +5,7 @@
             <div class="pl-14 md:px-4 flex-grow md:flex-grow-0">
                 <NuxtLink to="/" class="block md:flex items-center gap-2 h-16 py-2">
                     <!-- <img :src="logoSrc" alt="Logo" class="w-full h-full object-contain" /> -->
-                    <Logo color="#faf6f5" />
+                    <Logo color="#fbfcfc" />
                     <h1 class="hidden md:block uppercase text-lg leading-6 tracking-wide">
                         <span class="font-bold">Theater</span>deck
                         <br />Hamburg
@@ -35,7 +35,7 @@
                     <div class="p-4 pt-24 h-full align-text-middle">
                         <NuxtLink to="/">
                             <div class="h-12 w-12 mx-auto">
-                                <Logo color="#C75216" />
+                                <Logo color="#939f96" />
                             </div>
                             <h2 class="text-xl font-semibold mb-8 mt-2 text-primary uppercase">{{ title }}</h2>
                         </NuxtLink>

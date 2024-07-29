@@ -12,12 +12,12 @@
                             class="h-56 sm:h-80 w-full object-cover object-top md:h-full md:w-48 lg:w-80"
                             :src="switchBaseUrl(event.picture)" :alt="'Bild: ' + event.name.de">
                         <div v-else
-                            class="h-48 w-full object-cover md:h-full md:w-48 lg:w-80 bg-primary text-2xl p-2 text-white flex justify-center items-center">
-                            <p class="font-bold text-background">{{ event.name.de }}</p>
+                            class="h-48 w-full object-cover md:h-full md:w-48 lg:w-80 bg-secondary p-2 text-white flex justify-center items-center">
+                            <p class="font-bold text-background text-lg xl:text-xl">{{ event.name.de }}</p>
                         </div>
                     </div>
                     <div class="p-8">
-                        <div class="uppercase tracking-wide text-sm text-primary font-semibold">
+                        <div class="uppercase tracking-wide text-sm text-accent font-semibold">
                             {{ event.subtitle.de }}
                         </div>
                         <h4 class="block mt-1 text-2xl leading-tight font-medium text-black">

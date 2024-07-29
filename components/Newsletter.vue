@@ -1,26 +1,27 @@
 <template>
-    <section id="newsletter" class="relative isolate overflow-hidden bg-secondary py-16 sm:py-24 lg:py-32">
+    <section id="newsletter"
+        class="relative isolate overflow-hidden bg-primary text-background py-16 sm:py-24 lg:py-32">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
                 <div class="max-w-xl lg:max-w-lg">
                     <h2 class="text-3xl font-bold">Unser Newsletter.</h2>
-                    <p class="mt-6 leading-8">
+                    <p class="mt-6 leading-7 text-background">
                         Verpassen Sie keine unserer kommenden Theaterstücke und bleiben Sie immer informiert! Melden Sie
                         sich für unseren Newsletter an.
                     </p>
                     <div class="mt-8 flex w-full gap-x-4">
                         <label for="email-address" class="sr-only">Email Adresse</label>
                         <input id="email-address" name="email" type="email" autocomplete="email" required=""
-                            class="min-w-0 flex-auto rounded-md border-0 bg-white/80 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
+                            class="min-w-0 flex-auto rounded-md border-0 bg-white/80 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm leading-7"
                             placeholder="Deine Email-Adresse" />
-                        <UButton type="submit" class="flex-none px-4" @click="subscribe()">
+                        <UButton type="submit" class="flex-none px-4 bg-accent" @click="subscribe()">
                             Ahoi und Enter!
                         </UButton>
                     </div>
                 </div>
                 <dl class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
                     <div class="flex flex-col items-start">
-                        <div class="rounded p-2 ring-1 ring-primary">
+                        <div class="rounded p-2 ring-1 ring-accent">
                             <!-- <CalendarDaysIcon class="h-6 w-6 text-white" aria-hidden="true" /> -->
                             <Icon name="mdi:calendar-month" class="h-6 w-6 " aria-hidden="true" />
                         </div>
@@ -30,7 +31,7 @@
                         </dd>
                     </div>
                     <div class="flex flex-col items-start">
-                        <div class="rounded p-2 ring-1 ring-primary">
+                        <div class="rounded p-2 ring-1 ring-accent">
                             <!-- <HandRaisedIcon class="h-6 w-6 text-white" aria-hidden="true" /> -->
                             <Icon name="mdi:hand-back-left" class="h-6 w-6" aria-hidden="true" />
                         </div>

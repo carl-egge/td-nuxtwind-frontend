@@ -1,5 +1,5 @@
 <template>
-    <footer class="flex flex-col items-center bg-primary text-white text-center">
+    <footer class="flex flex-col items-center bg-secondary text-background text-center">
         <div class="container px-6 pt-6">
 
             <!-- Divider -->

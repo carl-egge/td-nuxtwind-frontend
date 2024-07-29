@@ -31,7 +31,7 @@
                         class="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
                         <!-- Nuxt Image für optimierte Bilddarstellung -->
                         <nuxt-img src="/images/hero-highkey-chairs.jpg" alt="Unser Raum"
-                            class="w-[48rem] max-w-none rounded-lg bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
+                            class="w-[48rem] max-w-none rounded-lg bg-text shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
                             width="912" height="600" format="webp" quality="80" loading="lazy" />
                     </div>
                     <div
