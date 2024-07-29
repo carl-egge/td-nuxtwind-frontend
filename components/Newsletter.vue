@@ -3,7 +3,7 @@
         class="relative isolate overflow-hidden bg-primary text-background py-16 sm:py-24 lg:py-32">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
-                <div class="max-w-xl lg:max-w-lg">
+                <div>
                     <h2 class="text-3xl font-bold">Unser Newsletter.</h2>
                     <p class="mt-6 leading-7 text-background">
                         Verpassen Sie keine unserer kommenden Theaterstücke und bleiben Sie immer informiert! Melden Sie
@@ -21,9 +21,8 @@
                 </div>
                 <dl class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
                     <div class="flex flex-col items-start">
-                        <div class="rounded p-2 ring-1 ring-accent">
-                            <!-- <CalendarDaysIcon class="h-6 w-6 text-white" aria-hidden="true" /> -->
-                            <Icon name="mdi:calendar-month" class="h-6 w-6 " aria-hidden="true" />
+                        <div class="rounded p-2 ring-1 ring-accent bg-accent">
+                            <Icon name="mdi:calendar-month" class="h-6 w-6 text-background" aria-hidden="true" />
                         </div>
                         <dt class="mt-4 font-semibold uppercase">Regelmässige Updates</dt>
                         <dd class="mt-2 leading-7">Immer wenn etwas spannendes ansteht informieren wir
@@ -31,9 +30,8 @@
                         </dd>
                     </div>
                     <div class="flex flex-col items-start">
-                        <div class="rounded p-2 ring-1 ring-accent">
-                            <!-- <HandRaisedIcon class="h-6 w-6 text-white" aria-hidden="true" /> -->
-                            <Icon name="mdi:hand-back-left" class="h-6 w-6" aria-hidden="true" />
+                        <div class="rounded p-2 ring-1 ring-accent bg-accent">
+                            <Icon name="mdi:hand-back-left" class="h-6 w-6 text-background" aria-hidden="true" />
                         </div>
                         <dt class="mt-4 font-semibold uppercase">Kein spam</dt>
                         <dd class="mt-2 leading-7">Wir schicken dir maximal einmal im Monat einen Newsletter.

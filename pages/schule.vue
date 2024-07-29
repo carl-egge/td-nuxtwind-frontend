@@ -43,7 +43,7 @@
                     </div>
                     <div class="w-full md:w-4/12 mx-auto my-4 lg:mt-16">
                         <div class="size-80 bg-text mx-auto rounded">
-                            <nuxt-img src="/images/hero-ship-water.jpeg" alt="chairs"
+                            <nuxt-img src="/images/hero/hero-ship-water.jpeg" alt="chairs"
                                 class="h-full rounded my-8 object-left-top object-cover" loading="lazy" format="webp"
                                 quality="80" sizes="sm:100vw md:50vw lg:400px" />
                         </div>
@@ -88,7 +88,7 @@
                     </div>
                     <div class="w-full md:w-4/12 mx-auto my-4 lg:mt-16">
                         <div class="size-80 bg-text mx-auto rounded">
-                            <nuxt-img src="/images/hero-highkey-sr.jpg" alt="chairs"
+                            <nuxt-img src="/images/hero/hero-highkey-sr.jpg" alt="chairs"
                                 class="h-full rounded my-8 object-cover" loading="lazy" format="webp" quality="80"
                                 sizes="sm:100vw md:50vw lg:400px" />
                         </div>

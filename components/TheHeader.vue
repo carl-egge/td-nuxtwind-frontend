@@ -6,7 +6,7 @@
                 <NuxtLink to="/" class="block md:flex items-center gap-2 h-16 py-2">
                     <!-- <img :src="logoSrc" alt="Logo" class="w-full h-full object-contain" /> -->
                     <Logo color="#fbfcfc" />
-                    <h1 class="hidden md:block uppercase text-lg leading-6 tracking-wide">
+                    <h1 class="hidden md:block uppercase text-xl leading-6 tracking-wide">
                         <span class="font-bold">Theater</span>deck
                         <br />Hamburg
                     </h1>

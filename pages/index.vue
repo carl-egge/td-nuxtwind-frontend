@@ -80,25 +80,25 @@ const items = [
     title: 'Theaterdeck\nHamburg',
     subtitle: '',
     to: '/stuecke',
-    src: '/images/hero-letters-shadow.jpg'
+    src: '/images/hero/hero-letters-shadow.jpg'
   },
   {
     title: 'So, amüsieren Sie sich?!',
     subtitle: 'INGRID LAUSUND\n Hysterikon',
     to: '/stuecke',
-    src: '/images/hero-highkey-windschief.jpg'
+    src: '/images/hero/hero-highkey-windschief.jpg'
   },
   {
     title: 'Neue Termine November 2024',
     subtitle: 'GUNILLA BERGSTRÖM\n Willi Wiberg',
     to: '/stuecke',
-    src: '/images/hero-highkey-petterson.jpg'
+    src: '/images/hero/hero-highkey-petterson.jpg'
   },
   {
     title: 'Weil auch in diesen Zeiten irgendwer das Richtige tun muss, einfach, weil es richtig ist.',
     subtitle: 'KIRSTEN BOIE\n Dunkelnacht',
     to: '/stuecke',
-    src: '/images/hero-highkey-sr.jpg'
+    src: '/images/hero/hero-highkey-sr.jpg'
   }
 ]
 

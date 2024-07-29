@@ -30,7 +30,7 @@
                     <div
                         class="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
                         <!-- Nuxt Image für optimierte Bilddarstellung -->
-                        <nuxt-img src="/images/hero-highkey-chairs.jpg" alt="Unser Raum"
+                        <nuxt-img src="/images/hero/hero-highkey-chairs.jpg" alt="Unser Raum"
                             class="w-[48rem] max-w-none rounded-lg bg-text shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
                             width="912" height="600" format="webp" quality="80" loading="lazy" />
                     </div>
@@ -48,8 +48,14 @@
                                 </p>
                                 <ul role="list" class="mt-12 space-y-8 text-gray-700" aria-label="Vermietungsoptionen">
                                     <li class="flex gap-x-3">
-                                        <Icon name="mdi:bank" class="mt-1 flex-none h-5 w-5 text-accent"
-                                            aria-hidden="true" />
+                                        <!-- <Icon name="mdi:bank" class="mt-1 flex-none h-5 w-5 text-accent"
+                                            aria-hidden="true" /> -->
+                                        <!-- <Icon name="game-icons:shooner-sailboat" class="flex-none h-8 w-8 text-accent"
+                                            aria-hidden="true" /> -->
+                                        <div class="rounded p-2 ring-1 ring-accent h-11 w-11 flex-none">
+                                            <Icon name="game-icons:shooner-sailboat" class="text-accent w-full h-full"
+                                                aria-hidden="true" />
+                                        </div>
                                         <span>
                                             <strong class="font-semibold text-accent uppercase">Deck I</strong>
                                             (großerSaal | 100m²)*<br>
@@ -59,8 +65,12 @@
                                         </span>
                                     </li>
                                     <li class="flex gap-x-3">
-                                        <Icon name="mdi:home" class="mt-1 flex-none h-5 w-5 text-accent"
-                                            aria-hidden="true" />
+                                        <!-- <Icon name="game-icons:sailboat" class="flex-none h-6 w-6 text-accent"
+                                            aria-hidden="true" /> -->
+                                        <div class="rounded p-2 ring-1 ring-accent h-11 w-11 flex-none">
+                                            <Icon name="game-icons:sailboat" class="text-accent w-full h-4/5"
+                                                aria-hidden="true" />
+                                        </div>
                                         <span>
                                             <strong class="font-semibold text-accent uppercase">Deck II</strong>
                                             (Studiobühne | 40m²)*<br>
@@ -69,8 +79,8 @@
                                         </span>
                                     </li>
                                     <li class="flex gap-x-3">
-                                        <Icon name="mdi:dots-horizontal" class="mt-1 flex-none h-5 w-5 text-accent"
-                                            aria-hidden="true" />
+                                        <Icon name="mdi:dots-horizontal"
+                                            class="flex-none h-5 w-5 align-bottom text-accent" aria-hidden="true" />
                                         <span><strong class="font-semibold text-accent uppercase">Was noch möglich
                                                 ist</strong>
                                             (Regelmäßig oder einmalig) Hochzeiten | Geburtstage | Konfirmationen |
