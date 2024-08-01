@@ -35,7 +35,7 @@
                     <div class="p-4 pt-24 h-full align-text-middle">
                         <NuxtLink to="/">
                             <div class="h-12 w-12 mx-auto">
-                                <Logo color="#939f96" />
+                                <Logo color="#fec600" />
                             </div>
                             <h2 class="text-xl font-semibold mb-8 mt-2 text-primary uppercase">{{ title }}</h2>
                         </NuxtLink>

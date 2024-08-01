@@ -33,7 +33,7 @@
               <div class="flex flex-col h-full">
                 <div class="flex-grow overflow-hidden">
                   <div class="h-full flex flex-col justify-center">
-                    <h2 v-fluid-typography="{ min: 24, max: 64, compress: 10 }" class="font-bold text-right">
+                    <h2 v-fluid-typography="{ min: 24, max: 64, compress: 10 }" class="text-right leading-normal">
                       {{ item.title }}
                     </h2>
                   </div>
@@ -51,7 +51,7 @@
             <!-- Slide Title for smaller screens -->
             <div class="block md:hidden absolute w-full p-2 bottom-0">
               <div class="w-full rounded px-2 py-8 text-background bg-secondary text-center">
-                <h2 class="text-4xl font-bold mb-2">{{ item.title }}</h2>
+                <h2 class="text-4xl mb-2">{{ item.title }}</h2>
                 <h4 class="text-background whitespace-pre leading-4 uppercase">{{ item.subtitle }}</h4>
               </div>
             </div>

@@ -4,7 +4,7 @@
         <div class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-text bg-opacity-20 rounded"></div>
         <div class="relative flex h-full items-end pb-16">
             <div
-                class="w-full break-words mx-2 rounded bg-primary text-background px-2 md:px-8 pb-8 pt-16 text-center uppercase font-semibold">
+                class="w-full break-words mx-2 rounded bg-accent text-background px-2 md:px-8 pb-8 pt-16 text-center uppercase">
                 <!-- <Icon name="mingcute:lighthouse-line" class="h-8 w-8 text-[#10b4ca]" aria-hidden="true" /> -->
                 <h1 class="break-all mb-2 text-4xl md:text-6xl leading-tight">{{ title }}</h1>
                 <!-- <UBreadcrumb v-if="breadcrumbs.length > 0" :links="fullBreadcrumbs" class="mt-4"

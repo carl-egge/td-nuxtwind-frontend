@@ -17,7 +17,7 @@
                         </div>
                     </div>
                     <div class="p-8">
-                        <div class="uppercase tracking-wide text-sm text-accent font-semibold">
+                        <div v-if="event.subtitle" class="uppercase tracking-wide text-sm text-accent font-semibold">
                             {{ event.subtitle.de }}
                         </div>
                         <h4 class="block mt-1 text-2xl leading-tight font-medium text-black">
