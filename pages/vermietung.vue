@@ -15,8 +15,7 @@
                                 <p class="text-base font-semibold leading-7 text-accent">
                                     Für alle die einen Raum brauchen
                                 </p>
-                                <!-- <h2 class="mt-2 text-3xl font-bold tracking-tight text-text sm:text-4xl"> -->
-                                <h2 class="font-bold">
+                                <h2>
                                     <span class="uppercase">Theaterdeck</span> Raum<span class="uppercase">miete</span>
                                 </h2>
                                 <p class="mt-6 text-lg leading-8">

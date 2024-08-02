@@ -37,11 +37,11 @@ export default defineNuxtConfig({
   },
   // ============== ENVIRONMENT VARIABLES ==============
   runtimeConfig: {
+    pretixApiKey: process.env.PRETIX_API_KEY,
     public: {
       pretixLocalBaseUrl: process.env.PRETIX_LOCAL_BASE_URL,
       pretixBaseUrl: process.env.PRETIX_BASE_URL,
       pretixEndpoint: process.env.PRETIX_API_ENDPOINT,
-      pretixApiKey: process.env.PRETIX_API_KEY,
     },
   },
   // ==============    STYLESHEETS    ==============

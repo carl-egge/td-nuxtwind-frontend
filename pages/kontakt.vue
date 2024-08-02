@@ -8,7 +8,7 @@
 
         <main class="bg-background flex items-center justify-center">
             <div class="max-w-xl w-full p-6 bg-white rounded shadow-md my-10 mx-2">
-                <h1 class="text-3xl font-bold text-primary mb-6">Kontaktieren Sie uns</h1>
+                <h1 class="text-3xl text-primary mb-6">Kontaktieren Sie uns</h1>
                 <UForm @submit="onSubmit">
                     <UFormGroup label="Name" name="name">
                         <UInput v-model="form.name" placeholder="Ihr Name" />

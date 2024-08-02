@@ -42,7 +42,7 @@
                   <h4 class="text-right uppercase text-background text-base whitespace-pre leading-4 2xl:text-xl mb-4">
                     {{ item.subtitle }}
                   </h4>
-                  <UButton size="lg" class="py-4 text-base bg-accent" to="/stuecke" block>
+                  <UButton size="lg" class="py-4 text-base bg-accent2" to="/stuecke" block>
                     {{ ctaText }}
                   </UButton>
                 </div>
@@ -61,7 +61,7 @@
 
       <!-- Button container for smaller screens -->
       <div class="block md:hidden pt-2 pb-4">
-        <UButton to="/stuecke" size="lg" variant="solid" class="py-4 text-base bg-accent" block>
+        <UButton to="/stuecke" size="lg" variant="solid" class="py-4 text-base bg-accent2" block>
           {{ ctaText }}
         </UButton>
       </div>
@@ -78,6 +78,15 @@
 definePageMeta({
   layout
     : 'home'
+})
+
+import { onMounted } from 'vue'
+import { useEventsStore } from '~/stores/events'
+
+const eventsStore = useEventsStore()
+
+onMounted(() => {
+  eventsStore.fetchEvents()
 })
 
 const ctaText = 'Spielplan und Tickets'

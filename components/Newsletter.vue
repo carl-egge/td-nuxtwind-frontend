@@ -4,7 +4,7 @@
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-16 gap-y-16 lg:max-w-none lg:grid-cols-2">
                 <div>
-                    <h2 class="text-3xl font-bold">Unser Newsletter.</h2>
+                    <h2 class="text-3xl">Unser Newsletter.</h2>
                     <p class="mt-6 leading-7 text-background">
                         Verpassen Sie keine unserer kommenden Theaterstücke und bleiben Sie immer informiert! Melden Sie
                         sich für unseren Newsletter an.
