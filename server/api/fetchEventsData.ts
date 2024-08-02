@@ -1,8 +1,7 @@
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
-  const uri = `${config.public.pretixLocalBaseUrl}${config.public.pretixEndpoint}/events`
+  const uri = `${config.public.pretixLocalBaseUrl}${config.public.pretixApiEndpoint}/events`
   console.log('INFO : Fetching events from', uri)
-  console.log('INFO : Using API key', config.pretixApiKey) // TODO: This log should be removed in production for security
 
   try {
     const response = await fetch(uri, {

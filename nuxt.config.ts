@@ -41,7 +41,7 @@ export default defineNuxtConfig({
     public: {
       pretixLocalBaseUrl: process.env.PRETIX_LOCAL_BASE_URL,
       pretixBaseUrl: process.env.PRETIX_BASE_URL,
-      pretixEndpoint: process.env.PRETIX_API_ENDPOINT,
+      pretixApiEndpoint: process.env.PRETIX_API_ENDPOINT,
     },
   },
   // ==============    STYLESHEETS    ==============

@@ -5,7 +5,7 @@
             <div class="pl-14 md:px-4 flex-grow md:flex-grow-0">
                 <NuxtLink to="/" class="block md:flex items-center gap-2 h-16 py-2">
                     <!-- <img :src="logoSrc" alt="Logo" class="w-full h-full object-contain" /> -->
-                    <Logo color="#fbfcfc" />
+                    <Logo color="#939f96" />
                     <h1 class="hidden md:block uppercase text-xl leading-6 tracking-wide">
                         <span class="font-bold">Theater</span>deck
                         <br />Hamburg

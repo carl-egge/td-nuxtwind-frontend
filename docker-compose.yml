@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  nuxt-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=3000
+      - NODE_ENV=production
+      - NUXT_PUBLIC_PRETIX_LOCAL_BASE_URL=${NUXT_PUBLIC_PRETIX_LOCAL_BASE_URL}
+      - NUXT_PUBLIC_PRETIX_BASE_URL=${NUXT_PUBLIC_PRETIX_BASE_URL}
+      - NUXT_PUBLIC_PRETIX_API_ENDPOINT=${NUXT_PUBLIC_PRETIX_API_ENDPOINT}
+      - NUXT_PRETIX_API_KEY=${NUXT_PRETIX_API_KEY}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+      start_period: 5s
