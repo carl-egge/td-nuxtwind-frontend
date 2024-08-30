@@ -92,7 +92,7 @@
         </div>
 
         <!-- Copyright section -->
-        <div class="w-full mt-2 p-4 bg-black/10">
+        <div class="w-full mt-2 p-4 bg-black/10 rounded-t">
             <div class="flex md:justify-between flex-col-reverse md:flex-row">
                 <div class="flex-1 text-center md:text-left my-2 md:my-0">
                     <NuxtLink to="/" class="hover:text-accent">

@@ -14,4 +14,14 @@
     h2 {
         @apply my-2 text-3xl;
     }
+
+    .marked-text {
+        @apply leading-8 tracking-widest uppercase;
+        /* box-shadow: 10px 0 0px 0px #ff0000, -10px 0 0px 0px #ff0000; */
+    }
+    
+    .marked-text > span {
+        /* mix-blend-mode: difference; */
+        @apply mr-0.5;
+    }
 }

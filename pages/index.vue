@@ -4,66 +4,89 @@
     <TheHeader class="shadow-none mb-2" />
 
     <!-- Main content area -->
-    <main class="mt-[80px] flex-grow flex flex-col px-2 md:px-4 relative overflow-hidden md:pb-4 h-full">
+    <main class="mt-[80px] mb-0 flex-grow flex flex-col px-2 md:px-4 relative overflow-hidden md:pb-4 md:pt-4 h-full">
 
-      <!-- Carousel container -->
-      <div class="flex-grow relative overflow-hidden rounded-lg">
+      <!-- DESKTOP SCREENS -->
+      <div class="hidden md:block relative flex-grow overflow-hidden">
         <UCarousel ref="carouselRef" v-slot="{ item }" :items="items" :ui="{
-          container: 'h-full',
+          item: 'basis-full',
+          container: 'rounded-lg h-full',
           wrapper: 'h-full',
-          item: 'h-full w-full overflow-hidden',
-          default: {
-            // Only show arrows on md screens and up
-            prevButton: {
-              class: 'hidden md:flex',
-            },
-            nextButton: {
-              class: 'hidden md:flex',
-            }
-          }
-        }" class="h-full" indicators arrows>
+        }" :prev-button="{
+          color: 'gray',
+          icon: 'i-heroicons-arrow-left-16-solid',
+          class: '-left-2 ring-0 shadow-none bg-transparent'
+        }" :next-button="{
+          color: 'gray',
+          icon: 'i-heroicons-arrow-right-16-solid',
+          class: '-right-1 ring-0 shadow-none bg-transparent text-xl'
+        }" arrows class="w-[98%] mx-auto">
           <div class="w-full h-full relative">
-            <!-- Slide image with overlay -->
-            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-text bg-opacity-20"></div>
-            <img :src="item.src" :alt="item.title" class="w-full h-full object-cover object-center rounded-lg"
-              draggable="false">
-            <!-- Slide Title for larger screens   bg-[#191c1def]   -->
-            <div
-              class="hidden md:block absolute top-2 left-2 bottom-2 w-2/5 rounded px-8 py-4 bg-secondary text-background">
-              <div class="flex flex-col h-full">
-                <div class="flex-grow overflow-hidden">
-                  <div class="h-full flex flex-col justify-center">
-                    <h2 v-fluid-typography="{ min: 24, max: 64, compress: 10 }" class="text-right leading-normal">
-                      {{ item.title }}
-                    </h2>
+
+            <!-- Slider Design for large Screens -->
+            <div class="h-full hidden md:flex px-10">
+              <div class="w-1/3 h-full py-4 -mr-4 z-10">
+                <div class="w-full h-full flex flex-col">
+                  <div class="bg-secondary rounded-lg flex-grow overflow-hidden p-4 shadow-lg flex flex-col">
+                    <div class="flex-grow flex items-center">
+                      <h2 class="marked-text text-right leading-normal">
+                        <span class="bg-white text-secondary">
+                          {{ item.title }}
+                        </span>
+                      </h2>
+                    </div>
+                    <div class="flex-shrink-0">
+                      <h4
+                        class="text-right uppercase text-background text-base whitespace-pre leading-4 2xl:text-xl mb-4">
+                        {{ item.subtitle }}
+                      </h4>
+                    </div>
+                  </div>
+                  <div class="flex-shrink-0 mt-4">
+                    <UButton size="lg" class="py-4 rounded-lg text-base bg-accent2 shadow-lg" to="/stuecke" block>
+                      {{ ctaText }}
+                    </UButton>
                   </div>
                 </div>
-                <div class="flex-shrink-0 mt-4">
-                  <h4 class="text-right uppercase text-background text-base whitespace-pre leading-4 2xl:text-xl mb-4">
-                    {{ item.subtitle }}
-                  </h4>
-                  <UButton size="lg" class="py-4 text-base bg-accent2" to="/stuecke" block>
-                    {{ ctaText }}
-                  </UButton>
-                </div>
               </div>
-            </div>
-            <!-- Slide Title for smaller screens -->
-            <div class="block md:hidden absolute w-full p-2 bottom-0">
-              <div class="w-full rounded px-2 py-8 text-background bg-secondary text-center">
-                <h2 class="text-4xl mb-2">{{ item.title }}</h2>
-                <h4 class="text-background whitespace-pre leading-4 uppercase">{{ item.subtitle }}</h4>
+              <div class="w-2/3 h-full">
+                <img :src="item.src" :alt="item.title" class="w-full h-full object-cover object-center rounded-lg"
+                  draggable="false">
               </div>
             </div>
           </div>
         </UCarousel>
       </div>
 
-      <!-- Button container for smaller screens -->
-      <div class="block md:hidden pt-2 pb-4">
-        <UButton to="/stuecke" size="lg" variant="solid" class="py-4 text-base bg-accent2" block>
-          {{ ctaText }}
-        </UButton>
+      <!-- PHONE SCREENS -->
+      <div class="relative md:hidden flex-grow overflow-hidden">
+        <UCarousel ref="carouselRef" v-slot="{ item }" :items="items" :ui="{
+          item: 'basis-full',
+          container: 'rounded-lg h-full',
+          wrapper: 'h-full',
+          indicators: {
+            wrapper: 'relative bottom-28 mt-4'
+          },
+        }" indicators class="w-[98%] mx-auto">
+          <div class="w-full h-full relative">
+            <!-- Slider Design for small Screens -->
+            <div class="h-full flex flex-col px-2 pb-2">
+              <div class="w-full flex-grow">
+                <img :src="item.src" :alt="item.title" class="w-full h-full object-cover object-center rounded-lg"
+                  draggable="false">
+              </div>
+              <div
+                class="bg-secondary flex-shrink h-52 rounded-lg mx-2 -mt-8 shadow-lg text-background text-center p-6">
+                <h2 class="text-2xl mb-2">{{ item.title }}</h2>
+                <h4 class="text-background text-sm whitespace-pre leading-4 uppercase">{{ item.subtitle }}</h4>
+              </div>
+              <UButton to="/stuecke" size="lg" variant="solid"
+                class="p-4 mx-2 mt-3 text-base bg-accent2 justify-center">
+                {{ ctaText }}
+              </UButton>
+            </div>
+          </div>
+        </UCarousel>
       </div>
     </main>
   </div>
@@ -86,7 +109,8 @@ import { useEventsStore } from '~/stores/events'
 const eventsStore = useEventsStore()
 
 onMounted(() => {
-  eventsStore.fetchEvents()
+  // eventsStore.fetchEvents()
+  eventsStore.fetchTestEvents()
 })
 
 const ctaText = 'Spielplan und Tickets'
