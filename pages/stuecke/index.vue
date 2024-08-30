@@ -6,30 +6,33 @@
         <main>
             <!-- TODO: Change this to eventsStore.getAllLiveandUpcomingEvents -->
             <h2 class="sr-only">Unsere Veranstaltungen</h2>
-            <div class="bg-accent p-4 m-4 w-full rounded">
-                <div>
-                    <h2>Testing List of Events</h2>
-                    <UButton @click="refreshEvents" :disabled="eventsStore.isLoading" block>
-                        Refresh Events
-                    </UButton>
-                    <p v-if="eventsStore.isLoading">Loading...</p>
-                    <p v-if="eventsStore.error">Error: {{ eventsStore.error }}</p>
-                    <ul v-if="!eventsStore.isLoading && !eventsStore.error">
-                        <li v-for="event in eventsStore.getAllEvents" :key="event.slug">
-                            {{ event.name }}
-                        </li>
-                    </ul>
+            <div v-if="eventsStore.isLoading">
+                <UProgress animation="carousel" />
+                <p>
+                    Veranstaltungen werden geladen. Bitte warten.
+                </p>
+            </div>
+            <div v-if="!eventsStore.isLoading && !eventsStore.error && eventsStore.getEventCount > 0">
+                <div v-for="event in eventsStore.getAllEvents">
+                    <EventCard :event="event" />
                 </div>
             </div>
-            <div v-if="eventsStore.getEventCount > 0" v-for="event in eventsStore.getAllEvents">
-                <EventCard :event="event" />
-            </div>
             <div v-else>
-                <p> Bitte entschuldige. Wir konnten keine Veranstaltungen finden. </p>
-                <UButton class="td-primary my-6">
+                <h3>
+                    Bitte entschuldige. Wir konnten keine Veranstaltungen finden.
+                </h3>
+                <!-- <UButton class="td-primary my-6">
                     <a href="/stuecke"> Erneut Versuchen </a>
-                </UButton>
+                </UButton> -->
             </div>
+            <div v-if="eventsStore.error" class="p-2 my-2 rounded w-full bg-red-500">
+                <p class="text-background">
+                    Fehler beim Veranstaltungen laden: "{{ eventsStore.error }}"
+                </p>
+            </div>
+            <UButton @click="refreshEvents" :disabled="eventsStore.isLoading" block>
+                Erneut Versuchen
+            </UButton>
         </main>
         <Newsletter />
     </div>
@@ -50,7 +53,8 @@ import { useEventsStore } from '~/stores/events'
 const eventsStore = useEventsStore()
 
 onMounted(() => {
-    eventsStore.fetchEvents()
+    // eventsStore.fetchEvents()
+    eventsStore.fetchTestEvents()
 })
 
 const refreshEvents = () => {
