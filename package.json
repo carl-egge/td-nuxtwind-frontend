@@ -16,7 +16,9 @@
     "@nuxt/ui": "^2.17.0",
     "@pinia/nuxt": "^0.5.1",
     "nuxt": "^3.12.3",
-    "vue": "latest"
+    "nuxt-mail": "^5.0.1",
+    "vue": "latest",
+    "zod": "^3.23.8"
   },
   "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447",
   "devDependencies": {
