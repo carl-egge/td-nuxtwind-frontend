@@ -5,8 +5,15 @@ export default defineNuxtConfig({
   // ==============      MODULES      ==============
   modules: [
     '@pinia/nuxt',
+    // '@nuxtjs/scripts',
     '@nuxt/ui',
     '@nuxt/image',
+    [
+      '@nuxtjs/turnstile',
+      {
+        siteKey: '1x00000000000000000000AA',
+      },
+    ],
     [
       'nuxt-mail',
       {
@@ -63,6 +70,12 @@ export default defineNuxtConfig({
       pretixLocalBaseUrl: process.env.PRETIX_LOCAL_BASE_URL,
       pretixBaseUrl: process.env.PRETIX_BASE_URL,
       pretixApiEndpoint: process.env.PRETIX_API_ENDPOINT,
+    },
+    turnstile: {
+      // This can be overridden at runtime via the NUXT_TURNSTILE_SECRET_KEY
+      // environment variable.
+      // Information: https://developers.cloudflare.com/turnstile/troubleshooting/testing/
+      secretKey: '1x0000000000000000000000000000000AA',
     },
   },
   // ==============    STYLESHEETS    ==============

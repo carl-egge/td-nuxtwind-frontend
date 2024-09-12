@@ -7,7 +7,7 @@
 
         <main class="bg-background flex items-center justify-center">
             <div class="max-w-xl w-full p-6 bg-white rounded shadow-md my-10 mx-2">
-                <h1 class="text-3xl text-primary mb-6">Kontaktieren Sie uns</h1>
+                <h1 class="text-3xl text-primary mb-6">Kontaktiere Uns</h1>
 
                 <!-- Nuxt UI Form utilizing Zod Validation -->
                 <UForm :schema="schema" :state="state" class="space-y-4" @submit="onSubmit">
@@ -23,7 +23,14 @@
                         <UTextarea v-model="state.message" placeholder="Ich benötige Hilfe bei ..." />
                     </UFormGroup>
 
-                    <UButton type="submit" :loading="waiting">
+                    <ClientOnly>
+                        <UFormGroup label="Hier überprüfen wir nur kurz ob du ein Roboter bist" name="captcha">
+                            <NuxtTurnstile ref="turnstile" v-model="turnstileToken" :options="{ theme: 'light' }"
+                                @error="onTurnstileError" @expired="onTurnstileExpired" />
+                        </UFormGroup>
+                    </ClientOnly>
+
+                    <UButton type="submit" :loading="waiting" :disabled="!isTurnstileValid" class="py-2" block>
                         Nachricht senden
                     </UButton>
 
@@ -41,6 +48,8 @@
  * Contact Form
  * 
  * This component demonstrates how to create a contact form with Nuxt UI and Zod validation.
+ * We also use Nuxt Mail to send an email with the form data.
+ * To avoid spam, we use Turnstile to prevent bots from submitting the form (nuxt-turnstile module).
  */
 import { z } from 'zod'
 import type { FormSubmitEvent } from '#ui/types'
@@ -64,6 +73,13 @@ const initialFormData: Schema = {
     message: ''
 };
 
+// Turnstile States
+const turnstile = ref();
+const turnstileToken = ref("");
+
+// Use computed property for Turnstile validity
+const isTurnstileValid = computed(() => !!turnstileToken.value);
+
 // Initialize the form state
 const state = ref<Schema>({ ...initialFormData });
 
@@ -74,9 +90,14 @@ const waiting = ref(false);
 
 // Form submission handler
 async function onSubmit(event: FormSubmitEvent<Schema>) {
+    if (!isTurnstileValid.value) {
+        errors.value = true;
+        return;
+    }
+
     waiting.value = true;
     try {
-        // TODO: Replace with your actual API call
+        // Testing
         // await simulateApiCall(state.value);
         await sendMail(state.value);
         errors.value = false;
@@ -88,7 +109,19 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
     } finally {
         waiting.value = false;
         state.value = { ...initialFormData };
+        // Reset Turnstile after form submission
+        turnstile.value?.reset();
+        turnstileToken.value = "";
     }
+}
+
+// Turnstile event handlers
+function onTurnstileError() {
+    errors.value = true;
+}
+
+function onTurnstileExpired() {
+    turnstileToken.value = "";
 }
 
 // Simulated API call (replace with your actual API call)

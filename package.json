@@ -13,7 +13,9 @@
   },
   "dependencies": {
     "@nuxt/image": "^1.7.0",
+    "@nuxt/scripts": "^0.8.5",
     "@nuxt/ui": "^2.17.0",
+    "@nuxtjs/turnstile": "^0.9.4",
     "@pinia/nuxt": "^0.5.1",
     "nuxt": "^3.12.3",
     "nuxt-mail": "^5.0.1",
