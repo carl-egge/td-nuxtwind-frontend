@@ -50,6 +50,7 @@ export const useEventsStore = defineStore('events', {
   actions: {
     // Add valid events to the store
     setEvents(events: PartialAPIEvent[]): void {
+      // TODO: Fix isValidEvent type check
       this.events = events.filter(this.isValidEvent)
     },
 
@@ -64,6 +65,7 @@ export const useEventsStore = defineStore('events', {
     },
 
     // Fetch events from Server Side using the Nuxt API
+    // If true is returned, the fetch was successful, otherwise an error occurred and false is returned
     async fetchEvents() {
       this.setLoading(true)
       this.setError(null)
@@ -79,12 +81,14 @@ export const useEventsStore = defineStore('events', {
           })
         }
         this.setEvents(events)
+        return true
       } catch (error) {
         console.error('Error fetching events:', error)
         this.setError(
           error instanceof Error ? error.message : 'An unknown error occurred'
         )
         this.setEvents([])
+        return false
       } finally {
         this.setLoading(false)
       }

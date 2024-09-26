@@ -53,8 +53,8 @@ import { useEventsStore } from '~/stores/events'
 const eventsStore = useEventsStore()
 
 onMounted(() => {
-    // eventsStore.fetchEvents()
-    eventsStore.fetchTestEvents()
+    eventsStore.fetchEvents()
+    // eventsStore.fetchTestEvents()
 })
 
 const refreshEvents = () => {

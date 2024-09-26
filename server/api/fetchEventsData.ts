@@ -1,6 +1,6 @@
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
-  const uri = `${config.public.pretixLocalBaseUrl}${config.public.pretixApiEndpoint}/events`
+  const uri = `${config.public.pretixLocalBaseUrl}${config.public.pretixApiEndpoint}/events/`
   console.log('INFO : Fetching events from', uri)
 
   try {
