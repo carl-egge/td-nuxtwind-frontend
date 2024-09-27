@@ -50,7 +50,7 @@ export const useEventsStore = defineStore('events', {
   actions: {
     // Add valid events to the store
     setEvents(events: PartialAPIEvent[]): void {
-      this.events = events.filter(this.isValidEvent)
+      this.events = events //.filter(this.isValidEvent)
     },
 
     // Set the loading state

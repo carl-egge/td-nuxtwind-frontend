@@ -49,8 +49,8 @@ USER nuxtuser
 EXPOSE 3000
 
 # Health check to ensure the application is running
-HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:3000/ || exit 1
+# HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
+#     CMD curl -f http://localhost:3000/ || exit 1
 
 # Command to run the application
 CMD ["node", ".output/server/index.mjs"]
