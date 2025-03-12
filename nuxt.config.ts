@@ -3,7 +3,34 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   compatibilityDate: '2024-07-04',
   // ==============      MODULES      ==============
-  modules: ['@pinia/nuxt', '@nuxt/ui', '@nuxt/image'],
+  modules: [
+    '@pinia/nuxt',
+    // '@nuxtjs/scripts',
+    '@nuxt/ui',
+    '@nuxt/image',
+    [
+      '@nuxtjs/turnstile',
+      {
+        siteKey: '1x00000000000000000000AA',
+      },
+    ],
+    [
+      'nuxt-mail',
+      {
+        message: {
+          to: process.env.NUXT_PUBLIC_CONTACTMAIL,
+        },
+        smtp: {
+          host: process.env.MAILHOST,
+          port: process.env.MAILPORT,
+          auth: {
+            user: process.env.MAILUSER,
+            pass: process.env.MAILPASS,
+          },
+        },
+      },
+    ],
+  ],
   // ============== DISABLE DARK MODE ==============
   colorMode: {
     preference: 'light',
@@ -39,9 +66,17 @@ export default defineNuxtConfig({
   runtimeConfig: {
     pretixApiKey: process.env.PRETIX_API_KEY,
     public: {
+      contactmail: process.env.CONTACTMAIL,
       pretixLocalBaseUrl: process.env.PRETIX_LOCAL_BASE_URL,
       pretixBaseUrl: process.env.PRETIX_BASE_URL,
       pretixApiEndpoint: process.env.PRETIX_API_ENDPOINT,
+      useMockData: process.env.USE_MOCK_DATA === 'true',
+    },
+    turnstile: {
+      // This can be overridden at runtime via the NUXT_TURNSTILE_SECRET_KEY
+      // environment variable.
+      // Information: https://developers.cloudflare.com/turnstile/troubleshooting/testing/
+      secretKey: '1x0000000000000000000000000000000AA',
     },
   },
   // ==============    STYLESHEETS    ==============
