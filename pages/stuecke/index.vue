@@ -51,14 +51,22 @@ import { onMounted } from 'vue'
 import { useEventsStore } from '~/stores/events'
 
 const eventsStore = useEventsStore()
+const config = useRuntimeConfig();
 
 onMounted(() => {
-    eventsStore.fetchEvents()
-    // eventsStore.fetchTestEvents()
+    fetchData()
 })
 
 const refreshEvents = () => {
-    eventsStore.fetchEvents()
+    fetchData()
+}
+
+function fetchData() {
+    if (config.public.useMockData) {
+        return eventsStore.fetchTestEvents()
+    } else {
+        return eventsStore.fetchEvents()
+    }
 }
 </script>
 

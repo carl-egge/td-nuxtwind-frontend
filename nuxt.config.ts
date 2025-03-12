@@ -70,6 +70,7 @@ export default defineNuxtConfig({
       pretixLocalBaseUrl: process.env.PRETIX_LOCAL_BASE_URL,
       pretixBaseUrl: process.env.PRETIX_BASE_URL,
       pretixApiEndpoint: process.env.PRETIX_API_ENDPOINT,
+      useMockData: process.env.USE_MOCK_DATA === 'true',
     },
     turnstile: {
       // This can be overridden at runtime via the NUXT_TURNSTILE_SECRET_KEY
