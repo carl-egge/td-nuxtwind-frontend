@@ -1,50 +1,73 @@
 <template>
-    <div>
-        <div
-            class="group relative min-h-48 block my-12 max-w-7xl mx-auto bg-white rounded shadow-md md:max-w-5xl xl:max-w-7xl hover:bg-background hover:cursor-pointer">
-            <span class="absolute inset-0 border-2 border-dashed rounded border-primary"></span>
-            <div
-                class="relative h-full transform items-end transition-transform group-hover:-translate-x-2 group-hover:-translate-y-2">
-                <div class="md:flex bg-white min-h-48 overflow-hidden rounded md:max-h-80"
-                    @click="goToEvent(event.slug)">
-                    <div class="md:shrink-0">
-                        <img v-if="event.picture"
-                            class="h-56 sm:h-80 w-full object-cover object-top md:h-full md:w-48 lg:w-80"
-                            :src="switchBaseUrl(event.picture)" :alt="'Bild: ' + event.name.de">
-                        <div v-else
-                            class="h-48 w-full object-cover md:h-full md:w-48 lg:w-80 bg-secondary p-2 text-white flex justify-center items-center">
-                            <p class="font-bold text-background text-lg xl:text-xl">{{ event.name.de }}</p>
-                        </div>
-                    </div>
-                    <div class="p-8">
-                        <div v-if="event.subtitle" class="uppercase tracking-wide text-sm text-accent font-semibold">
-                            {{ event.subtitle.de }}
-                        </div>
-                        <h4 class="block mt-1 text-2xl leading-tight font-medium text-black">
-                            {{ event.name.de }}
-                        </h4>
-                        <div class="line-clamp-3 mt-2 text-gray-500 mb-8">
-                            {{ event.desc.de }}
-                        </div>
-                        <!-- <div class="absolute bottom-4 right-4">
+	<div>
+		<div
+			class="group relative mx-auto my-12 block min-h-48 max-w-7xl rounded bg-white shadow-md hover:cursor-pointer hover:bg-background md:max-w-5xl xl:max-w-7xl"
+		>
+			<span
+				class="absolute inset-0 rounded border-2 border-dashed border-primary"
+			/>
+			<div
+				class="relative h-full transform items-end transition-transform group-hover:-translate-x-2 group-hover:-translate-y-2"
+			>
+				<div
+					class="min-h-48 overflow-hidden rounded bg-white md:flex md:max-h-80"
+					@click="goToEvent(event.slug)"
+				>
+					<div class="md:shrink-0">
+						<img
+							v-if="event.picture"
+							class="h-56 w-full object-cover object-top sm:h-80 md:h-full md:w-48 lg:w-80"
+							:src="switchBaseUrl(event.picture)"
+							:alt="'Bild: ' + event.name.de"
+						/>
+						<div
+							v-else
+							class="flex h-48 w-full items-center justify-center bg-secondary object-cover p-2 text-white md:h-full md:w-48 lg:w-80"
+						>
+							<p class="text-lg font-bold text-background xl:text-xl">
+								{{ event.name.de }}
+							</p>
+						</div>
+					</div>
+					<div class="p-8">
+						<div
+							v-if="event.subtitle"
+							class="text-sm font-semibold uppercase tracking-wide text-accent"
+						>
+							{{ event.subtitle.de }}
+						</div>
+						<h4
+							class="mt-1 block text-2xl font-medium leading-tight text-black"
+						>
+							{{ event.name.de }}
+						</h4>
+						<div class="mb-8 mt-2 line-clamp-3 text-gray-500">
+							{{ event.desc.de }}
+						</div>
+						<!-- <div class="absolute bottom-4 right-4">
                             <UButton class="mt-2" color="primary" type="button" @click="goToEvent(event.slug)">
                                 zum Stück
                                 <Icon name="material-symbols:arrow-right-alt-rounded" aria-hidden="true"
                                     class="h-4 w-4" />
                             </UButton>
                         </div> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </template>
 
 <script setup>
-// Get props
-const { event } = defineProps(['event'])
-// Import composables
-const { switchBaseUrl } = useAPIBaseUrl()
-// @ts-ignore
-const goToEvent = (slug) => navigateTo('/stuecke/' + slug)
+	// Get props
+	const { event } = defineProps({
+		event: {
+			type: Object,
+			required: true,
+		},
+	});
+	// Import composables
+	const { switchBaseUrl } = useAPIBaseUrl();
+	// @ts-expect-error: navigateTo is not typed in this context
+	const goToEvent = (slug) => navigateTo('/stuecke/' + slug);
 </script>

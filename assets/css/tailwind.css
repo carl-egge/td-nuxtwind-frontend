@@ -3,25 +3,25 @@
 @tailwind utilities;
 
 @layer base {
-    p {
-        @apply text-gray-600 max-w-5xl mt-1 mb-3 leading-relaxed;
-    }
+	p {
+		@apply mb-3 mt-1 max-w-5xl leading-relaxed text-gray-600;
+	}
 
-    main {
-        @apply p-4 xl:p-8 my-4;
-    }
+	main {
+		@apply my-4 p-4 xl:p-8;
+	}
 
-    h2 {
-        @apply my-2 text-3xl;
-    }
+	h2 {
+		@apply my-2 text-3xl;
+	}
 
-    .marked-text {
-        @apply leading-8 tracking-widest uppercase;
-        /* box-shadow: 10px 0 0px 0px #ff0000, -10px 0 0px 0px #ff0000; */
-    }
-    
-    .marked-text > span {
-        /* mix-blend-mode: difference; */
-        @apply mr-0.5;
-    }
+	.marked-text {
+		@apply uppercase leading-8 tracking-widest;
+		/* box-shadow: 10px 0 0px 0px #ff0000, -10px 0 0px 0px #ff0000; */
+	}
+
+	.marked-text > span {
+		/* mix-blend-mode: difference; */
+		@apply mr-0.5;
+	}
 }
