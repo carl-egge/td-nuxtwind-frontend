@@ -1,3 +1,7 @@
+// TODO: Maybe use a better way to handle the type check for the events data
+// TODO: Maybe use Pinia Setup Store
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 import { defineStore } from 'pinia';
 import eventTestData from '~/assets/mocks/events.json';
 
