@@ -16,10 +16,17 @@
 					:schema="schema"
 					:state="state"
 					class="space-y-4"
+					aria-label="Kontaktformular"
+					role="form"
 					@submit="onSubmit"
 				>
 					<UFormGroup label="Name" name="name">
-						<UInput v-model="state.name" placeholder="Pippi Langstrumpf" />
+						<UInput
+							v-model="state.name"
+							placeholder="Pippi Langstrumpf"
+							aria-label="Name"
+							:disabled="waiting"
+						/>
 					</UFormGroup>
 
 					<UFormGroup label="Email" name="email">
@@ -27,6 +34,17 @@
 							v-model="state.email"
 							type="email"
 							placeholder="villa@kunterbunt.de"
+							aria-label="Email"
+							:disabled="waiting"
+						/>
+					</UFormGroup>
+
+					<UFormGroup label="Telefon (optional)" name="phone">
+						<UInput
+							v-model="state.phone"
+							placeholder="0123 4567890"
+							aria-label="Telefon"
+							:disabled="waiting"
 						/>
 					</UFormGroup>
 
@@ -34,40 +52,52 @@
 						<UTextarea
 							v-model="state.message"
 							placeholder="Ich benötige Hilfe bei ..."
+							aria-label="Nachricht"
+							:disabled="waiting"
 						/>
 					</UFormGroup>
 
-					<ClientOnly>
-						<UFormGroup
-							label="Hier überprüfen wir nur kurz ob du ein Roboter bist"
-							name="captcha"
-						>
-							<!-- TODO: Fix this!! -->
-							<!-- <NuxtTurnstile
-								ref="turnstile"
-								v-model="turnstileToken"
-								:options="{ theme: 'light' }"
-								@error="onTurnstileError"
-								@expired="onTurnstileExpired"
-							/> -->
-						</UFormGroup>
-					</ClientOnly>
+					<!-- Captcha Field -->
+					<!-- <ClientOnly> -->
+					<UFormGroup
+						label="Bitte bestätigen Sie, dass Sie kein Roboter sind"
+						name="captcha"
+					>
+						<NuxtTurnstile
+							ref="turnstile"
+							v-model="turnstileToken"
+							aria-label="Captcha"
+							:options="{ theme: 'light' }"
+							@error="onTurnstileError"
+							@expired="onTurnstileExpired"
+						/>
+					</UFormGroup>
+					<!-- </ClientOnly> -->
 
 					<UButton
 						type="submit"
+						aria-label="Nachricht senden"
 						:loading="waiting"
-						:disabled="!isTurnstileValid"
+						:disabled="!isTurnstileValid || waiting"
 						class="py-2"
 						block
 					>
 						Nachricht senden
 					</UButton>
 
-					<!-- Display error or success message -->
-					<p v-if="errors" class="text-accent">
-						🔥 Etwas lief schief. Bitte versuche es erneut.
-					</p>
-					<p v-if="succsess" class="text-primary">📩 Abgeschickt!</p>
+					<!-- Accessible feedback -->
+					<div role="alert" aria-live="assertive">
+						<p v-if="errors" class="text-accent">
+							🔥 Es gab ein Problem.
+							<br />
+							{{ errors }}
+							<br />
+							Bitte versuchen Sie es erneut.
+						</p>
+						<p v-if="success" class="text-primary">
+							📩 Ihre Nachricht wurde erfolgreich gesendet!
+						</p>
+					</div>
 				</UForm>
 			</div>
 		</main>
@@ -82,105 +112,108 @@
 	 * We also use Nuxt Mail to send an email with the form data.
 	 * To avoid spam, we use Turnstile to prevent bots from submitting the form (nuxt-turnstile module).
 	 */
+	import { ref, computed } from 'vue';
 	import { z } from 'zod';
 	import type { FormSubmitEvent } from '#ui/types';
-
 	import heroimage from '../assets/images/hero-highkey-sr.jpg';
 
-	// Define the Zod schema
+	// Define the Zod schema for form validation
 	const schema = z.object({
 		name: z.string().min(1, 'Name ist erforderlich'),
 		email: z.string().email('Ungültige E-Mail-Adresse'),
+		phone: z.string().optional(),
 		message: z
 			.string()
 			.min(10, 'Nachricht muss mindestens 10 Zeichen lang sein'),
 	});
 
-	// Infer the TypeScript type from the schema
+	// Infer TypeScript type from schema and initialize form state
 	type Schema = z.infer<typeof schema>;
-
-	// Define the initial form data
 	const initialFormData: Schema = {
 		name: '',
 		email: '',
+		phone: '',
 		message: '',
 	};
-
-	// Turnstile States
-	const turnstile = ref();
-	const turnstileToken = ref('');
-
-	// Use computed property for Turnstile validity
-	const isTurnstileValid = computed(() => !!turnstileToken.value);
-
-	// Initialize the form state
 	const state = ref<Schema>({ ...initialFormData });
 
-	// State of submission
-	const errors = ref(false);
-	const succsess = ref(false);
+	// Turnstile token state and validity
+	const turnstile = ref();
+	const turnstileToken = ref('');
+	const isTurnstileValid = computed(() => !!turnstileToken.value);
+
+	// Submission states: errors holds error message, success and waiting are booleans
+	const errors = ref('');
+	const success = ref(false);
 	const waiting = ref(false);
 
-	// Form submission handler
+	/**
+	 * onSubmit handles form submission, including posting data to the API and error handling
+	 * @param {FormSubmitEvent<Schema>} _event - The form submission event
+	 * @returns {Promise<void>}
+	 */
 	async function onSubmit(_event: FormSubmitEvent<Schema>) {
+		// Ensure Turnstile is valid before submission
 		if (!isTurnstileValid.value) {
-			errors.value = true;
+			errors.value = 'Bitte bestätigen Sie, dass Sie kein Roboter sind.';
 			return;
 		}
-
 		waiting.value = true;
+		errors.value = '';
+		success.value = false;
+
 		try {
-			// Testing
-			// await simulateApiCall(state.value);
-			await sendMail(state.value);
-			errors.value = false;
-			succsess.value = true;
-		} catch (error) {
+			// Post form data and captcha token to your custom API endpoint
+			// eslint-disable-next-line @typescript-eslint/no-unused-vars
+			const { data, error: responseError } = await useFetch('/api/contact', {
+				method: 'POST',
+				body: {
+					token: turnstileToken.value,
+					name: state.value.name,
+					email: state.value.email,
+					phone: state.value.phone,
+					message: state.value.message,
+				},
+			});
+			// console.log('Form submission response:', data);
+			// If the response has an status other than 2xx, throw an error
+			if (responseError.value) {
+				throw new Error(
+					responseError.value.data?.statusMessage ||
+						responseError.value.statusMessage ||
+						'Serverfehler'
+				);
+			}
+			success.value = true;
+		} catch (error: unknown) {
 			console.error('Error submitting form:', error);
-			errors.value = true;
-			succsess.value = false;
+			// Show error message from server if available, otherwise a fallback message
+			// Use unknown with a type guard to retrieve the error message
+			if (error instanceof Error) {
+				errors.value = error.message;
+			} else {
+				errors.value =
+					'Bitte überprüfen Sie Ihre Eingaben und versuchen Sie es erneut.';
+			}
 		} finally {
 			waiting.value = false;
+			// Reset the form state including the optional phone field
 			state.value = { ...initialFormData };
-			// Reset Turnstile after form submission
+			// Reset Turnstile after submission
 			turnstile.value?.reset();
 			turnstileToken.value = '';
 		}
 	}
 
-	// Turnstile event handlers
-	// function onTurnstileError() {
-	// 	errors.value = true;
-	// }
+	// Called when the Turnstile component encounters an error
+	function onTurnstileError() {
+		errors.value = 'Captcha Fehler. Bitte versuchen Sie es erneut.';
+		console.error('Turnstile error occurred.');
+	}
 
-	// function onTurnstileExpired() {
-	// 	turnstileToken.value = '';
-	// }
-
-	// Simulated API call (replace with your actual API call)
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const simulateApiCall = (data: Schema): Promise<void> => {
-		return new Promise((resolve) => {
-			setTimeout(() => {
-				console.log('API call with data:', data.email, data.name, data.message);
-				resolve();
-			}, 1000);
-		});
-	};
-
-	// Use MailerSend API to send email instead of Nuxt Mail
-	const sendMail = async (data: Schema) => {
-		// Send email using nuxt-mail (config see nuxt config)
-		const mail = useMail();
-		try {
-			await mail.send({
-				from: data.email,
-				subject: 'Message from Contact Form',
-				text: `FROM: ${data.name} <${data.email}>\n\nMessage:\n${data.message}`,
-			});
-		} catch (error) {
-			console.error('Error sending email:', error);
-			throw error; // Re-throw the error so it can be caught in onSubmit
-		}
-	};
+	// Called when the Turnstile token expires
+	function onTurnstileExpired() {
+		turnstileToken.value = '';
+		console.warn('Turnstile token expired.');
+	}
 </script>

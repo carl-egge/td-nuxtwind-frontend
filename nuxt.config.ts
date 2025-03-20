@@ -9,29 +9,11 @@ export default defineNuxtConfig({
 		'@nuxt/scripts',
 		'@nuxt/ui',
 		'@nuxt/image',
-		[
-			'@nuxtjs/turnstile',
-			{
-				siteKey: '1x00000000000000000000AA',
-			},
-		],
-		[
-			'nuxt-mail',
-			{
-				message: {
-					to: process.env.NUXT_PUBLIC_CONTACTMAIL,
-				},
-				smtp: {
-					host: process.env.MAILHOST,
-					port: process.env.MAILPORT,
-					auth: {
-						user: process.env.MAILUSER,
-						pass: process.env.MAILPASS,
-					},
-				},
-			},
-		],
+		'@nuxtjs/turnstile',
 	],
+	turnstile: {
+		siteKey: process.env.TURNSTILE_SITE_KEY,
+	},
 	// ============== DISABLE DARK MODE ==============
 	colorMode: {
 		preference: 'light',
@@ -65,19 +47,29 @@ export default defineNuxtConfig({
 	},
 	// ============== ENVIRONMENT VARIABLES ==============
 	runtimeConfig: {
+		// TODO: I think this must be NUXT_PRETIX_API_KEY
 		pretixApiKey: process.env.PRETIX_API_KEY,
+		mailerSenderApiKey: process.env.NUXT_MAILERSENDER_API_KEY,
 		public: {
 			contactmail: process.env.CONTACTMAIL,
 			pretixLocalBaseUrl: process.env.PRETIX_LOCAL_BASE_URL,
 			pretixBaseUrl: process.env.PRETIX_BASE_URL,
 			pretixApiEndpoint: process.env.PRETIX_API_ENDPOINT,
 			useMockData: process.env.USE_MOCK_DATA === 'true',
+			contactFormRecipient:
+				process.env.CONTACT_FORM_RECIPIENT || 'info@theaterdeck.de',
+			contactFormRecipientName:
+				process.env.CONTACT_FORM_RECIPIENT_NAME || 'Theaterdeck Hamburg',
+			contactFormFromEmail:
+				process.env.CONTACT_FORM_FROM_EMAIL || 'no-reply@theaterdeck.de',
+			contactFormFromName:
+				process.env.CONTACT_FORM_FROM_NAME || 'Theaterdeck Kontaktformular',
 		},
 		turnstile: {
 			// This can be overridden at runtime via the NUXT_TURNSTILE_SECRET_KEY
 			// environment variable.
 			// Information: https://developers.cloudflare.com/turnstile/troubleshooting/testing/
-			secretKey: '1x0000000000000000000000000000000AA',
+			secretKey: process.env.TURNSTILE_SECRET_KEY,
 		},
 	},
 	// ==============    STYLESHEETS    ==============
