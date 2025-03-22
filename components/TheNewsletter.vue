@@ -13,25 +13,56 @@
 						Verpassen Sie keine unserer kommenden Theaterstücke und bleiben Sie
 						immer informiert! Melden Sie sich für unseren Newsletter an.
 					</p>
-					<div class="mt-8 flex w-full gap-x-4">
-						<label for="email-address" class="sr-only">Email Adresse</label>
-						<input
-							id="email-address"
+					<UForm
+						:schema="schema"
+						:state="state"
+						aria-label="Newsletter Subscription"
+						class="mt-8 space-y-4"
+						role="form"
+						@submit="onSubmit"
+					>
+						<UFormGroup label="Name" name="name" class="label-white" required>
+							<UInput
+								v-model="state.name"
+								highlight
+								placeholder="Dein Name"
+								aria-label="Name"
+								:disabled="waiting"
+							/>
+						</UFormGroup>
+						<UFormGroup
+							label="Email Adresse"
 							name="email"
-							type="email"
-							autocomplete="email"
-							required=""
-							class="min-w-0 flex-auto rounded-md border-0 bg-white/80 px-3.5 py-2 leading-7 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm"
-							placeholder="Deine Email-Adresse"
-						/>
+							class="label-white"
+							required
+						>
+							<UInput
+								v-model="state.email"
+								type="email"
+								placeholder="Deine Email-Adresse"
+								aria-label="Email"
+								:disabled="waiting"
+							/>
+						</UFormGroup>
 						<UButton
 							type="submit"
+							aria-label="Subscribe"
+							:loading="waiting"
 							class="flex-none bg-accent px-4"
-							@click="subscribe()"
 						>
 							Ahoi und Enter!
 						</UButton>
-					</div>
+
+						<!-- Accessible feedback -->
+						<div role="alert" aria-live="assertive">
+							<p v-if="errors" class="text-white">
+								🔥 Es gab ein Problem: {{ errors }}
+								<br />
+								Bitte versuchen Sie es erneut.
+							</p>
+							<p v-if="success" class="text-white">{{ successMessage }}</p>
+						</div>
+					</UForm>
 				</div>
 				<dl class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
 					<div class="flex flex-col items-start">
@@ -70,8 +101,84 @@
 	</section>
 </template>
 
-<script setup>
-	const subscribe = () => {
-		alert('Not Yet Implemented');
+<script setup lang="ts">
+	/**
+	 * Newsletter
+	 *
+	 * This component lets user subscribe to the newsletter.
+	 */
+	import { ref } from 'vue';
+	import { z } from 'zod';
+
+	// Define the Zod schema for form validation
+	const schema = z.object({
+		name: z.string().min(1, { message: 'Name ist erforderlich' }),
+		email: z.string().email({ message: 'Ungültige E-Mail-Adresse' }),
+	});
+
+	// Infer the TypeScript type from the schema and define the initial form state
+	type Schema = z.infer<typeof schema>;
+	const initialFormData: Schema = {
+		name: '',
+		email: '',
 	};
+
+	const state = ref<Schema>({ ...initialFormData });
+	const errors = ref<string>('');
+	const success = ref<boolean>(false);
+	const successMessage = ref<string>('📩 Erfolgreich abonniert!');
+	const waiting = ref<boolean>(false);
+
+	async function onSubmit() {
+		errors.value = '';
+		success.value = false;
+		waiting.value = true;
+
+		const { forename, lastname } = useSplitName(state.value.name);
+
+		try {
+			const { data, error } = await useFetch('/api/subscribe', {
+				method: 'POST',
+				body: {
+					forename: forename,
+					lastname: lastname,
+					email: state.value.email,
+				},
+			});
+
+			// Set success message
+			if (data.value && data.value.statusCode === 302) {
+				successMessage.value = '😀 Du hast bereits abonniert!';
+			} else if (data.value && data.value.statusCode === 200) {
+				successMessage.value = '📩 Erfolgreich abonniert!';
+			}
+
+			if (error.value) {
+				throw new Error(
+					error.value.data?.statusMessage ||
+						error.value.statusMessage ||
+						'Serverfehler'
+				);
+			}
+
+			success.value = true;
+			// Reset the form after a successful subscription
+			state.value = { ...initialFormData };
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		} catch (err: any) {
+			console.error('Error during subscription:', err);
+			errors.value = err.message || 'Ein Fehler ist aufgetreten.';
+		} finally {
+			waiting.value = false;
+		}
+	}
 </script>
+
+<style>
+	.label-white label {
+		color: white !important;
+	}
+	.label-white input {
+		background: rgb(241, 245, 249) !important;
+	}
+</style>

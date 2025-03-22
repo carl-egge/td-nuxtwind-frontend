@@ -12,7 +12,7 @@ export default defineNuxtConfig({
 		'@nuxtjs/turnstile',
 	],
 	turnstile: {
-		siteKey: process.env.TURNSTILE_SITE_KEY,
+		siteKey: process.env.TURNSTILE_SITE_KEY || '1x00000000000000000000AA',
 	},
 	// ============== DISABLE DARK MODE ==============
 	colorMode: {
@@ -64,6 +64,11 @@ export default defineNuxtConfig({
 				process.env.CONTACT_FORM_FROM_EMAIL || 'no-reply@theaterdeck.de',
 			contactFormFromName:
 				process.env.CONTACT_FORM_FROM_NAME || 'Theaterdeck Kontaktformular',
+		},
+		mailchimp: {
+			apiKey: process.env.NUXT_MAILCHIMP_API_KEY,
+			serverPrefix: process.env.NUXT_MAILCHIMP_SERVER_PREFIX || 'us13',
+			audienceId: process.env.NUXT_MAILCHIMP_AUDIENCE_ID,
 		},
 		turnstile: {
 			// This can be overridden at runtime via the NUXT_TURNSTILE_SECRET_KEY
