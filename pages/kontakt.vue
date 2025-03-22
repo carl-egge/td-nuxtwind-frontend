@@ -57,6 +57,11 @@
 						/>
 					</UFormGroup>
 
+					<UCheckbox
+						v-model="newsletter"
+						label="Gerne möchte ich in Zukunft den Theaterdeck-Newsletter empfangen und willige ein, dass meine E-Mail-Adresse zum Versand verwendet wird. Die Einwilligung kann ich jederzeit widerrufen."
+					/>
+
 					<!-- Captcha Field -->
 					<!-- <ClientOnly> -->
 					<UFormGroup
@@ -73,6 +78,17 @@
 						/>
 					</UFormGroup>
 					<!-- </ClientOnly> -->
+
+					<div>
+						<i class="text-sm">
+							Mit dem Absenden des Formulars erkläre ich mich mit der
+							Verarbeitung meiner Daten gemäß der
+							<ULink to="/datenschutz" class="underline">
+								Datenschutzerklärung
+							</ULink>
+							&nbsp;einverstanden.
+						</i>
+					</div>
 
 					<UButton
 						type="submit"
@@ -147,6 +163,9 @@
 	const success = ref(false);
 	const waiting = ref(false);
 
+	// Checkmark to indicate if customer wants to join the newsletter
+	const newsletter = ref(false);
+
 	/**
 	 * onSubmit handles form submission, including posting data to the API and error handling
 	 * @param {FormSubmitEvent<Schema>} _event - The form submission event
@@ -184,6 +203,29 @@
 						'Serverfehler'
 				);
 			}
+
+			// Handle Newsletter Checkmark
+			if (newsletter.value) {
+				const { forename, lastname } = useSplitName(state.value.name);
+				const { error } = await useFetch('/api/subscribe', {
+					method: 'POST',
+					body: {
+						forename: forename,
+						lastname: lastname,
+						email: state.value.email,
+					},
+				});
+				// Check error on Newsletter check
+				if (error.value) {
+					throw new Error(
+						error.value.data?.statusMessage ||
+							error.value.statusMessage ||
+							'Serverfehler'
+					);
+				}
+			}
+
+			// Set success
 			success.value = true;
 		} catch (error: unknown) {
 			console.error('Error submitting form:', error);
@@ -199,6 +241,7 @@
 			waiting.value = false;
 			// Reset the form state including the optional phone field
 			state.value = { ...initialFormData };
+			newsletter.value = false;
 			// Reset Turnstile after submission
 			turnstile.value?.reset();
 			turnstileToken.value = '';
