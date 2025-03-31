@@ -39,10 +39,15 @@ ENV HOST=0.0.0.0
 ENV PORT=3000
 ENV NODE_ENV=production
 
-# Create a non-root user and switch to it
+# Create a non-root user and group
 # This is a security best practice
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nuxtuser
+
+# Create logs directory and update ownership so nuxtuser can write to it
+RUN mkdir -p /app/logs && chown -R nuxtuser:nodejs /app/logs
+
+# Switch to non-root user
 USER nuxtuser
 
 # Expose the port the app runs on

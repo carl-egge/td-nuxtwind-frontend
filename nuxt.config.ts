@@ -1,11 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+const isDev = process.env.NODE_ENV !== 'production'
+
 export default defineNuxtConfig({
 	devtools: { enabled: true },
 	compatibilityDate: '2024-07-04',
 	// ==============      MODULES      ==============
 	modules: [
 		'@pinia/nuxt',
-		'@nuxt/eslint',
+		// Only load the eslint module in development
+                ...(isDev ? ['@nuxt/eslint'] : []),
 		'@nuxt/scripts',
 		'@nuxt/ui',
 		'@nuxt/image',
@@ -51,7 +55,7 @@ export default defineNuxtConfig({
 	runtimeConfig: {
 		// PRIVATE configuration: values here are only available on the server
 		pretixApiKey: process.env.NUXT_PRETIX_API_KEY || '',
-		mailerSenderApiKey: process.env.NUXT_MAILERSENDER_API_KEY || '',
+		mailersenderApiKey: process.env.NUXT_MAILERSENDER_API_KEY || '',
 		// Grouping additional private configuration (e.g., MailChimp)
 		mailchimp: {
 			apiKey: process.env.NUXT_MAILCHIMP_API_KEY || '',

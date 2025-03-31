@@ -109,6 +109,6 @@ async function logSubscribeActivity(logMessage: string) {
 		);
 	} catch (err) {
 		// If logging fails, output the error to the console (but do not interrupt the main flow)
-		console.error('Failed to write email log:', err);
+		console.error('Failed to write newsletter log:', err);
 	}
 }

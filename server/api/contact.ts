@@ -33,7 +33,7 @@ export default defineEventHandler(async (event) => {
 
 		// Retrieve API key and config values securely from runtime config
 		const config = useRuntimeConfig();
-		const apiKey = config.mailerSenderApiKey;
+		const apiKey = config.mailersenderApiKey;
 
 		// Check that the Turnstile token is provided
 		if (!token) {
