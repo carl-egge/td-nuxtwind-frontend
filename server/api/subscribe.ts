@@ -1,7 +1,13 @@
 // server/api/subscribe.ts
 
+// access mailchimp api
 import mailchimp from '@mailchimp/mailchimp_marketing';
+// Using crypto to hash the mail address
 import { createHash } from 'crypto';
+// Import Node's fs for synchronous and promises-based functions
+import fs, { promises as fsp } from 'fs';
+// Import path to build file paths
+import path from 'path';
 
 const config = useRuntimeConfig();
 
@@ -35,9 +41,13 @@ export default defineEventHandler(async (event) => {
 
 	// Try to get the list member. If found, return an appropriate message.
 	try {
-		console.log('Checking for user: ', email);
+		console.log('Checking Newsletter Subscription for email: ', email);
 		const member = await mailchimp.lists.getListMember(listId, subscriberHash);
-		console.log('Response: ', member);
+		// console.log('Response: ', member);
+		// Log a success message indicating the subscriber was added
+		await logSubscribeActivity(
+			`Reject: Subscriber ${forename} ${lastname}<${email}> already exists.`
+		);
 		return {
 			statusCode: 302,
 			message: `Subscriber already exists with status: ${member.status}`,
@@ -50,12 +60,16 @@ export default defineEventHandler(async (event) => {
 			try {
 				const response = await mailchimp.lists.addListMember(listId, {
 					email_address: email,
-					status: 'subscribed',
+					status: 'subscribed', // TODO: We should change this such that it requires email confirmation
 					merge_fields: {
 						FNAME: forename,
 						LNAME: lastname,
 					},
 				});
+				// Log a success message indicating the subscriber was added
+				await logSubscribeActivity(
+					`Added ${forename} ${lastname}<${email}> to the subscriber list.`
+				);
 				return {
 					statusCode: 200,
 					message: 'Successfully added contact as an audience member.',
@@ -77,3 +91,24 @@ export default defineEventHandler(async (event) => {
 		}
 	}
 });
+
+// Helper function to log subscribe activities to a file at logs/subscribe.log
+async function logSubscribeActivity(logMessage: string) {
+	// Define the directory and file path for logging
+	const logsDir = path.join(process.cwd(), 'logs');
+	const logFilePath = path.join(logsDir, 'subscribe.log');
+	try {
+		// Ensure the logs directory exists; create it if it doesn't
+		if (!fs.existsSync(logsDir)) {
+			await fsp.mkdir(logsDir, { recursive: true });
+		}
+		// Append a new log entry with a timestamp
+		await fsp.appendFile(
+			logFilePath,
+			`${new Date().toISOString()} - ${logMessage}\n`
+		);
+	} catch (err) {
+		// If logging fails, output the error to the console (but do not interrupt the main flow)
+		console.error('Failed to write email log:', err);
+	}
+}
