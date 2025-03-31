@@ -12,7 +12,9 @@ export default defineNuxtConfig({
 		'@nuxtjs/turnstile',
 	],
 	turnstile: {
-		siteKey: process.env.TURNSTILE_SITE_KEY || '1x00000000000000000000AA',
+		// Information: https://developers.cloudflare.com/turnstile/troubleshooting/testing/
+		siteKey:
+			process.env.NUXT_PUBLIC_TURNSTILE_SITE_KEY || '1x00000000000000000000AA',
 	},
 	// ============== DISABLE DARK MODE ==============
 	colorMode: {
@@ -47,34 +49,40 @@ export default defineNuxtConfig({
 	},
 	// ============== ENVIRONMENT VARIABLES ==============
 	runtimeConfig: {
-		// TODO: I think this must be NUXT_PRETIX_API_KEY
-		pretixApiKey: process.env.PRETIX_API_KEY,
-		mailerSenderApiKey: process.env.NUXT_MAILERSENDER_API_KEY,
-		public: {
-			contactmail: process.env.CONTACTMAIL,
-			pretixLocalBaseUrl: process.env.PRETIX_LOCAL_BASE_URL,
-			pretixBaseUrl: process.env.PRETIX_BASE_URL,
-			pretixApiEndpoint: process.env.PRETIX_API_ENDPOINT,
-			useMockData: process.env.USE_MOCK_DATA === 'true',
-			contactFormRecipient:
-				process.env.CONTACT_FORM_RECIPIENT || 'info@theaterdeck.de',
-			contactFormRecipientName:
-				process.env.CONTACT_FORM_RECIPIENT_NAME || 'Theaterdeck Hamburg',
-			contactFormFromEmail:
-				process.env.CONTACT_FORM_FROM_EMAIL || 'no-reply@theaterdeck.de',
-			contactFormFromName:
-				process.env.CONTACT_FORM_FROM_NAME || 'Theaterdeck Kontaktformular',
-		},
+		// PRIVATE configuration: values here are only available on the server
+		pretixApiKey: process.env.NUXT_PRETIX_API_KEY || '',
+		mailerSenderApiKey: process.env.NUXT_MAILERSENDER_API_KEY || '',
+		// Grouping additional private configuration (e.g., MailChimp)
 		mailchimp: {
-			apiKey: process.env.NUXT_MAILCHIMP_API_KEY,
+			apiKey: process.env.NUXT_MAILCHIMP_API_KEY || '',
 			serverPrefix: process.env.NUXT_MAILCHIMP_SERVER_PREFIX || 'us13',
-			audienceId: process.env.NUXT_MAILCHIMP_AUDIENCE_ID,
+			audienceId: process.env.NUXT_MAILCHIMP_AUDIENCE_ID || '',
 		},
+		// PRIVATE secret for Turnstile
 		turnstile: {
-			// This can be overridden at runtime via the NUXT_TURNSTILE_SECRET_KEY
-			// environment variable.
-			// Information: https://developers.cloudflare.com/turnstile/troubleshooting/testing/
-			secretKey: process.env.TURNSTILE_SECRET_KEY,
+			secretKey: process.env.NUXT_TURNSTILE_SECRET_KEY || '',
+		},
+
+		// PUBLIC configuration: exposed to the client via a nested `public` key
+		public: {
+			pretixLocalBaseUrl:
+				process.env.NUXT_PUBLIC_PRETIX_LOCAL_BASE_URL ||
+				'http://localhost:8000',
+			pretixBaseUrl:
+				process.env.NUXT_PUBLIC_PRETIX_BASE_URL ||
+				'https://pretix.dev2.tdlogblog.de',
+			pretixApiEndpoint:
+				process.env.NUXT_PUBLIC_PRETIX_API_ENDPOINT || '/api/v1/organizers/td',
+			useMockData: process.env.NUXT_PUBLIC_USE_MOCK_DATA === 'true',
+			contactFormFromName:
+				process.env.NUXT_PUBLIC_CONTACT_FORM_FROM_NAME || 'TDLogBlog',
+			contactFormFromEmail:
+				process.env.NUXT_PUBLIC_CONTACT_FORM_FROM_EMAIL ||
+				'no-reply@tdlogblog.de',
+			contactFormRecipientName:
+				process.env.NUXT_PUBLIC_CONTACT_FORM_RECIPIENT_NAME || 'Carl Egge',
+			contactFormRecipient:
+				process.env.NUXT_PUBLIC_CONTACT_FORM_RECIPIENT || 'carl.egge@web.de',
 		},
 	},
 	// ==============    STYLESHEETS    ==============

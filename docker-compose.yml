@@ -7,19 +7,13 @@ services:
       dockerfile: Dockerfile
     ports:
       - '3000:3000'
-    environment:
-      - HOST=0.0.0.0
-      - PORT=3000
-      - NODE_ENV=production
-      - NUXT_PUBLIC_PRETIX_LOCAL_BASE_URL=${NUXT_PUBLIC_PRETIX_LOCAL_BASE_URL}
-      - NUXT_PUBLIC_PRETIX_BASE_URL=${NUXT_PUBLIC_PRETIX_BASE_URL}
-      - NUXT_PUBLIC_PRETIX_API_ENDPOINT=${NUXT_PUBLIC_PRETIX_API_ENDPOINT}
-      - NUXT_PRETIX_API_KEY=${NUXT_PRETIX_API_KEY}
+    env_file:
+      - .env
     labels:
       - traefik.enable=true
       - traefik.docker.network=proxy
       - traefik.http.routers.frontend.entrypoints=websecure
-      - traefik.http.routers.frontend.rule=Host(`dev2.tdlogblog.de`)
+      - traefik.http.routers.frontend.rule=Host(`${DOMAIN}`)
     networks:
       - proxy
 
