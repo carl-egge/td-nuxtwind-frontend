@@ -1,7 +1,7 @@
 <template>
 	<section
 		id="newsletter"
-		class="relative isolate overflow-hidden bg-primary py-16 text-background sm:py-24 lg:py-32"
+		class="bg-theme-secondary-400 relative isolate overflow-hidden py-16 sm:py-24 lg:py-32"
 	>
 		<div class="mx-auto max-w-7xl px-6 lg:px-8">
 			<div
@@ -9,7 +9,7 @@
 			>
 				<div>
 					<h2 class="text-3xl">Unser Newsletter.</h2>
-					<p class="mt-6 leading-7 text-background">
+					<p class="mt-6 leading-7">
 						Verpassen Sie keine unserer kommenden Theaterstücke und bleiben Sie
 						immer informiert! Melden Sie sich für unseren Newsletter an.
 					</p>
@@ -48,25 +48,25 @@
 							type="submit"
 							aria-label="Subscribe"
 							:loading="waiting"
-							class="flex-none bg-accent px-4"
+							class="bg-theme-accent-500 hover:bg-theme-accent-400 flex-none px-4"
 						>
 							Ahoi und Enter!
 						</UButton>
 
 						<!-- Accessible feedback -->
 						<div role="alert" aria-live="assertive">
-							<p v-if="errors" class="text-white">
+							<p v-if="errors" class="text-theme-accent-400">
 								🔥 Es gab ein Problem: {{ errors }}
 								<br />
 								Bitte versuchen Sie es erneut.
 							</p>
-							<p v-if="success" class="text-white">{{ successMessage }}</p>
+							<p v-if="success" class="text-primary">{{ successMessage }}</p>
 						</div>
 					</UForm>
 				</div>
 				<dl class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
 					<div class="flex flex-col items-start">
-						<div class="rounded bg-accent p-2 ring-1 ring-accent">
+						<div class="bg-theme-accent-500 ring-theme-accent-500 p-2 ring-1">
 							<Icon
 								name="mdi:calendar-month"
 								class="h-6 w-6 text-background"
@@ -79,7 +79,7 @@
 						</dd>
 					</div>
 					<div class="flex flex-col items-start">
-						<div class="rounded bg-accent p-2 ring-1 ring-accent">
+						<div class="bg-theme-accent-500 ring-theme-accent-500 p-2 ring-1">
 							<Icon
 								name="mdi:hand-back-left"
 								class="h-6 w-6 text-background"
@@ -176,9 +176,9 @@
 
 <style>
 	.label-white label {
-		color: white !important;
+		color: #100e09 !important;
 	}
 	.label-white input {
-		background: rgb(241, 245, 249) !important;
+		background: #fdf0cf !important;
 	}
 </style>

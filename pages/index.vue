@@ -15,7 +15,7 @@
 					:items="items"
 					:ui="{
 						item: 'basis-full',
-						container: 'rounded-lg h-full',
+						container: 'h-full',
 						wrapper: 'h-full',
 					}"
 					:prev-button="{
@@ -34,32 +34,27 @@
 					<div class="relative h-full w-full">
 						<!-- Slider Design for large Screens -->
 						<div class="hidden h-full px-10 md:flex">
-							<div class="z-10 -mr-4 h-full w-1/3 py-4">
+							<div class="z-10 -mr-4 h-3/4 w-1/3 py-4">
 								<div class="flex h-full w-full flex-col">
-									<div
-										class="flex flex-grow flex-col overflow-hidden rounded-lg bg-secondary p-4 shadow-lg"
-									>
+									<div class="flex flex-grow flex-col overflow-hidden p-4">
 										<div class="flex flex-grow items-center">
-											<h2 class="marked-text text-right leading-normal">
-												<span class="bg-white text-secondary">
-													{{ item.title }}
-												</span>
+											<h2 class="text-right text-6xl leading-normal">
+												{{ item.title }}
 											</h2>
 										</div>
 										<div class="flex-shrink-0">
 											<h4
-												class="mb-4 whitespace-pre text-right text-base uppercase leading-4 text-background 2xl:text-xl"
+												class="mb-4 whitespace-pre text-right text-base uppercase leading-4 2xl:text-xl"
 											>
 												{{ item.subtitle }}
 											</h4>
 										</div>
 									</div>
-									<div class="mt-4 flex-shrink-0">
+									<div class="flex-shrink-0 text-right">
 										<UButton
 											size="lg"
-											class="rounded-lg bg-accent2 py-4 text-base shadow-lg"
+											class="rounded-none bg-theme-primary-500 px-8 py-4 text-base shadow-lg hover:bg-theme-primary-400"
 											to="/stuecke"
-											block
 										>
 											{{ ctaText }}
 										</UButton>
@@ -70,7 +65,7 @@
 								<img
 									:src="item.src"
 									:alt="item.title"
-									class="h-full w-full rounded-lg object-cover object-center"
+									class="h-full w-full object-cover object-center p-8"
 									draggable="false"
 								/>
 							</div>
@@ -108,7 +103,7 @@
 								/>
 							</div>
 							<div
-								class="mx-2 -mt-8 h-52 flex-shrink rounded-lg bg-secondary p-6 text-center text-background shadow-lg"
+								class="bg-secondary mx-2 -mt-8 h-52 flex-shrink rounded-lg p-6 text-center text-background shadow-lg"
 							>
 								<h2 class="mb-2 text-2xl">{{ item.title }}</h2>
 								<h4
@@ -121,7 +116,7 @@
 								to="/stuecke"
 								size="lg"
 								variant="solid"
-								class="mx-2 mt-3 justify-center bg-accent2 p-4 text-base"
+								class="bg-accent mx-2 mt-3 justify-center p-4 text-base"
 							>
 								{{ ctaText }}
 							</UButton>

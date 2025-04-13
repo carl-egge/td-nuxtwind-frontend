@@ -3,11 +3,10 @@ body {
 	font-weight: 400; /* Regular weight for body text */
 }
 
-/* Set Special Elite as the default font for all headings */
 h1,
 h2,
 h3 {
-	font-family: 'Courier Prime', cursive;
+	font-family: 'Impact', monospace;
 }
 
 /* Bold weight for strong and b tags */

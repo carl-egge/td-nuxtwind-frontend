@@ -1,8 +1,8 @@
 export default defineAppConfig({
 	title: 'Theaterdeck',
 	ui: {
-		colors: ['the-primary'],
-		primary: 'the-primary',
+		// safelistColors: ['theme-primary', 'theme-secondary', 'theme-accent'],
+		primary: 'theme-primary',
 		gray: 'cool',
 	},
 });
