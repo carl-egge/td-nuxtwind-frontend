@@ -9,11 +9,11 @@
 					<!-- <img :src="logoSrc" alt="Logo" class="w-full h-full object-contain" /> -->
 					<TheLogo color="#fdf0cf" />
 					<h1
-						class="hidden font-mono text-2xl font-bold uppercase leading-6 tracking-wide md:block"
+						class="hidden font-sans text-2xl font-bold uppercase leading-6 tracking-wide text-background md:block"
 					>
 						Theaterdeck
-						<!-- <br /> -->
-						<!-- Hamburg -->
+						<br />
+						Hamburg
 					</h1>
 				</NuxtLink>
 			</div>

@@ -6,13 +6,13 @@
 		<div
 			class="absolute inset-0 bg-text bg-opacity-40 bg-cover bg-center bg-no-repeat"
 		/>
-		<div class="relative flex h-full items-end pb-16">
-			<div
-				class="bg-primary mx-4 w-full break-words px-2 pb-8 pt-16 text-center uppercase md:px-8"
-			>
+		<div class="relative flex h-full items-end justify-center pb-16">
+			<div class="break-words bg-text text-center uppercase md:px-8">
 				<!-- <Icon name="mingcute:lighthouse-line" class="h-8 w-8 text-[#10b4ca]" aria-hidden="true" /> -->
 				<h1 class="mb-2 break-all text-4xl leading-tight md:text-6xl">
-					{{ title }}
+					<span>
+						{{ title }}
+					</span>
 				</h1>
 				<!-- <UBreadcrumb v-if="breadcrumbs.length > 0" :links="fullBreadcrumbs" class="mt-4"
                     :ui="{ ol: 'justify-center', base: 'font-bold text-white', inactive: 'hover:text-accent' }">

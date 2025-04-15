@@ -34,12 +34,14 @@
 					<div class="relative h-full w-full">
 						<!-- Slider Design for large Screens -->
 						<div class="hidden h-full px-10 md:flex">
-							<div class="z-10 -mr-4 h-3/4 w-1/3 py-4">
+							<div class="z-10 -mr-4 h-5/6 w-1/3 py-4">
 								<div class="flex h-full w-full flex-col">
 									<div class="flex flex-grow flex-col overflow-hidden p-4">
-										<div class="flex flex-grow items-center">
-											<h2 class="text-right text-6xl leading-normal">
-												{{ item.title }}
+										<div class="title-container flex flex-grow items-center">
+											<h2 class="text-right">
+												<span>
+													{{ item.title }}
+												</span>
 											</h2>
 										</div>
 										<div class="flex-shrink-0">
@@ -197,4 +199,21 @@
 	});
 </script>
 
-<style></style>
+<style>
+	.title-container {
+		z-index: 20;
+		container-type: inline-size;
+	}
+
+	.title-container h2 {
+		/* font-size scales with container width:
+     - 1rem is the minimum,
+     - 5cqw is our ideal scaling factor,
+     - 5rem is the maximum */
+		font-size: clamp(1rem, 7cqh, 5rem);
+
+		/* Ensure long words break so they don’t force unwanted overflow */
+		overflow-wrap: break-word;
+		word-break: break-word;
+	}
+</style>

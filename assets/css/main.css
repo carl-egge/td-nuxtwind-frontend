@@ -6,7 +6,18 @@ body {
 h1,
 h2,
 h3 {
-	font-family: 'Impact', monospace;
+	font-family: 'ImpactReversed', monospace;
+	color: #f2ede0;
+}
+
+h1 span,
+h2 span,
+h3 span {
+	background-color: #100e09;
+	line-height: 1.1;
+	box-shadow:
+		0.2em 0 0px 0px #100e09,
+		-0.2em 0 0px 0px #100e09;
 }
 
 /* Bold weight for strong and b tags */
