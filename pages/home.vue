@@ -92,7 +92,7 @@
 					class="absolute inset-0 h-full w-full object-cover transition-all duration-1000 group-hover:rotate-1 group-hover:scale-110"
 				/>
 				<div
-					class="absolute inset-0 bg-gradient-to-l from-neutral-950/70 to-neutral-950/50 transition-opacity duration-500 group-hover:opacity-0"
+					class="from-primary/50 to-primary/30 absolute inset-0 bg-gradient-to-l transition-opacity duration-500 group-hover:opacity-0"
 				/>
 			</div>
 		</section>
@@ -110,7 +110,7 @@
 					class="absolute inset-0 h-full w-full object-cover transition-all duration-1000 group-hover:rotate-1 group-hover:scale-110"
 				/>
 				<div
-					class="absolute inset-0 bg-gradient-to-r from-neutral-950/70 to-neutral-950/50 transition-opacity duration-500 group-hover:opacity-0"
+					class="absolute inset-0 bg-gradient-to-r from-background/50 to-background/30 transition-opacity duration-500 group-hover:opacity-0"
 				/>
 			</div>
 			<!-- Right content -->
@@ -304,5 +304,7 @@
 	.content-mask {
 		-webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 		mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+		/* -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+		mask-image: linear-gradient(to bottom, black 80%, transparent 100%);  */
 	}
 </style>
