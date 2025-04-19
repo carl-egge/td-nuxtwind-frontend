@@ -1,132 +1,105 @@
 <template>
-	<div class="flex h-screen flex-col">
-		<!-- Header -->
-		<TheHeader class="mb-2 shadow-none" />
-
-		<!-- Main content area -->
-		<main
-			class="relative mb-0 mt-[80px] flex h-full flex-grow flex-col overflow-hidden px-2 md:px-4 md:pb-4 md:pt-4"
+	<div>
+		<!-- Logo: fixed top-left -->
+		<!-- <div class="fixed left-4 top-4 z-50"> -->
+		<NuxtLink
+			to="/"
+			class="fixed left-5 top-5 z-50 h-12 w-12 transition-transform duration-300 hover:scale-110"
 		>
-			<!-- DESKTOP SCREENS -->
-			<div class="relative hidden flex-grow overflow-hidden md:block">
-				<UCarousel
-					ref="carouselRef"
-					v-slot="{ item }"
-					:items="items"
-					:ui="{
-						item: 'basis-full',
-						container: 'h-full',
-						wrapper: 'h-full',
-					}"
-					:prev-button="{
-						color: 'gray',
-						icon: 'i-heroicons-arrow-left-16-solid',
-						class: '-left-2 ring-0 shadow-none bg-transparent',
-					}"
-					:next-button="{
-						color: 'gray',
-						icon: 'i-heroicons-arrow-right-16-solid',
-						class: '-right-1 ring-0 shadow-none bg-transparent text-xl',
-					}"
-					arrows
-					class="mx-auto w-[98%]"
-				>
-					<div class="relative h-full w-full">
-						<!-- Slider Design for large Screens -->
-						<div class="hidden h-full px-10 md:flex">
-							<div class="z-10 -mr-4 h-5/6 w-1/3 py-4">
-								<div class="flex h-full w-full flex-col">
-									<div class="flex flex-grow flex-col overflow-hidden p-4">
-										<div class="title-container flex flex-grow items-center">
-											<h2 class="text-right">
-												<span>
-													{{ item.title }}
-												</span>
-											</h2>
-										</div>
-										<div class="flex-shrink-0">
-											<h4
-												class="mb-4 whitespace-pre text-right text-base uppercase leading-4 2xl:text-xl"
-											>
-												{{ item.subtitle }}
-											</h4>
-										</div>
-									</div>
-									<div class="flex-shrink-0 text-right">
-										<UButton
-											size="lg"
-											class="rounded-none bg-theme-primary-500 px-8 py-4 text-base shadow-lg hover:bg-theme-primary-400"
-											to="/stuecke"
-										>
-											{{ ctaText }}
-										</UButton>
-									</div>
-								</div>
-							</div>
-							<div class="h-full w-2/3">
-								<img
-									:src="item.src"
-									:alt="item.title"
-									class="h-full w-full object-cover object-center p-8"
-									draggable="false"
-								/>
-							</div>
-						</div>
-					</div>
-				</UCarousel>
-			</div>
+			<TheLogo color="#e27830" />
+		</NuxtLink>
+		<!-- </div> -->
 
-			<!-- PHONE SCREENS -->
-			<div class="relative flex-grow overflow-hidden md:hidden">
-				<UCarousel
-					ref="carouselRef"
-					v-slot="{ item }"
-					:items="items"
-					:ui="{
-						item: 'basis-full',
-						container: 'rounded-lg h-full',
-						wrapper: 'h-full',
-						indicators: {
-							wrapper: 'relative bottom-28 mt-4',
-						},
-					}"
-					indicators
-					class="mx-auto w-[98%]"
-				>
-					<div class="relative h-full w-full">
-						<!-- Slider Design for small Screens -->
-						<div class="flex h-full flex-col px-2 pb-2">
-							<div class="w-full flex-grow">
-								<img
-									:src="item.src"
-									:alt="item.title"
-									class="h-full w-full rounded-lg object-cover object-center"
-									draggable="false"
-								/>
-							</div>
-							<div
-								class="bg-secondary mx-2 -mt-8 h-52 flex-shrink rounded-lg p-6 text-center text-background shadow-lg"
-							>
-								<h2 class="mb-2 text-2xl">{{ item.title }}</h2>
-								<h4
-									class="whitespace-pre text-sm uppercase leading-4 text-background"
-								>
-									{{ item.subtitle }}
-								</h4>
-							</div>
-							<UButton
-								to="/stuecke"
-								size="lg"
-								variant="solid"
-								class="bg-accent mx-2 mt-3 justify-center p-4 text-base"
-							>
-								{{ ctaText }}
-							</UButton>
+		<!-- Burger Menu Button: fixed top-right -->
+		<div class="fixed right-4 top-4 z-50 text-white">
+			<UButton
+				icon="i-heroicons-bars-3-16-solid"
+				color="black"
+				size="xl"
+				variant="ghost"
+				class="scale-125"
+				@click="isOpen = true"
+			/>
+		</div>
+
+		<!-- SlideOver Menu -->
+		<USlideover
+			v-model="isOpen"
+			:side="slideSide"
+			:ui="{
+				strategy: 'override',
+				overlay: { background: 'bg-background/40' },
+				height: slideHeight,
+				width: slideWidth,
+			}"
+		>
+			<div class="h-full overflow-y-auto bg-background text-center text-text">
+				<!-- Close Button -->
+				<UButton
+					icon="i-heroicons-x-mark"
+					color="gray"
+					variant="ghost"
+					size="xl"
+					class="absolute right-6 top-6 scale-150 hover:bg-transparent"
+					@click="isOpen = false"
+				/>
+				<div class="align-text-middle h-full p-4 pt-24">
+					<NuxtLink to="/">
+						<div class="mx-auto h-12 w-12">
+							<TheLogo color="#e27830" />
 						</div>
-					</div>
-				</UCarousel>
+						<h2 class="text-primary mb-8 mt-2 text-xl font-semibold uppercase">
+							{{ title }}
+						</h2>
+					</NuxtLink>
+					<nav class="flex flex-col text-lg">
+						<NuxtLink
+							v-for="link in burger_links"
+							:key="link.to"
+							:to="link.to"
+							class="hover:text-theme-secondary-500"
+							@click="isOpen = false"
+						>
+							{{ link.text }}
+							<hr class="mx-auto my-4 w-6" />
+						</NuxtLink>
+					</nav>
+				</div>
 			</div>
-		</main>
+		</USlideover>
+
+		<!-- Scroll Sections Container -->
+		<div
+			ref="container"
+			class="scroll-container h-screen overflow-y-auto overflow-x-hidden"
+		>
+			<ScrollSection
+				v-for="(section, idx) in sectionData"
+				:key="idx"
+				v-bind="section"
+				:cta-text="ctaText"
+			/>
+
+			<!-- Navigation dots -->
+			<div
+				class="fixed right-8 top-1/2 z-50 flex -translate-y-1/2 flex-col gap-4"
+			>
+				<button
+					v-for="(_, i) in sectionData"
+					:key="i"
+					:title="`Go to section ${i + 1}`"
+					:aria-controls="`section-${i + 1}`"
+					:aria-current="activeIndex === i ? 'true' : 'false'"
+					:class="[
+						'h-3 w-3 rounded-full transition-all duration-300',
+						activeIndex === i
+							? 'scale-150 bg-white'
+							: 'bg-white/20 hover:scale-150 hover:bg-white',
+					]"
+					@click="scrollToSection(i)"
+				/>
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -136,17 +109,115 @@
 	 *
 	 * This is the landing page of the website.
 	 */
-	import { onMounted } from 'vue';
+	import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 	import { useEventsStore } from '~/stores/events';
 
-	definePageMeta({
-		layout: 'home',
-	});
+	definePageMeta({ layout: false });
 
 	const eventsStore = useEventsStore();
 	const config = useRuntimeConfig();
 
+	const isOpen = ref(false);
+	const screenWidth = ref(0); // viewport width
+	const container = ref<HTMLElement | null>(null);
+	const activeIndex = ref(0);
+
+	const ctaText = 'Tickets';
+	const title = 'Theaterdeck';
+
+	interface SectionItem {
+		index: number;
+		label: string;
+		title: string;
+		quote: string;
+		image: string;
+		alt: string;
+		gradientClass: string;
+		reverse?: boolean;
+	}
+	const sectionData: SectionItem[] = [
+		{
+			index: 1,
+			label: 'Willkommen an Deck',
+			title: 'Theaterdeck Hamburg',
+			quote:
+				'"Wir spielen mit Liebe zum Detail und dem Ton, der ins Herz trifft."',
+			image: '/images/hero/hero-letters-shadow.jpg',
+			alt: 'Theaterdeck Hamburg',
+			gradientClass: 'bg-gradient-to-r from-neutral-950/70 to-neutral-950/50',
+			reverse: false,
+		},
+		{
+			index: 2,
+			label: 'Otfried Preußler',
+			title: 'Räuber Hotzenplotz',
+			quote: '"Einem Räuber wird heutzutage auch nix mehr geschenkt."',
+			image: '/images/hero/hero-hotzenplotz.jpeg',
+			alt: 'Räuber Hotzenplotz von Ottfried Preußler',
+			gradientClass: 'bg-gradient-to-l from-primary/50 to-primary/30',
+			reverse: true,
+		},
+		{
+			index: 3,
+			label: 'KIRSTEN BOIE',
+			title: 'Dunkelnacht',
+			quote:
+				'"Weil auch in diesen Zeiten irgendwer das Richtige tun muss, einfach, weil es richtig ist."',
+			image: '/images/hero/hero-dunkelnacht.jpeg',
+			alt: 'Dunkelnacht von Kirsten Boie',
+			gradientClass: 'bg-gradient-to-r from-cyan-600/50 to-cyan-600/30',
+			reverse: false,
+		},
+	];
+
+	const burger_links = [
+		{ to: '/stuecke', text: 'Spielplan' },
+		{ to: '/schule', text: 'Theater Jugend' },
+		{ to: '/vermietung', text: 'Raummiete' },
+		{ to: '/kontakt', text: 'Kontakt' },
+		{ to: '/datenschutz', text: 'Datenschutz' },
+		{ to: '/impressum', text: 'Impressum' },
+	];
+
+	// true when ≥lg (1024px)
+	const isLarge = computed(() => screenWidth.value >= 1024);
+
+	// derive the responsive info for the slideover menu
+	const slideSide = computed(() => (isLarge.value ? 'right' : 'top'));
+	const slideHeight = computed(() => (isLarge.value ? 'auto' : 'h-screen'));
+	const slideWidth = computed(() =>
+		isLarge.value ? 'w-screen max-w-sm' : 'w-full'
+	);
+
+	const scrollToSection = (index: number) => {
+		if (container.value) {
+			container.value
+				.querySelectorAll('.scroll-section')
+				// eslint-disable-next-line no-unexpected-multiline
+				[index].scrollIntoView({ behavior: 'smooth' });
+			activeIndex.value = index;
+		}
+	};
+
+	// update viewport width on resize
+	const updateWidth = () => {
+		screenWidth.value = window.innerWidth;
+	};
+
 	onMounted(() => {
+		// set initially
+		updateWidth();
+		// then keep in sync
+		window.addEventListener('resize', updateWidth);
+		// add scroll event listener
+		if (container.value) {
+			container.value.addEventListener('scroll', () => {
+				activeIndex.value = Math.round(
+					container.value!.scrollTop / window.innerHeight
+				);
+			});
+		}
+		// fetch events
 		if (config.public.useMockData) {
 			return eventsStore.fetchTestEvents();
 		} else {
@@ -154,66 +225,83 @@
 		}
 	});
 
-	const ctaText = 'Spielplan und Tickets';
-
-	const items = [
-		{
-			title: 'Theaterdeck\nHamburg',
-			subtitle: '',
-			to: '/stuecke',
-			src: '/images/hero/hero-letters-shadow.jpg',
-		},
-		{
-			title: 'So, amüsieren Sie sich?!',
-			subtitle: 'INGRID LAUSUND\n Hysterikon',
-			to: '/stuecke',
-			src: '/images/hero/hero-highkey-windschief.jpg',
-		},
-		{
-			title: 'Neue Termine November 2024',
-			subtitle: 'GUNILLA BERGSTRÖM\n Willi Wiberg',
-			to: '/stuecke',
-			src: '/images/hero/hero-highkey-petterson.jpg',
-		},
-		{
-			title:
-				'Weil auch in diesen Zeiten irgendwer das Richtige tun muss, einfach, weil es richtig ist.',
-			subtitle: 'KIRSTEN BOIE\n Dunkelnacht',
-			to: '/stuecke',
-			src: '/images/hero/hero-highkey-sr.jpg',
-		},
-	];
-
-	const carouselRef = ref();
-
-	onMounted(() => {
-		setInterval(() => {
-			if (!carouselRef.value) return;
-
-			if (carouselRef.value.page === carouselRef.value.pages) {
-				return carouselRef.value.select(0);
-			}
-
-			carouselRef.value.next();
-		}, 7000);
-	});
+	onBeforeUnmount(() => window.removeEventListener('resize', updateWidth));
 </script>
 
 <style>
-	.title-container {
-		z-index: 20;
-		container-type: inline-size;
+	/* Global animations and scroll styles unchanged */
+	@keyframes reveal {
+		from {
+			clip-path: inset(0 100% 0 0);
+		}
+		to {
+			clip-path: inset(0 0 0 0);
+		}
 	}
-
-	.title-container h2 {
-		/* font-size scales with container width:
-     - 1rem is the minimum,
-     - 5cqw is our ideal scaling factor,
-     - 5rem is the maximum */
-		font-size: clamp(1rem, 7cqh, 5rem);
-
-		/* Ensure long words break so they don’t force unwanted overflow */
-		overflow-wrap: break-word;
-		word-break: break-word;
+	@keyframes textReveal {
+		from {
+			transform: translateY(100%);
+			opacity: 0;
+		}
+		to {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+	@keyframes float {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-10px);
+		}
+	}
+	@keyframes shine {
+		from {
+			transform: translateX(-100%) rotate(45deg);
+		}
+		to {
+			transform: translateX(200%) rotate(45deg);
+		}
+	}
+	.shine-effect::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(
+			90deg,
+			transparent,
+			rgba(255, 255, 255, 0.2),
+			transparent
+		);
+		transform: translateX(-100%) rotate(45deg);
+	}
+	.shine-effect:hover::before {
+		animation: shine 1.5s;
+	}
+	.float-animation {
+		animation: float 6s ease-in-out infinite;
+	}
+	.split-reveal {
+		animation: reveal 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+	}
+	.text-reveal {
+		animation: textReveal 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+	}
+	.scroll-container {
+		scroll-snap-type: y mandatory;
+		-webkit-overflow-scrolling: touch;
+	}
+	.scroll-section {
+		scroll-snap-align: start;
+		scroll-snap-stop: always;
+	}
+	.content-mask {
+		-webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+		mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 	}
 </style>
