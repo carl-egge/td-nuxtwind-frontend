@@ -12,19 +12,19 @@
 			<section id="theater-jugend" class="mb-10 md:mb-24">
 				<div class="mt-8 flex flex-wrap items-center">
 					<div class="mx-auto w-full px-4 md:w-7/12">
-						<div class="my-5 w-fit rounded p-2 ring-1 ring-accent">
+						<div class="ring-primary-500 my-5 w-fit rounded p-2 ring-1">
 							<Icon
 								name="mdi:account-supervisor"
-								class="h-8 w-8 text-accent"
+								class="text-primary-500 h-8 w-8"
 								aria-hidden="true"
 							/>
 						</div>
 						<!-- <div
                         class="text-gray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-background">
-                            <Icon name="mdi:account-supervisor" class="h-8 w-8 text-accent" aria-hidden="true" />
+                            <Icon name="mdi:account-supervisor" class="h-8 w-8 text-primary-500" aria-hidden="true" />
                         </div> -->
-						<h2 class="mb-6">Die Theater Jugend Hamburg e.V.</h2>
-						<p class="font-light">
+						<h3 class="mb-6">Die Theater Jugend Hamburg e.V.</h3>
+						<p>
 							Die 1983 gegründete Theater Jugend Hamburg e.V. ist eine
 							Theaterschule mit Vision und seit September 2012 fester
 							Bestandteil und Grundbaustein des Theaterdecks. Das Kursangebot
@@ -34,7 +34,7 @@
 							die Theater Jugend eine eigene Plattform für junge Regisseure –
 							das Spieldeck.
 						</p>
-						<p class="font-light">
+						<p>
 							Wir machen Theater für Jugendliche greifbar und erfahrbar. In
 							Kursen lernen die Jugendlichen Grundlagen des Theaterspielens
 							kennen. Gleichzeitig wird ein Gespür dafür entwickelt, was es
@@ -64,15 +64,15 @@
 			<section id="theater-schule" class="mb-10 md:mb-24">
 				<div class="mt-8 flex flex-row-reverse flex-wrap-reverse items-center">
 					<div class="mx-auto w-full px-4 md:w-7/12">
-						<div class="my-5 w-fit rounded p-2 ring-1 ring-accent">
+						<div class="ring-primary-500 my-5 w-fit rounded p-2 ring-1">
 							<Icon
 								name="material-symbols:theater-comedy-rounded"
-								class="h-8 w-8 text-accent"
+								class="text-primary-500 h-8 w-8"
 								aria-hidden="true"
 							/>
 						</div>
-						<h2 class="mb-6">Theaterdeck Schule</h2>
-						<p class="font-light">
+						<h3 class="mb-6">Theaterdeck Schule</h3>
+						<p>
 							Die Kursarbeit der Theater Jugend bildet die Grundlage des
 							Theaterdecks. Für Jugendliche im Alter von 11 bis 20 Jahren werden
 							regelmäßig Einsteigerkurse angeboten. Diese geben einen
@@ -83,7 +83,7 @@
 							„Körper und Sprache“. Diese Kurse werden ehrenamtlich von
 							professionellen Schauspielern und Regisseuren geleitet.
 						</p>
-						<p class="font-light">
+						<p>
 							Die zahlreichen Theaterproduktionen der Theater Jugend ermöglichen
 							den Jugendlichen die wichtige Erfahrung, das Gelernte auch vor
 							Publikum umzusetzen. Gleichzeitig können die Jugendlichen auch in
@@ -93,7 +93,7 @@
 							und vieles mehr. Im Rahmen von „Spieldeck“ haben Jugendliche
 							bereits komplette Produktionen selbständig auf die Bühne gebracht.
 						</p>
-						<p class="font-light">
+						<p>
 							Die Theater Jugend bietet jede Menge Raum für die individuelle und
 							gemeinschaftliche künstlerische Entfaltung. Wir bieten auch
 							Jugendlichen mit Behinderung die Möglichkeit an unseren Kursen
@@ -124,7 +124,7 @@
 					class="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3"
 				>
 					<div class="max-w-2xl">
-						<h2 class="mb-6">Unser Team</h2>
+						<h3 class="mb-6">Unser Team</h3>
 						<p class="text-lg leading-8">
 							Unser engagiertes Team besteht aus leidenschaftlichen
 							Theaterpädagogen, die mit Herzblut Theaterkurse leiten und die
@@ -154,7 +154,7 @@
 									>
 										{{ person.name }}
 									</h3>
-									<p class="text-sm font-semibold leading-6 text-accent">
+									<p class="text-primary-500 text-sm font-semibold leading-6">
 										{{ person.role }}
 									</p>
 								</div>
@@ -168,9 +168,9 @@
 
 			<!-- SECTION : COURSES -->
 			<UContainer id="theater-course-list" class="mb-10">
-				<h2 class="mb-6">
+				<h3 class="mb-6">
 					Startdeck KURSE | Einblick und Überblick für Theaterbesessene
-				</h2>
+				</h3>
 				<p class="text-lg leading-8">
 					Die StartDECK Kurse sind Einsteigerkurse, die euch und uns die
 					Möglichkeit geben sollen uns gegenseitig kennenzulernen. In sechs
@@ -186,6 +186,7 @@
 						rounded: 'rounded',
 						ring: 'ring-primary',
 						divide: 'divide-primary',
+						background: 'bg-background',
 					}"
 				>
 					<template #header>
@@ -239,8 +240,8 @@
 	 * Information about the Theater Jugend and Kurse.
 	 */
 
-	import type { _background } from '#tailwind-config/theme/accentColor';
-	import heroimage from '../assets/images/hero-highkey-sr.jpg';
+	import type { _background } from '#tailwind-config/theme/primary-500Color';
+	import heroimage from '../assets/images/hero-orange-sr.jpg';
 
 	const kurse = [
 		{

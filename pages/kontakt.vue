@@ -8,8 +8,10 @@
 		/>
 
 		<main class="flex items-center justify-center bg-background">
-			<div class="mx-2 my-10 w-full max-w-xl rounded bg-white p-6 shadow-md">
-				<h1 class="mb-6 text-3xl text-primary">Kontaktiere Uns</h1>
+			<div
+				class="border-primary-500 mx-2 my-10 w-full max-w-xl rounded border bg-background p-6 shadow-md"
+			>
+				<h3 class="text-primary mb-6 text-3xl">Kontaktiere Uns</h3>
 
 				<!-- Nuxt UI Form utilizing Zod Validation -->
 				<UForm

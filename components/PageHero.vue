@@ -3,14 +3,14 @@
 		<div
 			class="hero absolute inset-0 mt-[60px] bg-cover bg-center bg-no-repeat"
 		/>
-		<div
+		<!-- <div
 			class="absolute inset-0 bg-text bg-opacity-40 bg-cover bg-center bg-no-repeat"
-		/>
+		/> -->
 		<div class="relative flex h-full items-end justify-center pb-16">
-			<div class="break-words bg-text text-center uppercase md:px-8">
+			<div class="break-words text-center uppercase md:px-8">
 				<!-- <Icon name="mingcute:lighthouse-line" class="h-8 w-8 text-[#10b4ca]" aria-hidden="true" /> -->
 				<h1 class="mb-2 break-all text-4xl leading-tight md:text-6xl">
-					<span>
+					<span class="bg-text p-2">
 						{{ title }}
 					</span>
 				</h1>

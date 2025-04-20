@@ -7,7 +7,7 @@
 		/>
 		<main>
 			<section id="imprint-address" class="my-4">
-				<h2><span>Theaterdeck Hamburg</span></h2>
+				<h3>Theaterdeck Hamburg</h3>
 				<p>
 					Maurienstraße 19
 					<br />
@@ -15,7 +15,7 @@
 				</p>
 			</section>
 			<section id="imprint-directions" class="my-8">
-				<h2><span>Anreise</span></h2>
+				<h3>Anreise</h3>
 				<p>
 					Das Theaterdeck Hamburg (in der Zinnschmelze) liegt nur ein paar
 					Gehminuten vom S- und U-Bahnhof Barmbek entfernt. Ihren persönlichen
@@ -41,7 +41,7 @@
 				</p>
 			</section>
 			<section id="imprint-contact" class="my-8">
-				<h2><span>Kontakt</span></h2>
+				<h3>Kontakt</h3>
 				<strong class="text-accent m-4 text-lg">
 					<Icon name="material-symbols:phone-enabled" aria-hidden="true" />
 					040 6321322
@@ -50,14 +50,17 @@
 				<p>Persönlicher Kontakt: mo und do 10:00 bis 12:00</p>
 				<p>
 					Oder nutzen sie unser Kontaktformular
-					<NuxtLink to="/kontakt" class="text-accent hover:text-text">
+					<NuxtLink
+						to="/kontakt"
+						class="text-primary-500 hover:text-primary-300"
+					>
 						hier
 					</NuxtLink>
 					.
 				</p>
 			</section>
 			<section id="imprint-info" class="my-4">
-				<h2><span>Impressum</span></h2>
+				<h3>Impressum</h3>
 				<p>
 					<strong>Steuer Nr.</strong>
 					43/090/02984

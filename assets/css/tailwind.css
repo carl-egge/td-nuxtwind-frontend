@@ -4,15 +4,15 @@
 
 @layer base {
 	p {
-		@apply mb-3 mt-1 max-w-5xl leading-relaxed text-text;
+		@apply mb-3 mt-1 max-w-5xl font-light leading-relaxed text-text;
 	}
 
 	main {
 		@apply my-4 p-4 xl:p-8;
 	}
 
-	h2 {
-		@apply my-2 text-3xl;
+	h3 {
+		@apply my-2 break-words text-3xl font-bold text-text;
 	}
 
 	.marked-text {

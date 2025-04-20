@@ -7,7 +7,7 @@
 		/>
 		<main>
 			<!-- TODO: Change this to eventsStore.getAllLiveandUpcomingEvents -->
-			<h2 class="sr-only">Unsere Veranstaltungen</h2>
+			<h3 class="sr-only">Unsere Veranstaltungen</h3>
 			<div v-if="eventsStore.isLoading">
 				<UProgress animation="carousel" />
 				<p>Veranstaltungen werden geladen. Bitte warten.</p>
@@ -24,7 +24,7 @@
 				</div>
 			</div>
 			<div v-else>
-				<h3>Bitte entschuldige. Wir konnten keine Veranstaltungen finden.</h3>
+				<h4>Bitte entschuldige. Wir konnten keine Veranstaltungen finden.</h4>
 				<!-- <UButton class="td-primary my-6">
                     <a href="/stuecke"> Erneut Versuchen </a>
                 </UButton> -->

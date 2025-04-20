@@ -31,11 +31,11 @@
 				<span class="text-primary-400 font-mono text-sm tracking-wider">
 					{{ index }} / {{ label }}
 				</span>
-				<h2
+				<h1
 					class="mt-4 bg-gradient-to-r from-white to-neutral-400 bg-clip-text text-4xl font-bold leading-none text-transparent sm:text-5xl md:text-6xl lg:text-7xl"
 				>
 					{{ title }}
-				</h2>
+				</h1>
 				<p class="text-md mt-6 leading-relaxed text-background lg:text-lg">
 					{{ quote }}
 				</p>

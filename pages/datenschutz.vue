@@ -7,7 +7,7 @@
 		/>
 		<main>
 			<section id="rights-general" class="my-8">
-				<h2><span>Allgemeine Hinweise</span></h2>
+				<h3>Allgemeine Hinweise</h3>
 				<p>
 					Die folgenden Hinweise geben einen einfachen Überblick darüber, was
 					mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website
@@ -19,7 +19,7 @@
 			</section>
 			<hr class="mx-auto my-2 w-6" />
 			<section id="rights-data-acquisition" class="my-8">
-				<h2><span>Datenerfassung auf unserer Website</span></h2>
+				<h3>Datenerfassung auf unserer Website</h3>
 				<UAccordion
 					color="primary"
 					variant="solid"
@@ -30,7 +30,7 @@
 			</section>
 			<hr class="mx-auto my-2 w-6" />
 			<section id="rights-remarks" class="my-8">
-				<h2><span>Allgemeine Hinweise und Pflichtinformationen</span></h2>
+				<h3>Allgemeine Hinweise und Pflichtinformationen</h3>
 				<UAccordion
 					color="primary"
 					variant="solid"
@@ -41,9 +41,7 @@
 			</section>
 			<hr class="mx-auto my-2 w-6" />
 			<section id="rights-agb" class="my-8">
-				<h2>
-					<span>AGB : Allgemeine Geschäftsbedingungen TheaterDECK Hamburg</span>
-				</h2>
+				<h3>AGB : Allgemeine Geschäftsbedingungen TheaterDECK Hamburg</h3>
 				<UAccordion
 					color="primary"
 					variant="solid"

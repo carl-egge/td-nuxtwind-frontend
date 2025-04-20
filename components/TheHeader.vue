@@ -8,13 +8,13 @@
 				<NuxtLink to="/" class="block h-16 items-center gap-4 py-2 md:flex">
 					<!-- <img :src="logoSrc" alt="Logo" class="w-full h-full object-contain" /> -->
 					<TheLogo color="#fdf0cf" />
-					<h1
-						class="hidden font-sans text-2xl font-bold uppercase leading-6 tracking-wide text-background md:block"
+					<h2
+						class="hidden font-sans text-xl font-bold uppercase leading-6 tracking-wide text-background md:block"
 					>
 						Theaterdeck
 						<br />
 						Hamburg
-					</h1>
+					</h2>
 				</NuxtLink>
 			</div>
 
@@ -37,7 +37,7 @@
 					color="black"
 					size="xl"
 					variant="ghost"
-					class="scale-150"
+					class="scale-125"
 					@click="isOpen = true"
 				/>
 			</div>

@@ -1,14 +1,14 @@
 <template>
 	<section
 		id="newsletter"
-		class="bg-theme-secondary-400 relative isolate overflow-hidden py-16 sm:py-24 lg:py-32"
+		class="relative isolate overflow-hidden bg-theme-primary-300 py-16 sm:py-24 lg:py-32"
 	>
 		<div class="mx-auto max-w-7xl px-6 lg:px-8">
 			<div
 				class="mx-auto grid max-w-2xl grid-cols-1 gap-x-16 gap-y-16 lg:max-w-none lg:grid-cols-2"
 			>
 				<div>
-					<h2 class="text-3xl">Unser Newsletter.</h2>
+					<h3 class="text-3xl">Unser Newsletter.</h3>
 					<p class="mt-6 leading-7">
 						Verpassen Sie keine unserer kommenden Theaterstücke und bleiben Sie
 						immer informiert! Melden Sie sich für unseren Newsletter an.
@@ -48,14 +48,14 @@
 							type="submit"
 							aria-label="Subscribe"
 							:loading="waiting"
-							class="bg-theme-accent-500 hover:bg-theme-accent-400 flex-none px-4"
+							class="bg-primary-500 hover:bg-primary-400 flex-none px-4"
 						>
 							Ahoi und Enter!
 						</UButton>
 
 						<!-- Accessible feedback -->
 						<div role="alert" aria-live="assertive">
-							<p v-if="errors" class="text-theme-accent-400">
+							<p v-if="errors" class="text-primary-400">
 								🔥 Es gab ein Problem: {{ errors }}
 								<br />
 								Bitte versuchen Sie es erneut.
@@ -66,7 +66,7 @@
 				</div>
 				<dl class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
 					<div class="flex flex-col items-start">
-						<div class="bg-theme-accent-500 ring-theme-accent-500 p-2 ring-1">
+						<div class="bg-primary-500 ring-primary-500 p-2 ring-1">
 							<Icon
 								name="mdi:calendar-month"
 								class="h-6 w-6 text-background"
@@ -74,12 +74,12 @@
 							/>
 						</div>
 						<dt class="mt-4 font-semibold uppercase">Regelmässige Updates</dt>
-						<dd class="mt-2 leading-7">
+						<dd class="mt-2 font-light leading-7">
 							Immer wenn etwas spannendes ansteht informieren wir dich.
 						</dd>
 					</div>
 					<div class="flex flex-col items-start">
-						<div class="bg-theme-accent-500 ring-theme-accent-500 p-2 ring-1">
+						<div class="bg-primary-500 ring-primary-500 p-2 ring-1">
 							<Icon
 								name="mdi:hand-back-left"
 								class="h-6 w-6 text-background"
@@ -87,7 +87,7 @@
 							/>
 						</div>
 						<dt class="mt-4 font-semibold uppercase">Kein spam</dt>
-						<dd class="mt-2 leading-7">
+						<dd class="mt-2 font-light leading-7">
 							Wir schicken dir maximal einmal im Monat einen Newsletter.
 						</dd>
 					</div>

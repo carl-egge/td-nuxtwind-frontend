@@ -20,14 +20,14 @@
 					>
 						<div class="lg:pr-4">
 							<div class="lg:max-w-lg">
-								<p class="text-base font-semibold leading-7 text-accent">
+								<p class="text-primary-500 text-base font-semibold leading-7">
 									Für alle die einen Raum brauchen
 								</p>
-								<h2>
+								<h3>
 									<span class="uppercase">Theaterdeck</span>
 									Raum
 									<span class="uppercase">miete</span>
-								</h2>
+								</h3>
 								<p class="mt-6 text-lg leading-8">
 									Hochzeiten || Geburtstage || Proben || Theaterproben ||
 									Navigationstraining || Vorsprechvorbereitung || Monologarbeit
@@ -78,16 +78,16 @@
 										<!-- <Icon name="game-icons:shooner-sailboat" class="flex-none h-8 w-8 text-accent"
                                             aria-hidden="true" /> -->
 										<div
-											class="h-11 w-11 flex-none rounded p-2 ring-1 ring-accent"
+											class="ring-primary-500 h-11 w-11 flex-none rounded p-2 ring-1"
 										>
 											<Icon
 												name="game-icons:shooner-sailboat"
-												class="h-full w-full text-accent"
+												class="text-primary-500 h-full w-full"
 												aria-hidden="true"
 											/>
 										</div>
 										<span>
-											<strong class="font-semibold uppercase text-accent">
+											<strong class="text-primary-500 font-semibold uppercase">
 												Deck I
 											</strong>
 											(großerSaal | 100m²)*
@@ -102,16 +102,16 @@
 										<!-- <Icon name="game-icons:sailboat" class="flex-none h-6 w-6 text-accent"
                                             aria-hidden="true" /> -->
 										<div
-											class="h-11 w-11 flex-none rounded p-2 ring-1 ring-accent"
+											class="ring-primary-500 h-11 w-11 flex-none rounded p-2 ring-1"
 										>
 											<Icon
 												name="game-icons:sailboat"
-												class="h-4/5 w-full text-accent"
+												class="text-primary-500 h-4/5 w-full"
 												aria-hidden="true"
 											/>
 										</div>
 										<span>
-											<strong class="font-semibold uppercase text-accent">
+											<strong class="text-primary-500 font-semibold uppercase">
 												Deck II
 											</strong>
 											(Studiobühne | 40m²)*
@@ -125,11 +125,11 @@
 									<li class="flex gap-x-3">
 										<Icon
 											name="mdi:dots-horizontal"
-											class="h-5 w-5 flex-none align-bottom text-accent"
+											class="text-primary-500 h-5 w-5 flex-none align-bottom"
 											aria-hidden="true"
 										/>
 										<span>
-											<strong class="font-semibold uppercase text-accent">
+											<strong class="text-primary-500 font-semibold uppercase">
 												Was noch möglich ist
 											</strong>
 											(Regelmäßig oder einmalig) Hochzeiten | Geburtstage |
@@ -140,7 +140,7 @@
 								<p class="mt-8">
 									Sämtliche Möglichkeiten und Konditionen unter:
 									<NuxtLink
-										class="text-text hover:text-accent"
+										class="hover:text-primary-500 text-text"
 										href="https://luettliv.de/"
 										target="_blank"
 										rel="noopener noreferrer"
@@ -152,13 +152,13 @@
 								<p>
 									* Es gelten die
 									<NuxtLink
-										class="text-text hover:text-accent"
+										class="hover:text-primary-500 text-text"
 										to="/datenschutz"
 									>
 										Allgemeinen Geschäftsbedingungen
 									</NuxtLink>
 								</p>
-								<h2 class="mb-6 mt-16">Noch Fragen? Kein Problem.</h2>
+								<h4 class="mb-6 mt-16">Noch Fragen? Kein Problem.</h4>
 								<p>
 									Nutzen Sie diese einzigartige Gelegenheit, unseren
 									vielseitigen Theatersaal in Barmbek für Ihre Veranstaltung zu
@@ -167,13 +167,13 @@
 									stehen wir Ihnen gerne telefonisch unter
 									<NuxtLink
 										href="tel:0406321322"
-										class="text-text hover:text-accent"
+										class="hover:text-primary-500 font-normal text-text"
 									>
 										040 6321322
 									</NuxtLink>
 									oder per E-Mail unter
 									<NuxtLink
-										class="text-text hover:text-accent"
+										class="hover:text-primary-500 font-normal text-text"
 										href="mailto:info@theaterdeck.de"
 									>
 										info@theaterdeck.de

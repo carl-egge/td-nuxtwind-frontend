@@ -7,12 +7,11 @@ h1,
 h2,
 h3 {
 	font-family: 'ImpactReversed', monospace;
-	color: #f2ede0;
 }
 
 h1 span,
-h2 span,
-h3 span {
+h2 span {
+	color: #f2ede0;
 	background-color: #100e09;
 	line-height: 1.1;
 	box-shadow:
