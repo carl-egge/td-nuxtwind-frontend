@@ -8,6 +8,8 @@ export default defineEventHandler(async (_event) => {
 			headers: { Authorization: `Token ${config.pretixApiKey}` },
 		});
 		if (!response.ok) {
+			const text = await response.text().catch(() => '[non‑text response]');
+			console.error('Pretix API error body:', text);
 			throw createError({
 				statusCode: response.status,
 				statusMessage: `HTTP error! status: ${response.status}`,

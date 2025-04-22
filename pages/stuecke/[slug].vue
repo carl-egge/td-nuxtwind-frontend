@@ -30,14 +30,14 @@
 						/>
 					</div>
 					<div :class="{ 'basis-2/3': event.picture }">
-						<h2 class="mb-2 mt-6 text-2xl font-bold tracking-tight text-accent">
+						<h3>
 							{{ event.subtitle ? event.subtitle.de : 'JETZT TICKETS KAUFEN' }}
-						</h2>
+						</h3>
 						<p class="my-4">
 							{{ event.desc ? event.desc.de : descMissing }}
 						</p>
 						<hr
-							class="mx-32 my-12 h-0.5 border-t-0 bg-primary opacity-100 dark:opacity-50"
+							class="bg-primary mx-32 my-12 h-0.5 border-t-0 opacity-100 dark:opacity-50"
 						/>
 						<p class="my-8">
 							EMPFOHLEN AB {{ event.recommendedAge || '4' }} JAHREN | Eintritt:
