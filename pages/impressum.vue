@@ -75,8 +75,10 @@
 				</p>
 			</section>
 		</main>
-		<section id="imprint-map" class="bg-accent h-64 w-full p-8 text-center">
-			<p>Here will be a map where the Theaterdeck is located.</p>
+		<section id="imprint-map" class="bg-accent h-96 w-full p-8 text-center">
+			<ClientOnly fallback-tag="span" fallback="Loading map...">
+				<TheMap />
+			</ClientOnly>
 		</section>
 	</div>
 </template>

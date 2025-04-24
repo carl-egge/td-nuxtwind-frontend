@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
-const isDev = process.env.NODE_ENV !== 'production'
+const isDev = process.env.NODE_ENV !== 'production';
 
 export default defineNuxtConfig({
 	devtools: { enabled: true },
@@ -8,12 +8,13 @@ export default defineNuxtConfig({
 	// ==============      MODULES      ==============
 	modules: [
 		'@pinia/nuxt',
-		// Only load the eslint module in development
-                ...(isDev ? ['@nuxt/eslint'] : []),
 		'@nuxt/scripts',
 		'@nuxt/ui',
 		'@nuxt/image',
 		'@nuxtjs/turnstile',
+		'@nuxtjs/leaflet',
+		// Only load the eslint module in development
+		...(isDev ? ['@nuxt/eslint'] : []),
 	],
 	turnstile: {
 		// Information: https://developers.cloudflare.com/turnstile/troubleshooting/testing/
