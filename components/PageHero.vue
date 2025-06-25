@@ -1,5 +1,5 @@
 <template>
-	<div class="relative h-[70vh] w-full pt-20">
+	<div class="relative h-[70vh] w-full pt-20 shadow-lg">
 		<div
 			class="hero absolute inset-0 mt-[60px] bg-cover bg-center bg-no-repeat"
 		/>
@@ -7,12 +7,17 @@
 			class="absolute inset-0 bg-text bg-opacity-40 bg-cover bg-center bg-no-repeat"
 		/> -->
 		<div class="relative flex h-full items-end justify-center pb-16">
-			<div class="break-words text-center uppercase md:px-8">
+			<div
+				class="max-w-screen-md break-words px-8 text-center uppercase lg:max-w-screen-xl"
+			>
 				<!-- <Icon name="mingcute:lighthouse-line" class="h-8 w-8 text-[#10b4ca]" aria-hidden="true" /> -->
-				<h1 class="mb-2 break-all text-4xl leading-tight md:text-6xl">
+				<!-- <h1 class="mb-2 break-all text-4xl leading-tight md:text-6xl">
 					<span class="bg-text p-2">
 						{{ title }}
 					</span>
+				</h1> -->
+				<h1 class="hyphens-auto leading-tight" lang="de">
+					{{ title }}
 				</h1>
 				<!-- <UBreadcrumb v-if="breadcrumbs.length > 0" :links="fullBreadcrumbs" class="mt-4"
                     :ui="{ ol: 'justify-center', base: 'font-bold text-white', inactive: 'hover:text-accent' }">
@@ -62,7 +67,7 @@
 		content: '';
 		position: absolute;
 		top: 0;
-		border-radius: 0.25rem;
+		/* border-radius: 0.25rem; */
 		left: 0;
 		background: v-bind('backgroundImage');
 		background-repeat: no-repeat;

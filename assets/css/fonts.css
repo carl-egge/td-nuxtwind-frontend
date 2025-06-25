@@ -1,13 +1,13 @@
 @font-face {
-	font-family: 'Impact';
-	src: url('/fonts/ImpactLabel.ttf') format('truetype');
+	font-family: 'ImpactLabel';
+	src: url('/fonts/ImpactLabel.woff') format('woff');
 	font-weight: 400;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'ImpactReversed';
-	src: url('/fonts/ImpactLabelReversed.ttf') format('truetype');
+	font-family: 'InverseImpactLabel';
+	src: url('/fonts/ImpactLabelReversed.woff') format('woff');
 	font-weight: 400;
 	font-style: normal;
 }

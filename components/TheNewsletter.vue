@@ -1,7 +1,7 @@
 <template>
 	<section
 		id="newsletter"
-		class="relative isolate overflow-hidden bg-theme-primary-300 py-16 sm:py-24 lg:py-32"
+		class="bg-theme-accent relative isolate overflow-hidden py-16 sm:py-24 lg:py-32"
 	>
 		<div class="mx-auto max-w-7xl px-6 lg:px-8">
 			<div
@@ -48,7 +48,7 @@
 							type="submit"
 							aria-label="Subscribe"
 							:loading="waiting"
-							class="bg-primary-500 hover:bg-primary-400 flex-none px-4"
+							class="bg-primary-600 hover:bg-primary-400 flex-none px-4"
 						>
 							Ahoi und Enter!
 						</UButton>
@@ -66,7 +66,7 @@
 				</div>
 				<dl class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
 					<div class="flex flex-col items-start">
-						<div class="bg-primary-500 ring-primary-500 p-2 ring-1">
+						<div class="bg-primary-600 ring-primary-600 p-2 ring-1">
 							<Icon
 								name="mdi:calendar-month"
 								class="h-6 w-6 text-background"
@@ -79,7 +79,7 @@
 						</dd>
 					</div>
 					<div class="flex flex-col items-start">
-						<div class="bg-primary-500 ring-primary-500 p-2 ring-1">
+						<div class="bg-primary-600 ring-primary-600 p-2 ring-1">
 							<Icon
 								name="mdi:hand-back-left"
 								class="h-6 w-6 text-background"
@@ -176,9 +176,9 @@
 
 <style>
 	.label-white label {
-		color: #100e09 !important;
+		color: #0b0507 !important;
 	}
 	.label-white input {
-		background: #fdf0cf !important;
+		background: #faf2f5 !important;
 	}
 </style>

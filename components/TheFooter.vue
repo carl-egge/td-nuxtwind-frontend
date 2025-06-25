@@ -1,6 +1,6 @@
 <template>
 	<footer
-		class="flex flex-col items-center bg-text text-center text-background"
+		class="bg-theme-secondary flex flex-col items-center text-center text-text"
 	>
 		<div class="container px-6 pt-6">
 			<!-- Divider -->
@@ -67,14 +67,17 @@
 								<li class="lg:my-1">
 									<NuxtLink
 										href="mailto:info@theaterdeck.de"
-										class="hover:text-primary"
+										class="hover:text-primary-600"
 									>
 										<Icon name="material-symbols:mail" aria-hidden="true" />
 										info@theaterdeck.de
 									</NuxtLink>
 								</li>
 								<li>
-									<NuxtLink href="tel:0406321322" class="hover:text-primary">
+									<NuxtLink
+										href="tel:0406321322"
+										class="hover:text-primary-600"
+									>
 										<Icon
 											name="material-symbols:phone-enabled"
 											aria-hidden="true"
@@ -118,10 +121,10 @@
 		</div>
 
 		<!-- Copyright section -->
-		<div class="mt-2 w-full bg-black/20 p-4">
+		<div class="bg-primary-400/10 mt-2 w-full p-4">
 			<div class="flex flex-col-reverse md:flex-row md:justify-between">
 				<div class="my-2 flex-1 text-center md:my-0 md:text-left">
-					<NuxtLink to="/" class="hover:text-primary">
+					<NuxtLink to="/" class="hover:text-primary-600">
 						© 2024 Theaterdeck Hamburg
 					</NuxtLink>
 				</div>
@@ -131,14 +134,14 @@
 						target="_blank"
 						class="mx-3"
 					>
-						<Icon name="mdi:facebook" class="text-2xl hover:text-primary" />
+						<Icon name="mdi:facebook" class="hover:text-primary text-2xl" />
 					</NuxtLink>
 					<NuxtLink
 						href="https://www.instagram.com/theaterdeck/"
 						target="_blank"
 						class="mx-3"
 					>
-						<Icon name="mdi:instagram" class="text-2xl hover:text-primary" />
+						<Icon name="mdi:instagram" class="hover:text-primary text-2xl" />
 					</NuxtLink>
 				</div>
 			</div>
