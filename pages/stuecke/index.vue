@@ -6,37 +6,69 @@
 			:background-image="`url(${heroimage})`"
 		/>
 		<main>
-			<!-- TODO: Change this to eventsStore.getAllLiveandUpcomingEvents -->
-			<h3 class="sr-only">Unsere Veranstaltungen</h3>
-			<div v-if="eventsStore.isLoading">
-				<UProgress animation="carousel" />
-				<p>Veranstaltungen werden geladen. Bitte warten.</p>
-			</div>
-			<div
-				v-if="
-					!eventsStore.isLoading &&
-					!eventsStore.error &&
-					eventsStore.getEventCount > 0
-				"
-			>
-				<div v-for="event in eventsStore.getAllEvents" :key="String(event.id)">
-					<EventCard :event="event" />
+			<h3 aria-label="Unsere Veranstaltungen">Unsere Veranstaltungen</h3>
+			<div>
+				<div class="mb-2 flex justify-end">
+					<UButton
+						icon="i-heroicons-arrow-path"
+						size="xs"
+						:loading="pending"
+						@click="refresh"
+					/>
+				</div>
+
+				<div
+					v-if="data?.length"
+					class="divide-y divide-neutral-300 rounded-xl border border-neutral-200 bg-neutral-50"
+				>
+					<div
+						v-for="item in data"
+						:key="
+							item.type + '-' + item.event_slug + '-' + (item.subevent_id || '')
+						"
+						class="flex items-start justify-between gap-4 px-4 py-3 transition hover:bg-neutral-100"
+						@click="goToEvent(item.event_slug)"
+					>
+						<!-- Date -->
+						<div class="w-20 shrink-0 text-center leading-snug">
+							<div class="text-sm font-medium text-neutral-600">
+								{{ weekday(item.date_from) }}
+							</div>
+							<div class="text-xl font-semibold text-neutral-800">
+								{{ justDate(item.date_from) }}
+							</div>
+						</div>
+
+						<!-- Title & Subtitle -->
+						<div class="flex-1">
+							<div class="text-lg font-bold text-neutral-900">
+								{{ item.name }}
+							</div>
+							<div class="mt-1 text-sm text-neutral-600">
+								{{ item.subtitle }}
+							</div>
+						</div>
+
+						<!-- Arrow Icon -->
+						<div class="shrink-0 pt-2 text-pink-600">
+							<UIcon name="i-heroicons-chevron-right" class="h-5 w-5" />
+						</div>
+					</div>
+				</div>
+
+				<!-- Error or No Data Message -->
+				<div v-else class="mt-6 text-center text-sm text-neutral-500">
+					<template v-if="error">
+						<p class="font-medium text-red-500">
+							Fehler beim Laden der Veranstaltungen.
+						</p>
+						<p>Bitte versuchen Sie es später erneut.</p>
+					</template>
+					<template v-else-if="!pending">
+						<p>Keine anstehenden Veranstaltungen gefunden.</p>
+					</template>
 				</div>
 			</div>
-			<div v-else>
-				<h4>Bitte entschuldige. Wir konnten keine Veranstaltungen finden.</h4>
-				<!-- <UButton class="td-primary my-6">
-                    <a href="/stuecke"> Erneut Versuchen </a>
-                </UButton> -->
-			</div>
-			<div v-if="eventsStore.error" class="my-2 w-full rounded bg-red-500 p-2">
-				<p class="text-background">
-					Fehler beim Veranstaltungen laden: "{{ eventsStore.error }}"
-				</p>
-			</div>
-			<UButton :disabled="eventsStore.isLoading" block @click="refreshEvents">
-				Erneut Versuchen
-			</UButton>
 		</main>
 		<TheNewsletter />
 	</div>
@@ -50,28 +82,19 @@
 	 */
 
 	import heroimage from '../assets/images/hero-highkey-windschief.jpg';
+	import { useFormatDate } from '~/composables/useFormatDate';
 
-	import { onMounted } from 'vue';
-	import { useEventsStore } from '~/stores/events';
-
-	const eventsStore = useEventsStore();
-	const config = useRuntimeConfig();
-
-	onMounted(() => {
-		fetchData();
-	});
-
-	const refreshEvents = () => {
-		fetchData();
-	};
-
-	function fetchData() {
-		if (config.public.useMockData) {
-			return eventsStore.fetchTestEvents();
-		} else {
-			return eventsStore.fetchEvents();
+	const { data, error, pending, refresh } = await useFetch(
+		'/api/upcomingEventDates',
+		{
+			onResponseError({ response }) {
+				console.error('Fehler beim Abrufen der Veranstaltungen:', response);
+			},
 		}
-	}
+	);
+	const { weekday, justDate } = useFormatDate();
+
+	const goToEvent = (slug) => navigateTo('/stuecke/' + slug);
 </script>
 
 <style scoped></style>

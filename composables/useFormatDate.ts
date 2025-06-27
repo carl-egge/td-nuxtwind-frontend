@@ -13,7 +13,24 @@ export const useFormatDate = () => {
 		});
 	}
 
+	function justDate(dateStr: string): string {
+		const date = new Date(dateStr);
+		return date.toLocaleDateString('de-DE', {
+			day: '2-digit',
+			month: '2-digit',
+		});
+	}
+
+	function weekday(dateStr: string): string {
+		const date = new Date(dateStr);
+		return date.toLocaleDateString('de-DE', {
+			weekday: 'short',
+		});
+	}
+
 	return {
 		formatDate,
+		weekday,
+		justDate,
 	};
 };
