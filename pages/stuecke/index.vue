@@ -25,6 +25,7 @@
 					:key="month.key"
 					size="sm"
 					variant="ghost"
+					class="text-base"
 					:class="{ underline: month.key === selectedMonth }"
 					@click="
 						selectedMonth = month.key;
@@ -51,14 +52,14 @@
 					@click="goToEvent(item.event_slug)"
 				>
 					<div class="w-24 text-center leading-snug text-text">
-						<div class="text-sm font-bold">{{ weekday(item.date_from) }}</div>
-						<div class="text-xl font-extrabold">
+						<div class="text-md font-bold">{{ weekday(item.date_from) }}</div>
+						<div class="text-2xl font-extrabold">
 							{{ justDate(item.date_from) }}
 						</div>
 					</div>
 					<div class="flex-1 text-text">
-						<div class="text-base font-semibold">{{ item.name }}</div>
-						<div class="mt-1 flex items-center gap-2 text-sm text-text/70">
+						<div class="font-semibold">{{ item.name }}</div>
+						<div class="mt-1 flex items-center gap-2 text-text/70">
 							<UBadge size="xs" variant="subtle" color="primary">
 								{{ time(item.date_from) }}
 							</UBadge>

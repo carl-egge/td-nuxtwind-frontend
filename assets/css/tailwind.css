@@ -14,14 +14,4 @@
 	h3 {
 		@apply my-2 break-words text-3xl font-bold text-text;
 	}
-
-	.marked-text {
-		@apply uppercase leading-8 tracking-widest;
-		/* box-shadow: 10px 0 0px 0px #ff0000, -10px 0 0px 0px #ff0000; */
-	}
-
-	.marked-text > span {
-		/* mix-blend-mode: difference; */
-		@apply mr-0.5;
-	}
 }

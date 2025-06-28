@@ -1,6 +1,6 @@
 <template>
 	<footer
-		class="bg-theme-secondary flex flex-col items-center text-center text-text"
+		class="flex flex-col items-center bg-theme-secondary text-center text-text"
 	>
 		<div class="container px-6 pt-6">
 			<!-- Divider -->

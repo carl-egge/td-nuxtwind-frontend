@@ -1,7 +1,7 @@
 <template>
 	<section
 		id="newsletter"
-		class="bg-theme-accent relative isolate overflow-hidden py-16 sm:py-24 lg:py-32"
+		class="relative isolate overflow-hidden bg-theme-accent py-16 sm:py-24 lg:py-32"
 	>
 		<div class="mx-auto max-w-7xl px-6 lg:px-8">
 			<div
@@ -27,6 +27,7 @@
 								highlight
 								placeholder="Dein Name"
 								aria-label="Name"
+								:ui="{ rounded: 'rounded-none' }"
 								:disabled="waiting"
 							/>
 						</UFormGroup>
@@ -41,6 +42,7 @@
 								type="email"
 								placeholder="Deine Email-Adresse"
 								aria-label="Email"
+								:ui="{ rounded: 'rounded-none' }"
 								:disabled="waiting"
 							/>
 						</UFormGroup>

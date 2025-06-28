@@ -9,15 +9,15 @@
 
 		<main class="flex items-center justify-center bg-background">
 			<div
-				class="border-primary-500 mx-2 my-10 w-full max-w-xl rounded border bg-background p-6 shadow-md"
+				class="border-primary-500 w-full max-w-3xl rounded-none border bg-background p-6 shadow-md"
 			>
-				<h3 class="text-primary mb-6 text-3xl">Kontaktiere Uns</h3>
+				<h3 class="mb-6">Kontaktiere Uns</h3>
 
 				<!-- Nuxt UI Form utilizing Zod Validation -->
 				<UForm
 					:schema="schema"
 					:state="state"
-					class="space-y-4"
+					class="space-y-6"
 					aria-label="Kontaktformular"
 					role="form"
 					@submit="onSubmit"
@@ -27,6 +27,7 @@
 							v-model="state.name"
 							placeholder="Pippi Langstrumpf"
 							aria-label="Name"
+							:ui="{ rounded: 'rounded-none' }"
 							:disabled="waiting"
 						/>
 					</UFormGroup>
@@ -37,6 +38,7 @@
 							type="email"
 							placeholder="villa@kunterbunt.de"
 							aria-label="Email"
+							:ui="{ rounded: 'rounded-none' }"
 							:disabled="waiting"
 						/>
 					</UFormGroup>
@@ -46,6 +48,7 @@
 							v-model="state.phone"
 							placeholder="0123 4567890"
 							aria-label="Telefon"
+							:ui="{ rounded: 'rounded-none' }"
 							:disabled="waiting"
 						/>
 					</UFormGroup>
@@ -55,6 +58,7 @@
 							v-model="state.message"
 							placeholder="Ich benötige Hilfe bei ..."
 							aria-label="Nachricht"
+							:ui="{ rounded: 'rounded-none' }"
 							:disabled="waiting"
 						/>
 					</UFormGroup>
@@ -62,6 +66,7 @@
 					<UCheckbox
 						v-model="newsletter"
 						label="Gerne möchte ich in Zukunft den Theaterdeck-Newsletter empfangen und willige ein, dass meine E-Mail-Adresse zum Versand verwendet wird. Die Einwilligung kann ich jederzeit widerrufen."
+						:ui="{ rounded: 'rounded-none' }"
 					/>
 
 					<!-- Captcha Field -->
@@ -97,7 +102,7 @@
 						aria-label="Nachricht senden"
 						:loading="waiting"
 						:disabled="!isTurnstileValid || waiting"
-						class="py-2"
+						class="rounded-none py-2"
 						block
 					>
 						Nachricht senden
