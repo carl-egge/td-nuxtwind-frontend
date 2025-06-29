@@ -4,51 +4,35 @@
 			title="Impressum"
 			:breadcrumbs="[{ label: 'HOME', to: '/' }]"
 			:background-image="`url(${heroimage})`"
+			aria-label="Seitenkopf"
 		/>
-		<main>
-			<section id="imprint-address" class="my-4">
-				<h3>Theaterdeck Hamburg</h3>
+		<main class="mx-auto max-w-7xl px-6 lg:px-8">
+			<section id="imprint" class="my-4">
+				<h3>Theaterdeck Hamburg.</h3>
 				<p>
+					Theaterdeck Hamburg (in der Zinnschmelze)
+					<br />
 					Maurienstraße 19
 					<br />
 					22305 Hamburg
-				</p>
-			</section>
-			<section id="imprint-directions" class="my-8">
-				<h3>Anreise</h3>
-				<p>
-					Das Theaterdeck Hamburg (in der Zinnschmelze) liegt nur ein paar
-					Gehminuten vom S- und U-Bahnhof Barmbek entfernt. Ihren persönlichen
-					Fahrplan können Sie gerne vom
+					<br />
+					<br />
+					Telefon:
 					<NuxtLink
-						to="https://www.hvv.de/linking-service/show/f7d9ab7c02a14cd7acb1968838be1e45"
-						target="_blank"
-						class="text-accent hover:text-text"
+						to="tel:0406121322"
+						class="hover:text-primary-600 font-normal"
 					>
-						HVV
+						+49 (0)40 6121322
 					</NuxtLink>
-					erstellen lassen. Falls Sie mit dem Auto anreisen, finden Sie einige
-					Parkplätze in der Nähe.
+					<br />
+					E-Mail:
 					<NuxtLink
-						to="https://maps.google.com/maps?q=Theaterdeck&hl=de&sll=53.58586,10.04499&sspn=0.010012,0.033023&hq=Theaterdeck&t=m&z=16"
-						target="_blank"
-						class="text-accent hover:text-text"
+						to="mailto:info@theaterdeck.de"
+						class="hover:text-primary-600 font-normal"
 					>
-						Google Maps
+						info@theaterdeck.de
 					</NuxtLink>
-					erstellt Ihnen gerne Ihre eigene Route. Die Parkplatzsituation ist
-					insgesamt aber eher schwierig.
-				</p>
-			</section>
-			<section id="imprint-contact" class="my-8">
-				<h3>Kontakt</h3>
-				<strong class="text-accent m-4 text-lg">
-					<Icon name="material-symbols:phone-enabled" aria-hidden="true" />
-					040 6321322
-				</strong>
-				<p class="mt-2">Unser Anrufbeantworter wird täglich abgehört.</p>
-				<p>Persönlicher Kontakt: mo und do 10:00 bis 12:00</p>
-				<p>
+					<br />
 					Oder nutzen sie unser Kontaktformular
 					<NuxtLink
 						to="/kontakt"
@@ -57,29 +41,64 @@
 						hier
 					</NuxtLink>
 					.
+					<br />
+					<br />
+					Geschäftsführung: Niklas Heinecke
+					<br />
+					Steuer-Nr.: 43/090/02984
+					<br />
+					Beim Registergericht: Amtsgericht Hamburg
+					<br />
+					<br />
+					Website: Carl Egge
+					<br />
+					<br />
+					Das Impressum gilt für:
+					<NuxtLink
+						to="https://www.theaterdeck.de"
+						target="_blank"
+						class="hover:text-primary-300 font-normal underline"
+					>
+						https://www.theaterdeck.de
+					</NuxtLink>
 				</p>
 			</section>
-			<section id="imprint-info" class="my-4">
-				<h3>Impressum</h3>
-				<p>
-					<strong>Steuer Nr.</strong>
-					43/090/02984
+			<section id="address" class="mt-8">
+				<p class="text-primary-500 text-base font-semibold leading-7">
+					So Findest Du Uns.
 				</p>
 				<p>
-					<strong>Geschäftsführer:</strong>
-					Niklas Heinecke
+					Das Theaterdeck Hamburg (in der Zinnschmelze) liegt nur ein paar
+					Gehminuten vom S- und U-Bahnhof Barmbek entfernt. Ihren persönlichen
+					Fahrplan können Sie gerne vom
+					<NuxtLink
+						to="https://www.hvv.de/linking-service/show/f7d9ab7c02a14cd7acb1968838be1e45"
+						target="_blank"
+						class="hover:text-primary-600 font-normal"
+					>
+						HVV
+					</NuxtLink>
+					erstellen lassen. Falls Sie mit dem Auto anreisen, finden Sie einige
+					Parkplätze in der Nähe.
+					<NuxtLink
+						to="https://maps.google.com/maps?q=Theaterdeck&hl=de&sll=53.58586,10.04499&sspn=0.010012,0.033023&hq=Theaterdeck&t=m&z=16"
+						target="_blank"
+						class="hover:text-primary-600 font-normal"
+					>
+						Google Maps
+					</NuxtLink>
+					erstellt Ihnen gerne Ihre eigene Route. Die Parkplatzsituation ist
+					insgesamt aber eher schwierig.
 				</p>
-				<p>
-					<strong>Design und Umsetzung:</strong>
-					Philip Beck und Carl Egge
-				</p>
+				<div class="h-96 w-full">
+					<div class="border-primary-600 h-full w-full border shadow-lg">
+						<ClientOnly fallback-tag="span" fallback="Loading map...">
+							<TheMap />
+						</ClientOnly>
+					</div>
+				</div>
 			</section>
 		</main>
-		<section id="imprint-map" class="bg-accent h-96 w-full p-8 text-center">
-			<ClientOnly fallback-tag="span" fallback="Loading map...">
-				<TheMap />
-			</ClientOnly>
-		</section>
 	</div>
 </template>
 
@@ -91,5 +110,3 @@
 	 */
 	import heroimage from '../assets/images/hero-highkey-windschief.jpg';
 </script>
-
-<style lang="scss" scoped></style>
