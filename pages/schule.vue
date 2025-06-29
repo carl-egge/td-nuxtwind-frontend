@@ -12,10 +12,12 @@
 			<section id="theater-jugend" class="mb-10 md:mb-24">
 				<div class="mt-8 flex flex-wrap items-center">
 					<div class="mx-auto w-full px-4 md:w-7/12">
-						<div class="ring-primary-500 my-5 w-fit rounded p-2 ring-1">
+						<div
+							class="ring-primary-600 mb-4 h-11 w-11 flex-none rounded-none p-2 ring-1"
+						>
 							<Icon
 								name="mdi:account-supervisor"
-								class="text-primary-500 h-8 w-8"
+								class="text-primary-600 h-full w-full"
 								aria-hidden="true"
 							/>
 						</div>
@@ -44,12 +46,12 @@
 							Bühne zu erzeugen.
 						</p>
 					</div>
-					<div class="mx-auto my-4 w-full md:w-4/12 lg:mt-16">
-						<div class="mx-auto size-80 rounded bg-text">
+					<div class="my-4 w-full md:w-4/12 lg:mt-16">
+						<div class="mx-auto size-72 lg:size-96">
 							<NuxtImg
-								src="/images/hero/hero-ship-water.jpeg"
-								alt="chairs"
-								class="my-8 h-full rounded object-cover object-left-top"
+								src="/images/schimmelreiter-02.jpg"
+								alt="Theater Jugend Hamburg"
+								class="border-primary-600 my-8 h-full w-full rounded-none border object-cover object-left-top shadow-lg"
 								loading="lazy"
 								format="webp"
 								quality="80"
@@ -64,17 +66,19 @@
 			<section id="theater-schule" class="mb-10 md:mb-24">
 				<div class="mt-8 flex flex-row-reverse flex-wrap-reverse items-center">
 					<div class="mx-auto w-full px-4 md:w-7/12">
-						<div class="ring-primary-500 my-5 w-fit rounded p-2 ring-1">
+						<div
+							class="ring-primary-600 mb-4 h-11 w-11 flex-none rounded-none p-2 ring-1"
+						>
 							<Icon
 								name="material-symbols:theater-comedy-rounded"
-								class="text-primary-500 h-8 w-8"
+								class="text-primary-600 h-full w-full"
 								aria-hidden="true"
 							/>
 						</div>
-						<h3 class="mb-6">Theaterdeck Schule</h3>
+						<h3 class="mb-6">Theaterdeck Schule.</h3>
 						<p>
 							Die Kursarbeit der Theater Jugend bildet die Grundlage des
-							Theaterdecks. Für Jugendliche im Alter von 11 bis 20 Jahren werden
+							Theaterdecks. Für Jugendliche im Alter von 9 bis 20 Jahren werden
 							regelmäßig Einsteigerkurse angeboten. Diese geben einen
 							umfassenden Einblick in die unterschiedlichsten Bereiche der
 							Schauspielkunst. Anschließend können die Jugendlichen ihre
@@ -101,11 +105,11 @@
 						</p>
 					</div>
 					<div class="mx-auto my-4 w-full md:w-4/12 lg:mt-16">
-						<div class="mx-auto size-80 rounded bg-text">
+						<div class="mx-auto size-72 lg:size-96">
 							<NuxtImg
-								src="/images/hero/hero-highkey-sr.jpg"
-								alt="chairs"
-								class="my-8 h-full rounded object-cover"
+								src="/images/1-michelausloenneberga.jpg"
+								alt="Theaterdeck Schule"
+								class="border-primary-600 my-8 h-full w-full rounded-none border object-cover shadow-lg"
 								loading="lazy"
 								format="webp"
 								quality="80"
@@ -119,7 +123,7 @@
 			<hr class="mx-auto my-20 w-6" />
 
 			<!-- SECTION: OUR TEAM -->
-			<section id="theater-team" class="mb-10 md:mb-24">
+			<!-- <section id="theater-team" class="mb-10 md:mb-24">
 				<div
 					class="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3"
 				>
@@ -162,28 +166,36 @@
 						</li>
 					</ul>
 				</div>
-			</section>
+			</section> -->
 
-			<hr class="mx-auto my-20 w-6" />
+			<!-- <hr class="mx-auto my-20 w-6" /> -->
 
 			<!-- SECTION : COURSES -->
 			<UContainer id="theater-course-list" class="mb-10">
-				<h3 class="mb-6">
-					Startdeck KURSE | Einblick und Überblick für Theaterbesessene
-				</h3>
+				<p class="text-primary-500 text-base font-semibold leading-7">
+					Einblick und Überblick für Theaterbesessene
+				</p>
+				<h3 class="mb-6">Unsere Kurse.</h3>
 				<p class="text-lg leading-8">
 					Die StartDECK Kurse sind Einsteigerkurse, die euch und uns die
 					Möglichkeit geben sollen uns gegenseitig kennenzulernen. In sechs
 					Terminen machen die Teilnehmer:innen erste Schritte auf der Bühne,
 					lernen jede Menge Tricks und können sich in kleinen Szenen
-					ausprobieren.
+					ausprobieren. Im Anschluss an die StartDECK Kurse folgen unmittelbar
+					die StartDECKpro Kurse, in denen wir Themen vertiefen, jede Menge
+					Improvisationen spielen und größere Szenen erarbeiten. Je nach
+					Situation können Kurse im Anschluss an das StartDECK-Programm zu
+					festen Ensembles, den SpielDECKs werden. Ensembles treffen sich
+					wöchentlich für 1,5 Stunden, um Techniken zu verfeinern, Themen zu
+					bearbeiten und in verschiedenen Produktionen auf die Bühne zu
+					springen.
 				</p>
 				<UCard
 					v-for="post in kurse"
 					:key="post.id"
 					class="mb-8 mt-8"
 					:ui="{
-						rounded: 'rounded',
+						rounded: 'rounded-none',
 						ring: 'ring-primary',
 						divide: 'divide-primary',
 						background: 'bg-background',
@@ -241,123 +253,41 @@
 	 */
 
 	import type { _background } from '#tailwind-config/theme/primary-500Color';
-	import heroimage from '../assets/images/hero-orange-sr.jpg';
+	import heroimage from '../assets/images/hero-highkey-sr.jpg';
+	import { kurse } from '~/server/data/kurse';
 
-	const kurse = [
-		{
-			id: 1,
-			title: 'SPIELDECK I (6 bis 8 Jahre*)',
-			href: '#',
-			description:
-				'Starttermin 22. März // jeweils mittwochs 16:20 bis 17:20 Uhr // 6 Termine - Kosten einmalig 55 € // Im Anschluss an die Einstiegstermine ist eine unbefristete Teilnahme möglich.',
-			date: '22. März 2023',
-			datetime: '2022-03-22',
-			category: { title: 'mittwochs', href: '#' },
-			author: {
-				name: 'Marietta Saggau',
-				role: 'Kursleitung',
-				href: '#',
-				imageUrl: '/images/kursleiter/Marietta.jpg',
-			},
-		},
-		{
-			id: 2,
-			title: 'SPIELDECK II (9 bis 11 Jahre*)',
-			href: '#',
-			description:
-				'Starttermin 22. März // jeweils mittwochs 17:30 bis 19:00 Uhr // 6 Termine - Kosten einmalig 80 € // Im Anschluss an die Einstiegstermine ist eine unbefristete Teilnahme möglich.',
-			date: '22. März 2023',
-			datetime: '2022-03-22',
-			category: { title: 'mittwochs', href: '#' },
-			author: {
-				name: 'Marietta Saggau',
-				role: 'Kursleitung',
-				href: '#',
-				imageUrl: '/images/kursleiter/Marietta.jpg',
-			},
-		},
-		{
-			id: 3,
-			title: 'SPIELDECK III (ab 27 Jahre)',
-			href: '#',
-			description:
-				'laufender Kurs // jeweils donnerstags 19:30 bis 21:00 Uhr // Quereinstieg möglich.',
-			date: 'laufend',
-			datetime: '2023-09-01',
-			category: { title: 'donnerstags', href: '#' },
-			author: {
-				name: 'Thorsten Grübling',
-				role: 'Kursleitung',
-				href: '#',
-				imageUrl: '/images/kursleiter/Thorsten.jpg',
-			},
-		},
-		{
-			id: 4,
-			title: 'DECKSSPIELE DER MS FORTUNA | Offene Improgruppe',
-			href: '#',
-			description:
-				'Wir improvisieren uns in neue Welten - und lernen sponates Spiel und bewusste Gestaltung mit Bewegung, Stimme und Worten. Regelmässig verrühren wir vor Publikum all unsere wirren, lustigen und überraschenden Gedanken zu dramatischen Begegnungen, romantischen Duellen oder halsbrecherischen Heldentaten.Dieser Kurs ist offen für alle ab 16 Jahren und bietet die Möglichkeit, die wichtigsten Methoden, Grundhaltungen und Spiele des Improvisationstheaters kennenzulernen und auszuprobieren - ein Einstieg ist jeder Zeit möglich.',
-			date: 'Impro',
-			datetime: '2023-09-01',
-			category: { title: 'montags', href: '#' },
-			author: {
-				name: 'Enrico Guzy',
-				role: 'Kursleitung',
-				href: '#',
-				imageUrl: '/images/kursleiter/Enrico.jpg',
-			},
-		},
-		{
-			id: 5,
-			title:
-				'Individuelles Gruppentraining für alle Altersklassen / Schauspieltraining für den Alltag',
-			href: '#',
-			description:
-				'Schauspiel im Alltag kann Spaß machen. Wir bieten Ihnen für Ihre Gruppe ein individuelles Schauspieltraining. Wie kann ich meine Körpersprache verbessern und sicher im Alltag auftreten? Wie verliere ich die Angst vor großen Gruppen zu sprechen? Oder was lernt man eigentlich beim Schauspiel? Diese und andere Fragen möchten wir Ihnen gerne in einem persönlichen Unterricht beantworten. Termine: Nach Absprache Kosten: Je nach Gruppengröße (ab 7 Teilnehmern) und Dauer des Kurses',
-			date: 'Jederzeit',
-			datetime: '2023-09-01',
-			category: { title: 'Auf Anfrage', href: '#' },
-			author: {
-				name: 'Niklas Heinecke',
-				role: 'Regisseur',
-				href: '#',
-				imageUrl: '/images/kursleiter/Niklas.jpg',
-			},
-		},
-	];
-	const people = [
-		{
-			name: 'Niklas Heinecke',
-			role: 'Theaterleiter',
-			imageUrl: '/images/kursleiter/Niklas.jpg',
-		},
-		{
-			name: 'Anne Pretzsch',
-			role: 'Theater Performance',
-			imageUrl: '/images/kursleiter/Anne.jpg',
-		},
-		{
-			name: 'Marietta Saggau',
-			role: 'Kindertheater',
-			imageUrl: '/images/kursleiter/Marietta.jpg',
-		},
-		{
-			name: 'Leena Fahje',
-			role: 'Kursleiterin',
-			imageUrl: '/images/kursleiter/Leena.jpg',
-		},
-		{
-			name: 'Thorsten Grübling',
-			role: 'Kursleiter',
-			imageUrl: '/images/kursleiter/Thorsten.jpg',
-		},
-		{
-			name: 'Enrico Guzy',
-			role: 'Improtheater',
-			imageUrl: '/images/kursleiter/Enrico.jpg',
-		},
-	];
+	// const people = [
+	// 	{
+	// 		name: 'Niklas Heinecke',
+	// 		role: 'Theaterleiter',
+	// 		imageUrl: '/images/kursleiter/Niklas.jpg',
+	// 	},
+	// 	{
+	// 		name: 'Anne Pretzsch',
+	// 		role: 'Theater Performance',
+	// 		imageUrl: '/images/kursleiter/Anne.jpg',
+	// 	},
+	// 	{
+	// 		name: 'Marietta Saggau',
+	// 		role: 'Kindertheater',
+	// 		imageUrl: '/images/kursleiter/Marietta.jpg',
+	// 	},
+	// 	{
+	// 		name: 'Leena Fahje',
+	// 		role: 'Kursleiterin',
+	// 		imageUrl: '/images/kursleiter/Leena.jpg',
+	// 	},
+	// 	{
+	// 		name: 'Thorsten Grübling',
+	// 		role: 'Kursleiter',
+	// 		imageUrl: '/images/kursleiter/Thorsten.jpg',
+	// 	},
+	// 	{
+	// 		name: 'Enrico Guzy',
+	// 		role: 'Improtheater',
+	// 		imageUrl: '/images/kursleiter/Enrico.jpg',
+	// 	},
+	// ];
 	// Example portraits from Unsplash
 	// 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 </script>
