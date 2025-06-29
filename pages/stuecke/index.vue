@@ -7,7 +7,7 @@
 		/>
 		<main class="mx-auto max-w-7xl px-6 lg:px-8">
 			<div class="mb-4 flex items-center justify-between">
-				<h3 aria-label="Unsere Veranstaltungen">Unsere Veranstaltungen</h3>
+				<h3 aria-label="Unsere Veranstaltungen">Unsere Veranstaltungen.</h3>
 				<UButton
 					icon="i-heroicons-arrow-path"
 					size="xs"
@@ -106,7 +106,7 @@
 </template>
 
 <script setup lang="ts">
-	import heroimage from '../assets/images/hero-highkey-windschief.jpg';
+	import heroimage from '../assets/images/spielplan02.webp';
 	import { useFormatDate } from '~/composables/useFormatDate';
 
 	const { weekday, justDate } = useFormatDate();

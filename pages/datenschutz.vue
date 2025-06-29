@@ -7,9 +7,9 @@
 			:breadcrumbs="[{ label: 'HOME', to: '/' }]"
 			:background-image="`url(${heroimage})`"
 		/>
-		<main>
+		<main class="mx-auto max-w-7xl px-6 lg:px-8">
 			<section id="rights-general" class="my-8">
-				<h3>Allgemeine Hinweise</h3>
+				<h3>Allgemeine Hinweise.</h3>
 				<p>
 					Die folgenden Hinweise geben einen einfachen Überblick darüber, was
 					mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website
@@ -21,7 +21,7 @@
 			</section>
 			<hr class="mx-auto my-2 w-6" />
 			<section id="rights-data-acquisition" class="my-8">
-				<h3>Datenerfassung auf unserer Website</h3>
+				<h3>Datenerfassung auf Unserer Website.</h3>
 				<UAccordion
 					color="primary"
 					variant="outline"
@@ -38,7 +38,7 @@
 			</section>
 			<hr class="mx-auto my-2 w-6" />
 			<section id="rights-remarks" class="my-8">
-				<h3>Allgemeine Hinweise und Pflichtinformationen</h3>
+				<h3>Allgemeine Hinweise und Pflichtinformationen.</h3>
 				<UAccordion
 					color="primary"
 					variant="outline"
@@ -55,7 +55,7 @@
 			</section>
 			<hr class="mx-auto my-2 w-6" />
 			<section id="rights-agb" class="my-8">
-				<h3>AGB : Allgemeine Geschäftsbedingungen TheaterDECK Hamburg</h3>
+				<h3>AGB : Allgemeine Geschäftsbedingungen Theaterdeck Hamburg.</h3>
 				<UAccordion
 					color="primary"
 					variant="outline"
@@ -70,8 +70,8 @@
 					:items="agb"
 				/>
 			</section>
-			<hr class="mx-auto my-2 w-6" />
 		</main>
+		<TheNewsletter />
 	</div>
 </template>
 

@@ -11,7 +11,7 @@
 			<div
 				class="border-primary-500 w-full max-w-3xl rounded-none border bg-background p-6 shadow-md"
 			>
-				<h3 class="mb-6">Kontaktiere Uns</h3>
+				<h3 class="mb-6">Kontaktiere Uns.</h3>
 
 				<!-- Nuxt UI Form utilizing Zod Validation -->
 				<UForm
@@ -138,7 +138,7 @@
 	import { ref, computed } from 'vue';
 	import { z } from 'zod';
 	import type { FormSubmitEvent } from '#ui/types';
-	import heroimage from '../assets/images/hero-highkey-sr.jpg';
+	import heroimage from '../assets/images/hero-letters-shadow.jpg';
 
 	// Define the Zod schema for form validation
 	const schema = z.object({

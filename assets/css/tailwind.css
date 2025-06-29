@@ -4,7 +4,8 @@
 
 @layer base {
 	p {
-		@apply mb-3 mt-1 max-w-5xl font-light leading-relaxed text-text;
+		/* @apply max-w-5xl; */
+		@apply mb-3 mt-1 font-light leading-relaxed text-text;
 	}
 
 	main {
