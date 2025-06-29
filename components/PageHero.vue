@@ -1,5 +1,5 @@
 <template>
-	<div class="relative h-[70vh] w-full pt-20 shadow-lg">
+	<div class="relative h-[65vh] w-full pt-20 shadow-lg">
 		<div
 			class="hero absolute inset-0 mt-[60px] bg-cover bg-center bg-no-repeat"
 		/>
@@ -72,7 +72,7 @@
 		background: v-bind('backgroundImage');
 		background-repeat: no-repeat;
 		background-size: cover;
-		background-position: top center;
+		background-position: center center;
 		width: 100%;
 		height: 100%;
 	}
