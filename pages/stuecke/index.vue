@@ -40,9 +40,7 @@
 			<div v-if="filtered.length" class="bg-background text-text">
 				<div
 					v-for="(item, idx) in paginated"
-					:key="
-						item.type + '-' + item.event_slug + '-' + (item.subevent_id || '')
-					"
+					:key="idx"
 					:class="[
 						'flex transform cursor-pointer items-start justify-between px-4 py-4 transition hover:scale-[1.015] active:scale-[0.985]',
 						idx === paginated.length - 1
@@ -125,7 +123,7 @@
 		}
 	);
 
-	const goToEvent = (slug) => {
+	const goToEvent = (slug: string) => {
 		console.log('Navigating to event:', slug);
 		navigateTo('/stuecke/' + slug);
 	};
