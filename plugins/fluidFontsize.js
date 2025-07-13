@@ -1,3 +1,4 @@
+// TODO: Maybe remove this plugin as it is not used in the project
 export default defineNuxtPlugin((nuxtApp) => {
 	nuxtApp.vueApp.directive('fluid-typography', {
 		mounted(el, binding) {

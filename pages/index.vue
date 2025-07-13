@@ -36,7 +36,7 @@
 					:aria-controls="`section-${i + 1}`"
 					:aria-current="activeIndex === i ? 'true' : 'false'"
 					:class="[
-						'h-3 w-3 rounded-full transition-all duration-300',
+						'round-dots h-3 w-3 transition-all duration-300',
 						activeIndex === i
 							? 'scale-150 bg-white'
 							: 'bg-white/20 hover:scale-150 hover:bg-white',
@@ -221,5 +221,8 @@
 	.content-mask {
 		-webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 		mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+	}
+	.round-dots {
+		@apply rounded-full !important;
 	}
 </style>

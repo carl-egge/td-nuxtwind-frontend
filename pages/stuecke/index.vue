@@ -58,10 +58,13 @@
 					<div class="flex-1 text-text">
 						<div class="font-semibold">{{ item.name }}</div>
 						<div class="mt-1 flex items-center gap-2 text-text/70">
+							<UBadge v-if="item.tag" size="xs" variant="subtle" color="yellow">
+								{{ item.tag }}
+							</UBadge>
 							<UBadge size="xs" variant="subtle" color="primary">
 								{{ time(item.date_from) }}
 							</UBadge>
-							<span>{{ item.subtitle }}</span>
+							<span>{{ item.autor }}</span>
 						</div>
 					</div>
 					<div class="text-primary-600 pt-2">

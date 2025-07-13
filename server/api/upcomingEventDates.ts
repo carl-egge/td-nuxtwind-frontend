@@ -3,12 +3,13 @@ type PretixEvent = {
 	name: { de: string; en: string };
 	date_from: string;
 	has_subevents: boolean;
-	subtitle: Record<string, string>;
+	meta_data: { autor: string; zitat: string };
 };
 
 type PretixSubevent = {
 	id: number;
 	date_from: string;
+	meta_data: { tag?: string };
 };
 
 export default defineEventHandler(async (event) => {
@@ -27,13 +28,14 @@ export default defineEventHandler(async (event) => {
 		event_slug: string;
 		name: string;
 		date_from: string;
-		subtitle: string;
+		autor: string;
+		tag?: string;
 	}[] = [];
 
 	try {
 		// 1. Fetch all events
 		// We can add &live=true to only get live events
-		let nextUrl = `${uri}/events/?ordering=date_from&date_after=${now}&fields=slug,name,date_from,has_subevents,subtitle`;
+		let nextUrl = `${uri}/events/?ordering=date_from&date_after=${now}&fields=slug,name,date_from,has_subevents,meta_data`;
 
 		while (nextUrl) {
 			const res = await fetch(nextUrl, { headers });
@@ -42,7 +44,7 @@ export default defineEventHandler(async (event) => {
 			const data = await res.json();
 			for (const evt of data.results as PretixEvent[]) {
 				const eventName = evt.name.de || evt.name.en;
-				const eventSubtitle = evt.subtitle?.de || '';
+				const eventAutor = evt.meta_data?.autor || '';
 
 				if (!evt.has_subevents) {
 					// Simple event
@@ -51,11 +53,11 @@ export default defineEventHandler(async (event) => {
 						event_slug: evt.slug,
 						name: eventName,
 						date_from: evt.date_from,
-						subtitle: eventSubtitle,
+						autor: eventAutor,
 					});
 				} else {
 					// 2. Fetch subevents for events with has_subevents = true
-					let subNextUrl = `${uri}/events/${evt.slug}/subevents/?date_after=${now}&ordering=date_from&fields=id,name,date_from`;
+					let subNextUrl = `${uri}/events/${evt.slug}/subevents/?date_after=${now}&ordering=date_from&fields=id,name,date_from, meta_data`;
 					while (subNextUrl) {
 						const subRes = await fetch(subNextUrl, { headers });
 						if (!subRes.ok)
@@ -68,7 +70,8 @@ export default defineEventHandler(async (event) => {
 								event_slug: evt.slug,
 								name: eventName, // <- use event name, not subevent name
 								date_from: sub.date_from,
-								subtitle: eventSubtitle,
+								autor: eventAutor,
+								tag: sub.meta_data.tag,
 							});
 						}
 
