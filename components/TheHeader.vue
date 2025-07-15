@@ -1,15 +1,37 @@
 <template>
 	<header
-		class="bg-theme-secondary absolute z-20 w-full max-w-screen-2xl text-text shadow-lg"
+		class="absolute z-20 w-full max-w-screen-2xl bg-theme-secondary text-text shadow-lg"
 	>
-		<div class="flex w-full items-center justify-between px-4 py-2">
+		<div class="flex h-fit w-full items-center justify-between px-4 py-2">
 			<!-- Logo -->
-			<div class="flex-grow pl-14 md:flex-grow-0 md:px-4">
+			<!-- <div class="flex-grow pl-14 md:flex-grow-0 md:px-4">
 				<NuxtLink to="/" class="block h-16 items-center gap-4 py-2 md:flex">
-					<!-- <img :src="logoSrc" alt="Logo" class="w-full h-full object-contain" /> -->
+					<-- <img :src="logoSrc" alt="Logo" class="w-full h-full object-contain" /> --
 					<TheLogo color="#f51663" />
 					<h3
 						class="text-primary-600 hidden font-sans text-xl font-bold uppercase leading-6 tracking-wide md:block"
+					>
+						Theaterdeck
+						<br />
+						Hamburg
+					</h3>
+				</NuxtLink>
+			</div> -->
+			<div class="h-16 flex-grow pl-14 md:flex-grow-0 md:px-4">
+				<NuxtLink
+					to="/"
+					aria-label="Home"
+					class="group relative inline-block h-16"
+				>
+					<!-- logo: fixed height = 4rem -->
+					<TheLogo
+						color="#f51663"
+						class="block h-full w-auto object-contain transition-opacity duration-300 group-hover:opacity-0"
+					/>
+
+					<!-- text: hidden off by default, fades in over the same 4rem box -->
+					<h3
+						class="text-primary-600 absolute inset-0 flex w-fit flex-col items-center justify-center text-left font-sans text-xl font-bold uppercase leading-tight tracking-wide opacity-0 transition-opacity duration-300 group-hover:opacity-100"
 					>
 						Theaterdeck
 						<br />
