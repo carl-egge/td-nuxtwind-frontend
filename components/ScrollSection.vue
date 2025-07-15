@@ -25,17 +25,17 @@
 		<div
 			class="flex h-1/2 w-full items-center justify-center bg-theme-secondary p-8 pb-32 lg:h-full lg:w-1/2 lg:pb-12"
 		>
-			<div class="float-animation max-w-lg md:max-w-md lg:max-w-lg">
+			<div class="float-animation w-full max-w-lg md:max-w-md lg:max-w-lg">
 				<span class="text-primary-600 font-mono text-sm tracking-wider">
 					{{ index }} / {{ label }}
 				</span>
-				<div class="mt-4">
+				<div class="mt-4 w-full">
 					<h1>
 						{{ title }}
 					</h1>
 				</div>
 				<p class="text-md text-primary-600 mt-6 leading-relaxed lg:text-lg">
-					{{ quote }}
+					"{{ quote || 'Kommt vorbei!' }}"
 				</p>
 				<!-- <UButton
 					to="/stuecke"
@@ -68,7 +68,7 @@
 				</span>
 			</NuxtLink> -->
 			<NuxtLink
-				to="/stuecke"
+				:to="'/stuecke/' + slug"
 				aria-label="Tickets"
 				class="group absolute bottom-0 right-0 -rotate-6 transition-transform duration-300 hover:rotate-0 hover:scale-105"
 			>
@@ -98,6 +98,7 @@
 		index: number;
 		label: string;
 		title: string;
+		slug: string;
 		quote: string;
 		image: string;
 		alt: string;

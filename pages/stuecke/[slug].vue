@@ -161,8 +161,13 @@
 		// Check if the event is already in the store
 		let foundEvent = eventsStore.getEventBySlug(slug.value);
 		if (!foundEvent) {
-			// If not found, fetch events from the API
-			const fetchSuccess = await eventsStore.fetchEvents();
+			// If not found, fetch events from the API or Mock Data
+			let fetchSuccess = false;
+			if (config.public.useMockData) {
+				fetchSuccess = await eventsStore.fetchTestEvents();
+			} else {
+				fetchSuccess = await eventsStore.fetchEvents();
+			}
 			if (fetchSuccess) {
 				foundEvent = eventsStore.getEventBySlug(slug.value);
 			}

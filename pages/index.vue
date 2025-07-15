@@ -65,52 +65,40 @@
 	const container = ref<HTMLElement | null>(null);
 	const activeIndex = ref(0);
 
-	const ctaText = 'Tickets';
+	const ctaText = 'Spielplan & Tickets';
 
-	interface SectionItem {
-		index: number;
-		label: string;
-		title: string;
-		quote: string;
-		image: string;
-		alt: string;
-		gradientClass: string;
-		reverse?: boolean;
-	}
-	const sectionData: SectionItem[] = [
+	const sectionData = ref<ScrollSectionItem[]>([
 		{
 			index: 1,
 			label: 'Willkommen an Deck',
 			title: 'Theaterdeck Hamburg',
+			slug: '',
 			quote:
-				'"Wir spielen mit Liebe zum Detail und dem Ton, der ins Herz trifft."',
+				'Wir spielen mit Liebe zum Detail und dem Ton, der ins Herz trifft.',
 			image: '/images/welcome.webp',
 			alt: 'Theaterdeck Hamburg',
 			gradientClass: 'bg-gradient-to-r from-neutral-950/50 to-neutral-950/20',
 			reverse: false,
 		},
-		{
-			index: 2,
-			label: 'Otfried Preußler',
-			title: 'Räuber Hotzenplotz',
-			quote: '"Einem Räuber wird heutzutage auch nix mehr geschenkt."',
-			image: '/images/hotzenplotz.webp',
-			alt: 'Räuber Hotzenplotz von Ottfried Preußler',
+	]);
+
+	// Helper to map APIEvent to SectionItem
+	function mapEventToSectionItem(
+		event: APIEvent,
+		idx: number
+	): ScrollSectionItem {
+		return {
+			index: idx + 2,
+			label: event.meta_data?.autor || 'Willkommen an Deck',
+			title: event.name?.de || event.name?.en || 'Theaterdeck Hamburg',
+			slug: event.slug || '',
+			quote: event.meta_data?.zitat || '',
+			image: event.logo_image || '/images/welcome.webp',
+			alt: event.name?.de || 'Theaterdeck Hamburg Veranstaltung',
 			gradientClass: 'bg-gradient-to-r from-neutral-950/50 to-neutral-950/20',
-			reverse: true,
-		},
-		{
-			index: 3,
-			label: 'KIRSTEN BOIE',
-			title: 'Dunkelnacht',
-			quote:
-				'"Weil auch in diesen Zeiten irgendwer das Richtige tun muss, einfach, weil es richtig ist."',
-			image: '/images/dunkelnacht.webp',
-			alt: 'Dunkelnacht von Kirsten Boie',
-			gradientClass: 'bg-gradient-to-r from-neutral-950/50 to-neutral-950/20',
-			reverse: false,
-		},
-	];
+			reverse: (sectionData.value.length + idx) % 2 === 1,
+		};
+	}
 
 	// scroll to section by index
 	const scrollToSection = (index: number) => {
@@ -130,17 +118,22 @@
 		);
 	};
 
-	onMounted(() => {
+	onMounted(async () => {
 		// add scroll event listener
 		if (container.value) {
 			container.value.addEventListener('scroll', updateSlideIndex);
 		}
 		// fetch events
 		if (config.public.useMockData) {
-			return eventsStore.fetchTestEvents();
+			await eventsStore.fetchTestEvents();
 		} else {
-			return eventsStore.fetchEvents();
+			await eventsStore.fetchEvents();
 		}
+		// Append live/upcoming events to sectionData
+		const liveEvents = eventsStore.getLiveUpcomingEvents;
+		liveEvents.forEach((event: APIEvent, idx: number) => {
+			sectionData.value.push(mapEventToSectionItem(event, idx));
+		});
 	});
 
 	onBeforeUnmount(() => window.removeEventListener('scroll', updateSlideIndex));
