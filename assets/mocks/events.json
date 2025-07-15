@@ -1,135 +1,101 @@
 {
-	"count": 3,
+	"count": 2,
 	"next": null,
 	"previous": null,
 	"results": [
 		{
 			"name": {
-				"de": "Jährliche Technologiekonferenz 2024",
-				"en": "Annual Tech Conference 2024"
+				"de": "Räuber Hotzenplotz"
 			},
-			"slug": "tech-conf-2024",
-			"subtitle": {
-				"de": "Technologie",
-				"en": "Technology"
-			},
-			"desc": {
-				"de": "Seien Sie dabei beim größten Tech-Event des Jahres!",
-				"en": "Join us for the biggest tech event of the year!"
-			},
+			"slug": "hotzenplotz-25",
 			"live": true,
 			"testmode": false,
 			"currency": "EUR",
-			"date_from": "2024-09-15T09:00:00Z",
-			"date_to": "2024-09-17T18:00:00Z",
-			"date_admission": "2024-09-15T08:00:00Z",
+			"date_from": "2025-09-01T00:00:00+02:00",
+			"date_to": null,
+			"date_admission": null,
 			"is_public": true,
-			"presale_start": "2024-03-01T00:00:00Z",
-			"presale_end": "2024-09-14T23:59:59Z",
+			"presale_start": null,
+			"presale_end": null,
 			"location": {
-				"de": "Berliner Messezentrum",
-				"en": "Berlin Exhibition Center"
+				"de": "Theaterdeck Hamburg,\r\nMaurienstr. 19,\r\n22305 Hamburg"
 			},
-			"geo_lat": 52.5065133,
-			"geo_lon": 13.2846516,
-			"has_subevents": false,
+			"geo_lat": null,
+			"geo_lon": null,
+			"has_subevents": true,
 			"meta_data": {
-				"capacity": 5000,
-				"tracks": ["AI", "Blockchain", "Cloud Computing"]
+				"autor": "Otfried Preußler",
+				"zitat": "Geben Sie mir sofort die Kaffeemühle!"
 			},
 			"seating_plan": null,
-			"plugins": ["pretix-paypal", "pretix-mollie", "pretix-stripe"],
+			"plugins": [
+				"pretix.plugins.sendmail",
+				"pretix.plugins.statistics",
+				"pretix.plugins.ticketoutputpdf",
+				"pretix_mollie"
+			],
 			"seat_category_mapping": {},
 			"timezone": "Europe/Berlin",
 			"item_meta_properties": {},
-			"sales_channels": ["web", "app"],
-			"public_url": "https://pretix.eu/demo/tech-conf-2024/"
+			"all_sales_channels": true,
+			"limit_sales_channels": [],
+			"public_url": "https://pretix.dev2.tdlogblog.de/td/hotzenplotz-25/",
+			"sales_channels": ["web"],
+			"frontpage_text": {
+				"de": "Kasperl und sein Freund Seppel machen sich auf, den wilden Räuber Hotzenplotz zu fangen, der Großmutters Kaffeemühle gestohlen hat. Sie haben ihre Mützen getauscht, um den Räuber zu täuschen, aber das hilft ihnen kaum, denn so einfach lassen Räuber sich nicht fangen. Und so dreht dieser den Spieß einfach um…"
+			},
+			"event_info_text": {
+				"de": "Premiere 27. September 2025 | Empfohlen ab 4 Jahren | Eintritt: 16 € - 10 € ermässigt | Gruppen ab 12 Personen 1 Euro erm. pro Platz | Regie – Niklas Heinecke | Eine THEATERDECK Produktion in Kooperation mit der Theater Jugend Hamburg e.V. und dem Amt für Familie| Die Rechte liegen beim Buehnenverlag Weitendorf GmbH"
+			},
+			"logo_image": "/images/welcome.webp",
+			"og_image": null
 		},
 		{
 			"name": {
-				"de": "Sommer Musikfestival"
+				"de": "Dunkelnacht"
 			},
-			"slug": "summer-music-fest",
-			"subtitle": {
-				"de": "Chris Luno"
-			},
-			"desc": {
-				"de": "Drei Tage non-stop Musik unter der Sonne!"
-			},
+			"slug": "dunkelnacht-25",
 			"live": true,
-			"testmode": false,
-			"currency": "EUR",
-			"date_from": "2024-07-20T12:00:00Z",
-			"date_to": "2024-07-22T23:59:59Z",
-			"date_admission": null,
-			"is_public": true,
-			"presale_start": "2024-01-15T00:00:00Z",
-			"presale_end": null,
-			"location": {
-				"de": "Sonnenuntergang Strandpark"
-			},
-			"geo_lat": 54.3233,
-			"geo_lon": 10.1228,
-			"has_subevents": true,
-			"meta_data": {
-				"genres": ["Rock", "Pop", "Electronic"],
-				"food_vendors": true
-			},
-			"seating_plan": null,
-			"plugins": ["pretix-stripe", "pretix-mollie"],
-			"seat_category_mapping": {},
-			"timezone": "Europe/Berlin",
-			"item_meta_properties": {
-				"vip_access": ["backstage", "lounge"]
-			},
-			"sales_channels": ["web", "app", "resellers"],
-			"public_url": "https://pretix.eu/demo/summer-music-fest/"
-		},
-		{
-			"name": {
-				"de": "Globaler Wirtschaftsgipfel"
-			},
-			"slug": "global-biz-summit",
-			"subtitle": {
-				"de": "Wirtschaft"
-			},
-			"desc": {
-				"de": "Vernetzen Sie sich mit Branchenführern und Visionären"
-			},
-			"live": false,
 			"testmode": true,
 			"currency": "EUR",
-			"date_from": "2024-11-05T08:30:00Z",
-			"date_to": "2024-11-07T17:00:00Z",
-			"date_admission": "2024-11-05T07:30:00Z",
-			"is_public": false,
-			"presale_start": "2024-06-01T00:00:00Z",
-			"presale_end": "2024-11-04T23:59:59Z",
+			"date_from": "2025-10-01T00:00:00+02:00",
+			"date_to": null,
+			"date_admission": null,
+			"is_public": true,
+			"presale_start": null,
+			"presale_end": null,
 			"location": {
-				"de": "Internationales Kongresszentrum Frankfurt"
+				"de": "Theaterdeck Hamburg,\r\nMaurienstr. 19,\r\n22305 Hamburg"
 			},
-			"geo_lat": 50.1109,
-			"geo_lon": 8.6821,
-			"has_subevents": false,
+			"geo_lat": null,
+			"geo_lon": null,
+			"has_subevents": true,
 			"meta_data": {
-				"keynote_speakers": ["Jane Doe", "John Smith"],
-				"industries": ["Finance", "Tech", "Healthcare"]
+				"autor": "Kirsten Boie",
+				"zitat": "Neue Termine in Planung!"
 			},
-			"seating_plan": {
-				"id": "fkh-main-hall",
-				"name": "Hauptsaal Bestuhlung"
-			},
-			"plugins": ["pretix-paypal", "pretix-stripe", "pretix-ticketoutput-pdf"],
-			"seat_category_mapping": {
-				"VIP": ["A1", "A2", "A3"],
-				"Standard": ["B1", "B2", "B3"]
-			},
+			"seating_plan": null,
+			"plugins": [
+				"pretix.plugins.sendmail",
+				"pretix.plugins.statistics",
+				"pretix.plugins.ticketoutputpdf",
+				"pretix_mollie"
+			],
+			"seat_category_mapping": {},
 			"timezone": "Europe/Berlin",
-			"item_meta_properties": {
-				"workshop_access": ["morning", "afternoon"]
+			"item_meta_properties": {},
+			"all_sales_channels": true,
+			"limit_sales_channels": [],
+			"public_url": "https://pretix.dev2.tdlogblog.de/td/dunkelnacht-25/",
+			"sales_channels": ["web"],
+			"frontpage_text": {
+				"de": "DIESE GESCHICHTE MUSS ERZÄHLT WERDEN - JETZT! (Hamburger Morgenpost) April, 1945. Alle spüren, dass der Krieg und die fürchterliche Ideologie der Nationalsozialisten kurz vor dem Ende stehen. Doch in der Nacht vom 28. auf den 29. April 1945, zwei Tage vor Hitlers Selbstmord, ereignet sich das dunkelste Kapitel der damals noch jungen Stadt Penzberg in Bayern. Denn während der einst von den Nazis abgesetzte Bürgermeister zurück ins Rathaus zieht, erlässt die Wehrmacht den Befehl, alle Widerständler sofort hinzurichten. Und zwischen allen Fronten stehen die Jugendlichen Marie, Schorsch und Gustl."
 			},
-			"sales_channels": ["web", "phone"],
-			"public_url": "https://pretix.eu/demo/global-biz-summit/"
+			"event_info_text": {
+				"de": "Uraufführung am 1. März 2024 | EMPFOHLEN AB 14 JAHREN | Eintritt: 16 € - 10 € ermässigt | Gruppen ab 12 Personen 1 Euro erm. pro Platz | Text und Regie - Niklas Heinecke | Eine THEATERDECK Produktion in Kooperation mit der Theater Jugend Hamburg e.V. und dem Amt für Familie | Die Rechte liegen beim Verlag für Kindertheater Weitendorf GmbH"
+			},
+			"logo_image": "/images/welcome.webp",
+			"og_image": null
 		}
 	]
 }
