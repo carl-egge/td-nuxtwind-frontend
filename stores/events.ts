@@ -1,4 +1,3 @@
-// TODO: Maybe use a better way to handle the type check for the events data
 // TODO: Maybe use Pinia Setup Store
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
@@ -11,29 +10,54 @@ type MultilingualField = {
 	[key: string]: string | undefined;
 };
 
-// Define the structure for partial event data from the API
-interface PartialAPIEvent {
+// Define the structure for event data from the API
+interface APIEvent {
 	name: MultilingualField;
 	slug: string;
-	desc: MultilingualField;
 	live: boolean;
 	testmode: boolean;
 	currency: string;
 	date_from: string;
-	date_to: string;
-	[key: string]: unknown; // Allow additional properties
+	date_to: string | null;
+	date_admission: string | null;
+	is_public: boolean;
+	presale_start: string | null;
+	presale_end: string | null;
+	location: MultilingualField;
+	geo_lat: number | null;
+	geo_lon: number | null;
+	has_subevents: boolean;
+	meta_data: Record<string, string>;
+	seating_plan: string | null;
+	plugins: string[];
+	seat_category_mapping: Record<string, unknown>;
+	timezone: string;
+	item_meta_properties: Record<string, unknown>;
+	all_sales_channels: boolean;
+	limit_sales_channels: string[];
+	public_url: string;
+	sales_channels: string[];
+
+	// From /settings:
+	frontpage_text: MultilingualField;
+	event_info_text: MultilingualField;
+	logo_image: string;
+	og_image: string | null;
+
+	// Allow any other props just in case
+	[key: string]: unknown;
 }
 
 export const useEventsStore = defineStore('events', {
 	state: () => ({
-		events: [] as PartialAPIEvent[],
+		events: [] as APIEvent[],
 		isLoading: false,
 		error: null as string | null,
 	}),
 
 	getters: {
 		// Return all events
-		getAllEvents: (state): PartialAPIEvent[] => state.events,
+		getAllEvents: (state): APIEvent[] => state.events,
 
 		// Return the total number of events
 		getEventCount: (state): number => state.events.length,
@@ -41,11 +65,11 @@ export const useEventsStore = defineStore('events', {
 		// Find and return an event by its slug
 		getEventBySlug:
 			(state) =>
-			(slug: string): PartialAPIEvent | undefined =>
+			(slug: string): APIEvent | undefined =>
 				state.events.find((event) => event.slug === slug),
 
 		// Filter and return live upcoming events
-		getLiveUpcomingEvents: (state): PartialAPIEvent[] =>
+		getLiveUpcomingEvents: (state): APIEvent[] =>
 			state.events.filter(
 				(event) => event.live && new Date(event.date_from) >= new Date()
 			),
@@ -53,9 +77,8 @@ export const useEventsStore = defineStore('events', {
 
 	actions: {
 		// Add valid events to the store
-		setEvents(events: PartialAPIEvent[]): void {
-			// TODO: Fix isValidEvent type check
-			this.events = events; //.filter(this.isValidEvent)
+		setEvents(events: APIEvent[]): void {
+			this.events = events;
 		},
 
 		// Set the loading state
@@ -84,12 +107,12 @@ export const useEventsStore = defineStore('events', {
 						statusMessage: error.statusMessage,
 					});
 				}
-				this.setEvents(events as PartialAPIEvent[]);
+				this.setEvents(events as APIEvent[]);
 				return true;
-			} catch (error) {
-				console.error('Error fetching events:', error);
+			} catch (err) {
+				console.error('Error fetching events:', err);
 				this.setError(
-					error instanceof Error ? error.message : 'An unknown error occurred'
+					err instanceof Error ? err.message : 'An unknown error occurred'
 				);
 				this.setEvents([]);
 				return false;
@@ -105,7 +128,7 @@ export const useEventsStore = defineStore('events', {
 			try {
 				console.log('INFO : Using mock data for events');
 				// Validate and store each event from the test data
-				this.events = (eventTestData.results || []).filter(this.isValidEvent);
+				this.events = eventTestData.results || [];
 			} catch (error) {
 				console.error('Error handling mock events data:', error);
 				this.error =
@@ -119,29 +142,6 @@ export const useEventsStore = defineStore('events', {
 		// Clear all events from the store
 		clearEvents(): void {
 			this.events = [];
-		},
-
-		// Helper method to validate event structure
-		isValidEvent(event: unknown): event is PartialAPIEvent {
-			if (typeof event !== 'object' || event === null) {
-				return false;
-			}
-			const e = event as Record<string, unknown>;
-			// Check if all required properties exist and have the correct types
-			return (
-				typeof e.name === 'object' &&
-				e.name !== null &&
-				typeof (e.name as MultilingualField).de === 'string' &&
-				typeof e.slug === 'string' &&
-				typeof e.desc === 'object' &&
-				e.desc !== null &&
-				typeof (e.desc as MultilingualField).de === 'string' &&
-				typeof e.live === 'boolean' &&
-				typeof e.testmode === 'boolean' &&
-				typeof e.currency === 'string' &&
-				typeof e.date_from === 'string' &&
-				typeof e.date_to === 'string'
-			);
 		},
 	},
 });

@@ -30,6 +30,7 @@ export default defineEventHandler(async (event) => {
 		date_from: string;
 		autor: string;
 		tag?: string;
+		subeventId?: number;
 	}[] = [];
 
 	try {
@@ -72,6 +73,7 @@ export default defineEventHandler(async (event) => {
 								date_from: sub.date_from,
 								autor: eventAutor,
 								tag: sub.meta_data.tag,
+								subeventId: sub.id,
 							});
 						}
 

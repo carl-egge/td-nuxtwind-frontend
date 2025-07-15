@@ -90,6 +90,13 @@ export default defineNuxtConfig({
 				process.env.NUXT_PUBLIC_CONTACT_FORM_RECIPIENT || 'carl.egge@web.de',
 		},
 	},
+	// ==============    REGISTER PRETIX WIDGET    ==============
+	vue: {
+		compilerOptions: {
+			isCustomElement: (tag: string) =>
+				['pretix-widget', 'pretix-button'].includes(tag),
+		},
+	},
 	// ==============    STYLESHEETS    ==============
 	css: [
 		'~/assets/css/main.css',
