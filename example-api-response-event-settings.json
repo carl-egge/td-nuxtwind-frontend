@@ -1,0 +1,39 @@
+{
+	"imprint_url": "https://www.theaterdeck.de/impressum",
+	"checkout_email_helptext": {
+		"de": "Geben Sie eine gültige E-Mail-Adresse ein. Wir werden Ihnen an diese Adresse eine Bestellbestätigung schicken. Diese enthält einen Link, den Sie brauchen, falls Sie später auf Ihre Bestellung zugreifen möchten."
+	},
+	"presale_has_ended_text": {
+		"en": "",
+		"de": ""
+	},
+	"show_dates_on_frontpage": true,
+	"show_date_to": true,
+	"show_times": true,
+	"show_items_outside_presale_period": true,
+	"display_net_prices": false,
+	"hide_prices_from_attendees": true,
+	"presale_start_show_date": true,
+	"locales": ["de"],
+	"locale": "de",
+	"region": "DE",
+	"frontpage_text": {
+		"en": "",
+		"de": "Kasperl und sein Freund Seppel machen sich auf, den wilden Räuber Hotzenplotz zu fangen, der Großmutters Kaffeemühle gestohlen hat. Sie haben ihre Mützen getauscht, um den Räuber zu täuschen, aber das hilft ihnen kaum, denn so einfach lassen Räuber sich nicht fangen. Und so dreht dieser den Spieß einfach um … \r\n\r\nDen Kasperl mit der grünen Seppelmütze verkauft Hotzenplotz an den bösen Zauberer Petrosilius Zwackelmann, wo er nun auf ewig Kartoffeln schälen muss. Dem Seppel geht es in der Räuberhöhle auch nicht viel besser. Aber als Hotzenplotz Seppels Kasperlmütze im Ofen verbrennt, ahnt noch niemand, dass er sich damit eine Menge Ärger einhandelt. Werden es die beiden Freunde schaffen, sich aus ihrer Gefangenschaft zu befreien?\r\n\r\nZum allerersten Mal auf Deck: „Räuber Hotzenplotz“, der Mann mit den sieben Messern, in einer grandiosen und fantasievollen Inszenierung für Klein und Groß!"
+	},
+	"event_info_text": {
+		"en": "",
+		"de": "Premiere September 2025 | Empfohlen ab 4 Jahren | Regie – Niklas Heinecke | Eine THEATERDECK Produktion in Kooperation mit der Theater Jugend Hamburg e.V. und dem Amt für Familie| Die Rechte liegen beim Buehnenverlag Weitendorf GmbH"
+	},
+	"primary_color": "#f51663",
+	"theme_color_success": "#408252",
+	"theme_color_danger": "#c44f4f",
+	"theme_color_background": "#eed8df",
+	"theme_round_borders": false,
+	"primary_font": "Open Sans",
+	"logo_image": "https://pretix.dev2.tdlogblog.de/media/pub/td/hotzenplotz-25/hotzenplotz.jpg.PqFYYFWI.jpg",
+	"logo_image_large": true,
+	"logo_show_title": true,
+	"og_image": null,
+	"name_scheme": "given_family"
+}
