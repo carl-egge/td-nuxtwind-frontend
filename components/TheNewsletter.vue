@@ -8,7 +8,7 @@
 				class="mx-auto grid max-w-2xl grid-cols-1 gap-x-16 gap-y-16 lg:max-w-none lg:grid-cols-2"
 			>
 				<div>
-					<h3 class="text-3xl">Unser Newsletter.</h3>
+					<h3 class="text-3xl">Newsletter bestellen.</h3>
 					<p class="mt-6 leading-7">
 						Verpassen Sie keine unserer kommenden Theaterstücke und bleiben Sie
 						immer informiert! Melden Sie sich für unseren Newsletter an.

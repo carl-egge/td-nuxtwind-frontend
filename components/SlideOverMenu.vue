@@ -62,7 +62,7 @@
 	const burger_links = [
 		{ to: '/stuecke', text: 'Spielplan' },
 		{ to: '/schule', text: 'Theater Jugend' },
-		{ to: '/vermietung', text: 'Raummiete' },
+		{ to: '/vermietung', text: 'Vermietung' },
 		{ to: '/kontakt', text: 'Kontakt' },
 		{ to: '/datenschutz', text: 'Datenschutz' },
 		{ to: '/impressum', text: 'Impressum' },

@@ -27,7 +27,7 @@
 								</li>
 								<li>
 									<NuxtLink to="/vermietung" class="hover:text-primary">
-										Raummiete
+										Vermietung
 									</NuxtLink>
 								</li>
 								<li>

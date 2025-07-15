@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<PageHero title="RaumMIETE" :background-image="`url(${heroimage})`" />
+		<PageHero title="Vermietung" :background-image="`url(${heroimage})`" />
 
 		<main class="mx-auto max-w-7xl px-6 lg:px-8">
 			<p class="text-primary-500 text-base font-semibold leading-7">
@@ -144,6 +144,18 @@
 				</NuxtLink>
 				zur Verfügung. Wir freuen uns darauf, Ihre Veranstaltungsträume wahr
 				werden zu lassen!
+				<br />
+				<br />
+				<!-- PDF Download Button -->
+				<NuxtLink
+					class="hover:text-primary-500 text-text underline"
+					href="td-vermietung-infos-2024.pdf"
+					target="_blank"
+					rel="noopener noreferrer"
+					download
+				>
+					Mehr Infos als PDF herunterladen
+				</NuxtLink>
 			</p>
 		</main>
 		<TheNewsletter />
