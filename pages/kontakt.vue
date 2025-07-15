@@ -1,11 +1,7 @@
 <template>
 	<div>
 		<!-- Page Hero -->
-		<PageHero
-			title="Kontakt"
-			:breadcrumbs="[{ label: 'HOME', to: '/' }]"
-			:background-image="`url(${heroimage})`"
-		/>
+		<PageHero title="Kontakt" :background-image="`url(${heroimage})`" />
 
 		<main class="flex items-center justify-center bg-background">
 			<div

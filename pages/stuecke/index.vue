@@ -1,10 +1,7 @@
 <template>
 	<div>
-		<PageHero
-			title="SpielPLAN"
-			:breadcrumbs="[{ label: 'HOME', to: '/' }]"
-			:background-image="`url(${heroimage})`"
-		/>
+		<PageHero title="SpielPLAN" :background-image="`url(${heroimage})`" />
+
 		<main class="mx-auto max-w-7xl px-6 lg:px-8">
 			<div class="mb-4 flex items-center justify-between">
 				<h3 aria-label="Unsere Veranstaltungen">Unsere Veranstaltungen.</h3>
@@ -47,7 +44,7 @@
 							? 'border-b-0'
 							: 'border-primary-600 border-b',
 					]"
-					@click="goToEvent(item.event_slug)"
+					@click="goToEvent(item.event_slug, item.subeventId)"
 				>
 					<div class="w-24 text-center leading-snug text-text">
 						<div class="text-md font-bold">{{ weekday(item.date_from) }}</div>
@@ -126,9 +123,14 @@
 		}
 	);
 
-	const goToEvent = (slug: string) => {
-		console.log('Navigating to event:', slug);
-		navigateTo('/stuecke/' + slug);
+	const goToEvent = (slug: string, subeventid?: number) => {
+		// You can't pass props directly via navigateTo in Nuxt.
+		// Instead, pass data via query params or use a store.
+		// Example with query param:
+		const url = subeventid
+			? `/stuecke/${slug}?subeventid=${encodeURIComponent(JSON.stringify(subeventid))}`
+			: `/stuecke/${slug}`;
+		navigateTo(url);
 	};
 
 	const pageSize = 6;

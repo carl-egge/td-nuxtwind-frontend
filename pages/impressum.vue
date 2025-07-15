@@ -1,11 +1,7 @@
 <template>
 	<div>
-		<PageHero
-			title="Impressum"
-			:breadcrumbs="[{ label: 'HOME', to: '/' }]"
-			:background-image="`url(${heroimage})`"
-			aria-label="Seitenkopf"
-		/>
+		<PageHero title="Impressum" :background-image="`url(${heroimage})`" />
+
 		<main class="mx-auto max-w-7xl px-6 lg:px-8">
 			<section id="imprint" class="my-4">
 				<h3>Theaterdeck Hamburg.</h3>

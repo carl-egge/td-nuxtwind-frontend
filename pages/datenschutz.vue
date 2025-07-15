@@ -2,11 +2,8 @@
 <!-- eslint-disable vue/no-v-html -->
 <template>
 	<div>
-		<PageHero
-			title="Datenschutz"
-			:breadcrumbs="[{ label: 'HOME', to: '/' }]"
-			:background-image="`url(${heroimage})`"
-		/>
+		<PageHero title="Datenschutz" :background-image="`url(${heroimage})`" />
+
 		<main class="mx-auto max-w-7xl px-6 lg:px-8">
 			<section id="rights-general" class="my-8">
 				<h3>Allgemeine Hinweise.</h3>

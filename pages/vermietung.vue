@@ -1,12 +1,7 @@
 <template>
 	<div>
-		<!-- Hero-Section -->
-		<PageHero
-			title="RaumMIETE"
-			:breadcrumbs="breadcrumbs"
-			:background-image="heroBackgroundImage"
-			aria-label="Seitenkopf"
-		/>
+		<PageHero title="RaumMIETE" :background-image="`url(${heroimage})`" />
+
 		<main class="mx-auto max-w-7xl px-6 lg:px-8">
 			<p class="text-primary-500 text-base font-semibold leading-7">
 				Für alle die einen Raum brauchen
@@ -20,7 +15,7 @@
 			<NuxtImg
 				src="/images/Zinnschmelze_HH-Barmbek_2015_Osten.webp"
 				alt="Unser Raum"
-				class="border-primary-500 my-4 max-h-[32rem] w-full rounded-none border bg-background bg-text object-cover shadow-lg"
+				class="border-primary-500 my-4 max-h-[32rem] w-full rounded-none border bg-background object-cover shadow-lg"
 				width="912"
 				height="600"
 				format="webp"
@@ -164,18 +159,6 @@
 	 */
 
 	import heroimage from '~/assets/images/chairs-bw.jpg';
-
-	// TypeScript Interface für Breadcrumb-Objekte
-	interface Breadcrumb {
-		label: string;
-		to: string;
-	}
-
-	// Reaktive Variablen
-	const heroBackgroundImage = ref<string>(`url(${heroimage})`);
-
-	// Breadcrumbs-Array mit TypeScript-Typisierung
-	const breadcrumbs: Breadcrumb[] = [{ label: 'HOME', to: '/' }];
 </script>
 
 <style scoped></style>

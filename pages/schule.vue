@@ -1,11 +1,6 @@
 <template>
 	<div>
-		<!-- Page Hero -->
-		<PageHero
-			title="Theater Jugend"
-			:breadcrumbs="[{ label: 'HOME', to: '/' }]"
-			:background-image="`url(${heroimage})`"
-		/>
+		<PageHero title="Theater Jugend" :background-image="`url(${heroimage})`" />
 
 		<main>
 			<!-- SECTION : THEATER JUGEND -->
@@ -252,7 +247,6 @@
 	 * Information about the Theater Jugend and Kurse.
 	 */
 
-	import type { _background } from '#tailwind-config/theme/primary-500Color';
 	import heroimage from '../assets/images/hero-highkey-sr.jpg';
 	import { kurse } from '~/server/data/kurse';
 
