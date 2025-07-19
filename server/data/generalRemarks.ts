@@ -34,93 +34,54 @@ Eine Weitergabe von persönlichen Daten an Dritte findet grundsätzlich nicht st
 		content: `Bei jedem Aufruf unserer Website www.theaterdeck.de werden durch den von Ihnen genutzten Browser automatisiert Informationen an den Server unserer Website übermittelt.
 
 Folgende Informationen werden dabei erfasst und bis zur automatischen Löschung gespeichert:
-1. IP-Adresse des anfragenden Rechners,
-2. Datum und Uhrzeit des Zugriffs,
-3. Name und URL der abgerufenen Datei,
-4. die Referrer-URL, d.h. die Website, von der aus der Zugriff erfolgte,
-5. Informationen über den verwendeten Browsertyp,
-6. das Betriebssystem Ihres Rechners,
-7. der Name Internet-Service-Providers.
 
-Diese Daten werden nur temporär in einem sog. Logfile gespeichert. Nicht hiervon betroffen sind die IP-Adressen des Nutzers oder andere Daten, die die Zuordnung der Daten zu einem Nutzer ermöglichen. Eine Speicherung dieser Daten zusammen mit anderen personenbezogenen Daten des Nutzers findet nicht statt.
+    1. IP-Adresse des anfragenden Rechners,
+    2. Datum und Uhrzeit des Zugriffs,
+    3. Name und URL der abgerufenen Datei,
+    4. die Referrer-URL, d. h. die Website, von der aus der Zugriff erfolgte,
+    5. Informationen über den verwendeten Browsertyp,
+    6. das Betriebssystem Ihres Rechners.
+
+Diese Daten werden nur temporär in einem sogenannten Logfile gespeichert. Eine Speicherung dieser Daten zusammen mit anderen personenbezogenen Daten des Nutzers findet nicht statt.
 
 Bei der Nutzung dieser Daten ziehen wir keinerlei Rückschlüsse auf die betroffene Person. Die Rechtsgrundlage für diese Verarbeitung ist Art. 6 Abs. 1 S. 1 lit. f DSGVO.
 
-Unser berechtigtes Interesse liegt in der Bereitstellung einer funktionsfähigen Website mit korrekt ausgelieferten Inhalten, in der Optimierung unserer Systeme und darin, Strafverfolgungsbehörden im Falle eines Cyberangriffs die zur Strafverfolgung notwendigen Informationen bereitzustellen.
+Unser berechtigtes Interesse liegt in der Bereitstellung einer funktionsfähigen Website mit korrekt ausgelieferten Inhalten, in der Sicherstellung der Systemsicherheit und -stabilität sowie darin, im Falle eines Cyberangriffs die zur Strafverfolgung notwendigen Informationen bereitstellen zu können.
 
-Sobald kein berechtigtes Interesse mehr besteht und keine gesetzliche Aufbewahrungspflicht besteht, werden diese Daten routinemäßig gelöscht.
+Sobald kein berechtigtes Interesse mehr besteht und keine gesetzliche Aufbewahrungspflicht greift, werden diese Daten routinemäßig gelöscht.
 
-Darüber hinaus nutzen wir Cookies und setzen Analysedienste ein. Nähere Informationen dazu finden Sie unter den Ziffern IV. und V. dieser Datenschutzerklärung.`,
+Weitere Informationen zum Einsatz technisch erforderlicher Cookies finden Sie unter Ziffer IV. dieser Datenschutzerklärung. Analyse- oder Trackingdienste werden nicht eingesetzt (siehe Ziffer V.).`,
 	},
 	{
 		id: 3,
 		label: 'IV. Cookies',
-		content: `Auf unserer Website setzen wir Cookies ein. Bei Cookies handelt es sich um kleine Textdateien, die Ihr Browser automatisch erstellt und die auf Ihrem Endgerät gespeichert werden können.
+		content: `Auf unserer Website setzen wir Cookies ein. Bei Cookies handelt es sich um kleine Textdateien, die Ihr Browser automatisch erstellt und die auf Ihrem Endgerät (z. B. Computer, Tablet oder Smartphone) gespeichert werden können, wenn Sie unsere Seite besuchen. Cookies enthalten keine Viren, Trojaner oder sonstige Schadsoftware und richten auf Ihrem Endgerät keinen Schaden an.
 
-Dieser Cookie enthält eine charakteristische Zeichenfolge, die eine eindeutige Identifizierung des Browsers beim erneuten Aufrufen der Website ermöglicht.
+Cookies dienen dazu, unser Online-Angebot insgesamt nutzerfreundlicher und effektiver zu gestalten. Viele Cookies sind technisch notwendig, da bestimmte Websitefunktionen ohne sie nicht funktionieren würden – etwa die Verwaltung eines Warenkorbs oder das sichere Durchführen eines Formularvorgangs. Solche technisch notwendigen Cookies dürfen gemäß § 25 Abs. 2 TTDSG ohne Ihre Einwilligung gesetzt werden.
 
-Dies bedeutet nicht, dass wir dadurch unmittelbar Kenntnis von Ihrer Identität erhalten.
+Wir verwenden auf unserer Website ausschließlich technisch notwendige Cookies. Eine Verarbeitung personenbezogener Daten durch Cookies erfolgt dabei nur, soweit dies für den ordnungsgemäßen Betrieb und die Nutzung unserer Dienste erforderlich ist. Eine darüber hinausgehende Analyse Ihres Surfverhaltens oder ein Tracking zu Marketingzwecken findet nicht statt.
 
-Der Einsatz von Cookies dient einerseits dazu, die Nutzung unseres Angebots für Sie angenehmer zu gestalten.
-Darüber hinaus setzen wir Cookies zur Optimierung der Benutzerfreundlichkeit und unseres Angebots und zur statistischen Erfassung ein.
+Im Einzelnen verwenden wir Cookies im Zusammenhang mit den folgenden Diensten:
 
-Wir setzen sogenannte Session-Cookies ein, um zu erkennen, dass Sie einzelne Seiten unserer Website bereits besucht haben.
-Diese Cookies werden nach Verlassen unserer Seite automatisch gelöscht.
+    - Pretix (Ticketshop-Widget)
+    Zur Anzeige und Nutzung unseres Ticketshops binden wir ein Widget des Systems „Pretix“ ein, das auf unserem eigenen Server betrieben wird. Beim Laden dieses Widgets wird ein Cookie auf Ihrem Endgerät gesetzt, um Ihren Warenkorb sowie den Bestellvorgang technisch korrekt abzuwickeln. Dieser Cookie ist für die Funktionsfähigkeit des Ticketkaufs zwingend erforderlich und speichert keine Tracking- oder Marketinginformationen.
 
-Darüber hinaus setzen wir temporäre Cookies ein, die für einen bestimmten festgelegten Zeitraum auf Ihrem Endgerät gespeichert werden.
-Besuchen Sie unsere Seite erneut, wird automatisch erkannt, dass Sie bereits bei uns waren und welche Eingaben und Einstellungen sie getätigt haben, um diese nicht noch einmal eingeben zu müssen.
+    - Cloudflare Turnstile (Spam- und Bot-Schutz)
+    Wir setzen Cloudflare Turnstile als datenschutzfreundliche Captcha-Lösung ein, um sicherzustellen, dass Formulareingaben von echten Menschen und nicht von automatisierten Programmen (Bots) stammen. Turnstile kann hierfür ein technisches Cookie setzen, das zur Verifikation notwendig ist. Dieses Cookie enthält keine personenbezogenen Daten und dient ausschließlich der Spamabwehr.
 
-Zu den erhobenen Daten gehören die Häufigkeit von Seitenaufrufen, eingegebene Suchbegriffe und die Inanspruchnahme von Websiten-Funktionen.
+	- Leaflet (Kartendarstellung)
+	Zur Anzeige interaktiver Karten verwenden wir Leaflet. Je nach Konfiguration können dabei Kartendaten von externen Anbietern (z. B. OpenStreetMap oder Mapbox) geladen werden. Diese externen Dienste können ggf. eigene Cookies setzen oder IP-Adressen erfassen. Wir achten darauf, datenschutzfreundliche Tile-Server zu nutzen, können aber nicht ausschließen, dass beim Laden der Karten externe Verbindungen aufgebaut werden.
 
-Der Einsatz von Cookies zur statistischen Erfassung und Auswertung unseres Angebots ist in Ziffer V. genauer beschrieben.
-Diese Cookies ermöglichen es uns, bei einem erneuten Besuch unserer Seite automatisch zu erkennen, dass Sie bereits bei uns waren.
-Diese Cookies werden nach einer jeweils definierten Zeit automatisch gelöscht.
+Bitte beachten Sie, dass Sie Ihren Browser so einstellen können, dass Sie über das Setzen von Cookies informiert werden und Cookies nur im Einzelfall erlauben, die Annahme von Cookies für bestimmte Fälle oder generell ausschließen sowie das automatische Löschen der Cookies beim Schließen des Browsers aktivieren. Bei der Deaktivierung von Cookies kann die Funktionalität unserer Website jedoch eingeschränkt sein.
 
-Die durch Cookies verarbeiteten Daten sind für die genannten Zwecke zur Wahrung unserer berechtigten Interessen sowie der Dritter nach Art. 6 Abs. 1 S. 1 lit. f DSGVO erforderlich.
-Unser berechtigtes Interesse liegt in der Bereitstellung einer funktionalen und benutzerfreundlichen Website.
-
-Die meisten Browser akzeptieren Cookies automatisch. Sie können Ihren Browser jedoch so konfigurieren, dass keine Cookies auf Ihrem Computer gespeichert werden oder stets ein Hinweis erscheint, bevor ein neuer Cookie angelegt wird.
-
-Die vollständige Deaktivierung von Cookies kann jedoch dazu führen, dass Sie nicht alle Funktionen unserer Website nutzen können.`,
+Weitere Informationen zur Verarbeitung personenbezogener Daten finden Sie in den übrigen Abschnitten dieser Datenschutzerklärung.`,
 	},
 	{
 		id: 4,
 		label: 'V. Einsatz von Analysediensten',
-		content: `Google Analytics
+		content: `Wir verwenden auf unserer Website derzeit keine Webanalyse- oder Trackingdienste wie z. B. Google Analytics, Matomo oder vergleichbare Tools. Es findet keine Auswertung Ihres Nutzerverhaltens zu statistischen oder Marketingzwecken statt.
 
-Zum Zwecke der bedarfsgerechten Gestaltung und fortlaufenden Optimierung unserer Seiten nutzen wir Google Analytics, ein Webanalysedienst der Google Inc., 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA (im Folgenden: „Google“).
-
-Wir setzen Google Analytics auf Grundlage des Art. 6 Abs. 1 S. 1 lit. f DSGVO ein.
-
-Wir wollen damit eine bedarfsgerechte Gestaltung und die fortlaufende Optimierung unserer Website sicherstellen. Zum anderen setzen wir die Tracking-Maßnahmen ein, um die Nutzung unserer Webseite statistisch zu erfassen und zum Zwecke der Optimierung unseres Angebotes für Sie auszuwerten. Diese Interessen sind als berechtigt im Sinne der vorgenannten Vorschrift anzusehen.
-
-In diesem Zusammenhang werden pseudonymisierte Nutzungsprofile erstellt und Cookies (siehe unter Ziffer IV.) verwendet. Die durch den Cookie erzeugten Informationen über Ihre Benutzung dieser Website wie
-1. Browser-Typ/-Version,
-2. verwendetes Betriebssystem,
-3. Referrer-URL (die zuvor besuchte Seite),
-4. Hostname des zugreifenden Rechners (IP-Adresse),
-5. Uhrzeit der Serveranfrage,
-werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert.
-
-Diese Informationen werden gegebenenfalls an Dritte übertragen, sofern dies gesetzlich vorgeschrieben ist oder soweit Dritte diese Daten im Auftrag verarbeiten.
-Es wird in keinem Fall die von Ihrem Browser übertragene IP-Adresse mit anderen Daten von Google zusammengeführt. Die IP-Adressen werden anonymisiert, so dass eine Zuordnung nicht möglich ist (IP-Masking).
-Nur in Ausnahmefällen wird die volle IP-Adresse an einen Server von Google in den USA übertragen und dort gekürzt.
-
-In unserem Auftrag wird Google diese Information benutzen, um Ihre Nutzung der Website auszuwerten, um Reports über die Websiten-Aktivitäten zusammenzustellen und um weitere mit der Websiten-Nutzung und der Internetnutzung verbundene Dienstleistungen gegenüber uns zu erbringen.
-
-Sie können die Installation der Cookies durch eine entsprechende Einstellung der Browser-Software verhindern. Wir weisen jedoch darauf hin, dass in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser Website vollumfänglich genutzt werden können.
-
-Sie können darüber hinaus die Erfassung der durch das Cookie erzeugten und auf Ihre Nutzung der Website bezogenen Daten (inkl. Ihrer IP-Adresse) sowie die Verarbeitung dieser Daten durch Google verhindern, indem Sie ein Browser-Add-on herunterladen und installieren:
-https://tools.google.com/dlpage/gaoptout?hl=de
-
-Alternativ zum Browser-Add-on können Sie die Erfassung durch Google Analytics verhindern, indem Sie auf diesen LINK klicken.
-Es wird ein Opt-out-Cookie gesetzt, sodass zukünftig die Erfassung Ihrer Daten beim Besuch dieser Website verhindert wird.
-
-Der Opt-out-Cookie wird auf Ihrem Gerät abgelegt und gilt nur in diesem Browser und nur für unsere Website.
-Löschen Sie die Cookies in diesem Browser, müssen Sie das Opt-out-Cookie erneut setzen.
-
-Weitere Informationen zum Datenschutz im Zusammenhang mit Google Analytics finden Sie etwa in der Google Analytics-Hilfe:
-https://support.google.com/analytics/answer/6004245?hl=de.`,
+Sollten wir zukünftig Analysedienste einsetzen, werden wir Sie in dieser Datenschutzerklärung transparent darüber informieren und – sofern erforderlich – vorab Ihre Einwilligung einholen.`,
 	},
 	{
 		id: 5,
@@ -215,5 +176,37 @@ Wenden Sie sich dazu an den in Ziffer I. genannten Verantwortlichen (schriftlich
 
 Gleichzeitig erlischt damit Ihre Einwilligung in den Versand via MailChimp sowie die statistische Auswertung.
 Eine weitere Zusendung des Newsletters ist nach dem Widerruf Ihrer Einwilligung nicht möglich, außer Sie melden sich erneut an.`,
+	},
+	{
+		id: 8,
+		label: 'VIII. E-Mail-Versand über Drittanbieter',
+		content: `Wir verwenden folgende Dienstleister für den Versand von E-Mails, z. B. für Kontaktanfragen, Bestätigungen oder systembezogene Nachrichten:
+
+    MailerSend
+	
+    Wird ausschließlich serverseitig genutzt, z. B. für automatische Transaktionsmails (Bestellbestätigungen etc.). Es erfolgt keine clientseitige Einbindung.
+    Anbieter: MailerSend (UAB "Mailerlite"), Litauen
+    Datenschutzerklärung: https://www.mailersend.com/legal/privacy-policy
+
+Die Datenverarbeitung erfolgt ausschließlich im Rahmen der Beauftragung zur Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO) bzw. auf Grundlage unseres berechtigten Interesses am sicheren E-Mail-Versand (Art. 6 Abs. 1 lit. f DSGVO).`,
+	},
+	{
+		id: 9,
+		label: 'IX. Ihre Rechte',
+		content: `Sie haben jederzeit das Recht:
+
+    auf Auskunft über Ihre gespeicherten personenbezogenen Daten (Art. 15 DSGVO),
+    auf Berichtigung unrichtiger oder Vervollständigung (Art. 16 DSGVO),
+    auf Löschung (Art. 17 DSGVO),
+    auf Einschränkung der Verarbeitung (Art. 18 DSGVO),
+    auf Datenübertragbarkeit (Art. 20 DSGVO),
+    auf Widerspruch gegen die Verarbeitung (Art. 21 DSGVO).
+	
+Zudem haben Sie das Recht, sich bei einer Aufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten zu beschweren, z. B. bei der Datenschutzbehörde Ihres Bundeslands.`,
+	},
+	{
+		id: 10,
+		label: 'X. Änderung dieser Datenschutzerklärung',
+		content: `Wir behalten uns vor, diese Datenschutzerklärung zu aktualisieren, wenn sich rechtliche oder technische Änderungen ergeben. Die jeweils aktuelle Version finden Sie stets auf unserer Website unter www.theaterdeck.de/datenschutz.`,
 	},
 ];

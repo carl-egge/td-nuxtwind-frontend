@@ -17,7 +17,7 @@
 					</h3>
 				</NuxtLink>
 			</div> -->
-			<div class="h-16 flex-grow pl-14 md:flex-grow-0 md:px-4">
+			<div class="h-16 flex-grow md:flex-grow-0 md:px-4 md:pl-4 lg:pl-8">
 				<NuxtLink
 					to="/"
 					aria-label="Home"

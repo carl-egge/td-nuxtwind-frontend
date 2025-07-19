@@ -8,18 +8,15 @@ Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.`,
 	{
 		id: 1,
 		label: 'Wie erfassen wir Ihre Daten?',
-		content: `Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen.
-Hierbei kann es sich z.B. um Daten handeln, die Sie in ein Kontaktformular eingeben.
+		content: `Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich zum Beispiel um Angaben handeln, die Sie in ein Kontaktformular eingeben oder im Rahmen eines Ticketkaufs über das eingebundene Pretix-Widget tätigen.
 
-Andere Daten werden automatisch beim Besuch der Website durch unsere IT-Systeme erfasst.
-Das sind vor allem technische Daten (z.B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).
-Die Erfassung dieser Daten erfolgt automatisch, sobald Sie unsere Website betreten.`,
+Andere Daten werden automatisch beim Besuch der Website durch unsere IT-Systeme erfasst. Dabei handelt es sich vor allem um technische Informationen, wie z. B. den von Ihnen verwendeten Internetbrowser, das Betriebssystem, den Zeitpunkt des Seitenaufrufs oder die IP-Adresse.
+Die Erfassung dieser Daten erfolgt automatisch, sobald Sie unsere Website betreten, und dient der technischen Bereitstellung und Sicherheit unseres Online-Angebots.`,
 	},
 	{
 		id: 2,
 		label: 'Wofür nutzen wir Ihre Daten?',
-		content: `Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten.
-Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.`,
+		content: `Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Weitere Daten können zur Bearbeitung Ihrer Anfragen, zur Abwicklung von Ticketbuchungen sowie zur Absicherung unserer Formulare gegen missbräuchliche Nutzung (z. B. durch Bots) verwendet werden. Eine Nutzung zu Werbe- oder Trackingzwecken findet nicht statt.`,
 	},
 	{
 		id: 3,
