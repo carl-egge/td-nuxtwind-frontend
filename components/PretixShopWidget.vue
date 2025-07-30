@@ -136,6 +136,7 @@
 				src: `${pretixBaseUrl}/widget/v2.de.js`,
 				async: true,
 				crossorigin: '',
+				onload: 'window.PretixWidget && window.PretixWidget.buildWidgets()',
 			},
 		],
 	});

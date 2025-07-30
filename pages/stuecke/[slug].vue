@@ -27,6 +27,15 @@
 				</UButton>
 			</div>
 			<div v-else-if="event">
+				<!-- Button um zurück zum Spielplan zu gelangen -->
+				<UButton
+					icon="i-heroicons-arrow-left"
+					size="sm"
+					color="primary"
+					variant="ghost"
+					label="Zurück zum Spielplan"
+					to="/stuecke"
+				/>
 				<!-- Infos -->
 				<section class="bg-background text-text md:py-12">
 					<div class="flex flex-col items-start gap-6">
