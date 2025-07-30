@@ -1,11 +1,12 @@
 <!-- eslint-disable vue/component-name-in-template-casing -->
 <template>
 	<div
+		:key="reloadKey"
 		class="pretix-widget-container border-primary-500 mx-auto my-4 max-w-7xl border bg-white p-2 shadow-lg md:p-4"
 	>
 		<!-- The custom pretix-widget element -->
 		<!-- Dynamically bind attributes using v-bind -->
-		<pretix-widget ref="widgetEl" v-bind="widgetAttributes" />
+		<pretix-widget ref="widgetEl" v-bind="widgetAttributes" disable-iframe />
 
 		<!-- Fallback content for browsers with JavaScript disabled -->
 		<noscript>
@@ -28,13 +29,21 @@
 </template>
 
 <script setup lang="ts">
-	import { computed, ref, watch } from 'vue';
+	import { ref, computed, watch, onMounted, nextTick } from 'vue';
 	import { useHead, useRuntimeConfig } from '#app';
 
-	const props = defineProps<{
-		eventSlug: string; // Required: The slug of your pretix event (e.g., 'democon')
-		subeventId?: number; // Optional: The ID of a specific subevent to pre-select
-	}>();
+	const props = defineProps({
+		// Required: The slug of your pretix event (e.g., 'democon')
+		eventSlug: { type: String, required: true },
+		// Optional: Whether this is an event series with multiple subevents
+		isEventSeries: { type: Boolean, default: false },
+		// Optional: The ID of a specific subevent to pre-select
+		subeventId: { type: Number, default: null },
+		// one of 'list' | 'calendar' | 'week'
+		seriesListType: { type: String, default: null },
+		// Indicator to force reloading the widget
+		reloadKey: { type: Number, default: 0 },
+	});
 
 	// Access runtime configuration
 	const config = useRuntimeConfig();
@@ -50,38 +59,51 @@
 	// Ref for the pretix widget attributes
 	const widgetAttributes = ref<{
 		[key: string]: string | boolean | number;
-	}>({
-		event: widgetEventUrl.value,
-		'list-type': 'calendar', // Default to calendar view
-		'display-event-info': 'false', // Show event info by default
-	});
-
-	// Allow parent to call refresh() via ref
-	defineExpose({ refresh });
+	}>();
 
 	// Optionally auto-refresh when props change
-	watch(() => props.eventSlug, buildWidget);
+	watch(
+		() => [props.eventSlug, props.seriesListType, props.reloadKey],
+		() => {
+			buildWidget();
+		}
+	);
 
 	// On mount, build widgets manually
 	onMounted(() => {
 		buildWidget();
 	});
 
-	function buildWidget(listType: string = 'calendar') {
+	async function buildWidget() {
+		// wait until the <pretix-widget> is in the DOM
+		await nextTick();
+
 		let attr: {
 			[key: string]: string | boolean | number;
-		} = {
-			event: widgetEventUrl.value,
-			'list-type': listType, // Use the provided listType or default to 'calendar'
-			'display-event-info': 'false', // Show event info by default
-		};
-		// If subeventId is provided, add it to the attributes
-		if (props.subeventId) {
+		} = {};
+
+		// Scenario 1: Event without subevents
+		if (!props.isEventSeries) {
 			attr = {
-				...attr,
-				subevent: props.subeventId,
-				'display-event-info': 'true', // Show event info by default
+				event: widgetEventUrl.value,
+				'display-event-info': 'false',
 			};
+		} else {
+			// Scenario 2: Event with selected subevent
+			if (props.subeventId) {
+				attr = {
+					event: widgetEventUrl.value,
+					subevent: JSON.stringify(props.subeventId),
+					'display-event-info': 'true',
+				};
+			} else {
+				// Scenario 3: Event with list of subevents
+				const lt = props.seriesListType || 'calendar';
+				attr = {
+					event: widgetEventUrl.value,
+					'list-type': lt,
+				};
+			}
 		}
 		// Update the widget attributes
 		widgetAttributes.value = attr;
@@ -90,33 +112,6 @@
 			// @ts-expect-error PretixWidget is a global object provided by the script
 			window.PretixWidget?.buildWidgets();
 		}
-	}
-
-	// Expose a refresh method to parent component
-	function refresh(action: string = 'reload') {
-		if (action === 'all') {
-			return buildWidget('list');
-		}
-		return buildWidget();
-
-		// if (!widgetEl.value) return;
-		// console.debug(
-		// 	'Refreshing pretix widget with attributes:',
-		// 	widgetAttributes.value
-		// );
-		// // Replace the old widget with a fresh one
-		// const oldEl = widgetEl.value;
-		// const newEl = document.createElement('pretix-widget');
-		// // Apply current attributes
-		// Object.entries(widgetAttributes.value).forEach(([key, val]) => {
-		// 	newEl.setAttribute(key, String(val));
-		// });
-		// // Swap elements in the DOM
-		// oldEl.replaceWith(newEl);
-		// widgetEl.value = newEl;
-		// // Trigger Pretix to build/initialize widgets again
-		// // @ts-expect-error PretixWidget is a global object provided by the script
-		// window.PretixWidget?.buildWidgets();
 	}
 
 	// Use useHead to inject the necessary stylesheet and script globally

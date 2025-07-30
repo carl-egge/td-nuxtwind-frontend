@@ -92,13 +92,16 @@
 					v-if="event"
 					class="border-primary-500 mx-auto my-4 flex max-w-4xl justify-evenly border bg-background p-1 shadow-sm md:p-2"
 				>
-					<UButton size="xs" @click="refreshWidget('all')">
-						Alle Termine
+					<UButton size="xs" @click="refreshWidget('list')">
+						Termin-Liste
 					</UButton>
-					<UButton size="xs" @click="refreshWidget('calender')">
-						Kalender-Ansicht
+					<UButton size="xs" @click="refreshWidget('calendar')">
+						Monatsansicht
 					</UButton>
-					<UButton size="xs" @click="refreshWidget('reload')">
+					<UButton size="xs" @click="refreshWidget('week')">
+						Wochenansicht
+					</UButton>
+					<UButton size="xs" @click="refreshWidget('subevent')">
 						Neu Laden
 					</UButton>
 					<!-- <UButton
@@ -109,20 +112,20 @@
 						@click="refreshWidget"
 					/> -->
 				</div>
-				<PretixShopWidget
-					v-if="event"
-					ref="pretixWidget"
-					:event-slug="event.slug"
-					:subevent-id="subeventId"
-				/>
-				<!-- <PretixShopWidget
-					v-else-if="event"
-					ref="pretixWidget"
-					:event-slug="event.slug"
-				/> -->
-				<div v-else>
-					<UButton :to="publicURI" target="_blank">Ticketshop öffnen</UButton>
-				</div>
+				<ClientOnly>
+					<PretixShopWidget
+						v-if="event"
+						ref="pretixWidget"
+						:event-slug="event.slug"
+						:is-event-series="event.has_subevents"
+						:subevent-id="subeventId"
+						:series-list-type="listType"
+						:reload-key="widgetReloadKey"
+					/>
+					<div v-else>
+						<UButton :to="publicURI" target="_blank">Ticketshop öffnen</UButton>
+					</div>
+				</ClientOnly>
 			</div>
 		</main>
 	</div>
@@ -156,6 +159,8 @@
 			: null;
 	});
 	const useSubeventId = ref(true);
+	const listType = ref(null);
+	const widgetReloadKey = ref(0);
 
 	const config = useRuntimeConfig();
 	const publicURI = computed(
@@ -187,9 +192,10 @@
 
 	// Reload the widget and possibly updated view mode
 	const refreshWidget = (action) => {
-		if (pretixWidget.value) {
-			useSubeventId.value = action === 'reload';
-			pretixWidget.value.refresh(action);
+		useSubeventId.value = action === 'subevent';
+		widgetReloadKey.value++;
+		if (action !== 'subevent') {
+			listType.value = action || listType.value;
 		}
 	};
 
