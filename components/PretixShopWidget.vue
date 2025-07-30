@@ -1,11 +1,11 @@
 <!-- eslint-disable vue/component-name-in-template-casing -->
 <template>
 	<div
-		class="pretix-widget-container border-primary-500 mx-auto my-4 max-w-4xl border bg-white p-2 shadow-lg md:p-4"
+		class="pretix-widget-container border-primary-500 mx-auto my-4 max-w-7xl border bg-white p-2 shadow-lg md:p-4"
 	>
 		<!-- The custom pretix-widget element -->
 		<!-- Dynamically bind attributes using v-bind -->
-		<pretix-widget v-bind="widgetAttributes" />
+		<pretix-widget ref="widgetEl" v-bind="widgetAttributes" />
 
 		<!-- Fallback content for browsers with JavaScript disabled -->
 		<noscript>
@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-	import { computed } from 'vue';
+	import { computed, ref, watch } from 'vue';
 	import { useHead, useRuntimeConfig } from '#app';
 
 	const props = defineProps<{
@@ -45,25 +45,79 @@
 		return `${pretixBaseUrl}/td/${props.eventSlug}/`;
 	});
 
-	// Determine widget attributes based on props
-	const widgetAttributes = computed(() => {
-		const attrs: { [key: string]: string | boolean | number } = {
-			event: widgetEventUrl.value,
-		};
-		// If subeventId is provided, add it and default to calendar view
-		if (props.subeventId) {
-			attrs['subevent'] = props.subeventId;
-			// As per documentation, if subevent is passed, it should default to calendar view
-			// if a date is not passed. Here we are pre-selecting a subevent, so calendar view
-			// is a good default for event series.
-			attrs['list-type'] = 'calendar';
-			attrs['display-event-info'] = 'true';
-		} else {
-			// If no subeventId, explicitly set to calendar view as per requirement
-			attrs['list-type'] = 'calendar';
-		}
-		return attrs;
+	// Ref for the pretix widget element
+	const widgetEl = ref<HTMLElement | null>(null);
+	// Ref for the pretix widget attributes
+	const widgetAttributes = ref<{
+		[key: string]: string | boolean | number;
+	}>({
+		event: widgetEventUrl.value,
+		'list-type': 'calendar', // Default to calendar view
+		'display-event-info': 'false', // Show event info by default
 	});
+
+	// Allow parent to call refresh() via ref
+	defineExpose({ refresh });
+
+	// Optionally auto-refresh when props change
+	watch(() => props.eventSlug, buildWidget);
+
+	// On mount, build widgets manually
+	onMounted(() => {
+		buildWidget();
+	});
+
+	function buildWidget(listType: string = 'calendar') {
+		let attr: {
+			[key: string]: string | boolean | number;
+		} = {
+			event: widgetEventUrl.value,
+			'list-type': listType, // Use the provided listType or default to 'calendar'
+			'display-event-info': 'false', // Show event info by default
+		};
+		// If subeventId is provided, add it to the attributes
+		if (props.subeventId) {
+			attr = {
+				...attr,
+				subevent: props.subeventId,
+				'display-event-info': 'true', // Show event info by default
+			};
+		}
+		// Update the widget attributes
+		widgetAttributes.value = attr;
+		// If the widget is already mounted, refresh it
+		if (widgetEl.value) {
+			// @ts-expect-error PretixWidget is a global object provided by the script
+			window.PretixWidget?.buildWidgets();
+		}
+	}
+
+	// Expose a refresh method to parent component
+	function refresh(action: string = 'reload') {
+		if (action === 'all') {
+			return buildWidget('list');
+		}
+		return buildWidget();
+
+		// if (!widgetEl.value) return;
+		// console.debug(
+		// 	'Refreshing pretix widget with attributes:',
+		// 	widgetAttributes.value
+		// );
+		// // Replace the old widget with a fresh one
+		// const oldEl = widgetEl.value;
+		// const newEl = document.createElement('pretix-widget');
+		// // Apply current attributes
+		// Object.entries(widgetAttributes.value).forEach(([key, val]) => {
+		// 	newEl.setAttribute(key, String(val));
+		// });
+		// // Swap elements in the DOM
+		// oldEl.replaceWith(newEl);
+		// widgetEl.value = newEl;
+		// // Trigger Pretix to build/initialize widgets again
+		// // @ts-expect-error PretixWidget is a global object provided by the script
+		// window.PretixWidget?.buildWidgets();
+	}
 
 	// Use useHead to inject the necessary stylesheet and script globally
 	// These will only be added once to the document head, even if multiple widgets are used.
@@ -77,6 +131,11 @@
 			},
 		],
 		script: [
+			// Declare callback to suppress auto-build
+			{
+				innerHTML: `window.pretixWidgetCallback = function() { window.PretixWidget.build_widgets = false; };`,
+				type: 'text/javascript',
+			},
 			{
 				type: 'text/javascript',
 				src: `${pretixBaseUrl}/widget/v2.de.js`,

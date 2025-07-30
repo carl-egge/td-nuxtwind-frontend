@@ -88,12 +88,38 @@
 					</div>
 				</section>
 
+				<div
+					v-if="event"
+					class="border-primary-500 mx-auto my-4 flex max-w-4xl justify-evenly border bg-background p-1 shadow-sm md:p-2"
+				>
+					<UButton size="xs" @click="refreshWidget('all')">
+						Alle Termine
+					</UButton>
+					<UButton size="xs" @click="refreshWidget('calender')">
+						Kalender-Ansicht
+					</UButton>
+					<UButton size="xs" @click="refreshWidget('reload')">
+						Neu Laden
+					</UButton>
+					<!-- <UButton
+						icon="i-heroicons-arrow-path"
+						size="xs"
+						variant="ghost"
+						aria-label="Aktualisieren"
+						@click="refreshWidget"
+					/> -->
+				</div>
 				<PretixShopWidget
-					v-if="event && subeventId"
+					v-if="event"
+					ref="pretixWidget"
 					:event-slug="event.slug"
 					:subevent-id="subeventId"
 				/>
-				<PretixShopWidget v-else-if="event" :event-slug="event.slug" />
+				<!-- <PretixShopWidget
+					v-else-if="event"
+					ref="pretixWidget"
+					:event-slug="event.slug"
+				/> -->
 				<div v-else>
 					<UButton :to="publicURI" target="_blank">Ticketshop öffnen</UButton>
 				</div>
@@ -125,8 +151,11 @@
 	const slug = computed(() => route.params.slug);
 	const subeventId = computed(() => {
 		const subeventIdParam = route.query.subeventid;
-		return subeventIdParam ? JSON.parse(subeventIdParam) : null;
+		return subeventIdParam && useSubeventId.value
+			? JSON.parse(subeventIdParam)
+			: null;
 	});
+	const useSubeventId = ref(true);
 
 	const config = useRuntimeConfig();
 	const publicURI = computed(
@@ -135,6 +164,7 @@
 	const eventsStore = useEventsStore();
 	const event = ref(null);
 	const loadingState = ref('loading');
+	const pretixWidget = ref(null);
 
 	const pageTitle = computed(() => {
 		if (loadingState.value === 'loading') return 'Loading Event...';
@@ -154,6 +184,14 @@
 	const renderedInfo = computed(() =>
 		md.render(event.value.event_info_text.de)
 	);
+
+	// Reload the widget and possibly updated view mode
+	const refreshWidget = (action) => {
+		if (pretixWidget.value) {
+			useSubeventId.value = action === 'reload';
+			pretixWidget.value.refresh(action);
+		}
+	};
 
 	// Load the event data from the store or fetch from the API
 	async function loadEvent() {
