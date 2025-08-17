@@ -1,76 +1,31 @@
 <template>
 	<div>
-		<PageHero title="Theater Jugend" :background-image="`url(${heroimage})`" />
+		<PageHero title="Theaterschule" :background-image="`url(${heroimage})`" />
 
-		<main>
-			<!-- SECTION : THEATER JUGEND -->
-			<section id="theater-jugend" class="mb-10 md:mb-24">
-				<div class="mt-8 flex flex-wrap items-center">
-					<div class="mx-auto w-full px-4 md:w-7/12">
-						<div
-							class="ring-primary-600 mb-4 h-11 w-11 flex-none rounded-none p-2 ring-1"
-						>
-							<Icon
-								name="mdi:account-supervisor"
-								class="text-primary-600 h-full w-full"
-								aria-hidden="true"
-							/>
-						</div>
-						<!-- <div
-                        class="text-gray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-background">
-                            <Icon name="mdi:account-supervisor" class="h-8 w-8 text-primary-500" aria-hidden="true" />
-                        </div> -->
-						<h3 class="mb-6">Die Theater Jugend Hamburg e.V.</h3>
-						<p>
-							Die 1983 gegründete Theater Jugend Hamburg e.V. ist eine
-							Theaterschule mit Vision und seit September 2012 fester
-							Bestandteil und Grundbaustein des Theaterdecks. Das Kursangebot
-							ist speziell auf Jugendliche, auch Jugendliche mit Behinderung,
-							zugeschnitten und bietet den Einstieg in die Theaterwelt. Neben
-							Jugendproduktion und altersübergreifenden Inszenierungen bietet
-							die Theater Jugend eine eigene Plattform für junge Regisseure –
-							das Spieldeck.
-						</p>
-						<p>
-							Wir machen Theater für Jugendliche greifbar und erfahrbar. In
-							Kursen lernen die Jugendlichen Grundlagen des Theaterspielens
-							kennen. Gleichzeitig wird ein Gespür dafür entwickelt, was es
-							heißt, sich eine Meinung zu bilden, mitzudenken und sich kritisch
-							zu positionieren. Denn nur ein Schauspieler mit einem kritischen
-							Selbstbewusstsein schafft es, eine glaubhafte Wirklichkeit auf der
-							Bühne zu erzeugen.
-						</p>
+		<main class="mx-auto max-w-7xl">
+			<!-- SECTION : Theaterschule -->
+			<section
+				id="theaterschule"
+				class="scroll-mt-24"
+				aria-labelledby="theaterschule-heading"
+			>
+				<div class="mx-auto px-4 py-8 sm:px-6 lg:px-8">
+					<div class="ml-4 flex items-center gap-4">
+						<Icon
+							name="mdi:drama-masks"
+							class="text-primary-600 h-7 w-7"
+							aria-hidden="true"
+						/>
+						<h3 id="theaterschule-heading" class="tracking-tight">
+							Unsere Theaterschule.
+						</h3>
 					</div>
-					<div class="my-4 w-full md:w-4/12 lg:mt-16">
-						<div class="mx-auto size-72 lg:size-96">
-							<NuxtImg
-								src="/images/schimmelreiter-02.jpg"
-								alt="Theater Jugend Hamburg"
-								class="border-primary-600 my-8 h-full w-full rounded-none border object-cover object-left-top shadow-lg"
-								loading="lazy"
-								format="webp"
-								quality="80"
-								sizes="sm:100vw md:50vw lg:400px"
-							/>
-						</div>
-					</div>
-				</div>
-			</section>
 
-			<!-- SECTION : THEATER SCHULE -->
-			<section id="theater-schule" class="mb-10 md:mb-24">
-				<div class="mt-8 flex flex-row-reverse flex-wrap-reverse items-center">
-					<div class="mx-auto w-full px-4 md:w-7/12">
-						<div
-							class="ring-primary-600 mb-4 h-11 w-11 flex-none rounded-none p-2 ring-1"
-						>
-							<Icon
-								name="material-symbols:theater-comedy-rounded"
-								class="text-primary-600 h-full w-full"
-								aria-hidden="true"
-							/>
-						</div>
-						<h3 class="mb-6">Theaterdeck Schule.</h3>
+					<div class="bg-primary-600/80 mt-3 h-1 w-32 rounded-none" />
+
+					<div
+						class="border-primary-600/70 dark:border-primary-400/60 mt-8 rounded-none border-l-4 bg-white/60 p-6 shadow-sm backdrop-blur-sm"
+					>
 						<p>
 							Die Kursarbeit der Theater Jugend bildet die Grundlage des
 							Theaterdecks. Für Jugendliche im Alter von 9 bis 20 Jahren werden
@@ -99,71 +54,14 @@
 							teilzunehmen.
 						</p>
 					</div>
-					<div class="mx-auto my-4 w-full md:w-4/12 lg:mt-16">
-						<div class="mx-auto size-72 lg:size-96">
-							<NuxtImg
-								src="/images/1-michelausloenneberga.jpg"
-								alt="Theaterdeck Schule"
-								class="border-primary-600 my-8 h-full w-full rounded-none border object-cover shadow-lg"
-								loading="lazy"
-								format="webp"
-								quality="80"
-								sizes="sm:100vw md:50vw lg:400px"
-							/>
-						</div>
-					</div>
 				</div>
 			</section>
 
-			<hr class="mx-auto my-20 w-6" />
-
-			<!-- SECTION: OUR TEAM -->
-			<!-- <section id="theater-team" class="mb-10 md:mb-24">
-				<div
-					class="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3"
-				>
-					<div class="max-w-2xl">
-						<h3 class="mb-6">Unser Team</h3>
-						<p class="text-lg leading-8">
-							Unser engagiertes Team besteht aus leidenschaftlichen
-							Theaterpädagogen, die mit Herzblut Theaterkurse leiten und die
-							kreativen Talente Ihrer Kinder fördern. Lernen Sie unser Team
-							kennen und entdecken Sie die inspirierende Welt des Theaters mit
-							uns!
-						</p>
-					</div>
-					<ul
-						role="list"
-						class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2"
-					>
-						<li v-for="person in people" :key="person.name">
-							<div class="flex items-center gap-x-6">
-								<NuxtImg
-									:src="person.imageUrl"
-									:alt="person.name"
-									class="h-16 w-16 rounded object-cover"
-									loading="lazy"
-									format="webp"
-									quality="80"
-									sizes="sm:100vw md:50vw lg:400px"
-								/>
-								<div>
-									<h3
-										class="text-base font-semibold leading-7 tracking-tight text-gray-900"
-									>
-										{{ person.name }}
-									</h3>
-									<p class="text-primary-500 text-sm font-semibold leading-6">
-										{{ person.role }}
-									</p>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</section> -->
-
-			<!-- <hr class="mx-auto my-20 w-6" /> -->
+			<div class="text-primary-600 my-8 flex items-center justify-center">
+				<span class="mx-1 h-1 w-1 rounded-full bg-current" />
+				<span class="mx-1 h-1 w-1 rounded-full bg-current" />
+				<span class="mx-1 h-1 w-1 rounded-full bg-current" />
+			</div>
 
 			<!-- SECTION : COURSES -->
 			<UContainer id="theater-course-list" class="mb-10">
@@ -249,41 +147,6 @@
 
 	import heroimage from '../assets/images/hero-highkey-sr.jpg';
 	import { kurse } from '~/server/data/kurse';
-
-	// const people = [
-	// 	{
-	// 		name: 'Niklas Heinecke',
-	// 		role: 'Theaterleiter',
-	// 		imageUrl: '/images/kursleiter/Niklas.jpg',
-	// 	},
-	// 	{
-	// 		name: 'Anne Pretzsch',
-	// 		role: 'Theater Performance',
-	// 		imageUrl: '/images/kursleiter/Anne.jpg',
-	// 	},
-	// 	{
-	// 		name: 'Marietta Saggau',
-	// 		role: 'Kindertheater',
-	// 		imageUrl: '/images/kursleiter/Marietta.jpg',
-	// 	},
-	// 	{
-	// 		name: 'Leena Fahje',
-	// 		role: 'Kursleiterin',
-	// 		imageUrl: '/images/kursleiter/Leena.jpg',
-	// 	},
-	// 	{
-	// 		name: 'Thorsten Grübling',
-	// 		role: 'Kursleiter',
-	// 		imageUrl: '/images/kursleiter/Thorsten.jpg',
-	// 	},
-	// 	{
-	// 		name: 'Enrico Guzy',
-	// 		role: 'Improtheater',
-	// 		imageUrl: '/images/kursleiter/Enrico.jpg',
-	// 	},
-	// ];
-	// Example portraits from Unsplash
-	// 'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 </script>
 
 <style scoped></style>
