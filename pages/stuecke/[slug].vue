@@ -31,7 +31,7 @@
 				<UButton
 					icon="i-heroicons-arrow-left"
 					size="sm"
-					color="primary"
+					color="gray"
 					variant="ghost"
 					label="Zurück zum Spielplan"
 					to="/stuecke"
@@ -99,7 +99,7 @@
 
 				<div
 					v-if="event"
-					class="border-primary-500 mx-auto my-4 flex max-w-4xl justify-evenly border bg-background p-1 shadow-sm md:p-2"
+					class="border-primary-500 mx-auto my-4 flex max-w-4xl justify-start gap-4 border bg-background p-1 shadow-sm md:p-2"
 				>
 					<UButton size="xs" @click="refreshWidget('list')">
 						Termin-Liste
@@ -110,16 +110,17 @@
 					<UButton size="xs" @click="refreshWidget('week')">
 						Wochenansicht
 					</UButton>
-					<UButton size="xs" @click="refreshWidget('subevent')">
-						Neu Laden
-					</UButton>
-					<!-- <UButton
+					<!-- <UButton size="xs" @click="refreshWidget('subevent')">
+						Aktualisieren
+					</UButton> -->
+					<UButton
 						icon="i-heroicons-arrow-path"
 						size="xs"
 						variant="ghost"
 						aria-label="Aktualisieren"
-						@click="refreshWidget"
-					/> -->
+						class="ml-auto"
+						@click="refreshWidget('subevent')"
+					/>
 				</div>
 				<ClientOnly>
 					<PretixShopWidget

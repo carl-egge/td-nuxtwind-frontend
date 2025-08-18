@@ -6,7 +6,12 @@
 	>
 		<!-- The custom pretix-widget element -->
 		<!-- Dynamically bind attributes using v-bind -->
-		<pretix-widget ref="widgetEl" v-bind="widgetAttributes" disable-iframe />
+		<!-- disable-iframe can be used to force open modal in new tab -->
+		<pretix-widget
+			ref="widgetEl"
+			v-bind="widgetAttributes"
+			disable-iframe="false"
+		/>
 
 		<!-- Fallback content for browsers with JavaScript disabled -->
 		<noscript>

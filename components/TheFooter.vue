@@ -22,12 +22,12 @@
 							<ul class="mb-0 list-none md:text-left">
 								<li>
 									<NuxtLink to="/stuecke" class="hover:text-primary">
-										Unser Spielplan
+										Spielplan und Tickets
 									</NuxtLink>
 								</li>
 								<li>
-									<NuxtLink to="/vermietung" class="hover:text-primary">
-										Vermietung
+									<NuxtLink to="/kontakt" class="hover:text-primary">
+										Kontakt
 									</NuxtLink>
 								</li>
 								<li>
