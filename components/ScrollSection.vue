@@ -23,7 +23,7 @@
 		</div>
 		<!-- Text side -->
 		<div
-			class="flex h-1/2 w-full items-center justify-center bg-theme-secondary p-8 pb-32 lg:h-full lg:w-1/2 lg:pb-12"
+			class="flex h-[60vh] w-full items-start justify-center bg-theme-secondary p-10 pb-32 lg:h-full lg:w-1/2 lg:items-center lg:pb-20"
 		>
 			<div class="float-animation w-full max-w-lg md:max-w-md lg:max-w-lg">
 				<span class="text-primary-600 text-sm tracking-wider">
@@ -42,7 +42,7 @@
 			<NuxtLink
 				:to="`/stuecke/${slug}`"
 				aria-label="Tickets"
-				class="group absolute bottom-2 right-8 inline-block h-32 w-32 -rotate-6 transition-transform duration-300 hover:rotate-0 hover:scale-105 md:bottom-8 md:h-40 md:w-40 lg:h-56 lg:w-56 xl:right-24 xl:h-72 xl:w-72"
+				class="group absolute bottom-[8vh] right-[8vw] inline-block h-32 w-32 -rotate-6 transition-transform duration-300 hover:rotate-0 hover:scale-105 md:h-40 md:w-40 lg:h-56 lg:w-56 xl:right-24 xl:h-72 xl:w-72"
 			>
 				<svg
 					viewBox="82 96 314 293"
