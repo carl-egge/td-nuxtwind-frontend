@@ -25,7 +25,7 @@
 					<div class="bg-primary-600/80 mt-3 h-1 w-32 rounded-none" />
 
 					<div
-						class="border-primary-600/70 dark:border-primary-400/60 mt-8 rounded-none border-l-4 bg-white/60 p-6 shadow-sm backdrop-blur-sm"
+						class="border-primary-600/70 mt-8 rounded-none border-l-4 bg-white/60 p-6 shadow-sm backdrop-blur-sm"
 					>
 						<p>
 							Das Theaterdeck Hamburg ist ein lebendiger Treffpunkt für kreative
@@ -66,7 +66,7 @@
 					<div class="bg-primary-600/80 mt-3 h-1 w-32 rounded-none" />
 
 					<div
-						class="border-primary-600/70 dark:border-primary-400/60 mt-8 rounded-none border-l-4 bg-white/60 p-6 shadow-sm backdrop-blur-sm"
+						class="border-primary-600/70 mt-8 rounded-none border-l-4 bg-white/60 p-6 shadow-sm backdrop-blur-sm"
 					>
 						<p>
 							Die 1983 gegründete
@@ -124,7 +124,7 @@
 								<NuxtImg
 									:src="person.imageUrl"
 									:alt="person.name"
-									class="h-16 w-16 rounded object-cover"
+									class="border-primary-600/70 h-20 w-20 rounded-none border-l-4 object-cover shadow-lg"
 									loading="lazy"
 									format="webp"
 									quality="80"
