@@ -60,7 +60,10 @@
 							</h3>
 
 							<!-- Quote -->
-							<blockquote class="border-l-4 border-theme-accent pl-4 italic">
+							<blockquote
+								v-if="event.meta_data.zitat"
+								class="border-l-4 border-theme-accent pl-4 italic"
+							>
 								<p class="text-primary-400 text-3xl">
 									“{{ event.meta_data.zitat }}”
 								</p>
@@ -82,15 +85,15 @@
 							<div
 								class="mt-4 flex flex-col space-y-2 text-3xl text-theme-accent sm:flex-row sm:space-x-8 sm:space-y-0"
 							>
-								<div class="font-semibold">
-									16 €
+								<div
+									v-for="item in event.items"
+									:key="item.id"
+									class="font-semibold"
+								>
+									{{ Math.round(item.default_price) }} €
 									<span class="text-base font-normal text-text">
-										Normalpreis
+										{{ item.name.de }}
 									</span>
-								</div>
-								<div class="font-semibold">
-									10 €
-									<span class="text-base font-normal text-text">Ermäßigt</span>
 								</div>
 							</div>
 						</div>
