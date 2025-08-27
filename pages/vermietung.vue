@@ -4,9 +4,9 @@
 
 		<main class="mx-auto max-w-7xl px-6 lg:px-8">
 			<p class="text-primary-500 text-base font-semibold leading-7">
-				Für alle die einen Raum brauchen
+				Für alle die Raum brauchen
 			</p>
-			<h3>Komm Doch Mal Vorbei.</h3>
+			<h3>Unser Deck.</h3>
 			<p class="mt-6 max-w-none text-lg leading-8">
 				Hochzeiten || Geburtstage || Proben || Theaterproben ||
 				Navigationstraining || Vorsprechvorbereitung || Monologarbeit || Camera
@@ -125,10 +125,17 @@
 				Noch Fragen? Kein Problem.
 			</p>
 			<p>
-				Nutzen Sie diese einzigartige Gelegenheit, unseren vielseitigen
-				Theatersaal in Barmbek für Ihre Veranstaltung zu mieten. Unser Raum
-				bietet die ideale Kulisse für unvergessliche Momente. Bei Fragen oder
-				für Buchungsanfragen stehen wir Ihnen gerne telefonisch unter
+				Nutze diese einzigartige Gelegenheit, unseren vielseitigen Theatersaal
+				in Barmbek für deine Veranstaltung zu mieten. Unser Raum bietet die
+				ideale Kulisse für unvergessliche Momente. Für Buchungsanfragen melde
+				dich über unser
+				<NuxtLink
+					to="/kontakt"
+					class="hover:text-primary-500 font-normal text-text"
+				>
+					Kontaktformular.
+				</NuxtLink>
+				Bei weiteren Fragen stehen wir dir gerne telefonisch unter
 				<NuxtLink
 					href="tel:0406321322"
 					class="hover:text-primary-500 font-normal text-text"
@@ -138,11 +145,11 @@
 				oder per E-Mail unter
 				<NuxtLink
 					class="hover:text-primary-500 font-normal text-text"
-					href="mailto:info@theaterdeck.de"
+					href="mailto:vermietung@theaterdeck.de"
 				>
-					info@theaterdeck.de
+					vermietung@theaterdeck.de
 				</NuxtLink>
-				zur Verfügung. Wir freuen uns darauf, Ihre Veranstaltungsträume wahr
+				zur Verfügung. Wir freuen uns darauf, deine Veranstaltungsträume wahr
 				werden zu lassen!
 				<br />
 				<br />

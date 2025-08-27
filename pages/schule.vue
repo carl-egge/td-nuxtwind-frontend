@@ -2,7 +2,7 @@
 	<div>
 		<PageHero title="Theaterschule" :background-image="`url(${heroimage})`" />
 
-		<main class="mx-auto max-w-7xl">
+		<main class="mx-auto max-w-7xl px-6 lg:px-8">
 			<!-- SECTION : Theaterschule -->
 			<section
 				id="theaterschule"
@@ -10,18 +10,14 @@
 				aria-labelledby="theaterschule-heading"
 			>
 				<div class="mx-auto px-4 py-8 sm:px-6 lg:px-8">
-					<div class="ml-4 flex items-center gap-4">
-						<Icon
-							name="mdi:drama-masks"
-							class="text-primary-600 h-7 w-7"
-							aria-hidden="true"
-						/>
-						<h3 id="theaterschule-heading" class="tracking-tight">
-							Unsere Theaterschule.
-						</h3>
-					</div>
-
-					<div class="bg-primary-600/80 mt-3 h-1 w-32 rounded-none" />
+					<Icon
+						name="cbi:stage-spot-light"
+						class="text-primary-600 h-7 w-7 scale-125"
+						aria-hidden="true"
+					/>
+					<h3 id="theaterschule-heading" class="tracking-tight">
+						Unsere Theaterschule.
+					</h3>
 
 					<div
 						class="border-primary-600/70 dark:border-primary-400/60 mt-8 rounded-none border-l-4 bg-white/60 p-6 shadow-sm backdrop-blur-sm"
@@ -170,20 +166,22 @@
 				</div>
 				<p>
 					Bitte melde dich über unser
-					<ULink to="/kontakt" class="font-normal hover:underline">
-						Kontaktformular
-					</ULink>
-					an oder schreibe uns direkt an
-					<ULink
-						to="mailto:kurse@theaterdeck.de"
-						class="font-normal hover:underline"
+					<NuxtLink
+						to="/kontakt"
+						class="hover:text-primary-500 font-normal text-text"
 					>
-						kurse@theaterdeck.de
-					</ULink>
-					.
+						Kontaktformular
+					</NuxtLink>
+					an oder schreibe uns direkt an
+					<NuxtLink
+						to="mailto:kurse@theaterdeck.de"
+						class="hover:text-primary-500 font-normal text-text"
+					>
+						kurse@theaterdeck.de.
+					</NuxtLink>
 				</p>
-				<p class="mt-4 font-semibold">
-					* Die Kurse werden gefördert vom Amt für Familie
+				<p class="mt-6 font-normal italic">
+					* Die Kurse werden gefördert vom Amt für Familie.
 				</p>
 			</UContainer>
 		</main>
