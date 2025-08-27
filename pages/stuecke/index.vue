@@ -3,7 +3,10 @@
 		<PageHero title="SpielPLAN" :background-image="`url(${heroimage})`" />
 
 		<main class="mx-auto max-w-7xl px-6 lg:px-8">
-			<div class="mb-4 flex items-center justify-between">
+			<p class="text-primary-500 text-base font-semibold leading-7">
+				Für alle was dabei
+			</p>
+			<div class="flex items-center justify-between">
 				<h3 aria-label="Unsere Veranstaltungen">Unsere Veranstaltungen.</h3>
 				<UButton
 					icon="i-heroicons-arrow-path"
@@ -14,90 +17,112 @@
 					@click="refresh"
 				/>
 			</div>
+			<UTabs
+				:items="[
+					{ label: 'Spielplan', slot: 'spielplan' },
+					{ label: 'Stücke', slot: 'stuecke' },
+				]"
+				:ui="{
+					base: 'rounded-none bg-background',
+				}"
+				class="my-4"
+			>
+				<template #spielplan>
+					<!-- Month Filter -->
+					<div class="mb-4 flex flex-wrap gap-2">
+						<UButton
+							v-for="month in months"
+							:key="month.key"
+							size="sm"
+							variant="ghost"
+							class="text-base"
+							:class="{ underline: month.key === selectedMonth }"
+							@click="
+								selectedMonth = month.key;
+								page = 1;
+							"
+						>
+							{{ month.label }}
+						</UButton>
+					</div>
 
-			<!-- Month Filter -->
-			<div class="mb-4 flex flex-wrap gap-2">
-				<UButton
-					v-for="month in months"
-					:key="month.key"
-					size="sm"
-					variant="ghost"
-					class="text-base"
-					:class="{ underline: month.key === selectedMonth }"
-					@click="
-						selectedMonth = month.key;
-						page = 1;
-					"
-				>
-					{{ month.label }}
-				</UButton>
-			</div>
+					<!-- Event List -->
+					<div v-if="filtered.length" class="bg-background text-text">
+						<div
+							v-for="(item, idx) in paginated"
+							:key="idx"
+							:class="[
+								'flex transform cursor-pointer items-start justify-between px-4 py-4 transition hover:scale-[1.015] active:scale-[0.985]',
+								idx === paginated.length - 1
+									? 'border-b-0'
+									: 'border-primary-600 border-b',
+							]"
+							@click="goToEvent(item.event_slug, item.subeventId)"
+						>
+							<div class="w-24 text-center leading-snug text-text">
+								<div class="text-md font-bold">
+									{{ weekday(item.date_from) }}
+								</div>
+								<div class="text-2xl font-extrabold">
+									{{ justDate(item.date_from) }}
+								</div>
+							</div>
+							<div class="flex-1 text-text">
+								<div class="font-semibold">{{ item.name }}</div>
+								<div class="mt-1 flex items-center gap-2 text-text/70">
+									<UBadge
+										v-if="item.tag"
+										size="xs"
+										variant="subtle"
+										color="yellow"
+									>
+										{{ item.tag }}
+									</UBadge>
+									<UBadge size="xs" variant="subtle" color="primary">
+										{{ time(item.date_from) }}
+									</UBadge>
+									<span>{{ item.autor }}</span>
+								</div>
+							</div>
+							<div class="text-primary-600 pt-2">
+								<UIcon name="i-heroicons-chevron-right" class="h-7 w-7" />
+							</div>
+						</div>
 
-			<!-- Event List -->
-			<div v-if="filtered.length" class="bg-background text-text">
-				<div
-					v-for="(item, idx) in paginated"
-					:key="idx"
-					:class="[
-						'flex transform cursor-pointer items-start justify-between px-4 py-4 transition hover:scale-[1.015] active:scale-[0.985]',
-						idx === paginated.length - 1
-							? 'border-b-0'
-							: 'border-primary-600 border-b',
-					]"
-					@click="goToEvent(item.event_slug, item.subeventId)"
-				>
-					<div class="w-24 text-center leading-snug text-text">
-						<div class="text-md font-bold">{{ weekday(item.date_from) }}</div>
-						<div class="text-2xl font-extrabold">
-							{{ justDate(item.date_from) }}
+						<!-- Pagination Dots (Swipeable) -->
+						<div
+							v-if="totalPages > 1"
+							class="mb-4 mt-2 flex touch-pan-x justify-center overflow-auto px-2"
+						>
+							<div class="flex min-w-max gap-2">
+								<button
+									v-for="n in totalPages"
+									:key="n"
+									class="h-3 w-3 shrink-0 rounded-full"
+									:class="
+										n === page ? 'bg-primary-600' : 'bg-theme-secondary/40'
+									"
+									@click="page = n"
+								/>
+							</div>
 						</div>
 					</div>
-					<div class="flex-1 text-text">
-						<div class="font-semibold">{{ item.name }}</div>
-						<div class="mt-1 flex items-center gap-2 text-text/70">
-							<UBadge v-if="item.tag" size="xs" variant="subtle" color="yellow">
-								{{ item.tag }}
-							</UBadge>
-							<UBadge size="xs" variant="subtle" color="primary">
-								{{ time(item.date_from) }}
-							</UBadge>
-							<span>{{ item.autor }}</span>
-						</div>
-					</div>
-					<div class="text-primary-600 pt-2">
-						<UIcon name="i-heroicons-chevron-right" class="h-7 w-7" />
-					</div>
-				</div>
 
-				<!-- Pagination Dots (Swipeable) -->
-				<div
-					v-if="totalPages > 1"
-					class="mb-4 mt-2 flex touch-pan-x justify-center overflow-auto px-2"
-				>
-					<div class="flex min-w-max gap-2">
-						<button
-							v-for="n in totalPages"
-							:key="n"
-							class="h-3 w-3 shrink-0 rounded-full"
-							:class="n === page ? 'bg-primary-600' : 'bg-theme-secondary/40'"
-							@click="page = n"
-						/>
+					<!-- Error / No Data -->
+					<div v-else class="mt-6 text-center text-sm text-theme-secondary">
+						<template v-if="error">
+							<p class="font-medium text-red-500">
+								Fehler beim Laden der Veranstaltungen.
+							</p>
+							<p>Bitte versuchen Sie es später erneut.</p>
+						</template>
+						<template v-else-if="!pending">
+							<p>Keine anstehenden Veranstaltungen gefunden.</p>
+						</template>
 					</div>
-				</div>
-			</div>
-
-			<!-- Error / No Data -->
-			<div v-else class="mt-6 text-center text-sm text-theme-secondary">
-				<template v-if="error">
-					<p class="font-medium text-red-500">
-						Fehler beim Laden der Veranstaltungen.
-					</p>
-					<p>Bitte versuchen Sie es später erneut.</p>
 				</template>
-				<template v-else-if="!pending">
-					<p>Keine anstehenden Veranstaltungen gefunden.</p>
-				</template>
-			</div>
+				<template #stuecke>Hier sind die Stuecke.</template>
+			</UTabs>
 		</main>
 		<TheNewsletter />
 	</div>
