@@ -110,9 +110,13 @@
 								/>
 							</svg>
 							<div
-								class="group-hover:text-primary-400 pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-xl font-semibold uppercase text-background lg:text-2xl"
+								class="group-hover:text-primary-400 pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-center text-xl font-semibold uppercase text-background lg:text-2xl"
 							>
-								<span>MITMACHEN</span>
+								<span>
+									Mach
+									<br />
+									Mit!
+								</span>
 							</div>
 						</NuxtLink>
 						<Icon
@@ -136,20 +140,22 @@
 					<template #header>
 						<div class="flex items-center justify-between">
 							<h3 class="text-xl">{{ post.title }}</h3>
-							<UBadge color="primary">{{ post.category.title }}</UBadge>
+							<UBadge color="primary" :ui="{ rounded: 'rounded-none' }">
+								{{ post.category.title }}
+							</UBadge>
 						</div>
 					</template>
 					<p>{{ post.description }}</p>
 					<template #footer>
 						<div class="flex items-center gap-4">
-							<UAvatar
+							<!-- <UAvatar
 								size="xl"
 								:ui="{
 									rounded: 'rounded-none',
 								}"
 								:src="post.author.imageUrl"
 								:alt="post.author.name"
-							/>
+							/> -->
 							<div>
 								<p class="font-semibold">{{ post.author.name }}</p>
 								<p class="text-sm">{{ post.author.role }}</p>
@@ -157,18 +163,24 @@
 						</div>
 					</template>
 				</UCard>
-				<UDivider class="my-8" />
+				<div class="text-primary-600 my-8 flex items-center justify-center">
+					<span class="mx-1 h-1 w-1 rounded-full bg-current" />
+					<span class="mx-1 h-1 w-1 rounded-full bg-current" />
+					<span class="mx-1 h-1 w-1 rounded-full bg-current" />
+				</div>
 				<p>
-					Bitte melden Sie sich über unser Kontaktformular an oder schreiben uns
-					direkt an:
-					<UButton
+					Bitte melde dich über unser
+					<ULink to="/kontakt" class="font-normal hover:underline">
+						Kontaktformular
+					</ULink>
+					an oder schreibe uns direkt an
+					<ULink
 						to="mailto:kurse@theaterdeck.de"
-						color="primary"
-						class="text-base"
-						variant="link"
+						class="font-normal hover:underline"
 					>
 						kurse@theaterdeck.de
-					</UButton>
+					</ULink>
+					.
 				</p>
 				<p class="mt-4 font-semibold">
 					* Die Kurse werden gefördert vom Amt für Familie
