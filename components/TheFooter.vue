@@ -125,7 +125,7 @@
 			<div class="flex flex-col-reverse md:flex-row md:justify-between">
 				<div class="my-2 flex-1 text-center md:my-0 md:text-left">
 					<NuxtLink to="/" class="hover:text-primary-600">
-						© 2024 Theaterdeck Hamburg
+						© {{ new Date().getFullYear() }} Theaterdeck Hamburg
 					</NuxtLink>
 				</div>
 				<div class="my-4 flex-1 text-center md:my-0 md:text-right">

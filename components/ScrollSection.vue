@@ -58,10 +58,10 @@
 				<div
 					class="group-hover:text-primary-400 pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-xl font-semibold uppercase text-background lg:text-4xl"
 				>
-					<span>SPIELPLAN</span>
+					<span>Spielplan</span>
 					<span class="flex items-start">
 						<span class="text-2xl lg:text-6xl">&amp;</span>
-						TICKETS
+						Tickets
 					</span>
 				</div>
 			</NuxtLink>
