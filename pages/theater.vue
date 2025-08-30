@@ -105,20 +105,20 @@
 					und entdecken Sie die inspirierende Welt des Theaters mit uns!
 				</p>
 
-				<div class="mt-4 flex flex-wrap">
+				<div
+					class="mt-4 grid grid-cols-1 place-items-center gap-4 md:grid-cols-2"
+				>
 					<TheCard
 						:src="people[0].imageUrl"
 						:title="people[0].name"
 						:subtitle="people[0].role"
 						:details="people[0].description"
-						class="basis-1/2 p-2"
 					/>
 					<TheCard
 						:src="people[1].imageUrl"
 						:title="people[1].name"
 						:subtitle="people[1].role"
 						:details="people[1].description"
-						class="basis-1/2 p-2"
 					/>
 				</div>
 
