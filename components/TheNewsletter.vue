@@ -17,7 +17,7 @@
 						:schema="schema"
 						:state="state"
 						aria-label="Newsletter Abonnieren"
-						class="mt-8 flex space-x-8"
+						class="mt-8 flex items-center gap-x-4"
 						role="form"
 						@submit="onSubmit"
 					>
@@ -75,11 +75,11 @@
 								/>
 							</svg>
 							<div
-								class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-xl font-semibold uppercase text-background group-hover:text-theme-accent"
+								class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-lg font-semibold uppercase text-background group-hover:text-theme-accent md:text-xl"
 							>
 								<span>Ahoi</span>
 								<span class="flex items-start">
-									<span class="text-4xl">&amp;</span>
+									<span class="text-2xl md:text-4xl">&amp;</span>
 									Enter
 								</span>
 							</div>
