@@ -14,7 +14,7 @@
 			>
 				<div class="mx-auto px-4 py-8 sm:px-6 lg:px-8">
 					<Icon
-						name="hugeicons:curtains"
+						name="mingcute:lighthouse-line"
 						class="text-primary-600 h-7 w-7"
 						aria-hidden="true"
 					/>
@@ -24,18 +24,21 @@
 						class="border-primary-600/70 mt-8 rounded-none border-l-4 bg-white/60 p-6 shadow-sm backdrop-blur-sm"
 					>
 						<p>
-							Das Theaterdeck Hamburg ist ein lebendiger Treffpunkt für kreative
-							Köpfe jeden Alters – mitten im Kulturzentrum Zinnschmelze, nur
-							wenige Schritte vom U- und S-Bahnhof Barmbek entfernt. Seit seiner
-							Wiedereröffnung im Jahr 2015 ist das Theaterdeck ein fester
-							Bestandteil der Hamburger Kulturlandschaft. Mit einem vielseitigen
-							Programm aus Theaterstücken, Workshops und Kursen lädt es zu
-							künstlerischem Entdecken und gemeinsamen Erleben ein: Ob
-							professionell inszenierte Stücke oder Improvisationstheater für
-							Jugendliche, alle Angebote sind geprägt von Leidenschaft,
-							Engagement und künstlerischer Vielfalt. Herzlich, inklusiv und
-							immer im Dialog – das Theaterdeck Hamburg macht Theater greifbar
-							und inspiriert Menschen jeden Alters.
+							Das
+							<b>Theaterdeck Hamburg</b>
+							ist ein lebendiger Treffpunkt für kreative Köpfe jeden Alters –
+							mitten im Kulturzentrum Zinnschmelze, nur wenige Schritte vom U-
+							und S-Bahnhof Barmbek entfernt. Seit seiner Wiedereröffnung im
+							Jahr 2015 ist das Theaterdeck ein fester Bestandteil der Hamburger
+							Kulturlandschaft. Mit einem vielseitigen Programm aus
+							Theaterstücken, Workshops und Kursen lädt es zu künstlerischem
+							Entdecken und gemeinsamen Erleben ein: Ob professionell
+							inszenierte Stücke oder Improvisationstheater für Jugendliche,
+							alle Angebote sind geprägt von Leidenschaft, Engagement und
+							künstlerischer Vielfalt.
+							<i>Herzlich, inklusiv und immer im Dialog</i>
+							– das Theaterdeck Hamburg macht Theater greifbar und inspiriert
+							Menschen jeden Alters.
 						</p>
 					</div>
 				</div>
@@ -109,71 +112,14 @@
 					class="mt-4 grid grid-cols-1 place-items-center gap-4 md:grid-cols-2"
 				>
 					<TheCard
-						:src="people[0].imageUrl"
-						:title="people[0].name"
-						:subtitle="people[0].role"
-						:details="people[0].description"
-					>
-						<template #details="{ title, details }">
-							<div class="border border-background p-4">
-								<h4 class="text-lg font-semibold">{{ title }}</h4>
-								<p class="mt-2 text-sm/6 text-gray-100/90">
-									{{ details }}
-								</p>
-							</div>
-						</template>
-					</TheCard>
-					<TheCard
-						:src="people[1].imageUrl"
-						:title="people[1].name"
-						:subtitle="people[1].role"
-						:details="people[1].description"
+						v-for="(person, idx) in people"
+						:key="idx"
+						:src="person.imageUrl"
+						:title="person.name"
+						:subtitle="person.role"
+						:details="person.description"
 					/>
 				</div>
-
-				<!-- <div class="flex flex-wrap">
-					<UCard class="basis-1/2">
-						<NuxtImg
-							:src="people[0].imageUrl"
-							:alt="people[0].name"
-							loading="lazy"
-							format="webp"
-							quality="80"
-						/>
-					</UCard>
-				</div>
-				<UCard
-					:ui="{
-						base: 'border border-primary-600',
-						background: 'bg-primary-600',
-						rounded: 'rounded-none',
-						shadow: 'shadow-md',
-						body: {
-							padding: 'p-0',
-						},
-					}"
-					class="group relative m-0 flex h-96 w-96 rounded-none p-0 shadow-md sm:mx-auto sm:max-w-lg"
-				>
-					<div
-						class="z-10 h-full w-full overflow-hidden rounded-none border border-gray-200 opacity-80 transition duration-300 ease-in-out group-hover:opacity-100 dark:border-gray-700 dark:opacity-70"
-					>
-						<img
-							src="https://images.unsplash.com/photo-1506187334569-7596f62cf93f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3149&q=80"
-							class="animate-fade-in block h-full w-full scale-100 transform object-cover object-center opacity-100 transition duration-300 group-hover:scale-110"
-							alt=""
-						/>
-					</div>
-					<div
-						class="absolute bottom-0 z-20 m-0 pb-4 ps-4 transition duration-300 ease-in-out group-hover:-translate-y-1 group-hover:translate-x-3 group-hover:scale-110"
-					>
-						<h1 class="font-serif text-2xl font-bold text-white shadow-xl">
-							Azores
-						</h1>
-						<h1 class="text-sm font-light text-gray-200 shadow-xl">
-							A Little Paradise in Portugal
-						</h1>
-					</div>
-				</UCard> -->
 			</section>
 		</main>
 		<TheNewsletter />

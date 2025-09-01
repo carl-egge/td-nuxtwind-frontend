@@ -7,34 +7,34 @@ export const people = [
 		role: 'Theaterleiter',
 		imageUrl: '/images/kursleiter/Niklas.jpg',
 		description:
-			'Niklas Heinecke ist der Theaterleiter und verantwortlich für die künstlerische Leitung.',
+			'„Ich sehe Theater als Ort der Gemeinschaft. Jede Stimme und jede Bewegung zählt und bereichert das Ganze.“',
 	},
 	{
 		name: 'Marietta Saggau',
 		role: 'Kindertheater',
 		imageUrl: '/images/kursleiter/Marietta.jpg',
 		description:
-			'Niklas Heinecke ist der Theaterleiter und verantwortlich für die künstlerische Leitung.',
+			'„Theater ist für mich ein Abenteuer, das immer wieder überrascht. Gemeinsam Neues zu entdecken, macht jede Probe einzigartig.“',
 	},
 	{
 		name: 'Leena Fahje',
 		role: 'Kursleiterin',
 		imageUrl: '/images/kursleiter/Leena.jpg',
 		description:
-			'Niklas Heinecke ist der Theaterleiter und verantwortlich für die künstlerische Leitung.',
+			'„Im Theater geht es nicht um Perfektion, sondern um Ehrlichkeit. Wenn wir uns trauen, authentisch zu sein, entsteht echte Magie.“',
 	},
 	{
 		name: 'Thorsten Grübling',
 		role: 'Kursleiter',
 		imageUrl: '/images/kursleiter/Thorsten.jpg',
 		description:
-			'Niklas Heinecke ist der Theaterleiter und verantwortlich für die künstlerische Leitung.',
+			'„Mir liegt am Herzen, dass jeder seinen eigenen Ausdruck findet. Theater gibt uns die Freiheit, Rollen zu wechseln und uns neu zu erfinden.“',
 	},
 	{
 		name: 'Enrico Guzy',
 		role: 'Improtheater',
 		imageUrl: '/images/kursleiter/Enrico.jpg',
 		description:
-			'Niklas Heinecke ist der Theaterleiter und verantwortlich für die künstlerische Leitung.',
+			'„In meinen Kursen soll niemand Angst vor Fehlern haben – sie sind der beste Stoff für lebendige Szenen. Theater lebt vom Mut, etwas zu riskieren.“',
 	},
 ];

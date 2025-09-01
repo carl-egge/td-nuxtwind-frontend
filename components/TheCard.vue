@@ -26,7 +26,7 @@
 
 			<!-- Title -->
 			<div
-				class="pointer-events-none absolute bottom-0 z-20 m-0 pb-4 ps-4 transition duration-300 ease-in-out motion-safe:group-hover:-translate-y-1 motion-safe:group-hover:translate-x-3 motion-safe:group-hover:scale-110 md:pb-8 md:ps-8"
+				class="pointer-events-none absolute bottom-0 z-20 m-0 pb-4 pe-20 ps-4 transition duration-300 ease-in-out motion-safe:group-hover:-translate-y-1 motion-safe:group-hover:translate-x-3 motion-safe:group-hover:scale-110 md:pb-8 md:ps-8"
 			>
 				<h1 class="leading-tight" lang="de">
 					{{ title }}

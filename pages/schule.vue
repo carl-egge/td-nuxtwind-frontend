@@ -23,14 +23,15 @@
 						class="border-primary-600/70 dark:border-primary-400/60 mt-8 rounded-none border-l-4 bg-white/60 p-6 shadow-sm backdrop-blur-sm"
 					>
 						<p>
-							Die Kursarbeit der Theater Jugend bildet die Grundlage des
-							Theaterdecks. Für Jugendliche im Alter von 9 bis 20 Jahren werden
-							regelmäßig Einsteigerkurse angeboten. Diese geben einen
-							umfassenden Einblick in die unterschiedlichsten Bereiche der
-							Schauspielkunst. Anschließend können die Jugendlichen ihre
-							Theaterlust im Rahmen verschiedener Aufbaukurse vertiefen. Die
-							Angebote behandeln Themenbereiche wie Improvisation, Monologe oder
-							„Körper und Sprache“. Diese Kurse werden ehrenamtlich von
+							Die Kursarbeit der
+							<b>Theater Jugend</b>
+							bildet die Grundlage des Theaterdecks. Für Jugendliche im Alter
+							von 9 bis 20 Jahren werden regelmäßig Einsteigerkurse angeboten.
+							Diese geben einen umfassenden Einblick in die unterschiedlichsten
+							Bereiche der Schauspielkunst. Anschließend können die Jugendlichen
+							ihre Theaterlust im Rahmen verschiedener Aufbaukurse vertiefen.
+							Die Angebote behandeln Themenbereiche wie Improvisation, Monologe
+							oder „Körper und Sprache“. Diese Kurse werden ehrenamtlich von
 							professionellen Schauspielern und Regisseuren geleitet.
 						</p>
 						<p>

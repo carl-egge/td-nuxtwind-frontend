@@ -28,8 +28,9 @@
 				>
 					<p>
 						Entdecke den perfekten Veranstaltungsort für deine Ideen im Herzen
-						von Barmbek! Unser großer Theatersaal im Theaterdeck Hamburg bietet
-						dir eine charmante Atmosphäre, eine einladende Bühne und eine
+						von Barmbek! Unser großer Theatersaal im
+						<b>Theaterdeck Hamburg</b>
+						bietet dir eine charmante Atmosphäre, eine einladende Bühne und eine
 						moderne technische Grundausstattung. Ganz gleich, ob du eine
 						Hochzeit, ein Konzert, eine Lesung, eine Firmenfeier oder ein
 						kreatives Projekt planst – hier findest du den passenden Rahmen.
@@ -41,9 +42,11 @@
 						gestaltet werden.
 					</p>
 					<p>
-						Mitten in den Räumen der Zinnschmelze gelegen, erreichst du das
-						Theaterdeck bequem mit öffentlichen Verkehrsmitteln. So wird deine
-						Veranstaltung nicht nur besonders, sondern auch unkompliziert.
+						Mitten in den Räumen der
+						<b>Zinnschmelze</b>
+						gelegen, erreichst du das Theaterdeck bequem mit öffentlichen
+						Verkehrsmitteln. So wird deine Veranstaltung nicht nur besonders,
+						sondern auch unkompliziert.
 					</p>
 					<p>
 						Miete jetzt deinen Saal im Theaterdeck und verwandle deine Ideen in
