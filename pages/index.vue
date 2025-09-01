@@ -93,7 +93,7 @@
 			title: event.name?.de || event.name?.en || 'Theaterdeck Hamburg',
 			slug: event.slug || '',
 			quote: event.meta_data?.zitat || '',
-			image: event.logo_image || '/images/welcome.webp',
+			image: event.og_image || event.logo_image || '/images/welcome.webp',
 			alt: event.name?.de || 'Theaterdeck Hamburg Veranstaltung',
 			gradientClass: 'bg-gradient-to-r from-neutral-950/50 to-neutral-950/20',
 			reverse: (sectionData.value.length + idx) % 2 === 1,

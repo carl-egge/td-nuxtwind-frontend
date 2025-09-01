@@ -4,7 +4,7 @@
 
 		<main class="mx-auto max-w-7xl px-6 lg:px-8">
 			<p class="text-primary-500 text-base font-semibold leading-7">
-				Für alle was dabei
+				Wo Geschichten auf die Bühne kommen
 			</p>
 			<div class="flex items-center justify-between">
 				<h3 aria-label="Unsere Veranstaltungen">Unsere Veranstaltungen.</h3>
@@ -17,23 +17,26 @@
 					@click="refresh"
 				/>
 			</div>
-			<UTabs
+			<p>
+				Willkommen im Spielplan des Theaterdeck Hamburg! Hier findest du alle
+				aktuellen Stücke und kommenden Termine – sichere dir jetzt deine Tickets
+				und komm vorbei.
+			</p>
+			<MyTabs
 				:items="[
 					{ label: 'Spielplan', slot: 'spielplan' },
 					{ label: 'Stücke', slot: 'stuecke' },
 				]"
-				:ui="{
-					base: 'rounded-none bg-background',
-				}"
-				class="my-4"
 			>
+				<!-- Spielplan content -->
 				<template #spielplan>
 					<!-- Month Filter -->
-					<div class="mb-4 flex flex-wrap gap-2">
+					<div class="my-6 flex flex-wrap gap-2">
 						<UButton
 							v-for="month in months"
 							:key="month.key"
 							size="sm"
+							color="gray"
 							variant="ghost"
 							class="text-base"
 							:class="{ underline: month.key === selectedMonth }"
@@ -121,16 +124,60 @@
 						</template>
 					</div>
 				</template>
-				<template #stuecke>Hier sind die Stuecke.</template>
-			</UTabs>
+				<!-- Stücke content -->
+				<template #stuecke>
+					<div v-if="liveEvents.length" class="bg-background text-text">
+						<div
+							v-for="(event, idx) in liveEvents"
+							:key="idx"
+							:class="[
+								'flex transform cursor-pointer items-start justify-between px-4 py-4 transition hover:scale-[1.015] active:scale-[0.985]',
+								idx === liveEvents.length - 1
+									? 'border-b-0'
+									: 'border-primary-600 border-b',
+							]"
+							@click="goToEvent(event.slug)"
+						>
+							<div v-if="event.og_image" class="h-24 w-24 shrink-0">
+								<img
+									:src="event.og_image"
+									:alt="event.name.de"
+									class="h-full w-full rounded-lg object-cover"
+								/>
+							</div>
+							<div class="flex-1 px-4">
+								<div class="text-lg font-semibold">{{ event.name.de }}</div>
+								<p class="mt-1 text-sm text-gray-500">
+									{{ truncateText(event.frontpage_text.de, 40) }}
+								</p>
+							</div>
+							<div class="text-primary-600 pt-2">
+								<UIcon name="i-heroicons-chevron-right" class="h-7 w-7" />
+							</div>
+						</div>
+					</div>
+					<div v-else class="mt-6 text-center text-sm text-theme-secondary">
+						<p>Keine aktuellen Stücke gefunden.</p>
+					</div>
+				</template>
+			</MyTabs>
 		</main>
 		<TheNewsletter />
 	</div>
 </template>
 
 <script setup lang="ts">
+	/**
+	 * PAGE: stuecke/index.vue
+	 *
+	 * This is the page for all events and upcoming dates.
+	 */
 	import heroimage from '../assets/images/spielplan02.webp';
 	import { useFormatDate } from '~/composables/useFormatDate';
+	import { ref, onMounted, watchEffect } from 'vue';
+
+	const eventsStore = useEventsStore();
+	const config = useRuntimeConfig();
 
 	const { weekday, justDate } = useFormatDate();
 	const time = (dateStr: string) =>
@@ -147,6 +194,14 @@
 			},
 		}
 	);
+
+	// Utility function to truncate text to a specific number of words
+	const truncateText = (text: string, wordLimit: number): string => {
+		return (
+			text.split(' ').slice(0, wordLimit).join(' ') +
+			(text.split(' ').length > wordLimit ? '...' : '')
+		);
+	};
 
 	const goToEvent = (slug: string, subeventid?: number) => {
 		// You can't pass props directly via navigateTo in Nuxt.
@@ -198,6 +253,23 @@
 	const paginated = computed(() =>
 		filtered.value.slice((page.value - 1) * pageSize, page.value * pageSize)
 	);
+
+	const liveEvents = ref<APIEvent[]>([]);
+
+	onMounted(async () => {
+		// Fetch events
+		if (config.public.useMockData) {
+			await eventsStore.fetchTestEvents();
+		} else {
+			await eventsStore.fetchEvents();
+		}
+
+		// Update liveEvents after fetching
+		watchEffect(() => {
+			// TODO: Should only fetch LiveUpcomingEvents
+			liveEvents.value = eventsStore.getAllEvents;
+		});
+	});
 </script>
 
 <style scoped></style>

@@ -157,8 +157,8 @@
 
 	const bgImage = computed(() => {
 		// event.value might be null on first render
-		return event?.value.logo_image
-			? `url(${event.value.logo_image})`
+		return event?.value.og_image
+			? `url(${event.value.og_image})`
 			: `url(${heroimage})`;
 	});
 
