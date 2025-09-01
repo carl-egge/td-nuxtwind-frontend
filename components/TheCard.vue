@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="relative h-[clamp(10rem,75vw,22rem)] w-[clamp(10rem,75vw,22rem)] overflow-hidden md:h-[clamp(16rem,42vw,28rem)] md:w-[clamp(16rem,42vw,28rem)]"
+		class="relative h-[clamp(12rem,85vw,22rem)] w-[clamp(12rem,85vw,22rem)] overflow-hidden md:h-[clamp(16rem,42vw,28rem)] md:w-[clamp(16rem,42vw,28rem)]"
 	>
 		<UCard
 			class="border-primary-600 group relative m-0 h-full w-full rounded-none border sm:mx-auto sm:max-w-md"
@@ -91,38 +91,46 @@
 					<div
 						class="flex items-center justify-between gap-2 px-4 py-3 md:px-6 md:py-4"
 					>
-						<div class="min-w-0">
-							<h3 class="text-background">
-								{{ title }}
-							</h3>
-							<p
-								v-if="subtitle"
-								class="truncate text-xs text-background md:text-sm"
+						<div class="flex w-full items-center gap-4">
+							<div
+								v-if="icon"
+								class="flex h-[60px] w-[60px] items-center justify-center rounded-none border border-background"
 							>
-								{{ subtitle }}
-							</p>
+								<Icon :name="icon" class="h-8 w-8" aria-hidden="true" />
+							</div>
+							<div class="min-w-0">
+								<h3 class="text-background">
+									{{ title }}
+								</h3>
+								<p
+									v-if="subtitle"
+									class="truncate text-xs text-background md:text-sm"
+								>
+									{{ subtitle }}
+								</p>
+							</div>
 						</div>
 
 						<div class="flex items-center gap-2">
 							<UButton
 								v-if="ctaLabel && ctaHref"
-								size="sm"
+								size="md"
 								color="white"
 								variant="ghost"
-								class="ring-1 ring-white/20 hover:bg-white/10"
+								class="ring-1 ring-background hover:bg-white/10"
 								:label="ctaLabel"
 								:to="ctaHref"
 							/>
 							<button
 								ref="closeBtnRef"
 								type="button"
-								class="inline-flex h-8 w-8 items-center justify-center rounded bg-white/10 text-white ring-1 ring-white/20 transition hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+								class="inline-flex h-10 w-10 items-center justify-center rounded-none text-background ring-1 ring-background/50 transition hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
 								:aria-label="`Details schließen`"
 								@click="closePanel"
 							>
 								<Icon
 									name="i-heroicons-x-mark-20-solid"
-									class="h-5 w-5"
+									class="h-6 w-6"
 									aria-hidden="true"
 								/>
 							</button>
@@ -159,6 +167,7 @@
 		src: string;
 		title: string;
 		subtitle?: string;
+		icon?: string;
 		details?: string;
 		alt?: string;
 		/** Optional: add a CTA button in the overlay header */
