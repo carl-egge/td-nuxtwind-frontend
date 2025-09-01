@@ -113,7 +113,16 @@
 						:title="people[0].name"
 						:subtitle="people[0].role"
 						:details="people[0].description"
-					/>
+					>
+						<template #details="{ title, details }">
+							<div class="border border-background p-4">
+								<h4 class="text-lg font-semibold">{{ title }}</h4>
+								<p class="mt-2 text-sm/6 text-gray-100/90">
+									{{ details }}
+								</p>
+							</div>
+						</template>
+					</TheCard>
 					<TheCard
 						:src="people[1].imageUrl"
 						:title="people[1].name"

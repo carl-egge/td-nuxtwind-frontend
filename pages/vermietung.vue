@@ -12,7 +12,42 @@
 				Navigationstraining || Vorsprechvorbereitung || Monologarbeit || Camera
 				Acting || Anlegemanöver || Sprechübungen || Bühnenpatent
 			</p>
-			<NuxtImg
+			<div
+				class="my-4 grid grid-cols-1 place-items-center gap-4 md:grid-cols-2"
+			>
+				<TheCard
+					:src="rooms[0].imageUrl"
+					:title="rooms[0].name"
+					:subtitle="rooms[0].role"
+					:details="rooms[0].description"
+				>
+					<template #details="{ title, details }">
+						<div class="border border-background p-4">
+							<h4 class="text-lg font-semibold">{{ title }}</h4>
+							<p class="mt-2 text-sm/6 text-gray-100/90">
+								{{ details }}
+							</p>
+						</div>
+					</template>
+				</TheCard>
+				<TheCard
+					:src="rooms[1].imageUrl"
+					:title="rooms[1].name"
+					:subtitle="rooms[1].role"
+					:details="rooms[1].description"
+				>
+					<template #details>
+						<div class="border border-background p-4">
+							<ul class="list-disc ps-5 text-sm/6 text-gray-200/90">
+								<li>40 Quadratmeter</li>
+								<li>Leinwand</li>
+								<li>Soundanlage</li>
+							</ul>
+						</div>
+					</template>
+				</TheCard>
+			</div>
+			<!-- <NuxtImg
 				src="/images/Zinnschmelze_HH-Barmbek_2015_Osten.webp"
 				alt="Unser Raum"
 				class="border-primary-500 my-4 max-h-[32rem] w-full rounded-none border bg-background object-cover shadow-lg"
@@ -21,7 +56,7 @@
 				format="webp"
 				quality="80"
 				loading="lazy"
-			/>
+			/> -->
 			<p class="my-10">
 				Entdecken Sie den perfekten Veranstaltungsort für Ihre Träume in
 				Barmbek! Unser vielfältiger Theatersaal bietet eine charmante
@@ -178,6 +213,20 @@
 	 */
 
 	import heroimage from '~/assets/images/chairs-bw.jpg';
+	const rooms = [
+		{
+			name: 'Deck I',
+			role: 'Großer Saal mit Bühne',
+			imageUrl: '/images/Zinnschmelze_HH-Barmbek_2015_Osten.webp',
+			description: 'Platz für große Events.',
+		},
+		{
+			name: 'Deck II',
+			role: 'Probenraum',
+			imageUrl: '/images/Zinnschmelze_HH-Barmbek_2015_Osten.webp',
+			description: 'Proben und vieles mehr.',
+		},
+	];
 </script>
 
 <style scoped></style>
