@@ -23,10 +23,10 @@
 		</div>
 		<!-- Text side -->
 		<div
-			class="flex h-[60vh] w-full items-start justify-center bg-theme-secondary p-10 pb-32 lg:h-full lg:w-1/2 lg:items-center lg:pb-20"
+			class="flex h-[60vh] w-full items-start justify-center bg-theme-secondary p-10 lg:h-full lg:w-1/2 lg:items-center"
 		>
 			<div class="float-animation w-full max-w-lg md:max-w-md lg:max-w-lg">
-				<span class="text-primary-600 text-sm tracking-wider">
+				<span class="text-primary-600 text-sm tracking-wider lg:text-base">
 					{{ index }} / {{ label }}
 				</span>
 				<div class="mt-4 w-full">
@@ -34,37 +34,39 @@
 						{{ title }}
 					</h1>
 				</div>
-				<p class="text-md text-primary-600 mt-6 leading-relaxed lg:text-lg">
+				<p class="text-md text-primary-600 mt-6 leading-relaxed lg:text-xl">
 					"{{ quote || 'Kommt vorbei!' }}"
 				</p>
-			</div>
-			<!-- CTA Button -->
-			<NuxtLink
-				:to="`/stuecke/${slug}`"
-				aria-label="Tickets"
-				class="group absolute bottom-[8vh] right-[8vw] inline-block h-32 w-32 -rotate-6 transition-transform duration-300 hover:rotate-0 hover:scale-105 md:h-40 md:w-40 lg:h-56 lg:w-56 xl:right-24 xl:h-72 xl:w-72"
-			>
-				<svg
-					viewBox="82 96 314 293"
-					xmlns="http://www.w3.org/2000/svg"
-					class="pointer-events-none h-full w-full drop-shadow-lg transition-transform duration-300 group-hover:scale-105"
-				>
-					<path
-						fill="#fac218"
-						class="pointer-events-auto"
-						d="M395.712,240 Q368.5593873417986,305.60819706018026 362.9980088455405,319.04602055443405 Q306.6236043716255,353.5373956448795 295.0770395998598,360.60189415738034 Q231.54048958776613,384.4612774860368 218.52697934432527,389.3481391316652 Q155.9583522768417,358.1656136442555 143.14309131121254,351.7788313155089 Q109.4718535422772,292.4941649471893 102.57533496309767,280.3515224380154 Q85.82579700063415,208.44988710065365 82.3951687432621,193.72304612794102 Q129.61592592324243,135.6634695746937 139.28764727335889,123.7717490758358 Q205.80172882881897,101.46686268394083 219.4250949305397,96.89839197716717 Q290.70952600611963,96.97538442874782 305.3099516481059,96.99115396702337 Q349.3054720253195,152.5774014614045 358.31660270498975,163.96253649037413 Q389.35478245984825,227.0736312033636 395.712,240 Z"
-					/>
-				</svg>
-				<div
-					class="group-hover:text-primary-400 pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-xl font-semibold uppercase text-background lg:text-4xl"
-				>
-					<span>Spielplan</span>
-					<span class="flex items-start">
-						<span class="text-2xl lg:text-6xl">&amp;</span>
-						Tickets
-					</span>
+				<!-- CTA Button -->
+				<div class="mt-4 flex w-full justify-end md:mt-10 lg:mt-20">
+					<NuxtLink
+						:to="`/stuecke/${slug}`"
+						aria-label="Tickets"
+						class="relative inline-block h-32 w-32 -rotate-6 self-end transition-transform duration-300 hover:rotate-0 hover:scale-105 md:h-40 md:w-40 lg:h-56 lg:w-56 xl:h-64 xl:w-64"
+					>
+						<svg
+							viewBox="82 96 314 293"
+							xmlns="http://www.w3.org/2000/svg"
+							class="pointer-events-none h-full w-full drop-shadow-lg transition-transform duration-300 group-hover:scale-105"
+						>
+							<path
+								fill="#fac218"
+								class="pointer-events-auto"
+								d="M395.712,240 Q368.5593873417986,305.60819706018026 362.9980088455405,319.04602055443405 Q306.6236043716255,353.5373956448795 295.0770395998598,360.60189415738034 Q231.54048958776613,384.4612774860368 218.52697934432527,389.3481391316652 Q155.9583522768417,358.1656136442555 143.14309131121254,351.7788313155089 Q109.4718535422772,292.4941649471893 102.57533496309767,280.3515224380154 Q85.82579700063415,208.44988710065365 82.3951687432621,193.72304612794102 Q129.61592592324243,135.6634695746937 139.28764727335889,123.7717490758358 Q205.80172882881897,101.46686268394083 219.4250949305397,96.89839197716717 Q290.70952600611963,96.97538442874782 305.3099516481059,96.99115396702337 Q349.3054720253195,152.5774014614045 358.31660270498975,163.96253649037413 Q389.35478245984825,227.0736312033636 395.712,240 Z"
+							/>
+						</svg>
+						<div
+							class="group-hover:text-primary-400 pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-xl font-semibold uppercase text-background lg:text-4xl"
+						>
+							<span>Spielplan</span>
+							<span class="flex items-start">
+								<span class="text-2xl lg:text-6xl">&amp;</span>
+								Tickets
+							</span>
+						</div>
+					</NuxtLink>
 				</div>
-			</NuxtLink>
+			</div>
 		</div>
 	</section>
 </template>

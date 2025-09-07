@@ -7,8 +7,8 @@ body {
 
 h1 {
 	font-family: 'InverseImpactLabel';
-	font-size: clamp(1.5rem, 4vw + 1.5rem, 3.5rem) !important;
-	color: #faf2f5;
+	font-size: clamp(1.5rem, 4vw + 1.5rem, 4.5rem) !important;
+	color: #fdf8fa;
 	background-color: #0b0507;
 	padding: 0.05em 0.1em; /* Simulate block */
 	line-height: 1.4;

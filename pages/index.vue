@@ -3,7 +3,7 @@
 		<!-- Logo: fixed top-left -->
 		<NuxtLink
 			to="/"
-			class="fixed left-5 top-5 z-50 h-12 w-12 transition-transform duration-300 hover:scale-110"
+			class="fixed left-5 top-5 z-50 h-[clamp(3.5rem,5vw,4.5rem)] w-[clamp(3.5rem,5vw,4.5rem)] transition-transform duration-300 hover:scale-110"
 		>
 			<TheLogo color="#f51663" />
 		</NuxtLink>
@@ -96,7 +96,7 @@
 			image: event.og_image || event.logo_image || '/images/welcome.webp',
 			alt: event.name?.de || 'Theaterdeck Hamburg Veranstaltung',
 			gradientClass: 'bg-gradient-to-r from-neutral-950/50 to-neutral-950/20',
-			reverse: (sectionData.value.length + idx) % 2 === 1,
+			reverse: sectionData.value.length % 2 === 1,
 		};
 	}
 

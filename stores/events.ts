@@ -29,7 +29,8 @@ export const useEventsStore = defineStore('events', {
 			state.events.filter(
 				(event) =>
 					// !event.testmode && // TODO: Exclude test mode events
-					event.live && new Date(event.date_from) >= new Date()
+					// && new Date(event.date_from) >= new Date() // TODO: date_from doesn't capture last date of event series
+					event.live
 			),
 	},
 

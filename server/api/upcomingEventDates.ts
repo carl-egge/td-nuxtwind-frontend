@@ -36,7 +36,7 @@ export default defineEventHandler(async (event) => {
 	try {
 		// 1. Fetch all events
 		// We can add &live=true to only get live events
-		let nextUrl = `${uri}/events/?ordering=date_from&date_after=${now}&fields=slug,name,date_from,has_subevents,meta_data`;
+		let nextUrl = `${uri}/events/?ordering=date_from&date_after=${now}&live=true&fields=slug,name,date_from,has_subevents,meta_data`;
 
 		while (nextUrl) {
 			const res = await fetch(nextUrl, { headers });
