@@ -12,7 +12,7 @@
 				class="scroll-mt-24"
 				aria-labelledby="ueber-uns-heading"
 			>
-				<div class="mx-auto px-4 py-8 sm:px-6 lg:px-8">
+				<div class="mx-auto py-8 md:px-4 lg:px-8">
 					<Icon
 						name="mingcute:lighthouse-line"
 						class="text-primary-600 h-7 w-7"
@@ -50,7 +50,7 @@
 				class="scroll-mt-24"
 				aria-labelledby="jugend-heading"
 			>
-				<div class="mx-auto px-4 py-8 sm:px-6 lg:px-8">
+				<div class="mx-auto py-8 md:px-4 lg:px-8">
 					<Icon
 						name="fluent:people-team-20-filled"
 						class="text-primary-600 h-7 w-7"
@@ -96,7 +96,7 @@
 			</div>
 
 			<!-- SECTION: OUR TEAM -->
-			<section id="theater-team" class="mx-auto px-4 py-8 sm:px-6 lg:px-8">
+			<section id="theater-team" class="mx-auto py-8 md:px-4 lg:px-8">
 				<p class="text-primary-500 text-base font-semibold leading-7">
 					Lerne die Landratten und Leichtmatrosen kennen
 				</p>

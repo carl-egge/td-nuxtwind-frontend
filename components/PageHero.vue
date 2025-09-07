@@ -8,7 +8,7 @@
 		/> -->
 		<div class="relative flex h-full items-end justify-center pb-16">
 			<div
-				class="max-w-screen-md break-words px-8 text-center uppercase lg:max-w-screen-xl"
+				class="max-w-screen-md break-words px-2 text-center uppercase md:px-8 lg:max-w-screen-xl"
 			>
 				<h1 class="hyphens-auto leading-tight" lang="de">
 					{{ props.title }}

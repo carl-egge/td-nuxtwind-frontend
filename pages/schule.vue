@@ -9,7 +9,7 @@
 				class="scroll-mt-24"
 				aria-labelledby="theaterschule-heading"
 			>
-				<div class="mx-auto px-4 py-8 sm:px-6 lg:px-8">
+				<div class="mx-auto py-8 md:px-4 lg:px-8">
 					<Icon
 						name="cbi:stage-spot-light"
 						class="text-primary-600 h-7 w-7 scale-125"
@@ -61,7 +61,7 @@
 			</div>
 
 			<!-- SECTION : COURSES -->
-			<UContainer id="theater-course-list" class="mb-10">
+			<UContainer id="theater-course-list" class="mb-10 px-0 md:px-4">
 				<p class="text-primary-500 text-base font-semibold leading-7">
 					Einblick und Überblick für Theaterbesessene
 				</p>
@@ -137,16 +137,19 @@
 					}"
 				>
 					<template #header>
-						<div class="flex items-center justify-between">
+						<div class="flex items-center justify-between gap-4">
 							<h3 class="text-xl">{{ post.title }}</h3>
-							<div class="flex gap-2">
-								<UBadge color="primary" :ui="{ rounded: 'rounded-none' }">
+							<div class="flex flex-col gap-2 md:flex-row">
+								<UBadge
+									color="primary"
+									:ui="{ base: 'whitespace-nowrap', rounded: 'rounded-none' }"
+								>
 									{{ post.day }}
 								</UBadge>
 								<UBadge
 									v-if="post.time"
 									color="primary"
-									:ui="{ rounded: 'rounded-none' }"
+									:ui="{ base: 'whitespace-nowrap', rounded: 'rounded-none' }"
 								>
 									{{ post.time }}
 								</UBadge>
@@ -172,17 +175,17 @@
 								</div>
 							</div>
 							<!-- Faktenliste -->
-							<ul v-if="post.facts" class="me-6 text-sm font-light">
+							<ul v-if="post.facts" class="text-sm font-light md:me-6">
 								<li>
-									<strong class="me-1 font-medium">Alter:</strong>
+									<strong class="font-medium md:me-1">Alter:</strong>
 									{{ post.facts.Alter }}
 								</li>
 								<li>
-									<strong class="me-1 font-medium">Format:</strong>
+									<strong class="font-medium md:me-1">Format:</strong>
 									{{ post.facts.Format }}
 								</li>
 								<li>
-									<strong class="me-1 font-medium">Quereinstieg:</strong>
+									<strong class="font-medium md:me-1">Quereinstieg:</strong>
 									{{ post.facts.Quereinstieg }}
 								</li>
 							</ul>
