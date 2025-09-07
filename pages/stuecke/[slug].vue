@@ -102,7 +102,7 @@
 
 				<div
 					v-if="event"
-					class="border-primary-500 mx-auto my-4 flex max-w-4xl justify-start gap-4 border bg-background p-1 shadow-sm md:p-2"
+					class="border-primary-500 mx-auto my-4 flex justify-start gap-4 border bg-background p-1 shadow-sm md:p-2"
 				>
 					<UButton size="xs" @click="refreshWidget('list')">
 						Termin-Liste

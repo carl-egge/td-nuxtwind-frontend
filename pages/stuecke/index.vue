@@ -55,7 +55,7 @@
 							v-for="(item, idx) in paginated"
 							:key="idx"
 							:class="[
-								'flex transform cursor-pointer items-start justify-between px-4 py-4 transition hover:scale-[1.015] active:scale-[0.985]',
+								'flex transform cursor-pointer items-center justify-between px-4 py-4 transition hover:scale-[1.015] active:scale-[0.985]',
 								idx === paginated.length - 1
 									? 'border-b-0'
 									: 'border-primary-600 border-b',
@@ -87,7 +87,7 @@
 									<span>{{ item.autor }}</span>
 								</div>
 							</div>
-							<div class="text-primary-600 pt-2">
+							<div class="text-primary-600 flex">
 								<UIcon name="i-heroicons-chevron-right" class="h-7 w-7" />
 							</div>
 						</div>
@@ -131,27 +131,42 @@
 							v-for="(event, idx) in liveEvents"
 							:key="idx"
 							:class="[
-								'flex transform cursor-pointer items-start justify-between px-4 py-4 transition hover:scale-[1.015] active:scale-[0.985]',
+								'flex transform cursor-pointer flex-col items-center justify-between px-4 py-4 transition hover:scale-[1.015] active:scale-[0.985] md:flex-row',
 								idx === liveEvents.length - 1
 									? 'border-b-0'
 									: 'border-primary-600 border-b',
 							]"
 							@click="goToEvent(event.slug)"
 						>
-							<div v-if="event.og_image" class="h-24 w-24 shrink-0">
+							<div
+								v-if="event.og_image"
+								class="mb-5 h-44 w-[80vw] shrink-0 md:mb-0 md:w-44"
+							>
 								<img
 									:src="event.og_image"
 									:alt="event.name.de"
-									class="h-full w-full rounded-lg object-cover"
+									class="border-primary-600 h-full w-full rounded-none border object-cover"
 								/>
 							</div>
-							<div class="flex-1 px-4">
-								<div class="text-lg font-semibold">{{ event.name.de }}</div>
-								<p class="mt-1 text-sm text-gray-500">
-									{{ truncateText(event.frontpage_text.de, 40) }}
+							<div class="w-[80vw] flex-1 md:w-auto md:px-4">
+								<div class="text-xl font-semibold">{{ event.name.de }}</div>
+								<p class="mt-1 text-text/70">
+									{{ truncateText(event.frontpage_text.de, 50) }}
 								</p>
 							</div>
-							<div class="text-primary-600 pt-2">
+							<div class="flex w-full justify-end md:hidden">
+								<UButton
+									icon="i-heroicons-chevron-right"
+									trailing
+									size="sm"
+									color="primary"
+									variant="solid"
+									@click="goToEvent(event.slug)"
+								>
+									Tickets
+								</UButton>
+							</div>
+							<div class="text-primary-600 flex hidden md:block">
 								<UIcon name="i-heroicons-chevron-right" class="h-7 w-7" />
 							</div>
 						</div>
@@ -267,7 +282,7 @@
 		// Update liveEvents after fetching
 		watchEffect(() => {
 			// TODO: Should only fetch LiveUpcomingEvents
-			liveEvents.value = eventsStore.getAllEvents;
+			liveEvents.value = eventsStore.getLiveUpcomingEvents;
 		});
 	});
 </script>
