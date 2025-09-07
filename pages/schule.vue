@@ -132,31 +132,60 @@
 						ring: 'ring-primary',
 						divide: 'divide-primary',
 						background: 'bg-background',
+						header: { padding: 'py-2' },
+						footer: { padding: 'py-2' },
 					}"
 				>
 					<template #header>
 						<div class="flex items-center justify-between">
 							<h3 class="text-xl">{{ post.title }}</h3>
-							<UBadge color="primary" :ui="{ rounded: 'rounded-none' }">
-								{{ post.category.title }}
-							</UBadge>
+							<div class="flex gap-2">
+								<UBadge color="primary" :ui="{ rounded: 'rounded-none' }">
+									{{ post.day }}
+								</UBadge>
+								<UBadge
+									v-if="post.time"
+									color="primary"
+									:ui="{ rounded: 'rounded-none' }"
+								>
+									{{ post.time }}
+								</UBadge>
+							</div>
 						</div>
 					</template>
-					<p>{{ post.description }}</p>
+					<!-- Beschreibung -->
+					<p class="my-0">{{ post.description }}</p>
 					<template #footer>
-						<div class="flex items-center gap-4">
-							<!-- <UAvatar
+						<div class="flex items-center justify-between">
+							<div class="flex items-center gap-2">
+								<!-- <UAvatar
 								size="xl"
 								:ui="{
 									rounded: 'rounded-none',
-								}"
-								:src="post.author.imageUrl"
-								:alt="post.author.name"
-							/> -->
-							<div>
-								<p class="font-semibold">{{ post.author.name }}</p>
-								<p class="text-sm">{{ post.author.role }}</p>
+									}"
+									:src="post.author.imageUrl"
+									:alt="post.author.name"
+									/> -->
+								<div>
+									<p class="mb-1 font-semibold">{{ post.teacher.name }}</p>
+									<p class="text-sm">{{ post.teacher.role }}</p>
+								</div>
 							</div>
+							<!-- Faktenliste -->
+							<ul v-if="post.facts" class="me-6 text-sm font-light">
+								<li>
+									<strong class="me-1 font-medium">Alter:</strong>
+									{{ post.facts.Alter }}
+								</li>
+								<li>
+									<strong class="me-1 font-medium">Format:</strong>
+									{{ post.facts.Format }}
+								</li>
+								<li>
+									<strong class="me-1 font-medium">Quereinstieg:</strong>
+									{{ post.facts.Quereinstieg }}
+								</li>
+							</ul>
 						</div>
 					</template>
 				</UCard>
