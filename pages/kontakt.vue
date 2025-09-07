@@ -59,6 +59,17 @@
 						/>
 					</UFormGroup>
 
+					<UFormGroup label="Kategorie" name="category">
+						<USelect
+							v-model="state.category"
+							:options="categories"
+							aria-label="Kategorie"
+							:ui="{ rounded: 'rounded-none' }"
+							:disabled="waiting"
+							placeholder="Kategorie..."
+						/>
+					</UFormGroup>
+
 					<UCheckbox
 						v-model="newsletter"
 						label="Gerne möchte ich in Zukunft den Theaterdeck-Newsletter empfangen und willige ein, dass meine E-Mail-Adresse zum Versand verwendet wird. Die Einwilligung kann ich jederzeit widerrufen."
@@ -136,6 +147,14 @@
 	import type { FormSubmitEvent } from '#ui/types';
 	import heroimage from '../assets/images/hero-letters-shadow.jpg';
 
+	// Define categories and their corresponding recipient email addresses
+	const categories = [
+		{ label: 'Vermietung', value: 'vermietung@tdlogblog.de' },
+		{ label: 'Kurse', value: 'kurse@tdlogblog.de' },
+		{ label: 'Tickets', value: 'tickets@tdlogblog.de' },
+		{ label: 'Allgemein', value: 'info@tdlogblog.de' },
+	];
+
 	// Define the Zod schema for form validation
 	const schema = z.object({
 		name: z.string().min(1, 'Name ist erforderlich'),
@@ -144,6 +163,7 @@
 		message: z
 			.string()
 			.min(10, 'Nachricht muss mindestens 10 Zeichen lang sein'),
+		category: z.string().min(1, 'Kategorie ist erforderlich'),
 	});
 
 	// Infer TypeScript type from schema and initialize form state
@@ -153,6 +173,7 @@
 		email: '',
 		phone: '',
 		message: '',
+		category: '',
 	};
 	const state = ref<Schema>({ ...initialFormData });
 
@@ -185,7 +206,7 @@
 		success.value = false;
 
 		try {
-			// Post form data and captcha token to your custom API endpoint
+			// Post form data and recipient email to the API
 			// eslint-disable-next-line @typescript-eslint/no-unused-vars
 			const { data, error: responseError } = await useFetch('/api/contact', {
 				method: 'POST',
@@ -195,6 +216,7 @@
 					email: state.value.email,
 					phone: state.value.phone,
 					message: state.value.message,
+					recipient: state.value.category,
 				},
 			});
 			// console.log('Form submission response:', data);

@@ -16,14 +16,14 @@ export default defineEventHandler(async (event) => {
 	try {
 		// Read the request body and extract necessary fields
 		const body = await readBody(event);
-		const { token, email, message } = body;
+		const { token, email, message, recipient } = body;
 		let { name, phone } = body;
 
 		// Check that required fields are provided; throw an error if they are missing
-		if (!email || !message) {
+		if (!email || !message || !recipient) {
 			throw createError({
 				statusCode: 422,
-				statusMessage: 'E-Mail und Nachricht sind erforderlich.',
+				statusMessage: 'E-Mail, Nachricht und Empfänger sind erforderlich.',
 			});
 		}
 
@@ -57,6 +57,7 @@ export default defineEventHandler(async (event) => {
 				JSON.stringify({
 					token: token,
 					from: email,
+					recipient: recipient,
 					name: name,
 					text: message,
 					phone: phone,
@@ -67,7 +68,7 @@ export default defineEventHandler(async (event) => {
 			);
 			// Log a success message indicating the email was sent
 			await logEmailActivity(
-				`Mock Data: Email sent successfully to ${config.public.contactFormRecipient} and ${email}`
+				`Mock Data: Email sent successfully to ${recipient} and ${email}`
 			);
 			return {
 				success: true,
@@ -109,6 +110,7 @@ export default defineEventHandler(async (event) => {
 				config.public.contactFormRecipient as string,
 				config.public.contactFormRecipientName as string
 			),
+			new Recipient(recipient, 'Kontaktformular'),
 			new Recipient(email, name),
 		];
 
