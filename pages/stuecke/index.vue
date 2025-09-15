@@ -24,8 +24,8 @@
 			</p>
 			<MyTabs
 				:items="[
-					{ label: 'Spielplan', slot: 'spielplan' },
 					{ label: 'Stücke', slot: 'stuecke' },
+					{ label: 'Spielplan', slot: 'spielplan' },
 				]"
 			>
 				<!-- Spielplan content -->

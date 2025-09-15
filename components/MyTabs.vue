@@ -19,10 +19,10 @@
 					:ref="(el) => setBtnRef(el as HTMLElement, i)"
 					:class="
 						i === active
-							? 'text-primary-600 border-primary-600'
-							: 'bg-transparent text-text'
+							? 'bg-primary-600 border-primary-600 text-background'
+							: 'text-primary-600 bg-transparent hover:text-theme-accent'
 					"
-					class="hover:text-primary-600 focus-visible:ring-primary-500 relative -mb-px w-full border-b-2 px-1 py-2 text-sm font-medium transition-colors focus:outline-none focus-visible:ring"
+					class="focus-visible:ring-primary-500 relative -mb-px w-full px-1 py-2 text-sm font-medium focus:outline-none focus-visible:ring"
 					role="tab"
 					:aria-selected="i === active"
 					:tabindex="i === active ? 0 : -1"
@@ -34,13 +34,13 @@
 			</nav>
 
 			<!-- Animated active underline -->
-			<span
+			<!-- <span
 				class="bg-primary-600 pointer-events-none absolute bottom-0 h-0.5 transition-all duration-300 ease-out"
 				:style="{
 					transform: `translateX(${indicator.left}px)`,
 					width: indicator.width + 'px',
 				}"
-			/>
+			/> -->
 		</div>
 
 		<!-- Panels -->
