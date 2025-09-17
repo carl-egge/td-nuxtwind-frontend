@@ -14,7 +14,7 @@
 			>
 				<div class="mx-auto py-8 md:px-4 lg:px-8">
 					<Icon
-						name="mingcute:lighthouse-line"
+						name="td-icon:mingcute-lighthouse-line"
 						class="text-primary-600 h-7 w-7"
 						aria-hidden="true"
 					/>
@@ -52,7 +52,7 @@
 			>
 				<div class="mx-auto py-8 md:px-4 lg:px-8">
 					<Icon
-						name="fluent:people-team-20-filled"
+						name="td-icon:mingcute-group-fill"
 						class="text-primary-600 h-7 w-7"
 						aria-hidden="true"
 					/>

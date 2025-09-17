@@ -11,7 +11,7 @@
 			>
 				<div class="mx-auto py-8 md:px-4 lg:px-8">
 					<Icon
-						name="cbi:stage-spot-light"
+						name="td-icon:cbi-stage-spot-light"
 						class="text-primary-600 h-7 w-7 scale-125"
 						aria-hidden="true"
 					/>

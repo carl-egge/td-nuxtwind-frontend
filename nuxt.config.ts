@@ -103,4 +103,13 @@ export default defineNuxtConfig({
 		'~/assets/css/tailwind.css',
 		'~/assets/css/fonts.css',
 	],
+	// ==============    CUSTOM ICONS    ==============
+	icon: {
+		customCollections: [
+			{
+				prefix: 'td-icon',
+				dir: './assets/icons',
+			},
+		],
+	},
 });

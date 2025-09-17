@@ -10,7 +10,7 @@
 				aria-labelledby="vermietung-ueberschrift"
 			>
 				<Icon
-					name="hugeicons:curtains"
+					name="td-icon:huge-icons-curtains"
 					class="text-primary-600 h-7 w-7"
 					aria-hidden="true"
 				/>
