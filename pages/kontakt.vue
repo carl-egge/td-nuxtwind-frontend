@@ -145,7 +145,7 @@
 	import { ref, computed } from 'vue';
 	import { z } from 'zod';
 	import type { FormSubmitEvent } from '#ui/types';
-	import heroimage from '../assets/images/hero-letters-shadow.jpg';
+	import heroimage from '../assets/images/sw/kontakt.jpg';
 
 	// Define categories and their corresponding recipient email addresses
 	const categories = [

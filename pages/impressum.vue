@@ -104,5 +104,5 @@
 	 *
 	 * Page for Imprint and Location Information.
 	 */
-	import heroimage from '../assets/images/hero-highkey-windschief.jpg';
+	import heroimage from '../assets/images/sw/impressum.jpg';
 </script>

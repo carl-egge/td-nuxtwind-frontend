@@ -229,7 +229,7 @@
 	 * Information about the Theater Jugend and Kurse.
 	 */
 
-	import heroimage from '../assets/images/hero-highkey-sr.jpg';
+	import heroimage from '../assets/images/sw/theaterschule.jpg';
 	import { kurse } from '~/server/data/kurse';
 </script>
 

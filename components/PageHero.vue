@@ -22,7 +22,7 @@
 	/**
 	 * PageHero with background image and title.
 	 */
-	import defaultBackground from '../assets/images/spielplan02.webp';
+	import defaultBackground from '../assets/images/sw/reihe-zoom.webp';
 
 	interface Props {
 		title?: string;

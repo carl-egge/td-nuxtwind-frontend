@@ -78,7 +78,7 @@
 	 *
 	 * Page for Datenschutzerklärung.
 	 */
-	import heroimage from '../assets/images/hero-highkey-petterson.jpg';
+	import heroimage from '../assets/images/sw/datenschutz.jpg';
 	import { generalRemarks } from '~/server/data/generalRemarks';
 	import { agb } from '~/server/data/agb';
 	import { dataAcquisition } from '~/server/data/dataAcquisition';

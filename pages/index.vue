@@ -75,7 +75,7 @@
 			slug: '',
 			quote:
 				'Wir spielen mit Liebe zum Detail und dem Ton, der ins Herz trifft.',
-			image: '/images/welcome.webp',
+			image: '/images/sw-welcome-sams.jpg',
 			alt: 'Theaterdeck Hamburg',
 			gradientClass: 'bg-gradient-to-r from-neutral-950/50 to-neutral-950/20',
 			reverse: false,
@@ -93,7 +93,10 @@
 			title: event.name?.de || event.name?.en || 'Theaterdeck Hamburg',
 			slug: event.slug || '',
 			quote: event.meta_data?.zitat || '',
-			image: event.og_image || event.logo_image || '/images/welcome.webp',
+			image:
+				event.og_image ||
+				event.logo_image ||
+				'/images/sw-welcome-novecento.webp',
 			alt: event.name?.de || 'Theaterdeck Hamburg Veranstaltung',
 			gradientClass: 'bg-gradient-to-r from-neutral-950/50 to-neutral-950/20',
 			reverse: sectionData.value.length % 2 === 1,

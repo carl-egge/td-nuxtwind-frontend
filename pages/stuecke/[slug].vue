@@ -153,7 +153,7 @@
 	import { ref, onMounted, computed } from 'vue';
 	import { useEventsStore } from '~/stores/events';
 	import MarkdownIt from 'markdown-it';
-	import heroimage from '../assets/images/hero-highkey-chairs.jpg';
+	import heroimage from '../assets/images/sw/stuehle.jpg';
 
 	const bgImage = computed(() => {
 		// event.value might be null on first render

@@ -237,7 +237,7 @@
 	 * Sie enthält einen Hero-Bereich, Detailinformationen zu den Räumlichkeiten und Kontaktmöglichkeiten.
 	 */
 
-	import heroimage from '~/assets/images/chairs-bw.jpg';
+	import heroimage from '~/assets/images/sw/vermietung.jpg';
 	const rooms = [
 		{
 			name: 'Deck I',

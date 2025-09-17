@@ -187,7 +187,7 @@
 	 *
 	 * This is the page for all events and upcoming dates.
 	 */
-	import heroimage from '../assets/images/spielplan02.webp';
+	import heroimage from '../assets/images/sw/spielplan.jpg';
 	import { useFormatDate } from '~/composables/useFormatDate';
 	import { ref, onMounted, watchEffect } from 'vue';
 

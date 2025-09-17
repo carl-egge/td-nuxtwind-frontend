@@ -133,7 +133,7 @@
 	 * Information about the Theater Jugend and Kurse.
 	 */
 
-	import heroimage from '../assets/images/hero-highkey-sr.jpg';
+	import heroimage from '../assets/images/sw/theaterdeck.jpg';
 	import { people } from '~/server/data/people';
 </script>
 

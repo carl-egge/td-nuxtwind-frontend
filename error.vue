@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-	import heroimage from '/assets/images/spielplan02.webp';
+	import heroimage from '/assets/images/sw/stuehle.jpg';
 	import type { NuxtError } from '#app';
 
 	const props = defineProps({
