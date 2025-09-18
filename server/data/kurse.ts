@@ -7,7 +7,7 @@ export const kurse = [
 		facts: {
 			Alter: '6-8 Jahre',
 			Format: 'Laufender Kurs',
-			Quereinstieg: 'ggf. möglich',
+			Status: 'Quereinstieg ggf. möglich',
 		},
 		day: 'mittwochs',
 		time: '16:20 bis 17:20 Uhr',
@@ -25,7 +25,7 @@ export const kurse = [
 		facts: {
 			Alter: '9-11 Jahre',
 			Format: 'Laufender Kurs',
-			Quereinstieg: 'ggf. möglich',
+			Status: 'Quereinstieg ggf. möglich',
 		},
 		day: 'mittwochs',
 		time: '17:30 bis 19:00 Uhr',
@@ -37,49 +37,49 @@ export const kurse = [
 	},
 	{
 		id: 3,
-		title: 'ENSEMBLE SPIELDECK III',
+		title: 'ENSEMBLE SPIELDECK III *',
 		description:
-			'Für Teens, die ihre Bühnenpräsenz ausbauen und eigene Szenen entwickeln wollen. Wir arbeiten wechselnd an Text, Bewegung und Ensemble-Spiel. Kreative Ideen der Jugendlichen fließen in die Proben ein und werden gemeinsam umgesetzt. So entsteht ein lebendiges Miteinander, das auf die Bühne getragen wird.',
+			'Für alle, die ihre Bühnenpräsenz ausbauen und eigene Szenen entwickeln wollen. Wir arbeiten wechselnd an Text, Bewegung und Ensemble-Spiel. Kreative Ideen der Jugendlichen fließen in die Proben ein und werden gemeinsam umgesetzt. So entsteht ein lebendiges Miteinander, das auf die Bühne getragen wird.',
 		facts: {
-			Alter: '13-15 Jahre',
+			Alter: '13-16 Jahre',
 			Format: 'Laufender Kurs',
-			Quereinstieg: 'möglich',
+			Status: 'Quereinstieg möglich',
 		},
 		day: 'donnerstags',
 		time: '16:45 bis 18:15 Uhr',
 		teacher: {
-			name: 'Niklas Heinecke',
+			name: 'Leena Fahje',
 			role: 'Kursleitung',
 			imageUrl: '/images/kursleiter/Niklas.jpg',
 		},
 	},
 	{
 		id: 4,
-		title: 'KURS und ENSEMBLE Spiel/StartDECK IV',
+		title: 'ENSEMBLE IV *',
 		description:
 			'Für junge Erwachsene, die Theater als kreativen Ausdrucksraum nutzen möchten. Kompakt und fokussiert: Grundlagen schärfen, Ideen ausprobieren, Szenen zeigen. Im Ensemble finden die Teilnehmenden Inspiration und lernen, ihre Stimme und Präsenz weiterzuentwickeln. Jede Stunde bietet die Möglichkeit, Neues auszuprobieren und eigene Stärken zu entdecken.',
 		facts: {
-			Alter: '15-18 Jahre',
+			Alter: 'ab 18 Jahre',
 			Format: 'Laufender Kurs',
-			Quereinstieg: 'möglich',
+			Status: 'Quereinstieg ggf. möglich',
 		},
 		day: 'mittwochs',
-		time: '18:30 bis 19:30 Uhr',
+		time: '18:00 bis 19:30 Uhr',
 		teacher: {
-			name: 'Niklas Leifert',
+			name: 'Niklas Heinecke',
 			role: 'Kursleitung',
 			imageUrl: '/images/kursleiter/Leifi.jpg',
 		},
 	},
 	{
 		id: 5,
-		title: 'ENSEMBLE SpielDECK V',
+		title: 'ENSEMBLE V',
 		description:
-			'Theatertraining für Erwachsene – offen, neugierig und gemeinschaftlich. Wir arbeiten an Ausdruck, Stimme und Präsenz in einem wertschätzenden Rahmen. Der Kurs bietet Raum, den Alltag loszulassen und sich spielerisch auszuprobieren. So entsteht eine lebendige Gruppe, die das Theaterspiel mit Freude weiterentwickelt.',
+			'Theatertraining für Erwachsene – offen, neugierig und gemeinschaftlich. In einem wertschätzenden Rahmen arbeiten wir an Ausdruck, Stimme und Präsenz. Der Kurs bietet dir Raum, den Alltag loszulassen, dich spielerisch auszuprobieren und gemeinsam an Produktionen zu arbeiten. So entsteht eine lebendige Gruppe, die das Theaterspiel mit Freude weiterentwickelt.',
 		facts: {
 			Alter: 'Erwachsene',
 			Format: 'Laufender Kurs',
-			Quereinstieg: 'möglich',
+			Status: 'Quereinstieg möglich',
 		},
 		day: 'donnerstags',
 		time: '19:00 bis 20:30 Uhr',
@@ -90,12 +90,35 @@ export const kurse = [
 		},
 	},
 	{
-		id: 4,
+		id: 6,
+		title: 'ENSEMBLE VI',
+		description:
+			'Theatertraining für Frauen – in unserer Frauengruppe arbeiten wir projektbezogen auf Inszenierungen hin. Du übst Stimme, Ausdruck und Präsenz und hast die Möglichkeit, den Alltag hinter dir zu lassen. In der Gruppe probierst du Neues aus, entwickelst deine Fähigkeiten weiter und arbeitest gemeinsam an Theaterprojekten.',
+		facts: {
+			Alter: 'Erwachsene (Frauen)',
+			Format: 'Laufender Kurs',
+			Status: 'Quereinstieg möglich',
+		},
+		day: 'mittwochs',
+		time: '19:30 bis 21:00 Uhr',
+		teacher: {
+			name: 'Robin la Baume',
+			role: 'Kursleitung',
+			imageUrl: '/images/kursleiter/Robin.jpg',
+		},
+	},
+	{
+		id: 7,
 		title: 'DECKSSPIELE DER MS FORTUNA | Offene Improgruppe',
 		description:
 			'Wir improvisieren uns in neue Welten - und lernen sponates Spiel und bewusste Gestaltung mit Bewegung, Stimme und Worten. Regelmässig verrühren wir vor Publikum all unsere wirren, lustigen und überraschenden Gedanken zu dramatischen Begegnungen, romantischen Duellen oder halsbrecherischen Heldentaten. Dieser Kurs ist offen für alle ab 16 Jahren und bietet die Möglichkeit, die wichtigsten Methoden, Grundhaltungen und Spiele des Improvisationstheaters kennenzulernen und auszuprobieren - ein Einstieg ist jeder Zeit möglich.',
+		facts: {
+			Alter: 'Erwachsene',
+			Format: 'Laufender Kurs',
+			Status: 'Quereinstieg möglich',
+		},
 		day: 'montags',
-		time: null,
+		time: '19:00 bis 20:30 Uhr',
 		teacher: {
 			name: 'Enrico Guzy',
 			role: 'Kursleitung',
@@ -104,15 +127,14 @@ export const kurse = [
 	},
 	{
 		id: 5,
-		title:
-			'Individuelles Gruppentraining für alle Altersklassen / Schauspieltraining für den Alltag',
+		title: 'Individuelles Training für alle Altersklassen',
 		description:
-			'Schauspiel im Alltag kann Spaß machen. Wir bieten Ihnen für Ihre Gruppe ein individuelles Schauspieltraining. Wie kann ich meine Körpersprache verbessern und sicher im Alltag auftreten? Wie verliere ich die Angst vor großen Gruppen zu sprechen? Oder was lernt man eigentlich beim Schauspiel? Diese und andere Fragen möchten wir Ihnen gerne in einem persönlichen Unterricht beantworten. Termine: Nach Absprache Kosten: Je nach Gruppengröße (ab 7 Teilnehmern) und Dauer des Kurses',
+			'Schauspieltraining für Gruppen und Firmen – praxisnah, individuell und wirkungsvoll. Unser Training eignet sich für Teams, Führungskräfte, Verkaufs- und Kundenkontaktgruppen, Moderatoren:innen sowie für alle, die ihre Persönlichkeit, Präsenz und Kommunikation weiterentwickeln möchten. Es kann ebenso in Bereichen wie Konfliktlösung, Change-Management, interkultureller Zusammenarbeit oder Teambuilding eingesetzt werden. Wir bieten maßgeschneiderte Trainings und Fortbildungen an, in denen ihr spielerisch an Themen wie Wahrnehmung, Körpersprache, Stimme, Rhetorik, Status, Teambildung und Konfliktlösung arbeitet. In den Übungen aus dem Schauspiel lernt ihr, sicher aufzutreten, Gruppen zu führen und souverän auf andere zu reagieren. Dabei geht es nicht nur um Theater – ihr entdeckt neue Möglichkeiten für Kommunikation, Zusammenarbeit und persönliche Präsenz.',
 		day: 'Auf Anfrage',
 		time: null,
 		teacher: {
-			name: 'Niklas Heinecke',
-			role: 'Regisseur',
+			name: 'Nach Bedarf',
+			role: 'Kursleitung',
 			imageUrl: '/images/kursleiter/Niklas.jpg',
 		},
 	},

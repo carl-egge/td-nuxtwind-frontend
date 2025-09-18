@@ -15,6 +15,9 @@
 						class="text-primary-600 h-7 w-7 scale-125"
 						aria-hidden="true"
 					/>
+					<p class="text-primary-500 text-base font-semibold leading-7">
+						Kurse mit Tiefgang – Theater erleben und gestalten
+					</p>
 					<h3 id="theaterschule-heading" class="tracking-tight">
 						Unsere Theaterschule.
 					</h3>
@@ -23,18 +26,17 @@
 						class="border-primary-600/70 dark:border-primary-400/60 mt-8 rounded-none border-l-4 bg-white/60 p-6 shadow-sm backdrop-blur-sm"
 					>
 						<p>
-							Die Kursarbeit der
-							<b>Theater Jugend</b>
-							bildet die Grundlage des Theaterdecks. Für Jugendliche im Alter
-							von 9 bis 20 Jahren werden regelmäßig Einsteigerkurse angeboten.
-							Diese geben einen umfassenden Einblick in die unterschiedlichsten
-							Bereiche der Schauspielkunst. Anschließend können die Jugendlichen
-							ihre Theaterlust im Rahmen verschiedener Aufbaukurse vertiefen.
-							Die Angebote behandeln Themenbereiche wie Improvisation, Monologe
-							oder „Körper und Sprache“. Diese Kurse werden ehrenamtlich von
-							professionellen Schauspielern und Regisseuren geleitet.
+							Die Theaterkurse im
+							<b>TheaterDeck</b>
+							sind das Fundament und das Herz des Hauses – hier beginnt alles!
+							Für junge Menschen zwischen 6 und 20 Jahren & Erwachsene bieten
+							wir regelmäßig spannende Einsteigerkurse an, die einen
+							vielseitigen Blick hinter die Kulissen der Schauspielkunst
+							eröffnen. Wer einmal Bühnenluft geschnuppert hat, kann in unseren
+							Aufbaukursen weiter durchstarten – mit Themen wie Improvisation,
+							Monologarbeit oder dem Zusammenspiel von Körper und Sprache.
 						</p>
-						<p>
+						<!-- <p>
 							Die zahlreichen Theaterproduktionen der Theater Jugend ermöglichen
 							den Jugendlichen die wichtige Erfahrung, das Gelernte auch vor
 							Publikum umzusetzen. Gleichzeitig können die Jugendlichen auch in
@@ -49,7 +51,7 @@
 							gemeinschaftliche künstlerische Entfaltung. Wir bieten auch
 							Jugendlichen mit Behinderung die Möglichkeit an unseren Kursen
 							teilzunehmen.
-						</p>
+						</p> -->
 					</div>
 				</div>
 			</section>
@@ -75,13 +77,11 @@
 						Terminen machen die Teilnehmer:innen erste Schritte auf der Bühne,
 						lernen jede Menge Tricks und können sich in kleinen Szenen
 						ausprobieren. Im Anschluss an die StartDECK Kurse folgen unmittelbar
-						die StartDECKpro Kurse, in denen wir Themen vertiefen, jede Menge
-						Improvisationen spielen und größere Szenen erarbeiten. Je nach
-						Situation können Kurse im Anschluss an das StartDECK-Programm zu
-						festen Ensembles, den SpielDECKs werden. Ensembles treffen sich
-						wöchentlich für 1,5 Stunden, um Techniken zu verfeinern, Themen zu
-						bearbeiten und in verschiedenen Produktionen auf die Bühne zu
-						springen.
+						die SpielDeck Ensembles, in denen wir Themen vertiefen, jede Menge
+						Improvisationen spielen und größere Szenen erarbeiten. Ensembles
+						treffen sich wöchentlich für 1,5 Stunden, um Techniken zu
+						verfeinern, Themen zu bearbeiten und in verschiedenen Produktionen
+						auf die Bühne zu springen.
 					</p>
 					<!-- CTA Button -->
 					<div class="flex w-full items-center justify-center gap-6 md:w-1/3">
@@ -185,8 +185,8 @@
 									{{ post.facts.Format }}
 								</li>
 								<li>
-									<strong class="font-medium md:me-1">Quereinstieg:</strong>
-									{{ post.facts.Quereinstieg }}
+									<strong class="font-medium md:me-1">Status:</strong>
+									{{ post.facts.Status }}
 								</li>
 							</ul>
 						</div>

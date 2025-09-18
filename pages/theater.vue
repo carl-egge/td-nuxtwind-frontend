@@ -26,19 +26,18 @@
 						<p>
 							Das
 							<b>Theaterdeck Hamburg</b>
-							ist ein lebendiger Treffpunkt für kreative Köpfe jeden Alters –
-							mitten im Kulturzentrum Zinnschmelze, nur wenige Schritte vom U-
-							und S-Bahnhof Barmbek entfernt. Seit seiner Wiedereröffnung im
-							Jahr 2015 ist das Theaterdeck ein fester Bestandteil der Hamburger
-							Kulturlandschaft. Mit einem vielseitigen Programm aus
-							Theaterstücken, Workshops und Kursen lädt es zu künstlerischem
-							Entdecken und gemeinsamen Erleben ein: Ob professionell
-							inszenierte Stücke oder Improvisationstheater für Jugendliche,
-							alle Angebote sind geprägt von Leidenschaft, Engagement und
-							künstlerischer Vielfalt.
-							<i>Herzlich, inklusiv und immer im Dialog</i>
-							– das Theaterdeck Hamburg macht Theater greifbar und inspiriert
-							Menschen jeden Alters.
+							ist ein lebendiger Ort für Kreativität und Begegnung – im Herzen
+							von Barmbek, in der historischen Zinnschmelze. Seit seiner
+							Wiedereröffnung 2015 bereichert es die Hamburger Kulturszene mit
+							Energie, Vielfalt und Offenheit. Auf dem Spielplan stehen
+							Theaterstücke, Workshops und Kurse, die Lust machen, Neues
+							auszuprobieren und gemeinsam Kunst zu erleben. Ob professionell
+							inszenierte Produktionen oder Improvisationstheater für
+							Jugendliche – hier trifft Leidenschaft auf Engagement, Spielfreude
+							auf künstlerische Vielfalt.
+							<i>Offen, inklusiv und immer im Austausch:</i>
+							Wir machen Theater mit liebe zum Detail und dem Ton der mitten ins
+							Herz trifft.
 						</p>
 					</div>
 				</div>
@@ -56,6 +55,9 @@
 						class="text-primary-600 h-7 w-7"
 						aria-hidden="true"
 					/>
+					<p class="text-primary-500 text-base font-semibold leading-7">
+						Bühne frei für junge Talente!
+					</p>
 					<h3 id="theater-jugend-heading" class="tracking-tight">
 						Theater Jugend Hamburg e.V.
 					</h3>
@@ -64,26 +66,25 @@
 						class="border-primary-600/70 mt-8 rounded-none border-l-4 bg-white/60 p-6 shadow-sm backdrop-blur-sm"
 					>
 						<p>
-							Die 1983 gegründete
-							<strong>Theater Jugend Hamburg e.V.</strong>
-							ist eine Theaterschule mit Vision und seit September 2012 fester
-							Bestandteil und Grundbaustein des Theaterdecks. Das Kursangebot
-							ist speziell auf Jugendliche, auch Jugendliche mit Behinderung,
-							zugeschnitten und bietet den Einstieg in die Theaterwelt. Neben
-							Jugendproduktion und altersübergreifenden Inszenierungen bietet
-							die Theater Jugend eine eigene Plattform für junge Regisseure –
-							das
-							<em>Spieldeck</em>
-							.
+							Seit 1983 bringt die
+							<b>Theater Jugend Hamburg e.V.</b>
+							frischen Wind in die Hamburger Theaterszene – mit Leidenschaft,
+							Vision und dem klaren Ziel, Theater für Kinder und Jugendliche
+							zugänglich und lebendig zu machen. Als
+							<i>anerkannter Träger der freien Jugendhilfe</i>
+							setzt der Verein konsequent auf
+							<i>kulturellen und ästhetischen Zugang,</i>
+							um jungen Menschen neue Perspektiven zu eröffnen und ihre kreative
+							Teilhabe zu fördern.
 						</p>
 						<p>
-							Wir machen Theater für Jugendliche greifbar und erfahrbar. In
-							Kursen lernen die Jugendlichen Grundlagen des Theaterspielens
-							kennen. Gleichzeitig wird ein Gespür dafür entwickelt, was es
-							heißt, sich eine Meinung zu bilden, mitzudenken und sich kritisch
-							zu positionieren. Denn nur ein Schauspieler mit einem kritischen
-							Selbstbewusstsein schafft es, eine glaubhafte Wirklichkeit auf der
-							Bühne zu erzeugen.
+							Seit 2012 ist die Theater Jugend Hamburg e.V. das Herzstück des
+							<b>TheaterDecks</b>
+							und bietet dort ein vielfältiges und inklusives Kursprogramm, das
+							sich gezielt an Jugendliche richtet. Das Projekt wird
+							<i>vom Amt für Familie gefördert</i>
+							und bildet eine verlässliche Grundlage für ein dauerhaft
+							vielfältiges Kinder- und Jugendangebot in Hamburg.
 						</p>
 					</div>
 				</div>
@@ -98,18 +99,21 @@
 			<!-- SECTION: OUR TEAM -->
 			<section id="theater-team" class="mx-auto py-8 md:px-4 lg:px-8">
 				<p class="text-primary-500 text-base font-semibold leading-7">
-					Lerne die Landratten und Leichtmatrosen kennen
+					Auf´s Deck mit unseren Kurs-Kapitän:innen
 				</p>
 				<h3 class="mb-6">Unsere Mannschaft.</h3>
 				<p>
 					Unser engagiertes Team besteht aus leidenschaftlichen
-					Theaterpädagogen, die mit Herzblut Theaterkurse leiten und die
-					kreativen Talente Ihrer Kinder fördern. Lernen Sie unser Team kennen
-					und entdecken Sie die inspirierende Welt des Theaters mit uns!
+					<!-- prettier-ignore -->
+					<b>Regisseur<em>innen</em>, <em>Schauspieler</em>innen und Theaterpädagog:innen,
+					</b>
+					die mit Herzblut Theaterkurse leiten und deine kreativen Talente
+					fördern. Lerne uns kennen und entdecke gemeinsam mit uns die
+					inspirierende Welt des Theaters!
 				</p>
 
 				<div
-					class="mt-4 grid grid-cols-1 place-items-center gap-4 md:grid-cols-2"
+					class="mt-8 grid grid-cols-1 place-items-center gap-4 md:grid-cols-2"
 				>
 					<TheCard
 						v-for="(person, idx) in people"

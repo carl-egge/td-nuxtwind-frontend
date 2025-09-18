@@ -1,6 +1,10 @@
 <template>
 	<div>
-		<PageHero title="Vermietung" :background-image="`url(${heroimage})`" />
+		<PageHero
+			title="Vermietung"
+			:background-image="`url(${heroimage})`"
+			:background-position="`center right`"
+		/>
 
 		<main class="mx-auto max-w-7xl px-6 lg:px-8">
 			<!-- SECTION : Vermietung -->
@@ -14,43 +18,22 @@
 					class="text-primary-600 h-7 w-7"
 					aria-hidden="true"
 				/>
-
-				<h3 id="unser-deck" class="tracking-tight">Unser Deck.</h3>
-
-				<p class="mt-6 max-w-none text-lg leading-8">
-					Hochzeiten || Geburtstage || Proben || Theaterproben ||
-					Navigationstraining || Vorsprechvorbereitung || Monologarbeit ||
-					Camera Acting || Anlegemanöver || Sprechübungen || Bühnenpatent
+				<p class="text-primary-500 text-base font-semibold leading-7">
+					Dein Event. Deine Bühne. Mitten in Barmbek.
 				</p>
-
+				<h3 id="unser-deck" class="tracking-tight">Unser Deck.</h3>
 				<div
 					class="border-primary-600/70 mt-8 rounded-none border-l-4 bg-white/60 p-6 shadow-sm backdrop-blur-sm"
 				>
 					<p>
-						Entdecke den perfekten Veranstaltungsort für deine Ideen im Herzen
-						von Barmbek! Unser großer Theatersaal im
-						<b>Theaterdeck Hamburg</b>
-						bietet dir eine charmante Atmosphäre, eine einladende Bühne und eine
-						moderne technische Grundausstattung. Ganz gleich, ob du eine
-						Hochzeit, ein Konzert, eine Lesung, eine Firmenfeier oder ein
-						kreatives Projekt planst – hier findest du den passenden Rahmen.
-					</p>
-					<p>
-						Neben dem Theatersaal steht dir auch ein kleinerer Saal für
-						Workshops, Proben oder private Feiern zur Verfügung. Beide Räume
-						lassen sich flexibel nutzen und können nach deinen Wünschen
-						gestaltet werden.
-					</p>
-					<p>
-						Mitten in den Räumen der
-						<b>Zinnschmelze</b>
-						gelegen, erreichst du das Theaterdeck bequem mit öffentlichen
-						Verkehrsmitteln. So wird deine Veranstaltung nicht nur besonders,
-						sondern auch unkompliziert.
-					</p>
-					<p>
-						Miete jetzt deinen Saal im Theaterdeck und verwandle deine Ideen in
-						unvergessliche Momente!
+						Du suchst einen besonderen Ort für Deinen großen Moment? Unser
+						Theatersaal im Herzen von Barmbek ist mehr als nur eine Location –
+						er ist ein Raum voller Atmosphäre, Kreativität und Möglichkeiten. Ob
+						Hochzeit, Seminar, Trauung, Theateraufführung, Firmenfeier oder
+						etwas ganz anderes: Bei uns trifft stilvolles Ambiente auf
+						professionelle Technik und persönliche Betreuung. Lust auf
+						unvergessliche Momente? Dann komm an DECK – und lasse Deine Vision
+						Wirklichkeit werden!
 					</p>
 				</div>
 			</section>
@@ -81,23 +64,21 @@
 							>
 								<li>
 									<i>Kapazität:</i>
-									bis zu 80 Personen
-								</li>
-								<li>
-									<i>Bühne:</i>
-									mind. 4 × 4 m
+									ideal für kleinere und größere Veranstaltungen zwischen 15 und
+									70 Personen (bei reinen Tanzveranstaltung auch mehr)
 								</li>
 								<li>
 									<i>Ausstattung:</i>
-									kleine mobile Tonanlage, Arbeitslicht
+									Tonanlage, Beamer, Leinwand, Licht, Flipchart etc.
 								</li>
 								<li>
-									<i>Verfügbarkeit:</i>
-									Mo–Do, 10–14 Uhr
+									<i>inkl. Bühne:</i>
+									mind. 4 × 4 m
 								</li>
 								<li>
-									<i>Geeignet für:</i>
-									Theateraufführungen, Konzerte, Firmenfeiern, Hochzeiten
+									<i>Raummiete:</i>
+									ab 510 €
+									<em>(Basistarif ohne Technik)</em>
 								</li>
 							</ul>
 						</div>
@@ -117,19 +98,18 @@
 							>
 								<li>
 									<i>Kapazität:</i>
-									bis zu 20 Personen
+									ideal für kleinere Zusammenkünfte, Feiern, Seminare und
+									Meetings
 								</li>
 								<li>
 									<i>Ausstattung:</i>
-									kleine mobile Tonanlage, Arbeitslicht
+									Tonanlage, Beamer, Leinwand, Licht, Flipchart etc.
 								</li>
+								<li>Auch als Erweiterung zu Deck I buchbar</li>
 								<li>
-									<i>Verfügbarkeit:</i>
-									Mo–Do, 10–14 Uhr
-								</li>
-								<li>
-									<i>Geeignet für:</i>
-									Workshops, Proben, Lesungen, kleine Feiern
+									<i>Raummiete:</i>
+									ab 260 €
+									<em>(Basistarif ohne Technik)</em>
 								</li>
 							</ul>
 						</div>
@@ -155,9 +135,7 @@
 				<h3 class="mb-6">Noch Fragen? Kein Problem.</h3>
 				<p>
 					Nutze die Chance, unsere Räume im Theaterdeck Hamburg für deine
-					Veranstaltung zu mieten – egal ob einmalig oder regelmäßig. Ob
-					Hochzeiten, Geburtstage, Konfirmationen, Trauungen, Firmenfeiern oder
-					kreative Projekte – bei uns findest du den passenden Rahmen.
+					Veranstaltung zu mieten – egal ob einmalig oder regelmäßig.
 				</p>
 				<p>
 					Für kulinarische Begleitung ist ebenfalls gesorgt: In Zusammenarbeit
@@ -241,13 +219,13 @@
 	const rooms = [
 		{
 			name: 'Deck I',
-			role: 'Großer Saal (100 m²)',
+			role: 'Großer Saal (ca. 100 m²)',
 			imageUrl: '/images/Zinnschmelze_HH-Barmbek_2015_Osten.webp',
 			description: 'Platz für große Events.',
 		},
 		{
 			name: 'Deck II',
-			role: 'Studiobühne (40 m²)',
+			role: 'Studiobühne (ca. 40 m²)',
 			imageUrl: '/images/Zinnschmelze_HH-Barmbek_2015_Osten.webp',
 			description: 'Proben und vieles mehr.',
 		},

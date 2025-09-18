@@ -27,11 +27,13 @@
 	interface Props {
 		title?: string;
 		backgroundImage?: string;
+		backgroundPosition?: string;
 	}
 
 	const props = withDefaults(defineProps<Props>(), {
 		title: 'TheaterDECK',
 		backgroundImage: defaultBackground,
+		backgroundPosition: 'center center',
 	});
 </script>
 
@@ -44,7 +46,7 @@
 		background: v-bind('props.backgroundImage');
 		background-repeat: no-repeat;
 		background-size: cover;
-		background-position: center center;
+		background-position: v-bind('props.backgroundPosition');
 		width: 100%;
 		height: 100%;
 	}

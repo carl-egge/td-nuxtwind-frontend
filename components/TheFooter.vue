@@ -97,20 +97,20 @@
 						<div class="flex-auto">
 							<ul class="mb-0 list-none md:text-left">
 								<li>
-									<strong>Montag</strong>
+									<strong>Dienstag</strong>
 									<Icon
 										name="material-symbols:arrow-right-rounded"
 										aria-hidden="true"
 									/>
-									10:00 bis 12:00 Uhr
+									13:00 bis 15:00 Uhr
 								</li>
 								<li class="lg:my-1">
-									<strong>Donnerstag</strong>
+									<strong>Mittwoch</strong>
 									<Icon
 										name="material-symbols:arrow-right-rounded"
 										aria-hidden="true"
 									/>
-									10:00 bis 12:00 Uhr
+									11:00 bis 13:00 Uhr
 								</li>
 								<li>Unser Anrufbeantworter wird täglich abgehört.</li>
 							</ul>
