@@ -56,10 +56,10 @@
 						>
 							Ahoi und Enter!
 						</UButton> -->
+						<!-- :loading="waiting" -->
 						<UButton
 							type="submit"
 							aria-label="Abonnieren"
-							:loading="waiting"
 							variant="link"
 							class="group inline-block h-32 w-32 -rotate-6 transition-transform duration-300 hover:rotate-0 hover:scale-105 md:h-40 md:w-40"
 						>
@@ -77,24 +77,28 @@
 							<div
 								class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-lg font-semibold uppercase text-background group-hover:text-theme-accent md:text-xl"
 							>
-								<span>Ahoi</span>
-								<span class="flex items-start">
-									<span class="text-2xl md:text-4xl">&amp;</span>
-									Enter
-								</span>
+								<template v-if="waiting">
+									<span>Lädt...</span>
+								</template>
+								<template v-else>
+									<span>Ahoi</span>
+									<span class="flex items-start">
+										<span class="text-2xl md:text-4xl">&amp;</span>
+										Enter
+									</span>
+								</template>
 							</div>
 						</UButton>
-
-						<!-- Accessible feedback -->
-						<div role="alert" aria-live="assertive">
-							<p v-if="errors" class="text-primary-400">
-								🔥 Es gab ein Problem: {{ errors }}
-								<br />
-								Bitte versuchen Sie es erneut.
-							</p>
-							<p v-if="success" class="text-primary">{{ successMessage }}</p>
-						</div>
 					</UForm>
+					<!-- Accessible feedback -->
+					<div role="alert" aria-live="assertive">
+						<p v-if="errors" class="text-primary-400">
+							🔥 Es gab ein Problem: {{ errors }}
+							<br />
+							Bitte versuchen Sie es erneut.
+						</p>
+						<p v-if="success">{{ successMessage }}</p>
+					</div>
 				</div>
 				<dl class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
 					<div class="flex flex-col items-start">

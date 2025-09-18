@@ -8,7 +8,7 @@
 	>
 		<!-- Image side -->
 		<div
-			class="shine-effect group relative h-1/2 w-full overflow-hidden lg:h-full lg:w-1/2"
+			class="shine-effect group relative h-[40%] w-full overflow-hidden sm:h-1/2 lg:h-full lg:w-1/2"
 		>
 			<NuxtImg
 				:src="image"
@@ -23,7 +23,7 @@
 		</div>
 		<!-- Text side -->
 		<div
-			class="flex h-[60vh] w-full items-start justify-center bg-theme-secondary p-10 lg:h-full lg:w-1/2 lg:items-center"
+			class="flex h-[60vh] w-full items-start justify-center bg-theme-secondary p-6 md:p-10 lg:h-full lg:w-1/2 lg:items-center"
 		>
 			<div class="float-animation w-full max-w-lg md:max-w-md lg:max-w-lg">
 				<span class="text-primary-600 text-sm tracking-wider lg:text-base">
@@ -34,11 +34,13 @@
 						{{ title }}
 					</h1>
 				</div>
-				<p class="text-md text-primary-600 mt-6 leading-relaxed lg:text-xl">
+				<p
+					class="text-md text-primary-600 max-w-mini-screens mt-6 leading-relaxed lg:text-xl"
+				>
 					"{{ quote || 'Kommt vorbei!' }}"
 				</p>
 				<!-- CTA Button -->
-				<div class="mt-4 flex w-full justify-end md:mt-10 lg:mt-20">
+				<div class="cta-button mt-4 flex w-full justify-end md:mt-10 lg:mt-20">
 					<NuxtLink
 						:to="`/stuecke/${slug}`"
 						aria-label="Tickets"
@@ -194,6 +196,17 @@
 			background-position: -100% center; /* ← start off-screen */
 
 			animation: mobile-shine 6s ease-in-out infinite;
+		}
+	}
+	@media (max-height: 750px) {
+		.cta-button {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+		}
+		.max-w-mini-screens {
+			max-width: 50%;
+			height: 15vh;
 		}
 	}
 </style>

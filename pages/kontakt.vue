@@ -18,6 +18,17 @@
 					role="form"
 					@submit="onSubmit"
 				>
+					<UFormGroup label="Anliegen" name="category">
+						<USelect
+							v-model="state.category"
+							:options="categories"
+							aria-label="Kategorie"
+							:ui="{ rounded: 'rounded-none' }"
+							:disabled="waiting"
+							placeholder="Bitte Auswählen"
+						/>
+					</UFormGroup>
+
 					<UFormGroup label="Name" name="name">
 						<UInput
 							v-model="state.name"
@@ -56,17 +67,6 @@
 							aria-label="Nachricht"
 							:ui="{ rounded: 'rounded-none' }"
 							:disabled="waiting"
-						/>
-					</UFormGroup>
-
-					<UFormGroup label="Kategorie" name="category">
-						<USelect
-							v-model="state.category"
-							:options="categories"
-							aria-label="Kategorie"
-							:ui="{ rounded: 'rounded-none' }"
-							:disabled="waiting"
-							placeholder="Kategorie..."
 						/>
 					</UFormGroup>
 
