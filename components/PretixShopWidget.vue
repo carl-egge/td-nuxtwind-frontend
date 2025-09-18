@@ -18,14 +18,14 @@
 			<div
 				class="pretix-widget-info-message rounded-lg bg-red-100 p-4 text-center text-red-700"
 			>
-				JavaScript is disabled in your browser. To access our ticket shop
-				without JavaScript, please
+				JavaScript ist in deinem Browser deaktiviert. Um auf unseren Ticketshop
+				ohne JavaScript zuzugreifen, klicke bitte
 				<a
 					:href="widgetEventUrl"
 					target="_blank"
 					class="text-red-800 underline hover:no-underline"
 				>
-					click here
+					hier
 				</a>
 				.
 			</div>

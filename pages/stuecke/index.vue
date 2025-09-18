@@ -18,8 +18,8 @@
 				/>
 			</div>
 			<p>
-				Willkommen im Spielplan des Theaterdeck Hamburg! Hier findest du alle
-				aktuellen Stücke und kommenden Termine – sichere dir jetzt deine Tickets
+				Willkommen im Spielplan des Theaterdeck Hamburg! Hier findest Du alle
+				aktuellen Stücke und kommenden Termine – sichere Dir jetzt Deine Tickets
 				und komm vorbei.
 			</p>
 			<MyTabs
@@ -117,7 +117,7 @@
 							<p class="font-medium text-red-500">
 								Fehler beim Laden der Veranstaltungen.
 							</p>
-							<p>Bitte versuchen Sie es später erneut.</p>
+							<p>Bitte versuche es später erneut.</p>
 						</template>
 						<template v-else-if="!pending">
 							<p>Keine anstehenden Veranstaltungen gefunden.</p>

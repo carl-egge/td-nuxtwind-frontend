@@ -122,10 +122,10 @@
 							<br />
 							{{ errors }}
 							<br />
-							Bitte versuchen Sie es erneut.
+							Bitte versuche es erneut.
 						</p>
 						<p v-if="success" class="text-primary">
-							📩 Ihre Nachricht wurde erfolgreich gesendet!
+							📩 Deine Nachricht wurde erfolgreich gesendet!
 						</p>
 					</div>
 				</UForm>

@@ -134,23 +134,23 @@
 				</p>
 				<h3 class="mb-6">Noch Fragen? Kein Problem.</h3>
 				<p>
-					Nutze die Chance, unsere Räume im Theaterdeck Hamburg für deine
+					Nutze die Chance, unsere Räume im Theaterdeck Hamburg für Deine
 					Veranstaltung zu mieten – egal ob einmalig oder regelmäßig.
 				</p>
 				<p>
 					Für kulinarische Begleitung ist ebenfalls gesorgt: In Zusammenarbeit
-					mit dem Lüttliv bieten wir dir die Möglichkeit, deine Feier mit
+					mit dem Lüttliv bieten wir Dir die Möglichkeit, Deine Feier mit
 					individuellem Catering abzurunden.
 				</p>
 				<p>
-					Am einfachsten meldest du dich direkt über unser
+					Am einfachsten meldest Du Dich direkt über unser
 					<NuxtLink
 						to="/kontakt"
 						class="hover:text-primary-500 font-normal text-text"
 					>
 						Kontaktformular
 					</NuxtLink>
-					– dort kannst du uns deine Wünsche und Ideen mitteilen. Bei weiteren
+					– dort kannst Du uns Deine Wünsche und Ideen mitteilen. Bei weiteren
 					Fragen sind wir natürlich auch telefonisch unter
 					<NuxtLink
 						href="tel:0406321322"
@@ -168,7 +168,7 @@
 					erreichbar.
 				</p>
 				<p>
-					Wir freuen uns darauf, gemeinsam mit dir unvergessliche
+					Wir freuen uns darauf, gemeinsam mit Dir unvergessliche
 					Veranstaltungen zu gestalten!
 				</p>
 				<div class="my-10 flex flex-wrap justify-center gap-x-8 gap-y-2">

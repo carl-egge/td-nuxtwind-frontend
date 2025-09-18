@@ -65,8 +65,8 @@
 				</p>
 				<p>
 					Das Theaterdeck Hamburg (in der Zinnschmelze) liegt nur ein paar
-					Gehminuten vom S- und U-Bahnhof Barmbek entfernt. Ihren persönlichen
-					Fahrplan können Sie gerne vom
+					Gehminuten vom S- und U-Bahnhof Barmbek entfernt. Deinen persönlichen
+					Fahrplan kannst Du gerne vom
 					<NuxtLink
 						to="https://www.hvv.de/linking-service/show/f7d9ab7c02a14cd7acb1968838be1e45"
 						target="_blank"
@@ -74,7 +74,7 @@
 					>
 						HVV
 					</NuxtLink>
-					erstellen lassen. Falls Sie mit dem Auto anreisen, finden Sie einige
+					erstellen lassen. Falls Du mit dem Auto anreist, findest Du einige
 					Parkplätze in der Nähe.
 					<NuxtLink
 						to="https://maps.google.com/maps?q=Theaterdeck&hl=de&sll=53.58586,10.04499&sspn=0.010012,0.033023&hq=Theaterdeck&t=m&z=16"
@@ -83,7 +83,7 @@
 					>
 						Google Maps
 					</NuxtLink>
-					erstellt Ihnen gerne Ihre eigene Route. Die Parkplatzsituation ist
+					erstellt Dir gerne Deine eigene Route. Die Parkplatzsituation ist
 					insgesamt aber eher schwierig.
 				</p>
 				<div class="h-96 w-full">

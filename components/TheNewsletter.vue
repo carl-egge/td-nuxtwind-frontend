@@ -11,7 +11,7 @@
 					<h3 class="text-3xl">Newsletter bestellen.</h3>
 					<p class="mt-6 leading-7">
 						Verpasse keines unserer kommenden Theaterstücke und bleibe immer
-						informiert! Melde dich für unseren Newsletter an.
+						informiert! Melde Dich für unseren Newsletter an.
 					</p>
 					<UForm
 						:schema="schema"
@@ -111,7 +111,7 @@
 						</div>
 						<dt class="mt-4 font-semibold uppercase">Regelmässige Updates</dt>
 						<dd class="mt-2 font-light leading-7">
-							Immer wenn etwas spannendes ansteht informieren wir dich.
+							Immer wenn etwas spannendes ansteht informieren wir Dich.
 						</dd>
 					</div>
 					<div class="flex flex-col items-start">
@@ -124,7 +124,7 @@
 						</div>
 						<dt class="mt-4 font-semibold uppercase">Kein spam</dt>
 						<dd class="mt-2 font-light leading-7">
-							Wir schicken dir maximal einmal im Monat einen Newsletter.
+							Wir schicken Dir maximal einmal im Monat einen Newsletter.
 						</dd>
 					</div>
 				</dl>

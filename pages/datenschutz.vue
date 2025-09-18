@@ -9,11 +9,11 @@
 				<h3>Allgemeine Hinweise.</h3>
 				<p>
 					Die folgenden Hinweise geben einen einfachen Überblick darüber, was
-					mit Ihren personenbezogenen Daten passiert, wenn Sie unsere Website
-					besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie
-					persönlich identifiziert werden können. Ausführliche Informationen zum
-					Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgeführten
-					Datenschutzerklärung.
+					mit Deinen personenbezogenen Daten passiert, wenn Du unsere Website
+					besuchen. Personenbezogene Daten sind alle Daten, mit denen Du
+					persönlich identifiziert werden kannst. Ausführliche Informationen zum
+					Thema Datenschutz kannst Du unserer unter diesem Text aufgeführten
+					Datenschutzerklärung entnehmen.
 				</p>
 			</section>
 			<hr class="mx-auto my-2 w-6" />

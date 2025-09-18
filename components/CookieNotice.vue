@@ -8,7 +8,7 @@
 			Wir verwenden nur technisch notwendige Cookies, um die Funktionalität
 			unserer Website zu gewährleisten - z. B. zur Abwicklung von
 			Ticketbuchungen, zur Spamabwehr (Cloudflare Turnstile) und zur Darstellung
-			von Karten (Leaflet). Weitere Informationen finden Sie in unserer
+			von Karten (Leaflet). Weitere Informationen findest Du in unserer
 			<NuxtLink
 				class="hover:text-primary-500 font-normal text-text"
 				to="/datenschutz"
