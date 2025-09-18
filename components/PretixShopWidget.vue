@@ -103,7 +103,7 @@
 				};
 			} else {
 				// Scenario 3: Event with list of subevents
-				const lt = props.seriesListType || 'calendar';
+				const lt = props.seriesListType || 'week';
 				attr = {
 					event: widgetEventUrl.value,
 					'list-type': lt,

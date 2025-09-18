@@ -96,13 +96,23 @@
 									</span>
 								</div>
 							</div>
+							<p
+								v-if="
+									event.items[1] &&
+									event.items[1].name.de === 'Ermäßigt' &&
+									event.items[1].description.de
+								"
+								class="italic text-text"
+							>
+								{{ event.items[1].description.de }}
+							</p>
 						</div>
 					</div>
 				</section>
 
 				<div
 					v-if="event"
-					class="border-primary-500 mx-auto my-4 flex justify-start gap-4 border bg-background p-1 shadow-sm md:p-2"
+					class="border-primary-500 mx-auto my-4 flex flex-wrap justify-start gap-4 border bg-background p-1 shadow-sm md:p-2"
 				>
 					<UButton size="xs" @click="refreshWidget('list')">
 						Termin-Liste

@@ -82,6 +82,7 @@ export default defineEventHandler(async () => {
 							id: item.id,
 							name: item.name,
 							default_price: item.default_price,
+							description: item.description,
 						});
 						return acc;
 					},
@@ -109,11 +110,13 @@ export default defineEventHandler(async () => {
 							id: null,
 							name: { de: 'Normalpreis' },
 							default_price: 17,
+							description: null,
 						},
 						{
 							id: null,
 							name: { de: 'Ermäßigt' },
 							default_price: 11,
+							description: { de: 'z.B. für Schüler, Studierende, Azubis' },
 						},
 					],
 				};
