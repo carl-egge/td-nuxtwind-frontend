@@ -56,6 +56,7 @@
 					:subtitle="rooms[0].role"
 					icon="game-icons:shooner-sailboat"
 					:details="rooms[0].description"
+					:close-on-outside-click="false"
 				>
 					<template #details>
 						<div class="border border-background p-4">
@@ -90,6 +91,7 @@
 					:subtitle="rooms[1].role"
 					icon="game-icons:sailboat"
 					:details="rooms[1].description"
+					:close-on-outside-click="false"
 				>
 					<template #details>
 						<div class="border border-background p-4">

@@ -198,7 +198,8 @@
 			animation: mobile-shine 6s ease-in-out infinite;
 		}
 	}
-	@media (max-height: 750px) {
+	/* TODO: Test This: orientation portrait */
+	@media (max-height: 750px) and (orientation: portrait) {
 		.cta-button {
 			position: absolute;
 			bottom: 0;

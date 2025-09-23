@@ -102,10 +102,7 @@
 								<h3 class="text-background">
 									{{ title }}
 								</h3>
-								<p
-									v-if="subtitle"
-									class="truncate text-xs text-background md:text-sm"
-								>
+								<p v-if="subtitle" class="truncate text-sm text-background">
 									{{ subtitle }}
 								</p>
 							</div>
@@ -161,7 +158,7 @@
 </template>
 
 <script setup lang="ts">
-	import { onMounted, ref, useId, watch } from 'vue';
+	import { onBeforeUnmount, ref, useId, watch, toRefs } from 'vue';
 
 	interface Props {
 		src: string;
@@ -175,74 +172,140 @@
 		ctaHref?: string;
 		/** Start open (useful for demos) */
 		defaultOpen?: boolean;
+		/** Close the overlay when clicking outside the card area */
+		closeOnOutsideClick?: boolean;
 	}
 
-	const props = defineProps<Props>();
+	const props = withDefaults(defineProps<Props>(), {
+		subtitle: 'Kursleiter',
+		icon: undefined,
+		details: 'Mehr Informationen folgen in Kürze…',
+		alt: 'Ein Segelboot auf dem Wasser',
+		ctaHref: undefined,
+		ctaLabel: undefined,
+		closeOnOutsideClick: true,
+	});
 	const open = ref(!!props.defaultOpen);
 	const panelId = useId();
 
-	const {
-		src,
-		title,
-		subtitle,
-		details = 'Mehr Informationen folgen in Kürze…',
-		alt,
-		ctaLabel,
-		ctaHref,
-	} = props;
+	// const {
+	// 	src,
+	// 	title,
+	// 	subtitle,
+	// 	details = 'Mehr Informationen folgen in Kürze…',
+	// 	alt,
+	// 	ctaLabel,
+	// 	ctaHref,
+	// 	// closeOnOutsideClick = true,
+	// } = props;
+
+	const { closeOnOutsideClick } = toRefs(props);
 
 	// focus mgmt for accessibility
 	const panelRef = ref<HTMLElement | null>(null);
-	const closeBtnRef = ref<HTMLButtonElement | null>(null);
+	// const closeBtnRef = ref<HTMLButtonElement | null>(null);
+
+	// function openPanel() {
+	// 	open.value = true;
+	// 	// focus close after paint
+	// 	requestAnimationFrame(() =>
+	// 		closeBtnRef.value?.focus({ preventScroll: true })
+	// 	);
+	// }
+	// function closePanel() {
+	// 	open.value = false;
+	// }
+
+	// function handleKeydown(e: KeyboardEvent) {
+	// 	if (!open.value) return;
+	// 	// trap TAB within panel
+	// 	if (e.key === 'Tab' && panelRef.value) {
+	// 		const focusables = panelRef.value.querySelectorAll<HTMLElement>(
+	// 			'a[href],button:not([disabled]),textarea,input,select,[tabindex]:not([tabindex="-1"])'
+	// 		);
+	// 		const list = Array.from(focusables).filter(
+	// 			(el) => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden')
+	// 		);
+	// 		if (list.length === 0) return;
+	// 		const first = list[0];
+	// 		const last = list[list.length - 1];
+	// 		if (e.shiftKey && document.activeElement === first) {
+	// 			e.preventDefault();
+	// 			last.focus();
+	// 		} else if (!e.shiftKey && document.activeElement === last) {
+	// 			e.preventDefault();
+	// 			first.focus();
+	// 		}
+	// 	}
+	// }
 
 	function openPanel() {
 		open.value = true;
-		// focus close after paint
-		requestAnimationFrame(() =>
-			closeBtnRef.value?.focus({ preventScroll: true })
-		);
 	}
 	function closePanel() {
 		open.value = false;
 	}
 
 	function handleKeydown(e: KeyboardEvent) {
+		if (e.key === 'Escape' && open.value) closePanel();
+	}
+
+	function handleOutsideClick(e: MouseEvent) {
 		if (!open.value) return;
-		// trap TAB within panel
-		if (e.key === 'Tab' && panelRef.value) {
-			const focusables = panelRef.value.querySelectorAll<HTMLElement>(
-				'a[href],button:not([disabled]),textarea,input,select,[tabindex]:not([tabindex="-1"])'
-			);
-			const list = Array.from(focusables).filter(
-				(el) => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden')
-			);
-			if (list.length === 0) return;
-			const first = list[0];
-			const last = list[list.length - 1];
-			if (e.shiftKey && document.activeElement === first) {
-				e.preventDefault();
-				last.focus();
-			} else if (!e.shiftKey && document.activeElement === last) {
-				e.preventDefault();
-				first.focus();
-			}
+		if (!closeOnOutsideClick.value) return;
+
+		const panel = panelRef.value;
+		if (panel && !panel.contains(e.target as Node)) {
+			closePanel();
 		}
 	}
 
+	// Use a constant for options so add/remove match exactly
+	const listenerOpts: AddEventListenerOptions = { capture: true };
+
+	function addListeners() {
+		if (typeof window === 'undefined') return; // SSR guard
+		document.addEventListener('keydown', handleKeydown, listenerOpts);
+		document.addEventListener('click', handleOutsideClick, listenerOpts);
+	}
+	function removeListeners() {
+		if (typeof window === 'undefined') return;
+		document.removeEventListener('keydown', handleKeydown, listenerOpts);
+		document.removeEventListener('click', handleOutsideClick, listenerOpts);
+	}
+
+	// Only create the watcher after mount (DOM definitely ready)
 	onMounted(() => {
-		document.addEventListener('keydown', handleKeydown);
+		const stop = watch(
+			[open, closeOnOutsideClick],
+			([isOpen, canClose]) => {
+				removeListeners();
+				if (isOpen && canClose) addListeners();
+			},
+			{ immediate: true }
+		);
+
+		onBeforeUnmount(() => {
+			stop();
+			removeListeners();
+		});
 	});
 
-	watch(open, (v) => {
-		if (!v) {
-			// return focus to the open button for context
-			// (best-effort: pick the last open button in DOM)
-			const opener = document.querySelector<HTMLButtonElement>(
-				`[aria-controls="${panelId}"]`
-			);
-			opener?.focus?.({ preventScroll: true });
-		}
-	});
+	// onMounted(() => {
+	// 	document.addEventListener('keydown', handleKeydown);
+	// 	document.addEventListener('click', handleOutsideClick);
+	// });
+
+	// watch(open, (v) => {
+	// 	if (!v) {
+	// 		// return focus to the open button for context
+	// 		// (best-effort: pick the last open button in DOM)
+	// 		const opener = document.querySelector<HTMLButtonElement>(
+	// 			`[aria-controls="${panelId}"]`
+	// 		);
+	// 		opener?.focus?.({ preventScroll: true });
+	// 	}
+	// });
 </script>
 
 <style scoped>

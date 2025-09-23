@@ -24,20 +24,18 @@
 						class="border-primary-600/70 mt-8 rounded-none border-l-4 bg-white/60 p-6 shadow-sm backdrop-blur-sm"
 					>
 						<p>
-							Das
-							<b>Theaterdeck Hamburg</b>
-							ist ein lebendiger Ort für Kreativität und Begegnung – im Herzen
-							von Barmbek, in der historischen Zinnschmelze. Seit seiner
-							Wiedereröffnung 2015 bereichert es die Hamburger Kulturszene mit
-							Energie, Vielfalt und Offenheit. Auf dem Spielplan stehen
-							Theaterstücke, Workshops und Kurse, die Lust machen, Neues
-							auszuprobieren und gemeinsam Kunst zu erleben. Ob professionell
-							inszenierte Produktionen oder Improvisationstheater für
-							Jugendliche – hier trifft Leidenschaft auf Engagement, Spielfreude
-							auf künstlerische Vielfalt.
+							Das Theaterdeck Hamburg ist ein lebendiger Ort für Kreativität und
+							Begegnung – im Herzen von Barmbek, in der historischen
+							Zinnschmelze. Seit seiner Wiedereröffnung 2015 bereichert es die
+							Hamburger Kulturszene mit Energie, Vielfalt und Offenheit. Auf dem
+							Spielplan stehen Theaterstücke, Workshops und Kurse, die Lust
+							machen, Neues auszuprobieren und gemeinsam Kunst zu erleben. Ob
+							professionell inszenierte Produktionen oder Improvisationstheater
+							für Jugendliche – hier trifft Leidenschaft auf Engagement,
+							Spielfreude auf künstlerische Vielfalt.
 							<i>Offen, inklusiv und immer im Austausch:</i>
-							Wir machen Theater mit liebe zum Detail und dem Ton der mitten ins
-							Herz trifft.
+							Wir machen Theater mit Liebe zum Detail und dem Ton, der mitten
+							ins Herz trifft.
 						</p>
 					</div>
 				</div>
@@ -66,11 +64,10 @@
 						class="border-primary-600/70 mt-8 rounded-none border-l-4 bg-white/60 p-6 shadow-sm backdrop-blur-sm"
 					>
 						<p>
-							Seit 1983 bringt die
-							<b>Theater Jugend Hamburg e.V.</b>
-							frischen Wind in die Hamburger Theaterszene – mit Leidenschaft,
-							Vision und dem klaren Ziel, Theater für Kinder und Jugendliche
-							zugänglich und lebendig zu machen. Als
+							Seit 1983 bringt die Theater Jugend Hamburg e.V. frischen Wind in
+							die Hamburger Theaterszene – mit Leidenschaft, Vision und dem
+							klaren Ziel, Theater für Kinder und Jugendliche zugänglich und
+							lebendig zu machen. Als
 							<i>anerkannter Träger der freien Jugendhilfe</i>
 							setzt der Verein konsequent auf
 							<i>kulturellen und ästhetischen Zugang,</i>
@@ -79,9 +76,9 @@
 						</p>
 						<p>
 							Seit 2012 ist die Theater Jugend Hamburg e.V. das Herzstück des
-							<b>TheaterDecks</b>
-							und bietet dort ein vielfältiges und inklusives Kursprogramm, das
-							sich gezielt an Jugendliche richtet. Das Projekt wird
+							TheaterDecks und bietet dort ein vielfältiges und inklusives
+							Kursprogramm, das sich gezielt an Jugendliche richtet. Das Projekt
+							wird
 							<i>vom Amt für Familie gefördert</i>
 							und bildet eine verlässliche Grundlage für ein dauerhaft
 							vielfältiges Kinder- und Jugendangebot in Hamburg.
@@ -105,9 +102,8 @@
 				<p>
 					Unser engagiertes Team besteht aus leidenschaftlichen
 					<!-- prettier-ignore -->
-					<b>Regisseur<em>innen</em>, <em>Schauspieler</em>innen und Theaterpädagog:innen,
-					</b>
-					die mit Herzblut Theaterkurse leiten und deine kreativen Talente
+					<span>Regisseur<em>innen</em>, <em>Schauspieler</em>innen und Theaterpädagog:innen</span>
+					, die mit Herzblut Theaterkurse leiten und deine kreativen Talente
 					fördern. Lerne uns kennen und entdecke gemeinsam mit uns die
 					inspirierende Welt des Theaters!
 				</p>
