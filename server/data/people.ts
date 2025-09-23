@@ -24,16 +24,23 @@ export const people = [
 			'„Im Theater geht es nicht um Perfektion, sondern um Ehrlichkeit. Wenn wir uns trauen, authentisch zu sein, entsteht echte Magie.“',
 	},
 	{
+		name: 'Robin La Baume',
+		role: 'Kursleiterin',
+		imageUrl: '/images/kursleiter/Robin.jpg',
+		description:
+			'„Mir macht es am meisten Spaß, die Erfahrung von verschiedenen Menschen zu sammeln, also verschiedene Menschen sein zu dürfen, sich in ihre Lage hineinversetzen zu können. Besonders die extremen Sachen machen Spaß. Man ist im Ensemble wie in einer Familie, man ist gemeinsam stark.“',
+	},
+	{
 		name: 'Thorsten Grübling',
 		role: 'Kursleiter',
 		imageUrl: '/images/kursleiter/Thorsten.jpg',
 		description:
-			'„Mir liegt am Herzen, dass jeder seinen eigenen Ausdruck findet. Theater gibt uns die Freiheit, Rollen zu wechseln und uns neu zu erfinden.“',
+			"„Ärmel hoch, tief Luft holen, verschmitzt lächeln - und los geht's: neue Welten erfinden und sich selbst mal anders kennenlernen.“",
 	},
 	{
 		name: 'Enrico Guzy',
 		role: 'Improtheater',
-		imageUrl: '/images/kursleiter/Enrico.jpg',
+		imageUrl: '/images/kursleiter/Enrico.jpeg',
 		description:
 			'„In meinen Kursen soll niemand Angst vor Fehlern haben – sie sind der beste Stoff für lebendige Szenen. Theater lebt vom Mut, etwas zu riskieren.“',
 	},
