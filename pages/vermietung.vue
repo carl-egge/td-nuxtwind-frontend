@@ -222,13 +222,13 @@
 		{
 			name: 'Deck I',
 			role: 'Großer Saal (ca. 100 m²)',
-			imageUrl: '/images/Zinnschmelze_HH-Barmbek_2015_Osten.webp',
+			imageUrl: '/images/Deck1.jpg',
 			description: 'Platz für große Events.',
 		},
 		{
 			name: 'Deck II',
 			role: 'Studiobühne (ca. 40 m²)',
-			imageUrl: '/images/Zinnschmelze_HH-Barmbek_2015_Osten.webp',
+			imageUrl: '/images/Deck2.jpg',
 			description: 'Proben und vieles mehr.',
 		},
 	];

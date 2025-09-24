@@ -4,35 +4,35 @@
 export const people = [
 	{
 		name: 'Niklas Heinecke',
-		role: 'Theaterleiter',
+		role: 'Intendanz / Kursleitung',
 		imageUrl: '/images/kursleiter/Niklas.jpg',
 		description:
 			'„Ich sehe Theater als Ort der Gemeinschaft. Jede Stimme und jede Bewegung zählt und bereichert das Ganze.“',
 	},
 	{
 		name: 'Marietta Saggau',
-		role: 'Kindertheater',
+		role: 'Kursleitung / Kindertheater',
 		imageUrl: '/images/kursleiter/Marietta.jpg',
 		description:
 			'„Theater ist für mich ein Abenteuer, das immer wieder überrascht. Gemeinsam Neues zu entdecken, macht jede Probe einzigartig.“',
 	},
 	{
 		name: 'Leena Fahje',
-		role: 'Kursleiterin',
+		role: 'Kursleitung',
 		imageUrl: '/images/kursleiter/Leena.jpg',
 		description:
 			'„Im Theater geht es nicht um Perfektion, sondern um Ehrlichkeit. Wenn wir uns trauen, authentisch zu sein, entsteht echte Magie.“',
 	},
 	{
 		name: 'Robin La Baume',
-		role: 'Kursleiterin',
+		role: 'Kursleitung',
 		imageUrl: '/images/kursleiter/Robin.jpg',
 		description:
 			'„Mir macht es am meisten Spaß, die Erfahrung von verschiedenen Menschen zu sammeln, also verschiedene Menschen sein zu dürfen, sich in ihre Lage hineinversetzen zu können. Besonders die extremen Sachen machen Spaß. Man ist im Ensemble wie in einer Familie, man ist gemeinsam stark.“',
 	},
 	{
 		name: 'Thorsten Grübling',
-		role: 'Kursleiter',
+		role: 'Kursleitung / Erwachsene',
 		imageUrl: '/images/kursleiter/Thorsten.jpg',
 		description:
 			"„Ärmel hoch, tief Luft holen, verschmitzt lächeln - und los geht's: neue Welten erfinden und sich selbst mal anders kennenlernen.“",
