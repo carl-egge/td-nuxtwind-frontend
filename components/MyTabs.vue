@@ -6,7 +6,7 @@
 		>
 			<nav
 				ref="navRef"
-				class="divide-primary flex divide-x px-0"
+				class="divide-primary flex divide-x overflow-y-hidden px-0"
 				role="tablist"
 				aria-label="Tabs"
 				@keydown="onKeydown"

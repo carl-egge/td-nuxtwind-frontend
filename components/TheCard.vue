@@ -26,7 +26,7 @@
 
 			<!-- Title -->
 			<div
-				class="pointer-events-none absolute bottom-0 z-20 m-0 pb-4 pe-20 ps-4 transition duration-300 ease-in-out motion-safe:group-hover:-translate-y-1 motion-safe:group-hover:translate-x-3 motion-safe:group-hover:scale-110 md:pb-8 md:ps-8"
+				class="pointer-events-none absolute bottom-0 z-20 m-0 pb-4 pe-20 ps-4 transition duration-300 ease-in-out motion-safe:group-hover:-translate-y-1 motion-safe:group-hover:translate-x-3 motion-safe:group-hover:scale-110 md:pb-6 md:ps-6"
 			>
 				<h1 class="leading-tight" lang="de">
 					{{ title }}
@@ -310,7 +310,7 @@
 
 <style scoped>
 	h1 {
-		font-size: clamp(1.5rem, 2vw + 1.5rem, 3.5rem) !important;
+		font-size: clamp(2rem, 2vw + 1rem, 2.8rem) !important;
 		line-height: 1 !important;
 	}
 

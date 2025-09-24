@@ -112,7 +112,8 @@ Nehmen Sie diese Möglichkeit wahr, werden die in der Eingabemaske angegebenen D
 2. Name,
 3. Telefonnummer,
 4. E-Mail-Adresse,
-5. ggf. Ihre personenbezogenen Angaben im Betreff oder Freitext.
+5. ggf. Ihre Rechnungsadresse,
+6. ggf. Ihre personenbezogenen Angaben im Betreff oder Freitext.
 
 Im Zeitpunkt der Absendung der Reservierung werden zudem folgende Daten gespeichert:
 1. IP-Adresse des aufrufenden Rechners,

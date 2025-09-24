@@ -102,7 +102,7 @@ export const kurse = [
 		day: 'mittwochs',
 		time: '19:30 bis 21:00 Uhr',
 		teacher: {
-			name: 'Robin la Baume',
+			name: 'Robin La Baume',
 			role: 'Kursleitung',
 			imageUrl: '/images/kursleiter/Robin.jpg',
 		},

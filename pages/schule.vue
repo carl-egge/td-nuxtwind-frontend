@@ -198,7 +198,7 @@
 					<span class="mx-1 h-1 w-1 rounded-full bg-current" />
 				</div>
 				<p>
-					Bitte melde dich über unser
+					Bitte melde Dich über unser
 					<NuxtLink
 						to="/kontakt"
 						class="hover:text-primary-500 font-normal text-text"

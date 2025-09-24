@@ -16,7 +16,13 @@
 					Datenschutzerklärung entnehmen.
 				</p>
 			</section>
-			<hr class="mx-auto my-2 w-6" />
+
+			<div class="text-primary-600 my-8 flex items-center justify-center">
+				<span class="mx-1 h-1 w-1 rounded-full bg-current" />
+				<span class="mx-1 h-1 w-1 rounded-full bg-current" />
+				<span class="mx-1 h-1 w-1 rounded-full bg-current" />
+			</div>
+
 			<section id="rights-data-acquisition" class="my-8">
 				<h3>Datenerfassung auf Unserer Website.</h3>
 				<UAccordion
@@ -33,7 +39,13 @@
 					:items="dataAcquisition"
 				/>
 			</section>
-			<hr class="mx-auto my-2 w-6" />
+
+			<div class="text-primary-600 my-8 flex items-center justify-center">
+				<span class="mx-1 h-1 w-1 rounded-full bg-current" />
+				<span class="mx-1 h-1 w-1 rounded-full bg-current" />
+				<span class="mx-1 h-1 w-1 rounded-full bg-current" />
+			</div>
+
 			<section id="rights-remarks" class="my-8">
 				<h3>Allgemeine Hinweise und Pflichtinformationen.</h3>
 				<UAccordion
@@ -50,7 +62,13 @@
 					:items="generalRemarks"
 				/>
 			</section>
-			<hr class="mx-auto my-2 w-6" />
+
+			<div class="text-primary-600 my-8 flex items-center justify-center">
+				<span class="mx-1 h-1 w-1 rounded-full bg-current" />
+				<span class="mx-1 h-1 w-1 rounded-full bg-current" />
+				<span class="mx-1 h-1 w-1 rounded-full bg-current" />
+			</div>
+
 			<section id="rights-agb" class="my-8">
 				<h3>AGB : Allgemeine Geschäftsbedingungen Theaterdeck Hamburg.</h3>
 				<UAccordion
