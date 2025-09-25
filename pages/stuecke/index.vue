@@ -55,13 +55,19 @@
 							v-for="(item, idx) in paginated"
 							:key="idx"
 							:class="[
-								'flex transform cursor-pointer items-center justify-between px-4 py-4 transition hover:scale-[1.015] active:scale-[0.985]',
+								'flex items-center justify-between px-4 py-4 transition',
 								idx === paginated.length - 1
 									? 'border-b-0'
 									: 'border-primary-600 border-b',
+								item.soldOut
+									? 'pointer-events-none cursor-not-allowed opacity-60' // sold-out styling
+									: 'transform cursor-pointer hover:scale-[1.015] active:scale-[0.985]',
 							]"
-							@click="goToEvent(item.event_slug, item.subeventId)"
+							@click="
+								!item.soldOut && goToEvent(item.event_slug, item.subeventId)
+							"
 						>
+							<!-- Date -->
 							<div class="w-24 text-center leading-snug text-text">
 								<div class="text-md font-bold">
 									{{ weekday(item.date_from) }}
@@ -70,9 +76,22 @@
 									{{ justDate(item.date_from) }}
 								</div>
 							</div>
+
+							<!-- Middle content -->
 							<div class="flex-1 text-text">
-								<div class="font-semibold">{{ item.name }}</div>
+								<div class="font-semibold">
+									{{ item.name }}
+								</div>
 								<div class="mt-1 flex items-center gap-2 text-text/70">
+									<!-- Sold-out badge -->
+									<UBadge
+										v-if="item.soldOut"
+										size="xs"
+										variant="solid"
+										color="red"
+									>
+										Ausverkauft
+									</UBadge>
 									<UBadge
 										v-if="item.tag"
 										size="xs"
@@ -84,10 +103,13 @@
 									<UBadge size="xs" variant="subtle" color="primary">
 										{{ time(item.date_from) }}
 									</UBadge>
-									<span>{{ item.autor }}</span>
+
+									<span v-if="!item.soldOut">{{ item.autor }}</span>
 								</div>
 							</div>
-							<div class="text-primary-600 flex">
+
+							<!-- Chevron only if not sold out -->
+							<div v-if="!item.soldOut" class="text-primary-600 flex">
 								<UIcon name="i-heroicons-chevron-right" class="h-7 w-7" />
 							</div>
 						</div>

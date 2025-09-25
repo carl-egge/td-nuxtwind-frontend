@@ -31,6 +31,8 @@ export default defineEventHandler(async (event) => {
 		autor: string;
 		tag?: string;
 		subeventId?: number;
+		soldOut: boolean;
+		availableTotal?: number;
 	}[] = [];
 
 	try {
@@ -49,16 +51,26 @@ export default defineEventHandler(async (event) => {
 
 				if (!evt.has_subevents) {
 					// Simple event
+					const { soldOut, availableTotal } = await getSoldOut({
+						baseUri: config.public.pretixLocalBaseUrl,
+						organizer: 'td',
+						event: evt.slug,
+						headers,
+					});
 					result.push({
 						type: 'event',
 						event_slug: evt.slug,
 						name: eventName,
 						date_from: evt.date_from,
 						autor: eventAutor,
+						soldOut,
+						availableTotal: Number.isFinite(availableTotal)
+							? availableTotal
+							: undefined,
 					});
 				} else {
 					// 2. Fetch subevents for events with has_subevents = true
-					let subNextUrl = `${uri}/events/${evt.slug}/subevents/?date_after=${now}&ordering=date_from&fields=id,name,date_from, meta_data`;
+					let subNextUrl = `${uri}/events/${evt.slug}/subevents/?date_after=${now}&active=true&ordering=date_from&fields=id,name,date_from,meta_data`;
 					while (subNextUrl) {
 						const subRes = await fetch(subNextUrl, { headers });
 						if (!subRes.ok)
@@ -66,6 +78,13 @@ export default defineEventHandler(async (event) => {
 						const subData = await subRes.json();
 
 						for (const sub of subData.results as PretixSubevent[]) {
+							const { soldOut, availableTotal } = await getSoldOut({
+								baseUri: config.public.pretixLocalBaseUrl,
+								organizer: 'td',
+								event: evt.slug,
+								headers,
+								subeventId: sub.id,
+							});
 							result.push({
 								type: 'subevent',
 								event_slug: evt.slug,
@@ -74,6 +93,10 @@ export default defineEventHandler(async (event) => {
 								autor: eventAutor,
 								tag: sub.meta_data.tag,
 								subeventId: sub.id,
+								soldOut,
+								availableTotal: Number.isFinite(availableTotal)
+									? availableTotal
+									: undefined,
 							});
 						}
 
@@ -104,3 +127,96 @@ export default defineEventHandler(async (event) => {
 		);
 	}
 });
+
+// Helper function to fetch quota availability and determine sold out status
+type PretixQuota = {
+	id: number;
+	name: string;
+	size: number | null;
+	items: number[];
+	variations: number[];
+	subevent: number | null;
+	close_when_sold_out: boolean;
+	closed: boolean;
+	ignore_for_event_availability?: boolean;
+	// Only present if with_availability=true
+	available?: boolean;
+	available_number?: number | null;
+};
+
+async function getSoldOut(opts: {
+	baseUri: string;
+	organizer: string;
+	event: string;
+	headers: Record<string, string>;
+	subeventId?: number;
+}): Promise<{ soldOut: boolean; availableTotal: number }> {
+	const { baseUri, organizer, event, headers, subeventId } = opts;
+
+	// Build initial URL (pagination supported via "next")
+	let url =
+		`${baseUri}/api/v1/organizers/${encodeURIComponent(organizer)}` +
+		`/events/${encodeURIComponent(event)}/quotas/?with_availability=true` +
+		(subeventId != null ? `&subevent=${subeventId}` : '');
+
+	let anyUnlimited = false;
+	let availableTotal = 0;
+	let considered = 0;
+
+	while (url) {
+		const res = await fetch(url, { headers });
+		if (!res.ok) {
+			throw new Error(
+				`Failed to fetch quotas (availability) for ${organizer}/${event}` +
+					(subeventId != null ? ` subevent ${subeventId}` : '') +
+					`: ${res.status} ${res.statusText}`
+			);
+		}
+
+		const page: {
+			count: number;
+			next: string | null;
+			previous: string | null;
+			results: PretixQuota[];
+		} = await res.json();
+
+		for (const q of page.results) {
+			// New since 2025.7; default to false if missing on older servers
+			const ignored = q.ignore_for_event_availability === true;
+			if (ignored) continue;
+
+			// Closed quotas do not provide sellable capacity
+			if (q.closed) continue;
+
+			considered++;
+
+			// Prefer available_number if present; fall back to available boolean
+			// Docs note values may be slightly out of date, which is OK for UI.
+			if (Object.prototype.hasOwnProperty.call(q, 'available_number')) {
+				if (q.available_number === null) {
+					// Unlimited => definitely *not* sold out
+					anyUnlimited = true;
+				} else {
+					availableTotal += Math.max(0, q.available_number!);
+				}
+			} else if (Object.prototype.hasOwnProperty.call(q, 'available')) {
+				// If only the boolean is present, treat true as >=1 available
+				if (q.available) availableTotal += 1;
+			} else {
+				// Extremely old/odd response: treat as unknown, don’t count
+			}
+		}
+
+		url = page.next ?? '';
+	}
+
+	// If there are unlimited quotas, event is not sold out.
+	// Otherwise sold out iff the summed availability is 0 across all considered quotas.
+	const soldOut = !anyUnlimited && considered > 0 && availableTotal === 0;
+
+	// Represent unlimited capacity as Infinity for convenience
+	return {
+		soldOut,
+		availableTotal: anyUnlimited ? Number.POSITIVE_INFINITY : availableTotal,
+	};
+}
