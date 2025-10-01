@@ -27,8 +27,8 @@ export function getContactEmailText({
   
   Wir melden uns so schnell wie möglich bei dir.
   
-  Freundliche Grüße,
-  Dein TDLogBlog Team
+  Ahoi,
+  Dein Theaterdeck
   
   Hinweis: Diese Nachricht wurde auch an den Seiteninhaber weitergeleitet.
     `.trim();
@@ -58,7 +58,7 @@ export function getContactEmailHtml({
   <p><strong>Nachricht:</strong></p>
   <p>${message}</p>
   <p>Wir melden uns so schnell wie möglich bei dir.</p>
-  <p>Freundliche Grüße,<br>Dein TDLogBlog Team</p>
+  <p>Ahoi,<br>Dein Theaterdeck</p>
   <hr>
   <p><em>Hinweis: Diese Nachricht wurde auch an den Seiteninhaber weitergeleitet.</em></p>
     `.trim();

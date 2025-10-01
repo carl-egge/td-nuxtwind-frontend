@@ -105,13 +105,13 @@ export default defineEventHandler(async (event) => {
 			config.public.contactFormFromName as string
 		);
 		const replyTo = new Sender(email, name);
-		const recipients = [
-			new Recipient(
-				config.public.contactFormRecipient as string,
-				config.public.contactFormRecipientName as string
-			),
-			new Recipient(recipient, 'Kontaktformular'),
-			new Recipient(email, name),
+		const recipients = [new Recipient(email, name)];
+		const recipientsBcc = [
+			new Recipient(recipient, 'Theaterdeck'),
+			// new Recipient(
+			// 	config.public.contactFormRecipient as string,
+			// 	config.public.contactFormRecipientName as string
+			// ),
 		];
 
 		// Generate email content using the email template abstraction
@@ -122,6 +122,7 @@ export default defineEventHandler(async (event) => {
 		const emailParams = new EmailParams()
 			.setFrom(sentFrom)
 			.setTo(recipients)
+			.setBcc(recipientsBcc)
 			.setReplyTo(replyTo)
 			.setSubject('Theaterdeck Kontaktformular')
 			.setText(textContent)

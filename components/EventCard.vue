@@ -4,7 +4,7 @@
 			class="group relative mx-auto my-12 block min-h-48 max-w-7xl rounded bg-white shadow-md hover:cursor-pointer hover:bg-background md:max-w-5xl xl:max-w-7xl"
 		>
 			<span
-				class="absolute inset-0 rounded border-2 border-dashed border-primary"
+				class="border-primary absolute inset-0 rounded border-2 border-dashed"
 			/>
 			<div
 				class="relative h-full transform items-end transition-transform group-hover:-translate-x-2 group-hover:-translate-y-2"
@@ -22,7 +22,7 @@
 						/>
 						<div
 							v-else
-							class="flex h-48 w-full items-center justify-center bg-secondary object-cover p-2 text-white md:h-full md:w-48 lg:w-80"
+							class="bg-secondary flex h-48 w-full items-center justify-center object-cover p-2 text-white md:h-full md:w-48 lg:w-80"
 						>
 							<p class="text-lg font-bold text-background xl:text-xl">
 								{{ event.name.de }}
@@ -32,7 +32,7 @@
 					<div class="p-8">
 						<div
 							v-if="event.subtitle"
-							class="text-sm font-semibold uppercase tracking-wide text-accent"
+							class="text-accent text-sm font-semibold uppercase tracking-wide"
 						>
 							{{ event.subtitle.de }}
 						</div>
@@ -59,6 +59,8 @@
 </template>
 
 <script setup>
+	// TODO: Remove this component
+
 	// Get props
 	const { event } = defineProps({
 		event: {

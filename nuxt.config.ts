@@ -75,15 +75,15 @@ export default defineNuxtConfig({
 				'http://localhost:8000',
 			pretixBaseUrl:
 				process.env.NUXT_PUBLIC_PRETIX_BASE_URL ||
-				'https://pretix.dev2.tdlogblog.de',
+				'https://pretix.theaterdeck.de',
 			pretixApiEndpoint:
 				process.env.NUXT_PUBLIC_PRETIX_API_ENDPOINT || '/api/v1/organizers/td',
 			useMockData: process.env.NUXT_PUBLIC_USE_MOCK_DATA === 'true',
 			contactFormFromName:
-				process.env.NUXT_PUBLIC_CONTACT_FORM_FROM_NAME || 'TDLogBlog',
+				process.env.NUXT_PUBLIC_CONTACT_FORM_FROM_NAME || 'Theaterdeck',
 			contactFormFromEmail:
 				process.env.NUXT_PUBLIC_CONTACT_FORM_FROM_EMAIL ||
-				'no-reply@tdlogblog.de',
+				'no-reply@theaterdeck.de',
 			contactFormRecipientName:
 				process.env.NUXT_PUBLIC_CONTACT_FORM_RECIPIENT_NAME || 'Carl Egge',
 			contactFormRecipient:

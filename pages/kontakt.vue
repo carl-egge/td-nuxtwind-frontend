@@ -149,10 +149,10 @@
 
 	// Define categories and their corresponding recipient email addresses
 	const categories = [
-		{ label: 'Vermietung', value: 'vermietung@tdlogblog.de' },
-		{ label: 'Kurse', value: 'kurse@tdlogblog.de' },
-		{ label: 'Tickets', value: 'tickets@tdlogblog.de' },
-		{ label: 'Allgemein', value: 'info@tdlogblog.de' },
+		{ label: 'Vermietung', value: 'vermietung@theaterdeck.de' },
+		{ label: 'Kurse', value: 'kurse@theaterdeck.de' },
+		{ label: 'Tickets', value: 'karten@theaterdeck.de' },
+		{ label: 'Allgemein', value: 'info@theaterdeck.de' },
 	];
 
 	// Define the Zod schema for form validation
