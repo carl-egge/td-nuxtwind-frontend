@@ -44,6 +44,29 @@ export default defineEventHandler(async (event) => {
 		console.log('Checking Newsletter Subscription for email: ', email);
 		const member = await mailchimp.lists.getListMember(listId, subscriberHash);
 		// console.log('Response: ', member);
+		if (member.status !== 'subscribed') {
+			// Member exists but is not subscribed, so we can update their status to 'pending' or 'subscribed'
+			const response = await mailchimp.lists.updateListMember(
+				listId,
+				subscriberHash,
+				{
+					status: 'pending', // Change to 'subscribed' if you want to skip double opt-in
+					merge_fields: {
+						FNAME: forename,
+						LNAME: lastname,
+					},
+				}
+			);
+			// Log a success message indicating the subscriber was added
+			await logSubscribeActivity(
+				`Updated ${forename} ${lastname}<${email}> to status: ${response.status}.`
+			);
+			return {
+				statusCode: 200,
+				message: `Updated subscriber with status: ${response.status}`,
+				id: 'id' in response ? response.id : null,
+			};
+		}
 		// Log a success message indicating the subscriber was added
 		await logSubscribeActivity(
 			`Reject: Subscriber ${forename} ${lastname}<${email}> already exists.`
@@ -60,7 +83,7 @@ export default defineEventHandler(async (event) => {
 			try {
 				const response = await mailchimp.lists.addListMember(listId, {
 					email_address: email,
-					status: 'subscribed', // TODO: We should change this such that it requires email confirmation
+					status: 'pending', // Set this to 'subscribed' if you don't want double opt-in
 					merge_fields: {
 						FNAME: forename,
 						LNAME: lastname,
