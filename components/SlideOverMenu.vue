@@ -29,7 +29,7 @@
 				class="absolute right-6 top-6 scale-125 transition-transform duration-300 hover:scale-150 hover:bg-transparent"
 				@click="isOpen = false"
 			/>
-			<div class="align-text-middle h-full p-4 pt-24">
+			<div class="align-text-middle h-full overflow-y-scroll p-4 pb-24 pt-24">
 				<NuxtLink to="/" class="block text-center" @click="isOpen = false">
 					<div class="mx-auto h-12 w-12">
 						<TheLogo color="#f51663" />
