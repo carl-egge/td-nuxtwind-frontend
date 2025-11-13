@@ -132,8 +132,19 @@
 		} else {
 			await eventsStore.fetchEvents();
 		}
-		// Append live/upcoming events to sectionData
-		const liveEvents = eventsStore.getLiveUpcomingEvents;
+		// Append live/upcoming events to sectionData (sorted by date_from)
+		const rawLiveEvents = eventsStore.getLiveUpcomingEvents || [];
+
+		const parseTimeOrInf = (dateStr?: string) => {
+			if (!dateStr) return Number.POSITIVE_INFINITY;
+			const t = Date.parse(dateStr);
+			return Number.isNaN(t) ? Number.POSITIVE_INFINITY : t;
+		};
+
+		const liveEvents = [...rawLiveEvents].sort((a: APIEvent, b: APIEvent) => {
+			return parseTimeOrInf(a.date_from) - parseTimeOrInf(b.date_from);
+		});
+
 		liveEvents.forEach((event: APIEvent, idx: number) => {
 			sectionData.value.push(mapEventToSectionItem(event, idx));
 		});
