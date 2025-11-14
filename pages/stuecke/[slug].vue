@@ -185,7 +185,7 @@
 							</span>
 							<br />
 							<a
-								:href="`/td/${event.slug}/ical`"
+								:href="`https://pretix.theaterdeck.de/td/${event.slug}/ical`"
 								class="hover:text-primary-400 underline"
 							>
 								Zum Kalender hinzufügen
