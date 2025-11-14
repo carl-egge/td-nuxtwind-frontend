@@ -157,7 +157,9 @@ async function getSoldOut(opts: {
 	let url =
 		`${baseUri}/api/v1/organizers/${encodeURIComponent(organizer)}` +
 		`/events/${encodeURIComponent(event)}/quotas/?with_availability=true` +
-		(subeventId != null ? `&subevent=${subeventId}` : '');
+		(subeventId !== null && subeventId !== undefined
+			? `&subevent=${subeventId}`
+			: '');
 
 	let anyUnlimited = false;
 	let availableTotal = 0;
@@ -168,7 +170,9 @@ async function getSoldOut(opts: {
 		if (!res.ok) {
 			throw new Error(
 				`Failed to fetch quotas (availability) for ${organizer}/${event}` +
-					(subeventId != null ? ` subevent ${subeventId}` : '') +
+					(subeventId !== null && subeventId !== undefined
+						? ` subevent ${subeventId}`
+						: '') +
 					`: ${res.status} ${res.statusText}`
 			);
 		}

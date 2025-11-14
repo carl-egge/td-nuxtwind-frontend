@@ -1,11 +1,73 @@
 {
-	"count": 2,
+	"count": 3,
 	"next": null,
 	"previous": null,
 	"results": [
 		{
 			"name": {
-				"de": "Räuber Hotzenplotz"
+				"de": "HAMBURGER ROMANZE"
+			},
+			"slug": "hhromanze",
+			"live": true,
+			"testmode": false,
+			"currency": "EUR",
+			"date_from": "2025-12-08T19:30:00+01:00",
+			"date_to": null,
+			"date_admission": null,
+			"is_public": true,
+			"presale_start": "2025-12-08T19:15:00+01:00",
+			"presale_end": null,
+			"location": {
+				"de": "Gastronomie Lüttliv unter dem TheaterDECK"
+			},
+			"geo_lat": null,
+			"geo_lon": null,
+			"has_subevents": false,
+			"meta_data": {
+				"autor": "ImproTHEATER",
+				"zitat": "Von und mit Fortuna Freisprung",
+				"reservierung_noetig": "nein"
+			},
+			"seating_plan": null,
+			"plugins": [
+				"pretix.plugins.manualpayment",
+				"pretix.plugins.sendmail",
+				"pretix.plugins.statistics",
+				"pretix_mollie"
+			],
+			"seat_category_mapping": {},
+			"timezone": "Europe/Berlin",
+			"item_meta_properties": {},
+			"all_sales_channels": true,
+			"limit_sales_channels": [],
+			"public_url": "https://pretix.theaterdeck.de/td/hhromanze/",
+			"sales_channels": ["web"],
+			"frontpage_text": {
+				"en": "",
+				"de": "Am 8. Dezember spielt die Improvisationstheatergruppe „SpVgg Fortuna Freisprung“ des Theaterdecks Hamburg endlich wieder: HAMBURGER ROMANZE\r\n\r\nDie Spieler:innen zeigen, was passieren könnte, wenn sich unbekannte Menschen begegnen — nach einem Tinder-Match, einer mutigen Kontaktanzeige oder bei einer durchzechten Nacht. Das Publikum wird hautnah dabei sein, wenn sich Menschen zum ersten Mal treffen. Und es darf — wie immer beim Improvisationstheater — reinrufen, helfen, verwirren, Wendungen erzwingen: die Richtung bestimmen! \r\n\r\nHAMBURGER ROMANZE wird ausnahmsweise nicht im Theatersaal zum Lachen sein oder zu Tränen rühren, sondern mittenmang da, wo man sich womöglich auch in Echt auf eine Anzeige hin trifft, wo man klönt und trinkt: im [LüttLiv](https://luettliv.de/). \r\n\r\nUm 19.30 Uhr geht es los. Für Getränke ist gesorgt und der Eintritt ist wie immer frei. \r\nSpenden sind erwünscht. Eine Reservierung ist nicht möglich. Die Küche bleibt an diesem Tag geschlossen."
+			},
+			"event_info_text": {
+				"en": "",
+				"de": "Am 8. Dezember 2025 um 19:30 Uhr | Spielleitung: Enrico Guzy | Eine THEATERDECK Produktion"
+			},
+			"logo_image": "https://pretix.theaterdeck.de/media/pub/td/hhromanze/romanze2-header.JPG.yW2WJvoG.JPG",
+			"og_image": "https://pretix.theaterdeck.de/media/pub/td/hhromanze/romanze2.JPG.N8ZE0NVm.JPG",
+			"items": [
+				{
+					"id": 15,
+					"name": {
+						"de": "Eintritt frei - Spenden erwünscht"
+					},
+					"default_price": "0.00",
+					"description": {
+						"de": "Eine Resrevierung ist nicht möglich."
+					}
+				}
+			]
+		},
+		{
+			"name": {
+				"de": "Der Räuber Hotzenplotz"
 			},
 			"slug": "hotzenplotz-25",
 			"live": true,
@@ -39,41 +101,60 @@
 			"item_meta_properties": {},
 			"all_sales_channels": true,
 			"limit_sales_channels": [],
-			"public_url": "https://pretix.dev2.tdlogblog.de/td/hotzenplotz-25/",
+			"public_url": "https://pretix.theaterdeck.de/td/hotzenplotz-25/",
 			"sales_channels": ["web"],
 			"frontpage_text": {
-				"de": "Kasperl und sein Freund Seppel machen sich auf, den wilden Räuber Hotzenplotz zu fangen, der Großmutters Kaffeemühle gestohlen hat. Sie haben ihre Mützen getauscht, um den Räuber zu täuschen, aber das hilft ihnen kaum, denn so einfach lassen Räuber sich nicht fangen. Und so dreht dieser den Spieß einfach um…"
+				"en": "",
+				"de": "Kasperl und sein Freund Seppel machen sich auf, den wilden Räuber Hotzenplotz zu fangen, der Großmutters Kaffeemühle gestohlen hat. Sie haben ihre Mützen getauscht, um den Räuber zu täuschen, aber das hilft ihnen kaum, denn so einfach lassen Räuber sich nicht fangen. Und so dreht dieser den Spieß einfach um … \r\n\r\nDen Kasperl mit der grünen Seppelmütze verkauft Hotzenplotz an den bösen Zauberer Petrosilius Zwackelmann, wo er nun auf ewig Kartoffeln schälen muss. Dem Seppel geht es in der Räuberhöhle auch nicht viel besser. Aber als Hotzenplotz Seppels Kasperlmütze im Ofen verbrennt, ahnt noch niemand, dass er sich damit eine Menge Ärger einhandelt. Werden es die beiden Freunde schaffen, sich aus ihrer Gefangenschaft zu befreien?\r\n\r\nZum allerersten Mal auf Deck: „Räuber Hotzenplotz“, der Mann mit den sieben Messern, in einer grandiosen und fantasievollen Inszenierung für Klein und Groß!"
 			},
 			"event_info_text": {
-				"de": "Premiere 27. September 2025 | Empfohlen ab 4 Jahren | Eintritt: 16 € - 10 € ermässigt | Gruppen ab 12 Personen 1 Euro erm. pro Platz | Regie – Niklas Heinecke | Eine THEATERDECK Produktion in Kooperation mit der Theater Jugend Hamburg e.V. und dem Amt für Familie| Die Rechte liegen beim Buehnenverlag Weitendorf GmbH"
+				"en": "",
+				"de": "Premiere Oktober 2025 | Empfohlen ab 4 Jahren | Regie – Niklas Heinecke | Eine THEATERDECK Produktion in Kooperation mit der Theater Jugend Hamburg e.V. und dem Amt für Familie| Die Rechte liegen beim Buehnenverlag Weitendorf GmbH"
 			},
-			"logo_image": "/images/welcome.webp",
-			"og_image": null
+			"logo_image": "https://pretix.theaterdeck.de/media/pub/td/hotzenplotz-25/hotzenplotz-header.jpg.RDHpyYQd.jpg",
+			"og_image": "https://pretix.theaterdeck.de/media/pub/td/hotzenplotz-25/hotzenplotz.jpg.d7kZ70Sd.jpg",
+			"items": [
+				{
+					"id": 5,
+					"name": {
+						"de": "Normalpreis"
+					},
+					"default_price": "17.00",
+					"description": {}
+				},
+				{
+					"id": 6,
+					"name": {
+						"de": "Ermäßigt"
+					},
+					"default_price": "11.00",
+					"description": {
+						"de": "Ermäßigte Tickets sind für Kinder, Schüler:innen, Studierende sowie für Menschen mit Behinderung und ihre Begleitpersonen erhältlich."
+					}
+				}
+			]
 		},
 		{
 			"name": {
-				"de": "Dunkelnacht"
+				"de": "Template"
 			},
-			"slug": "dunkelnacht-25",
-			"live": true,
+			"slug": "template",
+			"live": false,
 			"testmode": true,
 			"currency": "EUR",
-			"date_from": "2025-10-01T00:00:00+02:00",
+			"date_from": "2026-01-01T00:00:00+01:00",
 			"date_to": null,
 			"date_admission": null,
 			"is_public": true,
 			"presale_start": null,
 			"presale_end": null,
 			"location": {
-				"de": "Theaterdeck Hamburg,\r\nMaurienstr. 19,\r\n22305 Hamburg"
+				"de": "TheaterDECK Hamburg\r\nMaurienstr. 19 · 22305 Hamburg"
 			},
 			"geo_lat": null,
 			"geo_lon": null,
-			"has_subevents": true,
-			"meta_data": {
-				"autor": "Kirsten Boie",
-				"zitat": "Neue Termine in Planung!"
-			},
+			"has_subevents": false,
+			"meta_data": {},
 			"seating_plan": null,
 			"plugins": [
 				"pretix.plugins.sendmail",
@@ -86,16 +167,36 @@
 			"item_meta_properties": {},
 			"all_sales_channels": true,
 			"limit_sales_channels": [],
-			"public_url": "https://pretix.dev2.tdlogblog.de/td/dunkelnacht-25/",
+			"public_url": "https://pretix.theaterdeck.de/td/template/",
 			"sales_channels": ["web"],
 			"frontpage_text": {
-				"de": "DIESE GESCHICHTE MUSS ERZÄHLT WERDEN - JETZT! (Hamburger Morgenpost) April, 1945. Alle spüren, dass der Krieg und die fürchterliche Ideologie der Nationalsozialisten kurz vor dem Ende stehen. Doch in der Nacht vom 28. auf den 29. April 1945, zwei Tage vor Hitlers Selbstmord, ereignet sich das dunkelste Kapitel der damals noch jungen Stadt Penzberg in Bayern. Denn während der einst von den Nazis abgesetzte Bürgermeister zurück ins Rathaus zieht, erlässt die Wehrmacht den Befehl, alle Widerständler sofort hinzurichten. Und zwischen allen Fronten stehen die Jugendlichen Marie, Schorsch und Gustl."
+				"en": "",
+				"de": ""
 			},
 			"event_info_text": {
-				"de": "Uraufführung am 1. März 2024 | EMPFOHLEN AB 14 JAHREN | Eintritt: 16 € - 10 € ermässigt | Gruppen ab 12 Personen 1 Euro erm. pro Platz | Text und Regie - Niklas Heinecke | Eine THEATERDECK Produktion in Kooperation mit der Theater Jugend Hamburg e.V. und dem Amt für Familie | Die Rechte liegen beim Verlag für Kindertheater Weitendorf GmbH"
+				"en": "",
+				"de": ""
 			},
-			"logo_image": "/images/welcome.webp",
-			"og_image": null
+			"logo_image": null,
+			"og_image": null,
+			"items": [
+				{
+					"id": 1,
+					"name": {
+						"de": "Normalpreis"
+					},
+					"default_price": "17.00",
+					"description": {}
+				},
+				{
+					"id": 2,
+					"name": {
+						"de": "Ermäßigt"
+					},
+					"default_price": "11.00",
+					"description": {}
+				}
+			]
 		}
 	]
 }

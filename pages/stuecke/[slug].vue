@@ -111,7 +111,7 @@
 				</section>
 
 				<div
-					v-if="event"
+					v-if="event && event.has_subevents"
 					class="border-primary-500 mx-auto my-4 flex flex-wrap justify-start gap-4 border bg-background p-1 shadow-sm md:p-2"
 				>
 					<UButton size="xs" @click="refreshWidget('list')">
@@ -135,20 +135,82 @@
 						@click="refreshWidget('subevent')"
 					/>
 				</div>
-				<ClientOnly>
-					<PretixShopWidget
-						v-if="event"
-						ref="pretixWidget"
-						:event-slug="event.slug"
-						:is-event-series="event.has_subevents"
-						:subevent-id="subeventId"
-						:series-list-type="listType"
-						:reload-key="widgetReloadKey"
-					/>
-					<div v-else>
-						<UButton :to="publicURI" target="_blank">Ticketshop öffnen</UButton>
+				<div
+					v-if="
+						event.meta_data.reservierung_noetig &&
+						event.meta_data.reservierung_noetig === 'nein'
+					"
+				>
+					<div class="info-row">
+						<div
+							class="info-row-icon text-primary-600"
+							role="img"
+							aria-label="Wo findet diese Veranstaltung statt?"
+						>
+							<Icon
+								name="material-symbols:location-on-outline-rounded"
+								class="text-primary-600 h-6 w-6"
+								aria-hidden="true"
+							/>
+						</div>
+						<p>{{ event.location.de || 'Theaterdeck Hamburg' }}</p>
 					</div>
-				</ClientOnly>
+
+					<div class="info-row">
+						<div
+							class="info-row-icon"
+							role="img"
+							aria-label="Wann findet diese Veranstaltung statt?"
+						>
+							<Icon
+								name="material-symbols:event-outline"
+								class="text-primary-600 h-6 w-6"
+								aria-hidden="true"
+							/>
+						</div>
+						<p>
+							<time :datetime="event.date_from.slice(0, 10)">
+								{{ formatDate(event.date_from) }}
+							</time>
+							<br />
+							<span
+								:data-time="event.date_from"
+								:data-timezone="event.timezone"
+							>
+								Beginn:
+								<time :datetime="formatTime(event.date_from)">
+									{{ formatTime(event.date_from) }}
+								</time>
+								Uhr
+							</span>
+							<br />
+							<a
+								:href="`/td/${event.slug}/ical`"
+								class="hover:text-primary-400 underline"
+							>
+								Zum Kalender hinzufügen
+							</a>
+						</p>
+					</div>
+				</div>
+				<div v-else>
+					<ClientOnly>
+						<PretixShopWidget
+							v-if="event"
+							ref="pretixWidget"
+							:event-slug="event.slug"
+							:is-event-series="event.has_subevents"
+							:subevent-id="subeventId"
+							:series-list-type="listType"
+							:reload-key="widgetReloadKey"
+						/>
+						<div v-else>
+							<UButton :to="publicURI" target="_blank">
+								Ticketshop öffnen
+							</UButton>
+						</div>
+					</ClientOnly>
+				</div>
 			</div>
 		</main>
 	</div>
@@ -251,9 +313,48 @@
 		loadEvent();
 	});
 
+	function formatDate(dateString) {
+		const date = new Date(dateString);
+		return new Intl.DateTimeFormat('de-DE', {
+			weekday: 'short', // Mo
+			day: 'numeric', // 8
+			month: 'long', // Dezember
+			year: 'numeric', // 2025
+		}).format(date);
+	}
+
+	function formatTime(dateString) {
+		const date = new Date(dateString);
+		return new Intl.DateTimeFormat('de-DE', {
+			hour: '2-digit',
+			minute: '2-digit',
+		}).format(date);
+	}
+
 	// Some helper Texts
 	const descMissing =
 		'Hier sollte eigentlich die Beschreibung des Events sein, aber es ist leider ein Fehler aufgetreten.';
 </script>
 
-<style scoped></style>
+<style scoped>
+	.info-row {
+		position: relative;
+		min-height: 30px;
+		margin-bottom: 10px;
+	}
+	.info-row .info-row-icon,
+	.info-row > img {
+		position: absolute;
+		top: -6px;
+		left: 3px;
+		font-size: 26px;
+		text-align: center;
+		color: var(--pretix-brand-primary);
+		margin-top: 3px;
+		width: 26px;
+		height: auto;
+	}
+	.info-row p {
+		margin-left: 40px;
+	}
+</style>
