@@ -81,6 +81,11 @@
 								v-html="renderedInfo"
 							/>
 
+							<p class="italic">
+								Hinweis: Bei uns herrscht freie Platzwahl. Du suchst dir einfach
+								deinen Lieblingsplatz selbst aus.
+							</p>
+
 							<!-- Pricing -->
 							<div
 								class="mt-4 flex flex-col space-y-2 text-3xl text-theme-accent sm:flex-row sm:space-x-8 sm:space-y-0"
@@ -111,31 +116,6 @@
 				</section>
 
 				<div
-					v-if="event && event.has_subevents"
-					class="border-primary-500 mx-auto my-4 flex flex-wrap justify-start gap-4 border bg-background p-1 shadow-sm md:p-2"
-				>
-					<UButton size="xs" @click="refreshWidget('list')">
-						Termin-Liste
-					</UButton>
-					<UButton size="xs" @click="refreshWidget('calendar')">
-						Monatsansicht
-					</UButton>
-					<UButton size="xs" @click="refreshWidget('week')">
-						Wochenansicht
-					</UButton>
-					<!-- <UButton size="xs" @click="refreshWidget('subevent')">
-						Aktualisieren
-					</UButton> -->
-					<UButton
-						icon="i-heroicons-arrow-path"
-						size="xs"
-						variant="ghost"
-						aria-label="Aktualisieren"
-						class="ml-auto"
-						@click="refreshWidget('subevent')"
-					/>
-				</div>
-				<div
 					v-if="
 						event.meta_data.reservierung_noetig &&
 						event.meta_data.reservierung_noetig === 'nein'
@@ -156,7 +136,46 @@
 						<p>{{ event.location.de || 'Theaterdeck Hamburg' }}</p>
 					</div>
 
-					<div class="info-row">
+					<div
+						class="info-row"
+						v-if="event.has_subevents && eventdates.length"
+						v-for="date in eventdates"
+						:key="date.subeventId || date.date_from"
+					>
+						<div
+							class="info-row-icon"
+							role="img"
+							aria-label="Wann findet diese Veranstaltung statt?"
+						>
+							<Icon
+								name="material-symbols:event-outline"
+								class="text-primary-600 h-6 w-6"
+								aria-hidden="true"
+							/>
+						</div>
+						<p>
+							<time :datetime="date.date_from.slice(0, 10)">
+								{{ formatDate(date.date_from) }}
+							</time>
+							<br />
+							<span :data-time="date.date_from" :data-timezone="event.timezone">
+								Beginn:
+								<time :datetime="formatTime(date.date_from)">
+									{{ formatTime(date.date_from) }}
+								</time>
+								Uhr
+							</span>
+							<br />
+							<a
+								:href="`https://pretix.theaterdeck.de/td/${event.slug}/ical/${date.subeventId}`"
+								class="hover:text-primary-400 underline"
+							>
+								Zum Kalender hinzufügen
+							</a>
+						</p>
+					</div>
+
+					<div class="info-row" v-else>
 						<div
 							class="info-row-icon"
 							role="img"
@@ -194,6 +213,31 @@
 					</div>
 				</div>
 				<div v-else>
+					<div
+						v-if="event && event.has_subevents"
+						class="border-primary-500 mx-auto my-4 flex flex-wrap justify-start gap-4 border bg-background p-1 shadow-sm md:p-2"
+					>
+						<UButton size="xs" @click="refreshWidget('list')">
+							Termin-Liste
+						</UButton>
+						<UButton size="xs" @click="refreshWidget('calendar')">
+							Monatsansicht
+						</UButton>
+						<UButton size="xs" @click="refreshWidget('week')">
+							Wochenansicht
+						</UButton>
+						<!-- <UButton size="xs" @click="refreshWidget('subevent')">
+						Aktualisieren
+					</UButton> -->
+						<UButton
+							icon="i-heroicons-arrow-path"
+							size="xs"
+							variant="ghost"
+							aria-label="Aktualisieren"
+							class="ml-auto"
+							@click="refreshWidget('subevent')"
+						/>
+					</div>
 					<ClientOnly>
 						<PretixShopWidget
 							v-if="event"
@@ -253,6 +297,7 @@
 	);
 	const eventsStore = useEventsStore();
 	const event = ref(null);
+	const eventdates = ref([]);
 	const loadingState = ref('loading');
 	const pretixWidget = ref(null);
 
@@ -304,6 +349,23 @@
 		if (foundEvent) {
 			event.value = foundEvent;
 			loadingState.value = 'loaded';
+			if (
+				event.value.has_subevents &&
+				event.value.meta_data?.reservierung_noetig === 'nein'
+			) {
+				try {
+					const dates = await $fetch('/api/upcomingEventDates');
+					eventdates.value = (dates || []).filter(
+						(date) =>
+							date.event_slug === event.value.slug && date.type === 'subevent'
+					);
+				} catch (error) {
+					console.error('Fehler beim Abrufen der Veranstaltungen:', error);
+					eventdates.value = [];
+				}
+			} else {
+				eventdates.value = [];
+			}
 		} else {
 			loadingState.value = 'error';
 		}
@@ -342,6 +404,7 @@
 		min-height: 30px;
 		margin-bottom: 10px;
 	}
+
 	.info-row .info-row-icon,
 	.info-row > img {
 		position: absolute;
@@ -354,6 +417,7 @@
 		width: 26px;
 		height: auto;
 	}
+
 	.info-row p {
 		margin-left: 40px;
 	}
