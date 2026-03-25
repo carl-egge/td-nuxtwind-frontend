@@ -12,8 +12,30 @@ services:
     labels:
       - traefik.enable=true
       - traefik.docker.network=proxy
+
+      # --- APEX ---
+      # HTTP router (helps ACME target this host)
+      - traefik.http.routers.frontend-http.entrypoints=web
+      - traefik.http.routers.frontend-http.rule=Host(`theaterdeck.de`)
+
+      # HTTPS router with explicit resolver
       - traefik.http.routers.frontend.entrypoints=websecure
-      - traefik.http.routers.frontend.rule=Host(`${DOMAIN}`)
+      - traefik.http.routers.frontend.rule=Host(`theaterdeck.de`)
+      - traefik.http.routers.frontend.tls=true
+      - traefik.http.routers.frontend.tls.certresolver=letsencrypt
+
+      # --- WWW (redirect to apex after valid TLS) ---
+      - traefik.http.routers.frontend-www-http.entrypoints=web
+      - traefik.http.routers.frontend-www-http.rule=Host(`www.theaterdeck.de`)
+
+      - traefik.http.routers.frontend-www-secure.entrypoints=websecure
+      - traefik.http.routers.frontend-www-secure.rule=Host(`www.theaterdeck.de`)
+      - traefik.http.routers.frontend-www-secure.tls=true
+      - traefik.http.routers.frontend-www-secure.tls.certresolver=letsencrypt
+      - traefik.http.routers.frontend-www-secure.middlewares=to-apex@docker
+
+      # Service port
+      - traefik.http.services.frontend.loadbalancer.server.port=3000
     volumes:
       - ./logs:/app/logs
     networks:

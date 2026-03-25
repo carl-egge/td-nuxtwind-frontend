@@ -112,7 +112,6 @@
 									/>
 									11:00 bis 13:00 Uhr
 								</li>
-								<li>Unser Anrufbeantworter wird täglich abgehört.</li>
 							</ul>
 						</div>
 					</div>
