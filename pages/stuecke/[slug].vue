@@ -95,7 +95,17 @@
 									:key="item.id"
 									class="font-semibold"
 								>
-									{{ Math.round(item.default_price) }} €
+									{{
+										item.default_price % 1 === 0
+											? new Intl.NumberFormat('de-DE', {
+													maximumFractionDigits: 0,
+												}).format(item.default_price)
+											: new Intl.NumberFormat('de-DE', {
+													minimumFractionDigits: 2,
+													maximumFractionDigits: 2,
+												}).format(item.default_price)
+									}}
+									€
 									<span class="text-base font-normal text-text">
 										{{ item.name.de }}
 									</span>
@@ -137,10 +147,10 @@
 					</div>
 
 					<div
-						class="info-row"
-						v-if="event.has_subevents && eventdates.length"
 						v-for="date in eventdates"
+						v-if="event.has_subevents && eventdates.length"
 						:key="date.subeventId || date.date_from"
+						class="info-row"
 					>
 						<div
 							class="info-row-icon"
@@ -175,7 +185,7 @@
 						</p>
 					</div>
 
-					<div class="info-row" v-else>
+					<div v-else class="info-row">
 						<div
 							class="info-row-icon"
 							role="img"
