@@ -141,7 +141,31 @@
 			return Number.isNaN(t) ? Number.POSITIVE_INFINITY : t;
 		};
 
+		const parsePositionOrInf = (event: APIEvent) => {
+			const raw = event.meta_data?.position_startseite;
+
+			// Missing, empty, or non-numeric values should be treated as "no position"
+			if (raw === null || raw.trim() === "") {
+				return Number.POSITIVE_INFINITY;
+			}
+
+			const position = Number.parseInt(raw, 10);
+
+			return Number.isNaN(position)
+				? Number.POSITIVE_INFINITY
+				: position;
+		};
+
 		const liveEvents = [...rawLiveEvents].sort((a: APIEvent, b: APIEvent) => {
+			const positionA = parsePositionOrInf(a);
+			const positionB = parsePositionOrInf(b);
+
+			// Primary sort: position_startseite ascending
+			if (positionA !== positionB) {
+				return positionA - positionB;
+			}
+
+			// Secondary sort: date_from ascending
 			return parseTimeOrInf(a.date_from) - parseTimeOrInf(b.date_from);
 		});
 
