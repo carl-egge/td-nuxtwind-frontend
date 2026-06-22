@@ -141,15 +141,17 @@
 			return Number.isNaN(t) ? Number.POSITIVE_INFINITY : t;
 		};
 
-		const parsePositionOrInf = (event: APIEvent) => {
+		const parsePositionOrInf = (event: APIEvent): number => {
 			const raw = event.meta_data?.position_startseite;
 
 			// Missing, empty, or non-numeric values should be treated as "no position"
-			if (raw === null || raw.trim() === "") {
-				return Number.POSITIVE_INFINITY;
-			}
+			if (raw == null) return Number.POSITIVE_INFINITY;
 
-			const position = Number.parseInt(raw, 10);
+			const value = typeof raw === 'string' ? raw.trim() : String(raw).trim();
+
+			if(value === '') return Number.POSITIVE_INFINITY;
+
+			const position = Number.parseInt(value, 10);
 
 			return Number.isNaN(position)
 				? Number.POSITIVE_INFINITY
