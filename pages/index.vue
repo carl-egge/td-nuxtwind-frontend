@@ -145,17 +145,16 @@
 			const raw = event.meta_data?.position_startseite;
 
 			// Missing, empty, or non-numeric values should be treated as "no position"
+			// eslint-disable-next-line eqeqeq
 			if (raw == null) return Number.POSITIVE_INFINITY;
 
 			const value = typeof raw === 'string' ? raw.trim() : String(raw).trim();
 
-			if(value === '') return Number.POSITIVE_INFINITY;
+			if (value === '') return Number.POSITIVE_INFINITY;
 
 			const position = Number.parseInt(value, 10);
 
-			return Number.isNaN(position)
-				? Number.POSITIVE_INFINITY
-				: position;
+			return Number.isNaN(position) ? Number.POSITIVE_INFINITY : position;
 		};
 
 		const liveEvents = [...rawLiveEvents].sort((a: APIEvent, b: APIEvent) => {

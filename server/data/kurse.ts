@@ -1,34 +1,34 @@
 export const kurse = [
 	{
 		id: 1,
-		title: 'ENSEMBLE SPIELDECK I *',
+		title: 'STARTDECK 11-13 JAHRE *',
 		description:
-			'Ein spielerischer Einstieg ins Theater für unsere Jüngsten. Mit Fantasie, Bewegung und kleinen Szenen wachsen Mut und Bühnenfreude. Dabei stehen Spaß und Kreativität an erster Stelle, sodass jedes Kind seine eigene Ausdrucksform entdeckt. Gemeinsam erleben wir erste kleine Bühnenerfahrungen und stärken das Selbstbewusstsein.',
+			'Unser neuer Einsteigerkurs für alle zwischen 11 und 13 Jahren. In Block A (Grundlagen) machen die Teilnehmer:innen in sechs Terminen erste Schritte auf der Bühne, lernen jede Menge Tricks und probieren sich in kleinen Szenen aus – am 14.9., 21.9., 28.9., 5.10., 12.10. und 2.11. In Block B erarbeiten wir in acht Terminen gemeinsam eine Präsentation – am 30.11., 7.12., 14.12., 11.1., 18.1., 25.1., 1.2. und 8.2. Generalprobe und Präsentation/Werkschau finden am 13.2. um 15:00 Uhr statt. Kosten insgesamt: 220 €.',
 		facts: {
-			Alter: '6-8 Jahre',
-			Format: 'Laufender Kurs',
-			Status: 'Quereinstieg ggf. möglich',
+			Alter: '11-13 Jahre',
+			Format: 'Kursreihe in zwei Blöcken',
+			Status: 'Anmeldung möglich',
 		},
-		day: 'mittwochs',
-		time: '16:20 bis 17:20 Uhr',
+		day: 'montags',
+		time: null,
 		teacher: {
-			name: 'Marietta Saggau',
+			name: 'Julian Tejeda',
 			role: 'Kursleitung',
-			imageUrl: '/images/kursleiter/Marietta.jpg',
+			imageUrl: '/images/kursleiter/Julian.jpg',
 		},
 	},
 	{
 		id: 2,
-		title: 'ENSEMBLE SPIELDECK II *',
+		title: 'ENSEMBLE SPIELDECK I *',
 		description:
-			'Hier vertiefen Kinder ihre Grundlagen und entdecken erste Rollenarbeit. Improvisation und Teamgeist stehen im Mittelpunkt. Spielerisch lernen sie, in verschiedene Figuren zu schlüpfen und kleine Szenen lebendig zu machen. Das gemeinsame Ausprobieren stärkt die Gruppe und macht Lust auf mehr Theater.',
+			'Ein spielerischer Einstieg ins Theater für unsere jungen Spieler:innen. Mit Fantasie, Bewegung und kleinen Szenen wachsen Mut und Bühnenfreude. Dabei stehen Spaß und Kreativität an erster Stelle, sodass jedes Kind seine eigene Ausdrucksform entdeckt. Gemeinsam erleben wir erste kleine Bühnenerfahrungen und stärken das Selbstbewusstsein.',
 		facts: {
 			Alter: '9-11 Jahre',
 			Format: 'Laufender Kurs',
 			Status: 'Quereinstieg ggf. möglich',
 		},
 		day: 'mittwochs',
-		time: '17:30 bis 19:00 Uhr',
+		time: '16:30 bis 17:45 Uhr',
 		teacher: {
 			name: 'Marietta Saggau',
 			role: 'Kursleitung',
@@ -37,25 +37,43 @@ export const kurse = [
 	},
 	{
 		id: 3,
-		title: 'ENSEMBLE SPIELDECK III *',
+		title: 'ENSEMBLE SPIELDECK II *',
 		description:
-			'Für alle, die ihre Bühnenpräsenz ausbauen und eigene Szenen entwickeln wollen. Wir arbeiten wechselnd an Text, Bewegung und Ensemble-Spiel. Kreative Ideen der Jugendlichen fließen in die Proben ein und werden gemeinsam umgesetzt. So entsteht ein lebendiges Miteinander, das auf die Bühne getragen wird.',
+			'Hier vertiefen Kinder und Jugendliche ihre Grundlagen und entdecken erste Rollenarbeit. Improvisation und Teamgeist stehen im Mittelpunkt. Spielerisch lernen sie, in verschiedene Figuren zu schlüpfen und kleine Szenen lebendig zu machen. Das gemeinsame Ausprobieren stärkt die Gruppe und macht Lust auf mehr Theater.',
 		facts: {
-			Alter: '13-16 Jahre',
+			Alter: '12-14 Jahre',
 			Format: 'Laufender Kurs',
-			Status: 'Quereinstieg möglich',
+			Status: 'Quereinstieg ggf. möglich',
 		},
-		day: 'donnerstags',
-		time: '16:45 bis 18:15 Uhr',
+		day: 'mittwochs',
+		time: '17:45 bis 19:15 Uhr',
 		teacher: {
-			name: 'Leena Fahje',
+			name: 'Marietta Saggau',
 			role: 'Kursleitung',
-			imageUrl: '/images/kursleiter/Niklas.jpg',
+			imageUrl: '/images/kursleiter/Marietta.jpg',
 		},
 	},
+	// {
+	// 	id: 3,
+	// 	title: 'ENSEMBLE SPIELDECK III *',
+	// 	description:
+	// 		'Für alle, die ihre Bühnenpräsenz ausbauen und eigene Szenen entwickeln wollen. Wir arbeiten wechselnd an Text, Bewegung und Ensemble-Spiel. Kreative Ideen der Jugendlichen fließen in die Proben ein und werden gemeinsam umgesetzt. So entsteht ein lebendiges Miteinander, das auf die Bühne getragen wird.',
+	// 	facts: {
+	// 		Alter: '13-16 Jahre',
+	// 		Format: 'Laufender Kurs',
+	// 		Status: 'Quereinstieg möglich',
+	// 	},
+	// 	day: 'donnerstags',
+	// 	time: '16:45 bis 18:15 Uhr',
+	// 	teacher: {
+	// 		name: 'Leena Fahje',
+	// 		role: 'Kursleitung',
+	// 		imageUrl: '/images/kursleiter/Niklas.jpg',
+	// 	},
+	// },
 	{
 		id: 4,
-		title: 'ENSEMBLE IV *',
+		title: 'ENSEMBLE III *',
 		description:
 			'Für junge Erwachsene, die Theater als kreativen Ausdrucksraum nutzen möchten. Kompakt und fokussiert: Grundlagen schärfen, Ideen ausprobieren, Szenen zeigen. Im Ensemble finden die Teilnehmenden Inspiration und lernen, ihre Stimme und Präsenz weiterzuentwickeln. Jede Stunde bietet die Möglichkeit, Neues auszuprobieren und eigene Stärken zu entdecken.',
 		facts: {
@@ -64,7 +82,7 @@ export const kurse = [
 			Status: 'Quereinstieg ggf. möglich',
 		},
 		day: 'mittwochs',
-		time: '18:00 bis 19:30 Uhr',
+		time: '17:45 bis 19:15 Uhr',
 		teacher: {
 			name: 'Niklas Heinecke',
 			role: 'Kursleitung',
@@ -73,7 +91,7 @@ export const kurse = [
 	},
 	{
 		id: 5,
-		title: 'ENSEMBLE V',
+		title: 'ENSEMBLE IV',
 		description:
 			'Theatertraining für Erwachsene – offen, neugierig und gemeinschaftlich. In einem wertschätzenden Rahmen arbeiten wir an Ausdruck, Stimme und Präsenz. Der Kurs bietet dir Raum, den Alltag loszulassen, dich spielerisch auszuprobieren und gemeinsam an Produktionen zu arbeiten. So entsteht eine lebendige Gruppe, die das Theaterspiel mit Freude weiterentwickelt.',
 		facts: {
@@ -82,7 +100,7 @@ export const kurse = [
 			Status: 'Quereinstieg möglich',
 		},
 		day: 'donnerstags',
-		time: '19:00 bis 20:30 Uhr',
+		time: '19:15 bis 20:45 Uhr',
 		teacher: {
 			name: 'Thorsten Grübling',
 			role: 'Kursleitung',
@@ -91,7 +109,7 @@ export const kurse = [
 	},
 	{
 		id: 6,
-		title: 'ENSEMBLE VI',
+		title: 'ENSEMBLE V',
 		description:
 			'Theatertraining für Frauen – in unserer Frauengruppe arbeiten wir projektbezogen auf Inszenierungen hin. Du übst Stimme, Ausdruck und Präsenz und hast die Möglichkeit, den Alltag hinter dir zu lassen. In der Gruppe probierst du Neues aus, entwickelst deine Fähigkeiten weiter und arbeitest gemeinsam an Theaterprojekten.',
 		facts: {
@@ -100,7 +118,7 @@ export const kurse = [
 			Status: 'Quereinstieg möglich',
 		},
 		day: 'mittwochs',
-		time: '19:30 bis 21:00 Uhr',
+		time: '19:15 bis 20:45 Uhr',
 		teacher: {
 			name: 'Robin La Baume',
 			role: 'Kursleitung',
@@ -126,7 +144,7 @@ export const kurse = [
 		},
 	},
 	{
-		id: 5,
+		id: 8,
 		title: 'Individuelles Training für alle Altersklassen',
 		description:
 			'Schauspieltraining für Gruppen und Firmen – praxisnah, individuell und wirkungsvoll. Unser Training eignet sich für Teams, Führungskräfte, Verkaufs- und Kundenkontaktgruppen, Moderatoren:innen sowie für alle, die ihre Persönlichkeit, Präsenz und Kommunikation weiterentwickeln möchten. Es kann ebenso in Bereichen wie Konfliktlösung, Change-Management, interkultureller Zusammenarbeit oder Teambuilding eingesetzt werden. Wir bieten maßgeschneiderte Trainings und Fortbildungen an, in denen ihr spielerisch an Themen wie Wahrnehmung, Körpersprache, Stimme, Rhetorik, Status, Teambildung und Konfliktlösung arbeitet. In den Übungen aus dem Schauspiel lernt ihr, sicher aufzutreten, Gruppen zu führen und souverän auf andere zu reagieren. Dabei geht es nicht nur um Theater – ihr entdeckt neue Möglichkeiten für Kommunikation, Zusammenarbeit und persönliche Präsenz.',
