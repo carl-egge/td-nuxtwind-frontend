@@ -10,7 +10,7 @@ export const kurse = [
 			Status: 'Anmeldung möglich',
 		},
 		day: 'montags',
-		time: null,
+		time: '17:45 bis 19:15 Uhr',
 		teacher: {
 			name: 'Julian Tejeda',
 			role: 'Kursleitung',
