@@ -3,7 +3,7 @@ export const kurse = [
 		id: 1,
 		title: 'STARTDECK 11-13 JAHRE *',
 		description:
-			'Unser neuer Einsteigerkurs für alle zwischen 11 und 13 Jahren. In Block A (Grundlagen) machen die Teilnehmer:innen in sechs Terminen erste Schritte auf der Bühne, lernen jede Menge Tricks und probieren sich in kleinen Szenen aus – am 14.9., 21.9., 28.9., 5.10., 12.10. und 2.11. In Block B erarbeiten wir in acht Terminen gemeinsam eine Präsentation – am 30.11., 7.12., 14.12., 11.1., 18.1., 25.1., 1.2. und 8.2. Generalprobe und Präsentation/Werkschau finden am 13.2. um 15:00 Uhr statt. Kosten insgesamt: 220 €.',
+			'Unser neuer Einsteigerkurs für alle zwischen 11 und 13 Jahren. In Block A (Grundlagen) machen die Teilnehmer:innen in sechs Terminen erste Schritte auf der Bühne, lernen jede Menge Tricks und probieren sich in kleinen Szenen aus – am 21.9., 28.9., 5.10., 12.10., 2.11 und 9.11. In Block B erarbeiten wir in acht Terminen gemeinsam eine Präsentation – am 30.11., 7.12., 14.12., 11.1., 18.1., 25.1., 1.2. und 8.2. Generalprobe und Präsentation/Werkschau finden am 13.2. um 15:00 Uhr statt. Kosten insgesamt: 220 €.',
 		facts: {
 			Alter: '11-13 Jahre',
 			Format: 'Kursreihe in zwei Blöcken',
@@ -19,6 +19,24 @@ export const kurse = [
 	},
 	{
 		id: 2,
+		title: 'STARTDECK 9-10 JAHRE *',
+		description:
+			'Unser neuer Einsteigerkurs für alle zwischen 9 und 10 Jahren. In Block A (Grundlagen) machen die Teilnehmer:innen in sechs Terminen erste Schritte auf der Bühne, lernen jede Menge Tricks und probieren sich in kleinen Szenen aus – am 24.9., 1.10., 8.10., 15.10., 5.11 und 12.11. In Block B erarbeiten wir in acht Terminen gemeinsam eine Präsentation – am 3.12.,10.12., 17.12., 14.1., 21.1., 28.1., 4.2. und 11.2. Generalprobe und Präsentation/Werkschau finden am 14.2. um 15:00 Uhr statt. Kosten insgesamt: 220 €.',
+		facts: {
+			Alter: '9-10 Jahre',
+			Format: 'Kursreihe in zwei Blöcken',
+			Status: 'Anmeldung möglich',
+		},
+		day: 'donnerstags',
+		time: '16:45 bis 17:15 Uhr',
+		teacher: {
+			name: 'Leena Fahje',
+			role: 'Kursleitung',
+			imageUrl: '/images/kursleiter/Leena.jpg',
+		},
+	},
+	{
+		id: 3,
 		title: 'ENSEMBLE SPIELDECK I *',
 		description:
 			'Ein spielerischer Einstieg ins Theater für unsere jungen Spieler:innen. Mit Fantasie, Bewegung und kleinen Szenen wachsen Mut und Bühnenfreude. Dabei stehen Spaß und Kreativität an erster Stelle, sodass jedes Kind seine eigene Ausdrucksform entdeckt. Gemeinsam erleben wir erste kleine Bühnenerfahrungen und stärken das Selbstbewusstsein.',
@@ -36,7 +54,7 @@ export const kurse = [
 		},
 	},
 	{
-		id: 3,
+		id: 4,
 		title: 'ENSEMBLE SPIELDECK II *',
 		description:
 			'Hier vertiefen Kinder und Jugendliche ihre Grundlagen und entdecken erste Rollenarbeit. Improvisation und Teamgeist stehen im Mittelpunkt. Spielerisch lernen sie, in verschiedene Figuren zu schlüpfen und kleine Szenen lebendig zu machen. Das gemeinsame Ausprobieren stärkt die Gruppe und macht Lust auf mehr Theater.',
@@ -72,7 +90,7 @@ export const kurse = [
 	// 	},
 	// },
 	{
-		id: 4,
+		id: 5,
 		title: 'ENSEMBLE III *',
 		description:
 			'Für junge Erwachsene, die Theater als kreativen Ausdrucksraum nutzen möchten. Kompakt und fokussiert: Grundlagen schärfen, Ideen ausprobieren, Szenen zeigen. Im Ensemble finden die Teilnehmenden Inspiration und lernen, ihre Stimme und Präsenz weiterzuentwickeln. Jede Stunde bietet die Möglichkeit, Neues auszuprobieren und eigene Stärken zu entdecken.',
@@ -90,7 +108,7 @@ export const kurse = [
 		},
 	},
 	{
-		id: 5,
+		id: 6,
 		title: 'ENSEMBLE IV',
 		description:
 			'Theatertraining für Erwachsene – offen, neugierig und gemeinschaftlich. In einem wertschätzenden Rahmen arbeiten wir an Ausdruck, Stimme und Präsenz. Der Kurs bietet dir Raum, den Alltag loszulassen, dich spielerisch auszuprobieren und gemeinsam an Produktionen zu arbeiten. So entsteht eine lebendige Gruppe, die das Theaterspiel mit Freude weiterentwickelt.',
@@ -108,7 +126,7 @@ export const kurse = [
 		},
 	},
 	{
-		id: 6,
+		id: 7,
 		title: 'ENSEMBLE V',
 		description:
 			'Theatertraining für Frauen – in unserer Frauengruppe arbeiten wir projektbezogen auf Inszenierungen hin. Du übst Stimme, Ausdruck und Präsenz und hast die Möglichkeit, den Alltag hinter dir zu lassen. In der Gruppe probierst du Neues aus, entwickelst deine Fähigkeiten weiter und arbeitest gemeinsam an Theaterprojekten.',
@@ -126,7 +144,7 @@ export const kurse = [
 		},
 	},
 	{
-		id: 7,
+		id: 8,
 		title: 'DECKSSPIELE DER MS FORTUNA | Offene Improgruppe',
 		description:
 			'Wir improvisieren uns in neue Welten - und lernen sponates Spiel und bewusste Gestaltung mit Bewegung, Stimme und Worten. Regelmässig verrühren wir vor Publikum all unsere wirren, lustigen und überraschenden Gedanken zu dramatischen Begegnungen, romantischen Duellen oder halsbrecherischen Heldentaten. Dieser Kurs ist offen für alle ab 16 Jahren und bietet die Möglichkeit, die wichtigsten Methoden, Grundhaltungen und Spiele des Improvisationstheaters kennenzulernen und auszuprobieren - ein Einstieg ist jeder Zeit möglich.',
@@ -144,7 +162,7 @@ export const kurse = [
 		},
 	},
 	{
-		id: 8,
+		id: 9,
 		title: 'Individuelles Training für alle Altersklassen',
 		description:
 			'Schauspieltraining für Gruppen und Firmen – praxisnah, individuell und wirkungsvoll. Unser Training eignet sich für Teams, Führungskräfte, Verkaufs- und Kundenkontaktgruppen, Moderatoren:innen sowie für alle, die ihre Persönlichkeit, Präsenz und Kommunikation weiterentwickeln möchten. Es kann ebenso in Bereichen wie Konfliktlösung, Change-Management, interkultureller Zusammenarbeit oder Teambuilding eingesetzt werden. Wir bieten maßgeschneiderte Trainings und Fortbildungen an, in denen ihr spielerisch an Themen wie Wahrnehmung, Körpersprache, Stimme, Rhetorik, Status, Teambildung und Konfliktlösung arbeitet. In den Übungen aus dem Schauspiel lernt ihr, sicher aufzutreten, Gruppen zu führen und souverän auf andere zu reagieren. Dabei geht es nicht nur um Theater – ihr entdeckt neue Möglichkeiten für Kommunikation, Zusammenarbeit und persönliche Präsenz.',
