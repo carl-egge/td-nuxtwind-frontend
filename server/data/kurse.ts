@@ -28,7 +28,7 @@ export const kurse = [
 			Status: 'Anmeldung möglich',
 		},
 		day: 'donnerstags',
-		time: '16:45 bis 17:15 Uhr',
+		time: '16:45 bis 18:15 Uhr',
 		teacher: {
 			name: 'Leena Fahje',
 			role: 'Kursleitung',
